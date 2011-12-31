@@ -1,0 +1,108 @@
+//
+//  AnimationManager.m
+//  HitGameTest
+//
+//  Created by  on 11-12-26.
+//  Copyright (c) 2011年 __MyCompanyName__. All rights reserved.
+//
+
+#import "AnimationManager.h"
+
+AnimationManager *animatinManager;
+
+@implementation AnimationManager
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        _animationDict  = [[NSMutableDictionary alloc] init];
+    }
+    return self;
+}
+
+- (AnimationManager *)defaultManager
+{
+    if (animatinManager == nil) {
+        animatinManager = [[AnimationManager alloc] init];
+    }
+    return animatinManager;
+}
+
+- (CAAnimation *)animationForKey:(NSString *)key
+{
+    if ([_animationDict count] == 0) {
+        return nil;
+    }
+    CAAnimation *animation = [_animationDict valueForKey:key];
+    return animation;
+}
+- (void)setAnimation:(CAAnimation *)animation forKey:(NSString *)key
+{
+    
+}
+
+- (void)dealloc
+{
+    [_animationDict release];
+    [super dealloc];
+}
+
+
+
+#pragma mark - common function
+
++ (CAAnimation *)rotationAnimationWithRoundCount:(CGFloat) count 
+                                        duration:(CFTimeInterval)duration
+{
+    CABasicAnimation * animation = [CABasicAnimation 
+                                  animationWithKeyPath:@"transform.rotation.z"]; 
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+    animation.toValue = [NSNumber numberWithFloat:count * M_PI * 2];
+    animation.duration = duration ;
+    return animation;
+}
+
++ (CAAnimation *)missingAnimationWithDuration:(CFTimeInterval)duration
+{
+    CABasicAnimation * animation = [CABasicAnimation 
+                                    animationWithKeyPath:@"opacity"]; 
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+    animation.toValue = [NSNumber numberWithInt:0];
+    animation.duration = duration ;
+    animation.fillMode = kCAFillModeForwards;
+    animation.removedOnCompletion = NO;
+    return animation;
+}
+
++ (CAAnimation *)scaleAnimationWithScale:(CGFloat)scale  duration:(CFTimeInterval)duration
+{
+    
+    CABasicAnimation * animation=[CABasicAnimation animationWithKeyPath:@"transform"]; 
+    animation.toValue = [ NSValue valueWithCATransform3D: CATransform3DMakeScale(scale, scale, scale)];
+    animation.duration = duration;
+    return animation;
+}
+
++ (CAAnimation *)translationAnimationFrom:(CGPoint) start
+                                         to:(CGPoint)end
+                                  duration:(CFTimeInterval)duration
+{
+    
+    CABasicAnimation * animation=[CABasicAnimation animationWithKeyPath:@"position"]; 
+    animation.fromValue = [NSValue valueWithCGPoint:start];
+    animation.toValue = [NSValue valueWithCGPoint:end];
+    animation.duration = duration;
+    return animation;
+}
++ (CAAnimation *)translationAnimationTo:(CGPoint)end
+                                 duration:(CFTimeInterval)duration
+{
+    
+    CABasicAnimation * animation=[CABasicAnimation animationWithKeyPath:@"position"]; 
+    animation.toValue = [NSValue valueWithCGPoint:end];
+    animation.duration = duration;
+    return animation;
+}
+
+@end
