@@ -1,0 +1,476 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CAC0DAFE14ABF88C005E3631 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAC0DAFD14ABF88C005E3631 /* UIKit.framework */; };
+		CAC0DB0014ABF88C005E3631 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAC0DAFF14ABF88C005E3631 /* Foundation.framework */; };
+		CAC0DB0214ABF88C005E3631 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAC0DB0114ABF88C005E3631 /* CoreGraphics.framework */; };
+		CAC0DB0814ABF88D005E3631 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CAC0DB0614ABF88D005E3631 /* InfoPlist.strings */; };
+		CAC0DB0A14ABF88D005E3631 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CAC0DB0914ABF88D005E3631 /* main.m */; };
+		CAC0DB0E14ABF88D005E3631 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CAC0DB0D14ABF88D005E3631 /* AppDelegate.m */; };
+		CAC0DB1114ABF88D005E3631 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAC0DB1014ABF88D005E3631 /* FirstViewController.m */; };
+		CAC0DB1314ABF88D005E3631 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC0DB1214ABF88D005E3631 /* first.png */; };
+		CAC0DB1514ABF88D005E3631 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC0DB1414ABF88D005E3631 /* first@2x.png */; };
+		CAC0DB1814ABF88D005E3631 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAC0DB1714ABF88D005E3631 /* SecondViewController.m */; };
+		CAC0DB1A14ABF88D005E3631 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC0DB1914ABF88D005E3631 /* second.png */; };
+		CAC0DB1C14ABF88D005E3631 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC0DB1B14ABF88D005E3631 /* second@2x.png */; };
+		CAC0DB1F14ABF88D005E3631 /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAC0DB1D14ABF88D005E3631 /* FirstViewController.xib */; };
+		CAC0DB2214ABF88D005E3631 /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAC0DB2014ABF88D005E3631 /* SecondViewController.xib */; };
+		CAC0DB2A14ABF88D005E3631 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAC0DB2914ABF88D005E3631 /* SenTestingKit.framework */; };
+		CAC0DB2B14ABF88D005E3631 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAC0DAFD14ABF88C005E3631 /* UIKit.framework */; };
+		CAC0DB2C14ABF88D005E3631 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAC0DAFF14ABF88C005E3631 /* Foundation.framework */; };
+		CAC0DB3414ABF88D005E3631 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CAC0DB3214ABF88D005E3631 /* InfoPlist.strings */; };
+		CAC0DB3714ABF88D005E3631 /* HitGameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CAC0DB3614ABF88D005E3631 /* HitGameTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CAC0DB2D14ABF88D005E3631 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CAC0DAF014ABF88C005E3631 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CAC0DAF814ABF88C005E3631;
+			remoteInfo = HitGame;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CAC0DAF914ABF88C005E3631 /* HitGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HitGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CAC0DAFD14ABF88C005E3631 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CAC0DAFF14ABF88C005E3631 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CAC0DB0114ABF88C005E3631 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CAC0DB0514ABF88D005E3631 /* HitGame-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HitGame-Info.plist"; sourceTree = "<group>"; };
+		CAC0DB0714ABF88D005E3631 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CAC0DB0914ABF88D005E3631 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CAC0DB0B14ABF88D005E3631 /* HitGame-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HitGame-Prefix.pch"; sourceTree = "<group>"; };
+		CAC0DB0C14ABF88D005E3631 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CAC0DB0D14ABF88D005E3631 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CAC0DB0F14ABF88D005E3631 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		CAC0DB1014ABF88D005E3631 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		CAC0DB1214ABF88D005E3631 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
+		CAC0DB1414ABF88D005E3631 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
+		CAC0DB1614ABF88D005E3631 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		CAC0DB1714ABF88D005E3631 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		CAC0DB1914ABF88D005E3631 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
+		CAC0DB1B14ABF88D005E3631 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		CAC0DB1E14ABF88D005E3631 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FirstViewController.xib; sourceTree = "<group>"; };
+		CAC0DB2114ABF88D005E3631 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SecondViewController.xib; sourceTree = "<group>"; };
+		CAC0DB2814ABF88D005E3631 /* HitGameTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HitGameTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CAC0DB2914ABF88D005E3631 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		CAC0DB3114ABF88D005E3631 /* HitGameTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HitGameTests-Info.plist"; sourceTree = "<group>"; };
+		CAC0DB3314ABF88D005E3631 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CAC0DB3514ABF88D005E3631 /* HitGameTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HitGameTests.h; sourceTree = "<group>"; };
+		CAC0DB3614ABF88D005E3631 /* HitGameTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HitGameTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CAC0DAF614ABF88C005E3631 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CAC0DAFE14ABF88C005E3631 /* UIKit.framework in Frameworks */,
+				CAC0DB0014ABF88C005E3631 /* Foundation.framework in Frameworks */,
+				CAC0DB0214ABF88C005E3631 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CAC0DB2414ABF88D005E3631 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CAC0DB2A14ABF88D005E3631 /* SenTestingKit.framework in Frameworks */,
+				CAC0DB2B14ABF88D005E3631 /* UIKit.framework in Frameworks */,
+				CAC0DB2C14ABF88D005E3631 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CAC0DAEE14ABF88C005E3631 = {
+			isa = PBXGroup;
+			children = (
+				CAC0DB0314ABF88C005E3631 /* HitGame */,
+				CAC0DB2F14ABF88D005E3631 /* HitGameTests */,
+				CAC0DAFC14ABF88C005E3631 /* Frameworks */,
+				CAC0DAFA14ABF88C005E3631 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CAC0DAFA14ABF88C005E3631 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CAC0DAF914ABF88C005E3631 /* HitGame.app */,
+				CAC0DB2814ABF88D005E3631 /* HitGameTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CAC0DAFC14ABF88C005E3631 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CAC0DAFD14ABF88C005E3631 /* UIKit.framework */,
+				CAC0DAFF14ABF88C005E3631 /* Foundation.framework */,
+				CAC0DB0114ABF88C005E3631 /* CoreGraphics.framework */,
+				CAC0DB2914ABF88D005E3631 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CAC0DB0314ABF88C005E3631 /* HitGame */ = {
+			isa = PBXGroup;
+			children = (
+				CAC0DB0C14ABF88D005E3631 /* AppDelegate.h */,
+				CAC0DB0D14ABF88D005E3631 /* AppDelegate.m */,
+				CAC0DB0F14ABF88D005E3631 /* FirstViewController.h */,
+				CAC0DB1014ABF88D005E3631 /* FirstViewController.m */,
+				CAC0DB1214ABF88D005E3631 /* first.png */,
+				CAC0DB1414ABF88D005E3631 /* first@2x.png */,
+				CAC0DB1614ABF88D005E3631 /* SecondViewController.h */,
+				CAC0DB1714ABF88D005E3631 /* SecondViewController.m */,
+				CAC0DB1914ABF88D005E3631 /* second.png */,
+				CAC0DB1B14ABF88D005E3631 /* second@2x.png */,
+				CAC0DB1D14ABF88D005E3631 /* FirstViewController.xib */,
+				CAC0DB2014ABF88D005E3631 /* SecondViewController.xib */,
+				CAC0DB0414ABF88D005E3631 /* Supporting Files */,
+			);
+			path = HitGame;
+			sourceTree = "<group>";
+		};
+		CAC0DB0414ABF88D005E3631 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CAC0DB0514ABF88D005E3631 /* HitGame-Info.plist */,
+				CAC0DB0614ABF88D005E3631 /* InfoPlist.strings */,
+				CAC0DB0914ABF88D005E3631 /* main.m */,
+				CAC0DB0B14ABF88D005E3631 /* HitGame-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CAC0DB2F14ABF88D005E3631 /* HitGameTests */ = {
+			isa = PBXGroup;
+			children = (
+				CAC0DB3514ABF88D005E3631 /* HitGameTests.h */,
+				CAC0DB3614ABF88D005E3631 /* HitGameTests.m */,
+				CAC0DB3014ABF88D005E3631 /* Supporting Files */,
+			);
+			path = HitGameTests;
+			sourceTree = "<group>";
+		};
+		CAC0DB3014ABF88D005E3631 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CAC0DB3114ABF88D005E3631 /* HitGameTests-Info.plist */,
+				CAC0DB3214ABF88D005E3631 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CAC0DAF814ABF88C005E3631 /* HitGame */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CAC0DB3A14ABF88D005E3631 /* Build configuration list for PBXNativeTarget "HitGame" */;
+			buildPhases = (
+				CAC0DAF514ABF88C005E3631 /* Sources */,
+				CAC0DAF614ABF88C005E3631 /* Frameworks */,
+				CAC0DAF714ABF88C005E3631 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HitGame;
+			productName = HitGame;
+			productReference = CAC0DAF914ABF88C005E3631 /* HitGame.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CAC0DB2714ABF88D005E3631 /* HitGameTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CAC0DB3D14ABF88D005E3631 /* Build configuration list for PBXNativeTarget "HitGameTests" */;
+			buildPhases = (
+				CAC0DB2314ABF88D005E3631 /* Sources */,
+				CAC0DB2414ABF88D005E3631 /* Frameworks */,
+				CAC0DB2514ABF88D005E3631 /* Resources */,
+				CAC0DB2614ABF88D005E3631 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CAC0DB2E14ABF88D005E3631 /* PBXTargetDependency */,
+			);
+			name = HitGameTests;
+			productName = HitGameTests;
+			productReference = CAC0DB2814ABF88D005E3631 /* HitGameTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CAC0DAF014ABF88C005E3631 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = CAC0DAF314ABF88C005E3631 /* Build configuration list for PBXProject "HitGame" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CAC0DAEE14ABF88C005E3631;
+			productRefGroup = CAC0DAFA14ABF88C005E3631 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CAC0DAF814ABF88C005E3631 /* HitGame */,
+				CAC0DB2714ABF88D005E3631 /* HitGameTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CAC0DAF714ABF88C005E3631 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CAC0DB0814ABF88D005E3631 /* InfoPlist.strings in Resources */,
+				CAC0DB1314ABF88D005E3631 /* first.png in Resources */,
+				CAC0DB1514ABF88D005E3631 /* first@2x.png in Resources */,
+				CAC0DB1A14ABF88D005E3631 /* second.png in Resources */,
+				CAC0DB1C14ABF88D005E3631 /* second@2x.png in Resources */,
+				CAC0DB1F14ABF88D005E3631 /* FirstViewController.xib in Resources */,
+				CAC0DB2214ABF88D005E3631 /* SecondViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CAC0DB2514ABF88D005E3631 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CAC0DB3414ABF88D005E3631 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CAC0DB2614ABF88D005E3631 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CAC0DAF514ABF88C005E3631 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CAC0DB0A14ABF88D005E3631 /* main.m in Sources */,
+				CAC0DB0E14ABF88D005E3631 /* AppDelegate.m in Sources */,
+				CAC0DB1114ABF88D005E3631 /* FirstViewController.m in Sources */,
+				CAC0DB1814ABF88D005E3631 /* SecondViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CAC0DB2314ABF88D005E3631 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CAC0DB3714ABF88D005E3631 /* HitGameTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CAC0DB2E14ABF88D005E3631 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CAC0DAF814ABF88C005E3631 /* HitGame */;
+			targetProxy = CAC0DB2D14ABF88D005E3631 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CAC0DB0614ABF88D005E3631 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CAC0DB0714ABF88D005E3631 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		CAC0DB1D14ABF88D005E3631 /* FirstViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CAC0DB1E14ABF88D005E3631 /* en */,
+			);
+			name = FirstViewController.xib;
+			sourceTree = "<group>";
+		};
+		CAC0DB2014ABF88D005E3631 /* SecondViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CAC0DB2114ABF88D005E3631 /* en */,
+			);
+			name = SecondViewController.xib;
+			sourceTree = "<group>";
+		};
+		CAC0DB3214ABF88D005E3631 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CAC0DB3314ABF88D005E3631 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CAC0DB3814ABF88D005E3631 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		CAC0DB3914ABF88D005E3631 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CAC0DB3B14ABF88D005E3631 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HitGame/HitGame-Prefix.pch";
+				INFOPLIST_FILE = "HitGame/HitGame-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CAC0DB3C14ABF88D005E3631 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HitGame/HitGame-Prefix.pch";
+				INFOPLIST_FILE = "HitGame/HitGame-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		CAC0DB3E14ABF88D005E3631 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HitGame.app/HitGame";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HitGame/HitGame-Prefix.pch";
+				INFOPLIST_FILE = "HitGameTests/HitGameTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		CAC0DB3F14ABF88D005E3631 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HitGame.app/HitGame";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HitGame/HitGame-Prefix.pch";
+				INFOPLIST_FILE = "HitGameTests/HitGameTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CAC0DAF314ABF88C005E3631 /* Build configuration list for PBXProject "HitGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CAC0DB3814ABF88D005E3631 /* Debug */,
+				CAC0DB3914ABF88D005E3631 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CAC0DB3A14ABF88D005E3631 /* Build configuration list for PBXNativeTarget "HitGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CAC0DB3B14ABF88D005E3631 /* Debug */,
+				CAC0DB3C14ABF88D005E3631 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CAC0DB3D14ABF88D005E3631 /* Build configuration list for PBXNativeTarget "HitGameTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CAC0DB3E14ABF88D005E3631 /* Debug */,
+				CAC0DB3F14ABF88D005E3631 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CAC0DAF014ABF88C005E3631 /* Project object */;
+}
