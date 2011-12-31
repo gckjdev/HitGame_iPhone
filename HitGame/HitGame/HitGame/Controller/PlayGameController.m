@@ -47,20 +47,16 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        _movingFood = [[FoodView alloc] initWithFrame:CGRectMake(-100, -100, 48, 48)];
         _foodList = [[TestCase createFoodList:5] retain];
         _fallingFoodViewList = [[NSMutableSet alloc] init];
         _foodManager = [FoodManager defaultManager];
-        _score = 0;
-        _count = 0;
-        _retainSeconds = GAME_TIME;
+
     }
     return self;
 }
 
 - (void)dealloc
 {
-    [_movingFood release];
     [_foodList release];
     [_fallingFoodViewList release];
     [_gestureTipsLabel release];
@@ -289,33 +285,28 @@
     NSString *msg = [NSString stringWithFormat:@"您的分数是:%d, 失误:%d次",_score,_count-_score];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"游戏结束" 
                                                     message:msg 
-                                                   delegate:nil 
+                                                   delegate:self 
                                           cancelButtonTitle:@"确定" 
-                                          otherButtonTitles:nil];
+                                          otherButtonTitles:@"重试", nil];
     [alert show];
     [alert release];
 }
 
-- (void)clock
+
+- (void)adjustClock
 {
-    _retainSeconds --;    
     UIProgressView *progress = (UIProgressView *)[self.view viewWithTag:61];
     UILabel *timeLabel = (UILabel *)[self.view viewWithTag:60];
     [progress setProgress:_retainSeconds/GAME_TIME];
     [timeLabel setText:[NSString stringWithFormat:@"%d",_retainSeconds]];
-    if (_retainSeconds == 0) {
-        [self gameTimeout];
-    }
 }
-- (void)viewDidLoad
+
+- (void)startGame
 {
-    [super viewDidLoad];
-    [self.view addSubview:_movingFood];
-    _movingStatus = STATIONARY;
-    // Do any additional setup after loading the view from its nib.
-    for (int type = LongPressGestureRecognizer; type < GestureRecognizerTypeCount; ++ type) {
-        [self view:self.view addGestureRecognizer:type delegate:self];
-    }
+    _score = 0;
+    _count = 0;
+    _retainSeconds = GAME_TIME;
+    [self adjustClock];
     [self fallRandFood];
     _gameTimer = [NSTimer scheduledTimerWithTimeInterval:1 
                                                   target:self 
@@ -327,7 +318,35 @@
                                                       target:self 
                                                     selector:@selector(fallRandFood) 
                                                     userInfo:nil 
-                                                     repeats:YES];    
+                                                     repeats:YES];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSLog(@"buttont index = %d",buttonIndex);
+    if (buttonIndex == 1) {
+        [self startGame];
+    }
+}
+
+- (void)clock
+{
+    _retainSeconds --;    
+    [self adjustClock];
+    if (_retainSeconds == 0) {
+        [self gameTimeout];
+    }
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    for (int type = LongPressGestureRecognizer; type < GestureRecognizerTypeCount; ++ type) {
+        [self view:self.view addGestureRecognizer:type delegate:self];
+    }
+    [self startGame];
+    
 }
 
 - (void)viewDidUnload

@@ -9,7 +9,6 @@
 #import "HitGameAppDelegate.h"
 #import "GameListController.h"
 
-#import "HitGameViewController.h"
 
 @implementation HitGameAppDelegate
 

@@ -20,7 +20,7 @@ enum{
 @class FoodView;
 @class FoodManager;
 
-@interface PlayGameController : UIViewController <UIGestureRecognizerDelegate>
+@interface PlayGameController : UIViewController <UIGestureRecognizerDelegate, UIAlertViewDelegate>
 {
     Game *_game;
     FoodView *_movingFood;
