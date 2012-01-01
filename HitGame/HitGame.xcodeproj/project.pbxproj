@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA26A10C14B0894100AA761A /* TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = CA26A10B14B0894100AA761A /* TestCase.m */; };
 		CA6C739C14AF064900E15785 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA6C739B14AF064900E15785 /* UIKit.framework */; };
 		CA6C739E14AF064900E15785 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA6C739D14AF064900E15785 /* Foundation.framework */; };
 		CA6C73A014AF064900E15785 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA6C739F14AF064900E15785 /* CoreGraphics.framework */; };
@@ -48,7 +49,6 @@
 		CA6C742214AF068E00E15785 /* sushi.png in Resources */ = {isa = PBXBuildFile; fileRef = CA6C740614AF068E00E15785 /* sushi.png */; };
 		CA6C742314AF068E00E15785 /* tomato.png in Resources */ = {isa = PBXBuildFile; fileRef = CA6C740714AF068E00E15785 /* tomato.png */; };
 		CA6C742514AF06ED00E15785 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA6C742414AF06ED00E15785 /* QuartzCore.framework */; };
-		CA6C742714AF070E00E15785 /* TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6C742614AF070E00E15785 /* TestCase.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +62,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CA26A10B14B0894100AA761A /* TestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCase.m; sourceTree = "<group>"; };
 		CA6C739714AF064800E15785 /* HitGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HitGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA6C739B14AF064900E15785 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CA6C739D14AF064900E15785 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -124,7 +125,6 @@
 		CA6C740714AF068E00E15785 /* tomato.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tomato.png; sourceTree = "<group>"; };
 		CA6C740814AF068E00E15785 /* TestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCase.h; sourceTree = "<group>"; };
 		CA6C742414AF06ED00E15785 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		CA6C742614AF070E00E15785 /* TestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestCase.m; path = ../../../../../DevTest/HitGameTest/HitGameTest/TestCase.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,7 +189,7 @@
 				CA6C73F614AF068E00E15785 /* HitGame_Common */,
 				CA6C73FC14AF068E00E15785 /* Resource */,
 				CA6C740814AF068E00E15785 /* TestCase.h */,
-				CA6C742614AF070E00E15785 /* TestCase.m */,
+				CA26A10B14B0894100AA761A /* TestCase.m */,
 				CA6C73AA14AF064900E15785 /* HitGameAppDelegate.h */,
 				CA6C73AB14AF064900E15785 /* HitGameAppDelegate.m */,
 				CA6C73AD14AF064900E15785 /* MainWindow.xib */,
@@ -474,7 +474,7 @@
 				CA6C741714AF068E00E15785 /* Player.m in Sources */,
 				CA6C741814AF068E00E15785 /* HGTableViewCell.m in Sources */,
 				CA6C741914AF068E00E15785 /* HGTableViewController.m in Sources */,
-				CA6C742714AF070E00E15785 /* TestCase.m in Sources */,
+				CA26A10C14B0894100AA761A /* TestCase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -647,6 +647,7 @@
 				CA6C73D014AF064900E15785 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CA6C73D114AF064900E15785 /* Build configuration list for PBXNativeTarget "HitGameTests" */ = {
 			isa = XCConfigurationList;
@@ -655,6 +656,7 @@
 				CA6C73D314AF064900E15785 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
