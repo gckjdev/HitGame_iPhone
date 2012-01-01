@@ -461,6 +461,7 @@
 				CAC0DB3C14ABF88D005E3631 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CAC0DB3D14ABF88D005E3631 /* Build configuration list for PBXNativeTarget "HitGameTests" */ = {
 			isa = XCConfigurationList;
@@ -469,6 +470,7 @@
 				CAC0DB3F14ABF88D005E3631 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
