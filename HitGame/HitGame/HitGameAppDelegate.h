@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@class HitGameViewController;
 
 @interface HitGameAppDelegate : NSObject <UIApplicationDelegate> {
 
@@ -16,6 +15,5 @@
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 
-@property (nonatomic, retain) IBOutlet HitGameViewController *viewController;
 
 @end

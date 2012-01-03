@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		CA26A10C14B0894100AA761A /* TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = CA26A10B14B0894100AA761A /* TestCase.m */; };
+		CA3F2C4814B2A1260090A758 /* EntryController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3F2C4614B2A1260090A758 /* EntryController.m */; };
+		CA3F2C4914B2A1260090A758 /* EntryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA3F2C4714B2A1260090A758 /* EntryController.xib */; };
 		CA6C739C14AF064900E15785 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA6C739B14AF064900E15785 /* UIKit.framework */; };
 		CA6C739E14AF064900E15785 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA6C739D14AF064900E15785 /* Foundation.framework */; };
 		CA6C73A014AF064900E15785 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA6C739F14AF064900E15785 /* CoreGraphics.framework */; };
@@ -63,6 +65,9 @@
 
 /* Begin PBXFileReference section */
 		CA26A10B14B0894100AA761A /* TestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCase.m; sourceTree = "<group>"; };
+		CA3F2C4514B2A1260090A758 /* EntryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryController.h; sourceTree = "<group>"; };
+		CA3F2C4614B2A1260090A758 /* EntryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryController.m; sourceTree = "<group>"; };
+		CA3F2C4714B2A1260090A758 /* EntryController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EntryController.xib; sourceTree = "<group>"; };
 		CA6C739714AF064800E15785 /* HitGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HitGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA6C739B14AF064900E15785 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CA6C739D14AF064900E15785 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -269,6 +274,9 @@
 				CA6C73E514AF068E00E15785 /* PlayGameController.h */,
 				CA6C73E614AF068E00E15785 /* PlayGameController.m */,
 				CA6C73E714AF068E00E15785 /* PlayGameController.xib */,
+				CA3F2C4514B2A1260090A758 /* EntryController.h */,
+				CA3F2C4614B2A1260090A758 /* EntryController.m */,
+				CA3F2C4714B2A1260090A758 /* EntryController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -423,6 +431,7 @@
 				CA6C742114AF068E00E15785 /* player5.png in Resources */,
 				CA6C742214AF068E00E15785 /* sushi.png in Resources */,
 				CA6C742314AF068E00E15785 /* tomato.png in Resources */,
+				CA3F2C4914B2A1260090A758 /* EntryController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,6 +484,7 @@
 				CA6C741814AF068E00E15785 /* HGTableViewCell.m in Sources */,
 				CA6C741914AF068E00E15785 /* HGTableViewController.m in Sources */,
 				CA26A10C14B0894100AA761A /* TestCase.m in Sources */,
+				CA3F2C4814B2A1260090A758 /* EntryController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

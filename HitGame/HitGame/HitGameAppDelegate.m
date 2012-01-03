@@ -8,23 +8,27 @@
 
 #import "HitGameAppDelegate.h"
 #import "GameListController.h"
-
+#import "EntryController.h"
 
 @implementation HitGameAppDelegate
 
 
 @synthesize window=_window;
 
-@synthesize viewController=_viewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
      
-    GameListController* gameController = [[GameListController alloc] init];
-    UINavigationController *rootViewController = [[UINavigationController alloc] initWithRootViewController:gameController];
+//    GameListController* gameController = [[GameListController alloc] init];
+//    UINavigationController *rootViewController = [[UINavigationController alloc] initWithRootViewController:gameController];
+
+    EntryController* entryController = [[EntryController alloc] init];
+    UINavigationController *rootViewController = [[UINavigationController alloc] initWithRootViewController:entryController];
+    entryController.navigationController.navigationBarHidden = YES;
+
     self.window.rootViewController = rootViewController;
-    [gameController release];
+    [entryController release];
     [rootViewController release];
     [self.window makeKeyAndVisible];
     return YES;
@@ -72,7 +76,6 @@
 - (void)dealloc
 {
     [_window release];
-    [_viewController release];
     [super dealloc];
 }
 

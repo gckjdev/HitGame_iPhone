@@ -17,8 +17,8 @@
 #import "FoodManager.h"
 
 
-#define FALL_TIMER_DURATION 2
-#define FALL_ANIMATION_DURATION 2
+#define FALL_TIMER_DURATION 3
+#define FALL_ANIMATION_DURATION 3
 #define FALL_ROTATION_COUNT 4
 #define MISSING_ROTATION_COUNT 6
 #define MISSING_ANIMATION_DURATION 0.5
@@ -66,7 +66,7 @@
 
 - (Food *)randFood
 {
-    return [_foodList objectAtIndex:rand()%5];
+    return [_foodList objectAtIndex:ABS(time(0)%5)];
 }
 
 - (void)addDefaultMissingAnimationTofoodView:(FoodView *)foodView
@@ -307,7 +307,7 @@
     _count = 0;
     _retainSeconds = GAME_TIME;
     [self adjustClock];
-    [self fallRandFood];
+    //[self fallRandFood];
     _gameTimer = [NSTimer scheduledTimerWithTimeInterval:1 
                                                   target:self 
                                                 selector:@selector(clock) 
