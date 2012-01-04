@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C2D8678414B42BA900EEF9DE /* HGQuadCurveMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D8678114B42BA900EEF9DE /* HGQuadCurveMenu.m */; };
+		C2D8678514B42BA900EEF9DE /* HGQuadCurveMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D8678314B42BA900EEF9DE /* HGQuadCurveMenuItem.m */; };
 		CA26A10C14B0894100AA761A /* TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = CA26A10B14B0894100AA761A /* TestCase.m */; };
 		CA3F2C4814B2A1260090A758 /* EntryController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3F2C4614B2A1260090A758 /* EntryController.m */; };
 		CA3F2C4914B2A1260090A758 /* EntryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA3F2C4714B2A1260090A758 /* EntryController.xib */; };
@@ -67,6 +69,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C2D8678014B42BA900EEF9DE /* HGQuadCurveMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGQuadCurveMenu.h; sourceTree = "<group>"; };
+		C2D8678114B42BA900EEF9DE /* HGQuadCurveMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGQuadCurveMenu.m; sourceTree = "<group>"; };
+		C2D8678214B42BA900EEF9DE /* HGQuadCurveMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGQuadCurveMenuItem.h; sourceTree = "<group>"; };
+		C2D8678314B42BA900EEF9DE /* HGQuadCurveMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGQuadCurveMenuItem.m; sourceTree = "<group>"; };
 		CA26A10B14B0894100AA761A /* TestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCase.m; sourceTree = "<group>"; };
 		CA3F2C4514B2A1260090A758 /* EntryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryController.h; sourceTree = "<group>"; };
 		CA3F2C4614B2A1260090A758 /* EntryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryController.m; sourceTree = "<group>"; };
@@ -335,6 +341,10 @@
 		CA6C73F614AF068E00E15785 /* HitGame_Common */ = {
 			isa = PBXGroup;
 			children = (
+				C2D8678014B42BA900EEF9DE /* HGQuadCurveMenu.h */,
+				C2D8678114B42BA900EEF9DE /* HGQuadCurveMenu.m */,
+				C2D8678214B42BA900EEF9DE /* HGQuadCurveMenuItem.h */,
+				C2D8678314B42BA900EEF9DE /* HGQuadCurveMenuItem.m */,
 				CA6C73F714AF068E00E15785 /* Enum.h */,
 				CA6C73F814AF068E00E15785 /* HGTableViewCell.h */,
 				CA6C73F914AF068E00E15785 /* HGTableViewCell.m */,
@@ -501,6 +511,8 @@
 				CA3F2C4814B2A1260090A758 /* EntryController.m in Sources */,
 				CA3F2C5114B2EB550090A758 /* LevelPickerController.m in Sources */,
 				CA3F2C5514B2F0810090A758 /* GameLevel.m in Sources */,
+				C2D8678414B42BA900EEF9DE /* HGQuadCurveMenu.m in Sources */,
+				C2D8678514B42BA900EEF9DE /* HGQuadCurveMenuItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
