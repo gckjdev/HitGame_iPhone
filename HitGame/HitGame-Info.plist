@@ -28,6 +28,10 @@
 	<true/>
 	<key>NSMainNibFile</key>
 	<string>MainWindow</string>
+	<key>CFMissCount</key>
+	<integer>3</integer>
+	<key>CFGameTime</key>
+	<integer>60</integer>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

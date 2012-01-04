@@ -24,19 +24,22 @@
 #define FALL_ROTATION_COUNT 4
 #define MISSING_ROTATION_COUNT 6
 #define MISSING_ANIMATION_DURATION 0.5
-#define ANIMATION_KEY_ROTATION @"rotation"
-#define ANIMATION_KEY_MISSING @"missing"
-#define ANIMATION_KEY_TRANSLATION @"translation"
+#define ANIMATION_KEY_ROTATION @"RotationFood"
+#define ANIMATION_KEY_MISSING @"MissingFood"
+#define ANIMATION_KEY_TRANSLATION @"TranslationFood"
+
+#define ANIMATION_KILL_END @"KillEnd"
+#define ANIMATION_NORMAL_END @"NormalEnd"
+#define ANIMATION_ID_FOODVIEW @"FOODVIEW"
 #define GAME_TIME 60.0
 
 @implementation PlayGameController
 @synthesize scoreLabel = _scoreLabel;
 @synthesize gameLevel = _gameLevel;
+@synthesize missLabel = _missLabel;
 
 
-- (IBAction)clickBackButton:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
-}
+
 
 - (id)initWithGameLevel:(GameLevel *)gameLevel
 {
@@ -64,6 +67,7 @@
     [_gameLevel release];
     [_fallingFoodViewList release];
     [_scoreLabel release];
+    [_missLabel release];
     [super dealloc];
 }
 
@@ -81,13 +85,14 @@
         }
         CAAnimation *missingAnimation = [AnimationManager 
                                          missingAnimationWithDuration:MISSING_ANIMATION_DURATION];
+        missingAnimation.delegate = self;
+        [missingAnimation setValue:ANIMATION_KILL_END forKey:ANIMATION_KILL_END];
+        [missingAnimation setValue:foodView forKey:ANIMATION_ID_FOODVIEW];
         CAAnimation *rotation = [AnimationManager 
                                  rotationAnimationWithRoundCount:MISSING_ROTATION_COUNT 
                                  duration:MISSING_ANIMATION_DURATION];
         [foodView.layer addAnimation:missingAnimation forKey:ANIMATION_KEY_MISSING];
         [foodView.layer addAnimation:rotation forKey:ANIMATION_KEY_ROTATION];
-        _score ++;
-        [_scoreLabel setText:[NSString stringWithFormat:@"分数: %d",_score]];
     }
 }
 
@@ -140,7 +145,6 @@
 
 - (void)performPanGesture:(UIPanGestureRecognizer *)recognizer
 {
-    NSLog(@"performPanGesture:");
     if(recognizer.state == UIGestureRecognizerStateEnded){
         FoodType foodType = Illegal;
         CGPoint point = [recognizer translationInView:self.view];
@@ -177,34 +181,80 @@
     if (food == nil) {
         return nil;
     }
-    _count ++;
-    
     
     FoodView *image = [[[FoodView alloc] initWithFood:food] autorelease];
     image.frame = CGRectMake(-48, -48, 48, 48);
-    [self.view addSubview:image];
-    CAAnimation *translation = [AnimationManager translationAnimationFrom:CGPointMake(rand()%320, -48) to:CGPointMake(rand()%320, 480+48) duration:FALL_ANIMATION_DURATION];
+    [self.view insertSubview:image atIndex:0];
+    CAAnimation *translation = [AnimationManager translationAnimationFrom:CGPointMake(rand()%320, -48) to:CGPointMake(rand()%320, 400+24) duration:FALL_ANIMATION_DURATION];
     CAAnimation *rotation = [AnimationManager rotationAnimationWithRoundCount:FALL_ROTATION_COUNT duration:FALL_ANIMATION_DURATION];
     translation.fillMode = kCAFillModeForwards;
     translation.removedOnCompletion = NO ;
     translation.delegate = self;
-    [translation setValue:image forKey:@"foodView"];
+    [translation setValue:image forKey:ANIMATION_ID_FOODVIEW];
+    [translation setValue:ANIMATION_NORMAL_END forKey:ANIMATION_NORMAL_END];
     [image.layer addAnimation:translation forKey:ANIMATION_KEY_TRANSLATION];
     [image.layer addAnimation:rotation forKey:ANIMATION_KEY_ROTATION];
     return image;
 }
 
+- (void)startfallFoodTimer
+{
+    [_fallFoodTimer invalidate];
+    _fallFoodTimer = nil;
+    [self fallRandFood];
+    _fallFoodTimer = [NSTimer scheduledTimerWithTimeInterval:FALL_TIMER_DURATION
+                                                      target:self 
+                                                    selector:@selector(fallRandFood) 
+                                                    userInfo:nil 
+                                                     repeats:YES];
+}
 
+- (void)killFoodView:(FoodView *)foodView
+{
+    _score ++;
+    [_scoreLabel setText:[NSString stringWithFormat:@"分数: %d",_score * 100]];
+    
+}
 
+- (void)normalEndFoodView:(FoodView *)foodView
+{
+    [self.missLabel setText:[NSString stringWithFormat:@"失误: %d",_count - _score]];
+    if (_count - _score == 3) {
+        [self gameGoEnd];
+    }
+}
+
+- (void)animationDidStart:(CAAnimation *)anim
+{
+    FoodView *foodView = [anim valueForKey:ANIMATION_ID_FOODVIEW];
+    if (foodView) {
+        if ([anim valueForKey:ANIMATION_KILL_END]) {
+            [self killFoodView:foodView];
+        } 
+    }
+}
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
 {
-    FoodView *foodView = [anim valueForKey:@"foodView"];
-    if (foodView) {
-        [foodView.layer removeAllAnimations];
-        [_fallingFoodViewList removeObject:foodView];
-        [foodView removeFromSuperview];
+    
+    if (flag) {
+        FoodView *foodView = [anim valueForKey:ANIMATION_ID_FOODVIEW];
+        if (foodView) {
+            _count ++;
+
+            if ([anim valueForKey:ANIMATION_KILL_END]) {
+            }else{
+                [self normalEndFoodView:foodView];
+            }
+            [foodView.layer removeAllAnimations];
+            [_fallingFoodViewList removeObject:foodView];
+            [foodView removeFromSuperview];
+            if ([_fallingFoodViewList count] < 1 && _gameStatus == OnGoing) {
+                [self fallRandFood];
+            }
+        }
+
     }
-    foodView = nil;
+
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
@@ -269,7 +319,6 @@
     return nil;
 }
 
-#pragma mark - View lifecycle
 
 - (void)fallRandFood
 {
@@ -278,13 +327,30 @@
     [_fallingFoodViewList addObject:foodView];
 }
 
-- (void)gameTimeout
+- (void)gameGoEnd
 {
+    
     [_fallFoodTimer invalidate];
     [_gameTimer invalidate];
     _fallFoodTimer = nil;
     _gameTimer = nil;
-    NSString *msg = [NSString stringWithFormat:@"您的分数是:%d, 失误:%d次",_score,_count-_score];
+    for (FoodView *foodView in _fallingFoodViewList) {
+        if (foodView) {
+            [foodView removeFromSuperview];
+            [foodView.layer removeAllAnimations];
+        }
+    }
+    [_fallingFoodViewList removeAllObjects];
+    
+    BOOL fail = (_count - _score) >= 3 ? YES : NO;
+    NSString *msg = nil;
+    if (fail) {
+        msg = [NSString stringWithFormat:@"对不起，您失误了三次，本轮游戏失败！"];
+        _gameStatus = Fail;
+    }else{
+        msg = [NSString stringWithFormat:@"您的分数是:%d, 失误:%d次",_score,_count-_score];
+        _gameStatus = Sucess;
+    }
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"游戏结束" 
                                                     message:msg 
                                                    delegate:self 
@@ -300,68 +366,77 @@
     UIProgressView *progress = (UIProgressView *)[self.view viewWithTag:61];
     UILabel *timeLabel = (UILabel *)[self.view viewWithTag:60];
     [progress setProgress:_retainSeconds/GAME_TIME];
-    [timeLabel setText:[NSString stringWithFormat:@"%d",_retainSeconds]];
+    [timeLabel setText:[NSString stringWithFormat:@"%.0f",_retainSeconds]];
 }
 
 - (void)startGame
 {
     _score = 0;
     _count = 0;
+    _gameStatus = OnGoing;
     _retainSeconds = GAME_TIME;
+    [self.scoreLabel setText:@"得分: 0"];
+    [self.missLabel setText:@"失误: 0"];
     [self adjustClock];
+//    [self startfallFoodTimer];
     [self fallRandFood];
-    _gameTimer = [NSTimer scheduledTimerWithTimeInterval:1 
+    _gameTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 
                                                   target:self 
                                                 selector:@selector(clock) 
                                                 userInfo:nil 
                                                  repeats:YES];
     
-    _fallFoodTimer = [NSTimer scheduledTimerWithTimeInterval:FALL_TIMER_DURATION
-                                                      target:self 
-                                                    selector:@selector(fallRandFood) 
-                                                    userInfo:nil 
-                                                     repeats:YES];
+
 }
 
+- (void)clock
+{
+    _retainSeconds -= 0.1;    
+    [self adjustClock];
+    if (_retainSeconds <= 0) {
+        [self gameGoEnd];
+    }
+}
+
+#pragma - mark alertView delegate
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    NSLog(@"buttont index = %d",buttonIndex);
     if (buttonIndex == 1) {
         [self startGame];
     }
 }
 
-- (void)clock
-{
-    _retainSeconds --;    
-    [self adjustClock];
-    if (_retainSeconds == 0) {
-        [self gameTimeout];
-    }
-}
+
+
+#pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
     for (int type = LongPressGestureRecognizer; type < GestureRecognizerTypeCount; ++ type) {
         [self view:self.view addGestureRecognizer:type delegate:self];
     }
     [self startGame];
+
 }
 
 - (void)viewDidUnload
 {
     [self setScoreLabel:nil];
+    [self setMissLabel:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+#pragma mark - action
+- (IBAction)clickBackButton:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

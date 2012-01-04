@@ -12,4 +12,5 @@
 {
     NSMutableArray *_levelArray;
 }
+- (IBAction)clickBackButton:(id)sender;
 @end

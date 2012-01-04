@@ -26,17 +26,22 @@
     NSInteger _count;
     NSTimer *_fallFoodTimer;
     NSTimer *_gameTimer;
-    NSInteger _retainSeconds;
+    CGFloat _retainSeconds;
     NSInteger _speed;
     NSInteger _passScore;
     GameLevel *_gameLevel;
+    GameStatus _gameStatus;
 }
 
 @property (retain, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (retain, nonatomic) GameLevel *gameLevel;
+@property (retain, nonatomic) IBOutlet UILabel *missLabel;
 
 - (IBAction)clickBackButton:(id)sender;
 
 - (id)initWithGameLevel:(GameLevel *)gameLevel;
 - (FoodView *)getFoodViewWithFoodType:(FoodType)foodType;
+- (void)gameGoEnd;
+- (void)fallRandFood;
+
 @end

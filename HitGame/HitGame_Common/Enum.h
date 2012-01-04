@@ -36,3 +36,12 @@ typedef enum {
     DownPanGameGesture,
     GameGestureTypeCount = 5
 }GameGestureType;
+
+
+typedef enum{
+    Ready = 0,
+    OnGoing = 1,
+    Pause = 2,
+    Fail = 3,
+    Sucess = 4
+}GameStatus;
