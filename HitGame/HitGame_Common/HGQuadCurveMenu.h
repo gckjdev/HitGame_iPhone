@@ -11,7 +11,7 @@
 
 @class HGQuadCurveMenu;
 @protocol HGQuadCurveMenuDelegate <NSObject>
-- (void)quadCurveMenu:(HGQuadCurveMenu *)menu didSelectIndex:(NSInteger)idx;
+- (void)quadCurveMenu:(HGQuadCurveMenu *)menu didSelectIndex:(NSInteger)anIndex;
 @end
 
 @interface HGQuadCurveMenu : UIView <HGQuadCurveMenuItemDelegate>

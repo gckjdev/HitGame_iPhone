@@ -28,6 +28,12 @@
 #define ANIMATION_KEY_TRANSLATION @"translation"
 #define GAME_TIME 60.0
 
+enum OPTION_MENU {
+    CONTINUE_GAME = 0,
+    REPLAY_GAME,
+    QUIT_GAME
+    };
+
 @implementation PlayGameController
 @synthesize scoreLabel = _scoreLabel;
 @synthesize gameLevel = _gameLevel;
@@ -339,9 +345,22 @@
     }
 }
 
-- (void)quadCurveMenu:(HGQuadCurveMenu *)menu didSelectIndex:(NSInteger)idx
+
+- (void)quadCurveMenu:(HGQuadCurveMenu *)menu didSelectIndex:(NSInteger)anIndex
 {
-    NSLog(@"Select the index : %d",idx);
+    switch (anIndex) {
+        case CONTINUE_GAME:
+            return;
+        case REPLAY_GAME: {
+            break;
+        }
+        case QUIT_GAME: {
+            [self.navigationController popViewControllerAnimated:YES];
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 - (void)addOptionButton
