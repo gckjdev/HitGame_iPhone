@@ -15,6 +15,7 @@
 @synthesize startGame;
 @synthesize resumeGame;
 @synthesize gameSetting;
+@synthesize highScore;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -78,6 +79,7 @@
     [self addAnimationToButton:startGame];
     [self addAnimationToButton:resumeGame];
     [self addAnimationToButton:gameSetting];
+    [self addAnimationToButton:highScore];
 
 }
 
@@ -93,6 +95,7 @@
     [self setStartGame:nil];
     [self setResumeGame:nil];
     [self setGameSetting:nil];
+    [self setHighScore:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -108,6 +111,7 @@
     [startGame release];
     [resumeGame release];
     [gameSetting release];
+    [highScore release];
     [super dealloc];
 }
 @end
