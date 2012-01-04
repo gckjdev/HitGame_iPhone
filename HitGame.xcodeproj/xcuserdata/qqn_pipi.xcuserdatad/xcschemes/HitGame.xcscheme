@@ -13,7 +13,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CAC0DAF814ABF88C005E3631"
+               BlueprintIdentifier = "CA6C739614AF064800E15785"
                BuildableName = "HitGame.app"
                BlueprintName = "HitGame"
                ReferencedContainer = "container:HitGame.xcodeproj">
@@ -31,35 +31,26 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CAC0DB2714ABF88D005E3631"
+               BlueprintIdentifier = "CA6C73BA14AF064900E15785"
                BuildableName = "HitGameTests.octest"
                BlueprintName = "HitGameTests"
                ReferencedContainer = "container:HitGame.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CAC0DAF814ABF88C005E3631"
-            BuildableName = "HitGame.app"
-            BlueprintName = "HitGame"
-            ReferencedContainer = "container:HitGame.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.GDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.GDB"
+      displayScaleIsEnabled = "NO"
+      displayScale = "1.00"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Debug"
-      debugDocumentVersioning = "YES"
-      allowLocationSimulation = "YES">
+      buildConfiguration = "Debug">
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CAC0DAF814ABF88C005E3631"
+            BlueprintIdentifier = "CA6C739614AF064800E15785"
             BuildableName = "HitGame.app"
             BlueprintName = "HitGame"
             ReferencedContainer = "container:HitGame.xcodeproj">
@@ -69,15 +60,16 @@
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
+      displayScaleIsEnabled = "NO"
+      displayScale = "1.00"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Release"
-      debugDocumentVersioning = "YES">
+      buildConfiguration = "Release">
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CAC0DAF814ABF88C005E3631"
+            BlueprintIdentifier = "CA6C739614AF064800E15785"
             BuildableName = "HitGame.app"
             BlueprintName = "HitGame"
             ReferencedContainer = "container:HitGame.xcodeproj">
