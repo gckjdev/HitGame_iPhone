@@ -9,7 +9,7 @@
 #import "EntryController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "PlayGameController.h"
-
+#import "LevelPickerController.h"
 
 @implementation EntryController
 @synthesize startGame;
@@ -60,11 +60,6 @@
     [rotateButton setRemovedOnCompletion:YES]; 
     [rotateButton setBeginTime:CACurrentMediaTime() + 2];
 
-//    CAAnimationGroup *group = [[CAAnimationGroup alloc] init];
-//    group.animations = [[[NSArray alloc] initWithObjects:fallButtonAnimation,stayButtonAnimation, rotateButton,nil]autorelease];
-//    [button.layer removeAllAnimations];
-//    group.delegate = self;
-//    [button.layer addAnimation:group forKey:@"animationGroup"];
     
     [button.layer removeAllAnimations];
     [button.layer addAnimation:rotateButton forKey:@"rotateButton"];
@@ -74,9 +69,9 @@
 
 
 - (IBAction)enterGame:(id)sender {
-    PlayGameController *pgController = [[PlayGameController alloc] initWithGame:nil];
-    [self.navigationController presentModalViewController:pgController animated:YES];
-    [pgController release];
+    LevelPickerController *lpController = [[LevelPickerController alloc] init];
+    [self.navigationController pushViewController:lpController animated:YES];
+    [lpController release];
 }
 
 - (void)showMenu

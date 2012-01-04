@@ -9,7 +9,6 @@
 #import "HitGameAppDelegate.h"
 #import "GameListController.h"
 #import "EntryController.h"
-#import "LevelPickerController.h"
 @implementation HitGameAppDelegate
 
 
@@ -23,7 +22,7 @@
 //    GameListController* gameController = [[GameListController alloc] init];
 //    UINavigationController *rootViewController = [[UINavigationController alloc] initWithRootViewController:gameController];
 
-    LevelPickerController* entryController = [[LevelPickerController alloc] init];
+    EntryController* entryController = [[EntryController alloc] init];
     UINavigationController *rootViewController = [[UINavigationController alloc] initWithRootViewController:entryController];
     entryController.navigationController.navigationBarHidden = YES;
 
