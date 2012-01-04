@@ -20,6 +20,10 @@
 		C28D37A114B438430098033B /* icon-plus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C28D379414B438430098033B /* icon-plus@2x.png */; };
 		C28D37A214B438430098033B /* icon-star.png in Resources */ = {isa = PBXBuildFile; fileRef = C28D379514B438430098033B /* icon-star.png */; };
 		C28D37A314B438430098033B /* icon-star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C28D379614B438430098033B /* icon-star@2x.png */; };
+		C28D37BC14B4581D0098033B /* GameSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = C28D37BA14B4581D0098033B /* GameSettingController.m */; };
+		C28D37BD14B4581D0098033B /* GameSettingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C28D37BB14B4581D0098033B /* GameSettingController.xib */; };
+		C28D37C114B4583F0098033B /* HighScoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = C28D37BF14B4583E0098033B /* HighScoreController.m */; };
+		C28D37C214B4583F0098033B /* HighScoreController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C28D37C014B4583E0098033B /* HighScoreController.xib */; };
 		C2D8678414B42BA900EEF9DE /* HGQuadCurveMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D8678114B42BA900EEF9DE /* HGQuadCurveMenu.m */; };
 		C2D8678514B42BA900EEF9DE /* HGQuadCurveMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D8678314B42BA900EEF9DE /* HGQuadCurveMenuItem.m */; };
 		CA26A10C14B0894100AA761A /* TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = CA26A10B14B0894100AA761A /* TestCase.m */; };
@@ -95,6 +99,12 @@
 		C28D379414B438430098033B /* icon-plus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-plus@2x.png"; sourceTree = "<group>"; };
 		C28D379514B438430098033B /* icon-star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-star.png"; sourceTree = "<group>"; };
 		C28D379614B438430098033B /* icon-star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-star@2x.png"; sourceTree = "<group>"; };
+		C28D37B914B4581D0098033B /* GameSettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSettingController.h; sourceTree = "<group>"; };
+		C28D37BA14B4581D0098033B /* GameSettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSettingController.m; sourceTree = "<group>"; };
+		C28D37BB14B4581D0098033B /* GameSettingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameSettingController.xib; sourceTree = "<group>"; };
+		C28D37BE14B4583E0098033B /* HighScoreController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoreController.h; sourceTree = "<group>"; };
+		C28D37BF14B4583E0098033B /* HighScoreController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoreController.m; sourceTree = "<group>"; };
+		C28D37C014B4583E0098033B /* HighScoreController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HighScoreController.xib; sourceTree = "<group>"; };
 		C2D8678014B42BA900EEF9DE /* HGQuadCurveMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGQuadCurveMenu.h; sourceTree = "<group>"; };
 		C2D8678114B42BA900EEF9DE /* HGQuadCurveMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGQuadCurveMenu.m; sourceTree = "<group>"; };
 		C2D8678214B42BA900EEF9DE /* HGQuadCurveMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGQuadCurveMenuItem.h; sourceTree = "<group>"; };
@@ -340,6 +350,12 @@
 				CA3F2C4E14B2EB540090A758 /* LevelPickerController.h */,
 				CA3F2C4F14B2EB550090A758 /* LevelPickerController.m */,
 				CA3F2C5014B2EB550090A758 /* LevelPickerController.xib */,
+				C28D37B914B4581D0098033B /* GameSettingController.h */,
+				C28D37BA14B4581D0098033B /* GameSettingController.m */,
+				C28D37BB14B4581D0098033B /* GameSettingController.xib */,
+				C28D37BE14B4583E0098033B /* HighScoreController.h */,
+				C28D37BF14B4583E0098033B /* HighScoreController.m */,
+				C28D37C014B4583E0098033B /* HighScoreController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -516,6 +532,8 @@
 				C28D37A114B438430098033B /* icon-plus@2x.png in Resources */,
 				C28D37A214B438430098033B /* icon-star.png in Resources */,
 				C28D37A314B438430098033B /* icon-star@2x.png in Resources */,
+				C28D37BD14B4581D0098033B /* GameSettingController.xib in Resources */,
+				C28D37C214B4583F0098033B /* HighScoreController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,6 +591,8 @@
 				CA3F2C5514B2F0810090A758 /* GameLevel.m in Sources */,
 				C2D8678414B42BA900EEF9DE /* HGQuadCurveMenu.m in Sources */,
 				C2D8678514B42BA900EEF9DE /* HGQuadCurveMenuItem.m in Sources */,
+				C28D37BC14B4581D0098033B /* GameSettingController.m in Sources */,
+				C28D37C114B4583F0098033B /* HighScoreController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

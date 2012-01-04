@@ -10,6 +10,8 @@
 #import <QuartzCore/QuartzCore.h>
 #import "PlayGameController.h"
 #import "LevelPickerController.h"
+#import "HighScoreController.h"
+#import "GameSettingController.h"
 
 @implementation EntryController
 @synthesize startGame;
@@ -73,6 +75,18 @@
     LevelPickerController *lpController = [[LevelPickerController alloc] init];
     [self.navigationController pushViewController:lpController animated:YES];
     [lpController release];
+}
+
+- (IBAction)enterGameSetting:(id)sender {
+    GameSettingController *gsController = [[GameSettingController alloc] init];
+    [self.navigationController pushViewController:gsController animated:YES];
+    [gsController release];
+}
+
+- (IBAction)enterHighScore:(id)sender {
+    HighScoreController *hsController = [[HighScoreController alloc] init];
+    [self.navigationController pushViewController:hsController animated:YES];
+    [hsController release];
 }
 
 - (void)showMenu
