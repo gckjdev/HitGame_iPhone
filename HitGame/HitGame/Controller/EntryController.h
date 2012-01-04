@@ -12,6 +12,7 @@
 @property (retain, nonatomic) IBOutlet UIButton *startGame;
 @property (retain, nonatomic) IBOutlet UIButton *resumeGame;
 @property (retain, nonatomic) IBOutlet UIButton *gameSetting;
+@property (retain, nonatomic) IBOutlet UIButton *highScore;
 - (IBAction)enterGame:(id)sender;
 
 
