@@ -16,6 +16,7 @@
 #import "FoodView.h"
 #import "FoodManager.h"
 #import "GameLevel.h"
+#import "HGQuadCurveMenu.h"
 
 
 #define FALL_TIMER_DURATION 3
