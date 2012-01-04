@@ -9,13 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import "Enum.h"
+#import "HGQuadCurveMenu.h"
 
 
 @class Food;
 @class FoodView;
 @class FoodManager;
 @class GameLevel;
-@interface PlayGameController : UIViewController <UIGestureRecognizerDelegate, UIAlertViewDelegate>
+@interface PlayGameController : UIViewController <UIGestureRecognizerDelegate, UIAlertViewDelegate, HGQuadCurveMenuDelegate>
 {
     FoodView *_movingFood;
     NSInteger _movingStatus;    
