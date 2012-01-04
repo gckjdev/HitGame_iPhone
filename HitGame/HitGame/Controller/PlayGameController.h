@@ -9,24 +9,16 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import "Enum.h"
-enum{
-    STATIONARY = 0,
-    MOVING_UP = 1,
-    MOVING_DOWN = 2
-};
 
-@class Game;
+
 @class Food;
 @class FoodView;
 @class FoodManager;
-
+@class GameLevel;
 @interface PlayGameController : UIViewController <UIGestureRecognizerDelegate, UIAlertViewDelegate>
 {
-    Game *_game;
     FoodView *_movingFood;
-    NSInteger _movingStatus;
-    NSArray *_foodList;
-    
+    NSInteger _movingStatus;    
     NSMutableSet *_fallingFoodViewList;
     FoodView *_throwingFood;
     FoodManager *_foodManager;
@@ -35,13 +27,16 @@ enum{
     NSTimer *_fallFoodTimer;
     NSTimer *_gameTimer;
     NSInteger _retainSeconds;
+    NSInteger _speed;
+    NSInteger _passScore;
+    GameLevel *_gameLevel;
 }
 
-@property (retain, nonatomic) IBOutlet UILabel *gestureTipsLabel;
 @property (retain, nonatomic) IBOutlet UILabel *scoreLabel;
-@property(nonatomic, retain) Game *game;
+@property (retain, nonatomic) GameLevel *gameLevel;
 
-- (id)initWithGame:(Game *)game;
+- (IBAction)clickBackButton:(id)sender;
 
+- (id)initWithGameLevel:(GameLevel *)gameLevel;
 - (FoodView *)getFoodViewWithFoodType:(FoodType)foodType;
 @end

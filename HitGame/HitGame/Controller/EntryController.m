@@ -45,7 +45,7 @@
     [fallButtonAnimation setToValue:[NSValue valueWithCGPoint:button.center]];
     [fallButtonAnimation setFillMode:kCAFillModeForwards];
     [fallButtonAnimation setRemovedOnCompletion:NO];    
-    
+    fallButtonAnimation.delegate = self;
     
     CABasicAnimation *stayButtonAnimation = [CABasicAnimation animationWithKeyPath:@"transform"];
     [stayButtonAnimation setDuration:2];
@@ -60,6 +60,12 @@
     [rotateButton setRepeatCount:1];
     [rotateButton setRemovedOnCompletion:YES]; 
     [rotateButton setBeginTime:CACurrentMediaTime() + 2];
+
+//    CAAnimationGroup *group = [[CAAnimationGroup alloc] init];
+//    group.animations = [[[NSArray alloc] initWithObjects:fallButtonAnimation,stayButtonAnimation, rotateButton,nil]autorelease];
+//    [button.layer removeAllAnimations];
+//    group.delegate = self;
+//    [button.layer addAnimation:group forKey:@"animationGroup"];
     
     [button.layer removeAllAnimations];
     [button.layer addAnimation:rotateButton forKey:@"rotateButton"];

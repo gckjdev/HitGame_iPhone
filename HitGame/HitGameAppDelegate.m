@@ -1,38 +1,35 @@
 //
-//  AppDelegate.m
+//  HitGameAppDelegate.m
 //  HitGame
 //
-//  Created by  on 11-12-29.
-//  Copyright (c) 2011年 __MyCompanyName__. All rights reserved.
+//  Created by gamy on 11-12-31.
+//  Copyright 2011年 __MyCompanyName__. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "HitGameAppDelegate.h"
+#import "GameListController.h"
+#import "EntryController.h"
+#import "LevelPickerController.h"
+@implementation HitGameAppDelegate
 
-#import "FirstViewController.h"
 
-#import "SecondViewController.h"
+@synthesize window=_window;
 
-@implementation AppDelegate
-
-@synthesize window = _window;
-@synthesize tabBarController = _tabBarController;
-
-- (void)dealloc
-{
-    [_window release];
-    [_tabBarController release];
-    [super dealloc];
-}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
-    UIViewController *viewController1 = [[[FirstViewController alloc] initWithNibName:@"FirstViewController" bundle:nil] autorelease];
-    UIViewController *viewController2 = [[[SecondViewController alloc] initWithNibName:@"SecondViewController" bundle:nil] autorelease];
-    self.tabBarController = [[[UITabBarController alloc] init] autorelease];
-    self.tabBarController.viewControllers = [NSArray arrayWithObjects:viewController1, viewController2, nil];
-    self.window.rootViewController = self.tabBarController;
+     
+//    GameListController* gameController = [[GameListController alloc] init];
+//    UINavigationController *rootViewController = [[UINavigationController alloc] initWithRootViewController:gameController];
+
+    LevelPickerController* entryController = [[LevelPickerController alloc] init];
+    UINavigationController *rootViewController = [[UINavigationController alloc] initWithRootViewController:entryController];
+    entryController.navigationController.navigationBarHidden = YES;
+
+    self.window.rootViewController = rootViewController;
+    [entryController release];
+    [rootViewController release];
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -76,18 +73,10 @@
      */
 }
 
-/*
-// Optional UITabBarControllerDelegate method.
-- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+- (void)dealloc
 {
+    [_window release];
+    [super dealloc];
 }
-*/
-
-/*
-// Optional UITabBarControllerDelegate method.
-- (void)tabBarController:(UITabBarController *)tabBarController didEndCustomizingViewControllers:(NSArray *)viewControllers changed:(BOOL)changed
-{
-}
-*/
 
 @end

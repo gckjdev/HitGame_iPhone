@@ -194,12 +194,12 @@
 {
 
     NSLog(@"click button in row = %d",indexpath.row);
-    Game *game = [dataList objectAtIndex:indexpath.row];
-    if (game) {
-        PlayGameController *pgc = [[PlayGameController alloc] initWithGame:game];
-        [self.navigationController pushViewController:pgc animated:YES];
-        [pgc release];
-    }
+//    Game *game = [dataList objectAtIndex:indexpath.row];
+//    if (game) {
+//        PlayGameController *pgc = [[PlayGameController alloc] initWithGame:game];
+//        [self.navigationController pushViewController:pgc animated:YES];
+//        [pgc release];
+//    }
 }
 
 

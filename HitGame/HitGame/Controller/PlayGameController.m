@@ -15,6 +15,7 @@
 #import "Food.h"
 #import "FoodView.h"
 #import "FoodManager.h"
+#import "GameLevel.h"
 
 
 #define FALL_TIMER_DURATION 3
@@ -28,26 +29,28 @@
 #define GAME_TIME 60.0
 
 @implementation PlayGameController
-@synthesize gestureTipsLabel = _gestureTipsLabel;
 @synthesize scoreLabel = _scoreLabel;
-@synthesize game = _game;
+@synthesize gameLevel = _gameLevel;
 
-- (id)initWithGame:(Game *)game
+
+- (IBAction)clickBackButton:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (id)initWithGameLevel:(GameLevel *)gameLevel
 {
     self = [super init];
     if (self) {
-        self.game = game;
+        self.gameLevel = gameLevel;
     }
     return self;
 }
-
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        _foodList = [[TestCase createFoodList:5] retain];
         _fallingFoodViewList = [[NSMutableSet alloc] init];
         _foodManager = [FoodManager defaultManager];
 
@@ -57,16 +60,16 @@
 
 - (void)dealloc
 {
-    [_foodList release];
+    [_gameLevel release];
     [_fallingFoodViewList release];
-    [_gestureTipsLabel release];
     [_scoreLabel release];
     [super dealloc];
 }
 
 - (Food *)randFood
 {
-    return [_foodList objectAtIndex:ABS(time(0)%5)];
+    NSArray *foodList = _gameLevel.foodList;
+    return [foodList objectAtIndex:ABS((random())%[foodList count])];
 }
 
 - (void)addDefaultMissingAnimationTofoodView:(FoodView *)foodView
@@ -175,8 +178,6 @@
     }
     _count ++;
     
-    NSString *tips = [NSString stringWithFormat:@"手势: %@", [_foodManager gestureStringForFoodType:food.type]];
-    [self.gestureTipsLabel setText:tips];
     
     FoodView *image = [[[FoodView alloc] initWithFood:food] autorelease];
     image.frame = CGRectMake(-48, -48, 48, 48);
@@ -307,7 +308,7 @@
     _count = 0;
     _retainSeconds = GAME_TIME;
     [self adjustClock];
-    //[self fallRandFood];
+    [self fallRandFood];
     _gameTimer = [NSTimer scheduledTimerWithTimeInterval:1 
                                                   target:self 
                                                 selector:@selector(clock) 
@@ -346,12 +347,10 @@
         [self view:self.view addGestureRecognizer:type delegate:self];
     }
     [self startGame];
-    
 }
 
 - (void)viewDidUnload
 {
-    [self setGestureTipsLabel:nil];
     [self setScoreLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
