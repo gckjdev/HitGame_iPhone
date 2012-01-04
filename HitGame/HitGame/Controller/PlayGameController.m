@@ -16,7 +16,6 @@
 #import "FoodView.h"
 #import "FoodManager.h"
 #import "GameLevel.h"
-#import "HGQuadCurveMenu.h"
 
 
 #define FALL_TIMER_DURATION 3
@@ -32,6 +31,12 @@
 #define ANIMATION_NORMAL_END @"NormalEnd"
 #define ANIMATION_ID_FOODVIEW @"FOODVIEW"
 #define GAME_TIME 60.0
+
+enum OPTION_MENU {
+    CONTINUE_GAME = 0,
+    REPLAY_GAME,
+    QUIT_GAME
+    };
 
 @implementation PlayGameController
 @synthesize scoreLabel = _scoreLabel;
@@ -409,6 +414,69 @@
 
 
 #pragma mark - View lifecycle
+- (void)quadCurveMenu:(HGQuadCurveMenu *)menu didSelectIndex:(NSInteger)anIndex
+{
+    switch (anIndex) {
+        case CONTINUE_GAME:
+            return;
+        case REPLAY_GAME: {
+            break;
+        }
+        case QUIT_GAME: {
+            [self.navigationController popViewControllerAnimated:YES];
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+- (void)addOptionButton
+{
+    UIImage *storyMenuItemImage = [UIImage imageNamed:@"bg-menuitem.png"];
+    UIImage *storyMenuItemImagePressed = [UIImage imageNamed:@"bg-menuitem-highlighted.png"];  
+    UIImage *starImage = [UIImage imageNamed:@"icon-star.png"];
+    
+    HGQuadCurveMenuItem *continueGame = [[HGQuadCurveMenuItem alloc] initWithImage:storyMenuItemImage 
+                                                               highlightedImage:storyMenuItemImagePressed 
+                                                                   contentImage:starImage 
+                                                        highlightedContentImage:nil 
+                                                                          title:@"继续"];
+    HGQuadCurveMenuItem *rePlayGame = [[HGQuadCurveMenuItem alloc] initWithImage:storyMenuItemImage 
+                                                               highlightedImage:storyMenuItemImagePressed 
+                                                                   contentImage:starImage 
+                                                        highlightedContentImage:nil 
+                                                                          title:@"重玩"];
+    HGQuadCurveMenuItem *quitGame = [[HGQuadCurveMenuItem alloc] initWithImage:storyMenuItemImage 
+                                                                   highlightedImage:storyMenuItemImagePressed 
+                                                                       contentImage:starImage 
+                                                            highlightedContentImage:nil 
+                                                                              title:@"离开"];
+    
+    NSArray *menus = [NSArray arrayWithObjects:continueGame, rePlayGame, quitGame, nil];
+    [continueGame release];
+    [rePlayGame release];
+    [quitGame release];
+    
+    HGQuadCurveMenu *menu = [[HGQuadCurveMenu alloc] 
+                             initWithFrame:self.view.bounds
+                             menus:menus 
+                             nearRadius:110 
+                             endRadius:120 
+                             farRadius:130 
+                             startPoint:CGPointMake(20, 381) 
+                             timeOffset:0.036 
+                             rotateAngle:0
+                             menuWholeAngle:(M_PI/1.5)
+                             buttonImage:[UIImage imageNamed:@"bg-addbutton.png"] 
+                             buttonHighLightImage:[UIImage imageNamed:@"bg-addbutton-highlighted.png"] 
+                             contentImage:[UIImage imageNamed:@"icon-plus.png"] 
+                             contentHighLightImage:[UIImage imageNamed:@"icon-plus-highlight.png"]];
+    menu.delegate = self;
+    [self.view addSubview:menu];
+    [self.view sendSubviewToBack:menu];
+    [menu release];
+}
 
 - (void)viewDidLoad
 {
@@ -416,6 +484,7 @@
     for (int type = LongPressGestureRecognizer; type < GestureRecognizerTypeCount; ++ type) {
         [self view:self.view addGestureRecognizer:type delegate:self];
     }
+    [self addOptionButton];
     [self startGame];
 
 }

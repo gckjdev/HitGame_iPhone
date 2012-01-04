@@ -46,10 +46,10 @@ highlightedContentImage:(UIImage *)aHighlightContentImage
         self.userInteractionEnabled = YES;
         _contentImageView = [[UIImageView alloc] initWithImage:aContentImage];
         _contentImageView.highlightedImage = aHighlightContentImage;
-        CGRect i =  _contentImageView.frame;
         _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 40, 40, 20)];
+        [_titleLabel setBackgroundColor:[UIColor clearColor]];
         [_titleLabel setText:aTitle];
-        //[self addSubview:_contentImageView];
+        [self addSubview:_contentImageView];
         [self addSubview:_titleLabel];
     }
     return self;

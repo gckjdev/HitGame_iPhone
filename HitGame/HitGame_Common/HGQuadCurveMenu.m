@@ -117,7 +117,7 @@ contentHighLightImage:(UIImage*)aContentHighLightImage
         _startPoint = aStartPoint;
         _timeOffset = atimeOffset;
         _rotateAngle = aRotateAngle;
-        _menuWholeAngle = M_PI*2;
+        _menuWholeAngle = aMenuWholeAngle;
         
         self.backgroundColor = [UIColor clearColor];
         
