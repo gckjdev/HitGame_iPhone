@@ -332,6 +332,14 @@ enum OPTION_MENU {
     [_fallingFoodViewList addObject:foodView];
 }
 
+- (void)adjustClock
+{
+    UIProgressView *progress = (UIProgressView *)[self.view viewWithTag:61];
+    UILabel *timeLabel = (UILabel *)[self.view viewWithTag:60];
+    [progress setProgress:_retainSeconds/GAME_TIME];
+    [timeLabel setText:[NSString stringWithFormat:@"%.0f",_retainSeconds]];
+}
+
 - (void)gameGoEnd
 {
     
@@ -339,6 +347,8 @@ enum OPTION_MENU {
     [_gameTimer invalidate];
     _fallFoodTimer = nil;
     _gameTimer = nil;
+    _retainSeconds = GAME_TIME;
+    [self adjustClock];
     for (FoodView *foodView in _fallingFoodViewList) {
         if (foodView) {
             [foodView removeFromSuperview];
@@ -366,13 +376,6 @@ enum OPTION_MENU {
 }
 
 
-- (void)adjustClock
-{
-    UIProgressView *progress = (UIProgressView *)[self.view viewWithTag:61];
-    UILabel *timeLabel = (UILabel *)[self.view viewWithTag:60];
-    [progress setProgress:_retainSeconds/GAME_TIME];
-    [timeLabel setText:[NSString stringWithFormat:@"%.0f",_retainSeconds]];
-}
 
 - (void)startGame
 {
@@ -380,7 +383,7 @@ enum OPTION_MENU {
     _count = 0;
     _gameStatus = OnGoing;
     _retainSeconds = GAME_TIME;
-    
+    [self adjustClock];
     for (FoodView *foodView in _fallingFoodViewList) {
         if (foodView) {
             [foodView removeFromSuperview];
@@ -419,7 +422,22 @@ enum OPTION_MENU {
     }
 }
 
+-(void)pauseLayer:(CALayer*)layer
+{
+    CFTimeInterval pausedTime = [layer convertTime:CACurrentMediaTime() fromLayer:nil];
+    layer.speed = 0.0;
+    layer.timeOffset = pausedTime;
+}
 
+-(void)resumeLayer:(CALayer*)layer
+{
+    CFTimeInterval pausedTime = [layer timeOffset];
+    layer.speed = 1.0;
+    layer.timeOffset = 0.0;
+    layer.beginTime = 0.0;
+    CFTimeInterval timeSincePause = [layer convertTime:CACurrentMediaTime() fromLayer:nil] - pausedTime;
+    layer.beginTime = timeSincePause;
+}
 
 #pragma mark - View lifecycle
 - (void)quadCurveMenu:(HGQuadCurveMenu *)menu didSelectIndex:(NSInteger)anIndex
