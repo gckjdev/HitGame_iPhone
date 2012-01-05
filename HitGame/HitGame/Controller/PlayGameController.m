@@ -16,7 +16,7 @@
 #import "FoodView.h"
 #import "FoodManager.h"
 #import "GameLevel.h"
-
+#import "LayerUtil.h"
 
 #define FALL_TIMER_DURATION 3
 #define FALL_ANIMATION_DURATION 3
@@ -202,17 +202,7 @@ enum OPTION_MENU {
     return image;
 }
 
-- (void)startfallFoodTimer
-{
-    [_fallFoodTimer invalidate];
-    _fallFoodTimer = nil;
-    [self fallRandFood];
-    _fallFoodTimer = [NSTimer scheduledTimerWithTimeInterval:FALL_TIMER_DURATION
-                                                      target:self 
-                                                    selector:@selector(fallRandFood) 
-                                                    userInfo:nil 
-                                                     repeats:YES];
-}
+
 
 - (void)killFoodView:(FoodView *)foodView
 {
@@ -340,12 +330,34 @@ enum OPTION_MENU {
     [timeLabel setText:[NSString stringWithFormat:@"%.0f",_retainSeconds]];
 }
 
+#pragma mark - game process control
+
+- (void)pauseGame
+{
+    [_gameTimer invalidate];
+    _gameTimer = nil;
+    [self adjustClock];
+    for (FoodView *foodView in _fallingFoodViewList) {
+        [LayerUtil pauseLayer:foodView.layer];
+    }
+}
+
+- (void)resumeGame
+{
+    _gameTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 
+                                                  target:self 
+                                                selector:@selector(clock) 
+                                                userInfo:nil 
+                                                 repeats:YES];
+    for (FoodView *foodView in _fallingFoodViewList) {
+        [LayerUtil resumeLayer:foodView.layer];
+    }
+}
+
 - (void)gameGoEnd
 {
     
-    [_fallFoodTimer invalidate];
     [_gameTimer invalidate];
-    _fallFoodTimer = nil;
     _gameTimer = nil;
     _retainSeconds = GAME_TIME;
     [self adjustClock];
@@ -363,7 +375,7 @@ enum OPTION_MENU {
         msg = [NSString stringWithFormat:@"对不起，您失误了三次，本轮游戏失败！"];
         _gameStatus = Fail;
     }else{
-        msg = [NSString stringWithFormat:@"您的分数是:%d, 失误:%d次",_score,_count-_score];
+        msg = [NSString stringWithFormat:@"您的分数是:%d, 失误:%d次",_score * 100,_count-_score];
         _gameStatus = Sucess;
     }
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"游戏结束" 
@@ -414,7 +426,7 @@ enum OPTION_MENU {
     }
 }
 
-#pragma - mark alertView delegate
+#pragma mark - alertView delegate
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 1) {
@@ -422,28 +434,14 @@ enum OPTION_MENU {
     }
 }
 
--(void)pauseLayer:(CALayer*)layer
-{
-    CFTimeInterval pausedTime = [layer convertTime:CACurrentMediaTime() fromLayer:nil];
-    layer.speed = 0.0;
-    layer.timeOffset = pausedTime;
-}
 
--(void)resumeLayer:(CALayer*)layer
-{
-    CFTimeInterval pausedTime = [layer timeOffset];
-    layer.speed = 1.0;
-    layer.timeOffset = 0.0;
-    layer.beginTime = 0.0;
-    CFTimeInterval timeSincePause = [layer convertTime:CACurrentMediaTime() fromLayer:nil] - pausedTime;
-    layer.beginTime = timeSincePause;
-}
+#pragma mark - HGQuadCurveMenu
 
-#pragma mark - View lifecycle
 - (void)quadCurveMenu:(HGQuadCurveMenu *)menu didSelectIndex:(NSInteger)anIndex
 {
     switch (anIndex) {
         case CONTINUE_GAME:
+            [self resumeGame];
             return;
         case REPLAY_GAME: {
             [self startGame];
@@ -456,6 +454,15 @@ enum OPTION_MENU {
         default:
             break;
     }
+}
+
+- (void)quadCurveMenuDidExpand
+{
+    [self pauseGame];
+}
+- (void)quadCurveMenuDidClose
+{
+    [self resumeGame];
 }
 
 - (void)addOptionButton
@@ -501,9 +508,10 @@ enum OPTION_MENU {
                              contentHighLightImage:[UIImage imageNamed:@"icon-plus-highlight.png"]];
     menu.delegate = self;
     [self.view addSubview:menu];
-//    [self.view sendSubviewToBack:menu];
     [menu release];
 }
+
+#pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {

@@ -25,7 +25,6 @@
     FoodManager *_foodManager;
     NSInteger _score;
     NSInteger _count;
-    NSTimer *_fallFoodTimer;
     NSTimer *_gameTimer;
     CGFloat _retainSeconds;
     NSInteger _speed;
@@ -44,5 +43,9 @@
 - (FoodView *)getFoodViewWithFoodType:(FoodType)foodType;
 - (void)gameGoEnd;
 - (void)fallRandFood;
+- (void)resumeGame;
+- (void)pauseGame;
+
+
 
 @end
