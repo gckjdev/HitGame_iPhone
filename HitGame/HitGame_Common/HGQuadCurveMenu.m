@@ -246,7 +246,10 @@ contentHighLightImage:(UIImage*)aContentHighLightImage
 
 - (void)setIsExpanding:(BOOL)expanding
 {
-    _isExpanding = expanding;    
+    _isExpanding = expanding;  
+    if (_delegate && [_delegate respondsToSelector:@selector(quadCurveMenuDidSetExpanding:)]) {
+        [_delegate quadCurveMenuDidSetExpanding:expanding];
+    }
     
     // rotate add button
     float angle = self.isExpanding ? -M_PI_4 : 0.0f;
