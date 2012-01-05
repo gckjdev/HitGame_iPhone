@@ -2,7 +2,7 @@
 //  HighScoreController.m
 //  HitGame
 //
-//  Created by Orange on 12-1-4.
+//  Created by Orange on 12-1-5.
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
 //
 
@@ -32,12 +32,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UIButton *_backButton = [[UIButton alloc] initWithFrame:CGRectMake(280, 460, 40, 20)];
-    [_backButton.titleLabel setText:@"back"];
-    [_backButton addTarget:self action:@selector(clickBack:) forControlEvents:UIControlStateNormal];
-    [_backButton sendSubviewToBack:self.dataTableView];
-    [self.view addSubview:_backButton];
-    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -52,6 +46,11 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (IBAction)clickBackButton:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end
