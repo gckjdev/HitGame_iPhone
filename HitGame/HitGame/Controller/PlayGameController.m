@@ -16,6 +16,7 @@
 #import "FoodView.h"
 #import "FoodManager.h"
 #import "GameLevel.h"
+#import "HighScoreManager.h"
 
 
 #define FALL_TIMER_DURATION 3
@@ -373,6 +374,8 @@ enum OPTION_MENU {
                                           otherButtonTitles:@"重试", nil];
     [alert show];
     [alert release];
+    HighScoreManager* manager = [HighScoreManager defaultManager];
+    [manager addHighScore:_score forLevel:1];
 }
 
 

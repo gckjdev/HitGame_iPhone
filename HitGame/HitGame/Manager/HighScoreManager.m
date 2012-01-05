@@ -57,9 +57,28 @@ HighScoreManager* GlobalGetHighScoreManager()
     }
 }
 
-- (void)addHighScore:(NSInteger)aHighScore forLevel:(NSInteger)level
+- (void)addHighScore:(NSInteger)aHighScore forLevel:(NSInteger)aLevel
 {
-    
+    NSNumber* level = [NSNumber numberWithInt:aLevel];
+    NSNumber* score = [NSNumber numberWithInt:aHighScore];
+    NSMutableArray* scoreArray = [self.highScoreDict objectForKey:level];
+    if (scoreArray == nil) {
+        scoreArray = [[NSMutableArray alloc] init ];
+    }
+    [scoreArray addObject:score];
+    [scoreArray sortUsingSelector:@selector(compare:)];
+    [self.highScoreDict setObject:score forKey:level];
+    [self saveHighScore];
+    [scoreArray release];
+}
+
+- (NSArray*)highScoresForLevel:(NSInteger)aLevel
+{
+    if (self.highScoreDict == nil || [self.highScoreDict count] == 0) {
+        [self loadHighScore];
+    }
+    NSNumber* level = [NSNumber numberWithInt:aLevel];
+    return [self.highScoreDict objectForKey:level];
 }
 
 @end

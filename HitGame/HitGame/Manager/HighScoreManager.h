@@ -15,7 +15,7 @@
 @property (nonatomic, retain) NSMutableDictionary *highScoreDict;
 
 + (HighScoreManager*)defaultManager;
-- (void)addHighScore:(NSInteger)aHighScore forLevel:(NSInteger)level;
-
+- (void)addHighScore:(NSInteger)aHighScore forLevel:(NSInteger)aLevel;
+- (NSArray*)highScoresForLevel:(NSInteger)aLevel;
 
 @end
