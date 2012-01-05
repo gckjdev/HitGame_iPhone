@@ -27,6 +27,7 @@
 		C2FA3A8314B5704600F1465E /* HighScoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2FA3A8114B5704600F1465E /* HighScoreController.m */; };
 		C2FA3A8414B5704600F1465E /* HighScoreController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2FA3A8214B5704600F1465E /* HighScoreController.xib */; };
 		C2FA3A8714B5734000F1465E /* HighScoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C2FA3A8614B5734000F1465E /* HighScoreManager.m */; };
+		CA01829014B599F3002056D2 /* LayerUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = CA01828F14B599F3002056D2 /* LayerUtil.m */; };
 		CA26A10C14B0894100AA761A /* TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = CA26A10B14B0894100AA761A /* TestCase.m */; };
 		CA3F2C4814B2A1260090A758 /* EntryController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3F2C4614B2A1260090A758 /* EntryController.m */; };
 		CA3F2C4914B2A1260090A758 /* EntryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA3F2C4714B2A1260090A758 /* EntryController.xib */; };
@@ -112,6 +113,8 @@
 		C2FA3A8214B5704600F1465E /* HighScoreController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HighScoreController.xib; sourceTree = "<group>"; };
 		C2FA3A8514B5734000F1465E /* HighScoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoreManager.h; sourceTree = "<group>"; };
 		C2FA3A8614B5734000F1465E /* HighScoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoreManager.m; sourceTree = "<group>"; };
+		CA01828E14B599F3002056D2 /* LayerUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayerUtil.h; sourceTree = "<group>"; };
+		CA01828F14B599F3002056D2 /* LayerUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayerUtil.m; sourceTree = "<group>"; };
 		CA26A10B14B0894100AA761A /* TestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCase.m; sourceTree = "<group>"; };
 		CA3F2C4514B2A1260090A758 /* EntryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryController.h; sourceTree = "<group>"; };
 		CA3F2C4614B2A1260090A758 /* EntryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryController.m; sourceTree = "<group>"; };
@@ -228,6 +231,15 @@
 				C28D379614B438430098033B /* icon-star@2x.png */,
 			);
 			path = QuardCurveMenuImages;
+			sourceTree = "<group>";
+		};
+		CA01828D14B599F3002056D2 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				CA01828E14B599F3002056D2 /* LayerUtil.h */,
+				CA01828F14B599F3002056D2 /* LayerUtil.m */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 		CA6C738C14AF064800E15785 = {
@@ -408,6 +420,7 @@
 		CA6C73F614AF068E00E15785 /* HitGame_Common */ = {
 			isa = PBXGroup;
 			children = (
+				CA01828D14B599F3002056D2 /* Util */,
 				C2D8678014B42BA900EEF9DE /* HGQuadCurveMenu.h */,
 				C2D8678114B42BA900EEF9DE /* HGQuadCurveMenu.m */,
 				C2D8678214B42BA900EEF9DE /* HGQuadCurveMenuItem.h */,
@@ -599,6 +612,7 @@
 				C28D37BC14B4581D0098033B /* GameSettingController.m in Sources */,
 				C2FA3A8314B5704600F1465E /* HighScoreController.m in Sources */,
 				C2FA3A8714B5734000F1465E /* HighScoreManager.m in Sources */,
+				CA01829014B599F3002056D2 /* LayerUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
