@@ -48,9 +48,10 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
--(IBAction)clickBack:(id)sender
+- (IBAction)clickBackButton:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 
 @end

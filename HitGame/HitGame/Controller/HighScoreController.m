@@ -32,6 +32,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UIButton *_backButton = [[UIButton alloc] initWithFrame:CGRectMake(280, 460, 40, 20)];
+    [_backButton.titleLabel setText:@"back"];
+    [_backButton addTarget:self action:@selector(clickBack:) forControlEvents:UIControlStateNormal];
+    [_backButton sendSubviewToBack:self.dataTableView];
+    [self.view addSubview:_backButton];
+    
     // Do any additional setup after loading the view from its nib.
 }
 

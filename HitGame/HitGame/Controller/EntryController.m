@@ -87,6 +87,7 @@
     HighScoreController *hsController = [[HighScoreController alloc] init];
     [self.navigationController pushViewController:hsController animated:YES];
     [hsController release];
+    
 }
 
 - (void)showMenu
