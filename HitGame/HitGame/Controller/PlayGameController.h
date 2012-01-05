@@ -38,7 +38,7 @@
 @property (retain, nonatomic) GameLevel *gameLevel;
 @property (retain, nonatomic) IBOutlet UILabel *missLabel;
 
-- (IBAction)clickBackButton:(id)sender;
+- (void)clickBackButton:(id)sender;
 
 - (id)initWithGameLevel:(GameLevel *)gameLevel;
 - (FoodView *)getFoodViewWithFoodType:(FoodType)foodType;

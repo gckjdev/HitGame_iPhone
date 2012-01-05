@@ -380,10 +380,18 @@ enum OPTION_MENU {
     _count = 0;
     _gameStatus = OnGoing;
     _retainSeconds = GAME_TIME;
+    
+    for (FoodView *foodView in _fallingFoodViewList) {
+        if (foodView) {
+            [foodView removeFromSuperview];
+            [foodView.layer removeAllAnimations];
+        }
+    }
+    [_fallingFoodViewList removeAllObjects];
+    
     [self.scoreLabel setText:@"得分: 0"];
     [self.missLabel setText:@"失误: 0"];
     [self adjustClock];
-//    [self startfallFoodTimer];
     [self fallRandFood];
     _gameTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 
                                                   target:self 
@@ -420,10 +428,11 @@ enum OPTION_MENU {
         case CONTINUE_GAME:
             return;
         case REPLAY_GAME: {
+            [self startGame];
             break;
         }
         case QUIT_GAME: {
-            [self.navigationController popViewControllerAnimated:YES];
+            [self clickBackButton:nil];
             break;
         }
         default:
@@ -461,20 +470,20 @@ enum OPTION_MENU {
     HGQuadCurveMenu *menu = [[HGQuadCurveMenu alloc] 
                              initWithFrame:self.view.bounds
                              menus:menus 
-                             nearRadius:110 
-                             endRadius:120 
-                             farRadius:130 
-                             startPoint:CGPointMake(20, 381) 
+                             nearRadius:210 
+                             endRadius:220 
+                             farRadius:230 
+                             startPoint:CGPointMake(40, 430) 
                              timeOffset:0.036 
                              rotateAngle:0
-                             menuWholeAngle:(M_PI/1.5)
+                             menuWholeAngle:(M_PI/1.7)
                              buttonImage:[UIImage imageNamed:@"bg-addbutton.png"] 
                              buttonHighLightImage:[UIImage imageNamed:@"bg-addbutton-highlighted.png"] 
                              contentImage:[UIImage imageNamed:@"icon-plus.png"] 
                              contentHighLightImage:[UIImage imageNamed:@"icon-plus-highlight.png"]];
     menu.delegate = self;
     [self.view addSubview:menu];
-    [self.view sendSubviewToBack:menu];
+//    [self.view sendSubviewToBack:menu];
     [menu release];
 }
 
