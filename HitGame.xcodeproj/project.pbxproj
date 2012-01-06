@@ -22,9 +22,8 @@
 		C28D37A314B438430098033B /* icon-star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C28D379614B438430098033B /* icon-star@2x.png */; };
 		C28D37BC14B4581D0098033B /* GameSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = C28D37BA14B4581D0098033B /* GameSettingController.m */; };
 		C28D37BD14B4581D0098033B /* GameSettingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C28D37BB14B4581D0098033B /* GameSettingController.xib */; };
-		C2C3380214B68C700000FCD9 /* PPTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C3380114B68C700000FCD9 /* PPTableViewController.m */; };
-		C2C3380714B68CDE0000FCD9 /* HighScoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C3380514B68CDE0000FCD9 /* HighScoreController.m */; };
-		C2C3380814B68CDE0000FCD9 /* HighScoreController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2C3380614B68CDE0000FCD9 /* HighScoreController.xib */; };
+		C2C3380C14B690320000FCD9 /* HighScoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C3380A14B690320000FCD9 /* HighScoreController.m */; };
+		C2C3380D14B690320000FCD9 /* HighScoreController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2C3380B14B690320000FCD9 /* HighScoreController.xib */; };
 		C2D8678414B42BA900EEF9DE /* HGQuadCurveMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D8678114B42BA900EEF9DE /* HGQuadCurveMenu.m */; };
 		C2D8678514B42BA900EEF9DE /* HGQuadCurveMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D8678314B42BA900EEF9DE /* HGQuadCurveMenuItem.m */; };
 		C2FA3A8714B5734000F1465E /* HighScoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C2FA3A8614B5734000F1465E /* HighScoreManager.m */; };
@@ -105,11 +104,9 @@
 		C28D37B914B4581D0098033B /* GameSettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSettingController.h; sourceTree = "<group>"; };
 		C28D37BA14B4581D0098033B /* GameSettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSettingController.m; sourceTree = "<group>"; };
 		C28D37BB14B4581D0098033B /* GameSettingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameSettingController.xib; sourceTree = "<group>"; };
-		C2C3380014B68C700000FCD9 /* PPTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PPTableViewController.h; path = ../../../Common_Iphone/Application/PPTableViewController.h; sourceTree = "<group>"; };
-		C2C3380114B68C700000FCD9 /* PPTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PPTableViewController.m; path = ../../../Common_Iphone/Application/PPTableViewController.m; sourceTree = "<group>"; };
-		C2C3380414B68CDE0000FCD9 /* HighScoreController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoreController.h; sourceTree = "<group>"; };
-		C2C3380514B68CDE0000FCD9 /* HighScoreController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoreController.m; sourceTree = "<group>"; };
-		C2C3380614B68CDE0000FCD9 /* HighScoreController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HighScoreController.xib; sourceTree = "<group>"; };
+		C2C3380914B690320000FCD9 /* HighScoreController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoreController.h; sourceTree = "<group>"; };
+		C2C3380A14B690320000FCD9 /* HighScoreController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoreController.m; sourceTree = "<group>"; };
+		C2C3380B14B690320000FCD9 /* HighScoreController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HighScoreController.xib; sourceTree = "<group>"; };
 		C2D8678014B42BA900EEF9DE /* HGQuadCurveMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGQuadCurveMenu.h; sourceTree = "<group>"; };
 		C2D8678114B42BA900EEF9DE /* HGQuadCurveMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGQuadCurveMenu.m; sourceTree = "<group>"; };
 		C2D8678214B42BA900EEF9DE /* HGQuadCurveMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGQuadCurveMenuItem.h; sourceTree = "<group>"; };
@@ -371,9 +368,9 @@
 				C28D37B914B4581D0098033B /* GameSettingController.h */,
 				C28D37BA14B4581D0098033B /* GameSettingController.m */,
 				C28D37BB14B4581D0098033B /* GameSettingController.xib */,
-				C2C3380414B68CDE0000FCD9 /* HighScoreController.h */,
-				C2C3380514B68CDE0000FCD9 /* HighScoreController.m */,
-				C2C3380614B68CDE0000FCD9 /* HighScoreController.xib */,
+				C2C3380914B690320000FCD9 /* HighScoreController.h */,
+				C2C3380A14B690320000FCD9 /* HighScoreController.m */,
+				C2C3380B14B690320000FCD9 /* HighScoreController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -423,8 +420,6 @@
 		CA6C73F614AF068E00E15785 /* HitGame_Common */ = {
 			isa = PBXGroup;
 			children = (
-				C2C3380014B68C700000FCD9 /* PPTableViewController.h */,
-				C2C3380114B68C700000FCD9 /* PPTableViewController.m */,
 				CA01828D14B599F3002056D2 /* Util */,
 				C2D8678014B42BA900EEF9DE /* HGQuadCurveMenu.h */,
 				C2D8678114B42BA900EEF9DE /* HGQuadCurveMenu.m */,
@@ -556,7 +551,7 @@
 				C28D37A214B438430098033B /* icon-star.png in Resources */,
 				C28D37A314B438430098033B /* icon-star@2x.png in Resources */,
 				C28D37BD14B4581D0098033B /* GameSettingController.xib in Resources */,
-				C2C3380814B68CDE0000FCD9 /* HighScoreController.xib in Resources */,
+				C2C3380D14B690320000FCD9 /* HighScoreController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -617,8 +612,7 @@
 				C28D37BC14B4581D0098033B /* GameSettingController.m in Sources */,
 				C2FA3A8714B5734000F1465E /* HighScoreManager.m in Sources */,
 				CA01829014B599F3002056D2 /* LayerUtil.m in Sources */,
-				C2C3380214B68C700000FCD9 /* PPTableViewController.m in Sources */,
-				C2C3380714B68CDE0000FCD9 /* HighScoreController.m in Sources */,
+				C2C3380C14B690320000FCD9 /* HighScoreController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

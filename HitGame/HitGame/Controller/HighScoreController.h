@@ -6,8 +6,8 @@
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
 //
 
-#import "PPTableViewController.h"
+#import "HGTableViewController.h"
 
-@interface HighScoreController : PPTableViewController
+@interface HighScoreController : HGTableViewController
 
 @end
