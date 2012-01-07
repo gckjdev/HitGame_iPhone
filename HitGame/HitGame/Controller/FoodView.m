@@ -11,6 +11,7 @@
 
 @implementation FoodView
 @synthesize food = _food;
+@synthesize status = _status;
 
 - (id)initWithFood:(Food *)food
 {
@@ -18,6 +19,7 @@
     if (self) {
         self.food = food;
         self.image = food.image;
+        _status = Falling;
     }
     return self;
 }

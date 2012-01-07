@@ -28,9 +28,9 @@
 	<true/>
 	<key>NSMainNibFile</key>
 	<string>MainWindow</string>
-	<key>CFMissCount</key>
+	<key>CFAllowMissCount</key>
 	<integer>3</integer>
-	<key>CFGameTime</key>
+	<key>CFRoundTime</key>
 	<integer>60</integer>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>

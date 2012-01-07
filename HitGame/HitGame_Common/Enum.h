@@ -42,6 +42,21 @@ typedef enum{
     Ready = 0,
     OnGoing = 1,
     Pause = 2,
-    Fail = 3,
-    Sucess = 4
+    Resume,
+    Fail,
+    Sucess,
+    BackToLevelPicker,
+    BackToMainMenu
 }GameStatus;
+
+typedef enum{
+    Falling = 0,
+    Killed,
+    Dead
+}FoodViewStatus;
+
+enum OPTION_MENU_INDEX {
+    CONTINUE_GAME = 0,
+    REPLAY_GAME,
+    QUIT_GAME
+};

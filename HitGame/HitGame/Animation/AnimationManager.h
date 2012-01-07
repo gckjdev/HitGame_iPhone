@@ -15,14 +15,26 @@
 
 - (CAAnimation *)animationForKey:(NSString *)key;
 - (void)setAnimation:(CAAnimation *)animation forKey:(NSString *)key;
+
+//rotation
 + (CAAnimation *)rotationAnimationWithRoundCount:(CGFloat) count 
                                         duration:(CFTimeInterval)duration;
+
+//opacity
++ (CAAnimation *)missingAnimationWithDuration:(CFTimeInterval)duration;
+
+//scale
++ (CAAnimation *)scaleAnimationWithScale:(CGFloat)scale  duration:(CFTimeInterval)duration;
+
+//translation
 + (CAAnimation *)translationAnimationFrom:(CGPoint) start
                                        to:(CGPoint)end
                                  duration:(CFTimeInterval)duration;
 + (CAAnimation *)translationAnimationTo:(CGPoint)end
                                duration:(CFTimeInterval)duration;
-
-+ (CAAnimation *)missingAnimationWithDuration:(CFTimeInterval)duration;
-+ (CAAnimation *)scaleAnimationWithScale:(CGFloat)scale  duration:(CFTimeInterval)duration;
++ (CAAnimation *)translationAnimationFrom:(CGPoint) start
+                                       to:(CGPoint)end
+                                 duration:(CFTimeInterval)duration 
+                                 delegate:(id)delegate 
+                         removeCompeleted:(BOOL)removedOnCompletion;
 @end

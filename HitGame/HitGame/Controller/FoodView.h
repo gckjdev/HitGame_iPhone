@@ -13,11 +13,12 @@
 @interface FoodView : UIImageView
 {
     Food *_food;
+    FoodViewStatus _status;
 }
 
 
 @property(nonatomic, retain, setter = privateSetFood:)Food *food;
-
+@property(nonatomic, assign) FoodViewStatus status;
 - (void)setFood:(Food *)food;
 - (id)initWithFood:(Food *)food;
 - (id)initWithFood:(Food *)food frame:(CGRect)frame;

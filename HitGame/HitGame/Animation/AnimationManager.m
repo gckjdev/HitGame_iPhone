@@ -105,4 +105,25 @@ AnimationManager *animatinManager;
     return animation;
 }
 
++ (CAAnimation *)translationAnimationFrom:(CGPoint) start
+                                       to:(CGPoint)end
+                                 duration:(CFTimeInterval)duration 
+                                 delegate:(id)delegate 
+                         removeCompeleted:(BOOL)removedOnCompletion
+{
+    
+    CABasicAnimation * animation=[CABasicAnimation animationWithKeyPath:@"position"]; 
+    animation.fromValue = [NSValue valueWithCGPoint:start];
+    animation.toValue = [NSValue valueWithCGPoint:end];
+    animation.duration = duration;
+    animation.delegate = delegate;
+    if (removedOnCompletion) {
+        animation.removedOnCompletion = YES;
+    }else{
+        animation.fillMode = kCAFillModeForwards;
+        animation.removedOnCompletion = NO;
+    }
+    return animation;
+}
+
 @end

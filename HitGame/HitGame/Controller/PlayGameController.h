@@ -18,34 +18,40 @@
 @class GameLevel;
 @interface PlayGameController : UIViewController <UIGestureRecognizerDelegate, UIAlertViewDelegate, HGQuadCurveMenuDelegate>
 {
-    FoodView *_movingFood;
-    NSInteger _movingStatus;    
+
     NSMutableSet *_fallingFoodViewList;
-    FoodView *_throwingFood;
     FoodManager *_foodManager;
+    
     NSInteger _score;
     NSInteger _count;
-    NSTimer *_gameTimer;
-    CGFloat _retainSeconds;
-    NSInteger _speed;
     NSInteger _passScore;
+    NSInteger _missCount;
+    NSInteger _allowMissCount;
+
+    NSTimer *_gameTimer;
+    CFTimeInterval _retainSeconds;
+    CFTimeInterval _roundTime;
+
     GameLevel *_gameLevel;
     GameStatus _gameStatus;
 }
 
 @property (retain, nonatomic) IBOutlet UILabel *scoreLabel;
-@property (retain, nonatomic) GameLevel *gameLevel;
 @property (retain, nonatomic) IBOutlet UILabel *missLabel;
+@property (retain, nonatomic) GameLevel *gameLevel;
 
-- (void)clickBackButton:(id)sender;
 
 - (id)initWithGameLevel:(GameLevel *)gameLevel;
 - (FoodView *)getFoodViewWithFoodType:(FoodType)foodType;
-- (void)gameGoEnd;
+
 - (void)fallRandFood;
+- (void)startGame;
 - (void)resumeGame;
 - (void)pauseGame;
+- (void)endGame:(BOOL)isSuccessful;
+- (void)quitGame:(BOOL)backToLevelPick;
+- (void)processStateMachine;
 
-
+- (void)addDefaultMissingAnimationTofoodView:(FoodView *)foodView;
 
 @end
