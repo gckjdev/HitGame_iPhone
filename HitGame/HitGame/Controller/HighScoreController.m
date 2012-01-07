@@ -2,13 +2,14 @@
 //  HighScoreController.m
 //  HitGame
 //
-//  Created by Orange on 12-1-6.
+//  Created by Orange on 12-1-7.
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
 //
 
 #import "HighScoreController.h"
 
 @implementation HighScoreController
+@synthesize dataTableView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -37,6 +38,7 @@
 
 - (void)viewDidUnload
 {
+    [self setDataTableView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -46,6 +48,22 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)dealloc {
+    [dataTableView release];
+    [super dealloc];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell* cell = [[UITableViewCell alloc] init ];
+    return cell;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 66;
 }
 
 @end
