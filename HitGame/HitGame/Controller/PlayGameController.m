@@ -16,8 +16,11 @@
 #import "FoodView.h"
 #import "FoodManager.h"
 #import "GameLevel.h"
+#import "HighScoreManager.h"
 #import "LayerUtil.h"
 
+
+#define FALL_TIMER_DURATION 3
 #define FALL_ANIMATION_DURATION 3
 #define FALL_ROTATION_COUNT 4
 
@@ -468,6 +471,8 @@
                                           otherButtonTitles:@"重试", nil];
     [alert show];
     [alert release];
+    HighScoreManager* manager = [HighScoreManager defaultManager];
+    [manager addHighScore:_score forLevel:1];
 }
 
 - (void)quitGame:(BOOL)backToLevelPick
