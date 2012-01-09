@@ -12,8 +12,11 @@
 {
     NSDictionary* _dataList;
     UITableView* _dataTableView;
+    NSArray* _levelKeys;
 }
 @property (retain, nonatomic) IBOutlet UITableView *dataTableView;
 @property (retain, nonatomic) NSDictionary* dataList;
+@property (retain, nonatomic) NSArray* levelKeys;
+
 
 @end

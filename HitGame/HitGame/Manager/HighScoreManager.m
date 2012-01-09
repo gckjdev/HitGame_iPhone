@@ -64,22 +64,27 @@ HighScoreManager* GlobalGetHighScoreManager()
     return GlobalGetHighScoreManager();
 }
 
-
-
-
 - (void)addHighScore:(NSInteger)aHighScore forLevel:(NSInteger)aLevel
 {
     NSNumber* level = [NSNumber numberWithInt:aLevel];
     NSNumber* score = [NSNumber numberWithInt:aHighScore];
-    NSMutableArray* scoreArray = [self.highScoreDict objectForKey:level];
-    if (scoreArray == nil) {
-        scoreArray = [[NSMutableArray alloc] init ];
-    }
+    NSMutableArray* scoreArray = [NSMutableArray arrayWithArray:[self.highScoreDict objectForKey:level]];
     [scoreArray addObject:score];
-    [scoreArray sortUsingSelector:@selector(compare:)];
-    [self.highScoreDict setObject:scoreArray forKey:level];
+    NSArray* array = [scoreArray sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2){
+        NSNumber* num1 = (NSNumber*)obj1;
+        NSNumber* num2 = (NSNumber*)obj2;
+        if (num1.intValue > num2.intValue) {
+            return NSOrderedAscending;
+        } else if (num1.intValue < num2.intValue){
+            return NSOrderedDescending;
+        }
+        return NSOrderedSame;
+    }];
+    if ([array count] > 10) {
+        array = [array subarrayWithRange:(NSRange){0,10}];
+    }
+    [self.highScoreDict setObject:array forKey:level];
     [self saveHighScore];
-    [scoreArray release];
 }
 
 - (NSArray*)highScoresForLevel:(NSInteger)aLevel

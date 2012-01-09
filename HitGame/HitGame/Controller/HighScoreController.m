@@ -12,6 +12,7 @@
 @implementation HighScoreController
 @synthesize dataTableView = _dataTableView;
 @synthesize dataList = _dataList;
+@synthesize levelKeys = _levelKeys;
 
 - (void)dealloc {
     [_dataTableView release];
@@ -39,6 +40,21 @@
 {
     HighScoreManager* manager = [HighScoreManager defaultManager];
     self.dataList = manager.highScoreDict;
+    NSArray* array = [self.dataList allKeys];
+//    array = [array sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2){
+//        NSNumber* num1 = (NSNumber*)obj1;
+//        NSNumber* num2 = (NSNumber*)obj2;
+//        
+//        if (num1.intValue < num2.intValue) {
+//            return NSOrderedAscending;
+//        } else if (num1.intValue > num2.intValue) {
+//            return NSOrderedDescending;
+//        }
+//        return NSOrderedSame;
+//    }];
+    array = [array sortedArrayUsingSelector:@selector(compare:)];
+    self.levelKeys = array;
+
 }
 
 #pragma mark - View lifecycle
@@ -70,8 +86,6 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HighScore"];
@@ -79,8 +93,8 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HighScore"] autorelease];
         
     }
-    NSNumber* section = [NSNumber numberWithInt:indexPath.section+1];
-    NSArray* scoreArray = [self.dataList objectForKey:section];
+    NSNumber* level = [self.levelKeys objectAtIndex:indexPath.section];
+    NSArray* scoreArray = [[HighScoreManager defaultManager] highScoresForLevel:level.intValue];
     NSNumber* score = [scoreArray objectAtIndex:indexPath.row];
     [cell.textLabel setText:[NSString stringWithFormat:@"%d",[score intValue]]];
     return cell;
@@ -88,9 +102,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSNumber* index = [NSNumber numberWithInt:section+1];
-    NSArray* array = [self.dataList objectForKey:index];
-    int count = [array count];
+    NSNumber* levelIndex = [self.levelKeys objectAtIndex:section];
+    NSArray* scoreArray = [self.dataList objectForKey:levelIndex];
+    int count = [scoreArray count];
     return count;
 }
 
@@ -99,17 +113,21 @@
     return [[self.dataList allKeys] count];
 }
 
+- (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSNumber* level = [self.levelKeys objectAtIndex:section];
+    NSString* title = [NSString stringWithFormat:@"第%d关", [level intValue]];
+    return title;
+}
+
 - (IBAction)clickBackButton:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+- (IBAction)clickFilterButton:(id)sender
 {
-    NSNumber* level = [[self.dataList allKeys] objectAtIndex:section];
-    NSString* title = [NSString stringWithFormat:@"第%d关", [level intValue]];
-    return title;
+    
 }
-
 
 @end
