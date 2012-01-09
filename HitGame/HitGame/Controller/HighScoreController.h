@@ -8,15 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HighScoreController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface HighScoreController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate>
 {
     NSDictionary* _dataList;
     UITableView* _dataTableView;
-    NSArray* _levelKeys;
+    NSArray* _shownLevels;
 }
 @property (retain, nonatomic) IBOutlet UITableView *dataTableView;
 @property (retain, nonatomic) NSDictionary* dataList;
-@property (retain, nonatomic) NSArray* levelKeys;
+@property (copy, nonatomic) NSArray* shownLevels;
+@property (copy, nonatomic) NSArray* allLevels;
 
 
 @end

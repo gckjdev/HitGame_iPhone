@@ -12,7 +12,8 @@
 @implementation HighScoreController
 @synthesize dataTableView = _dataTableView;
 @synthesize dataList = _dataList;
-@synthesize levelKeys = _levelKeys;
+@synthesize shownLevels = _shownLevels;
+@synthesize allLevels = _allLevels;
 
 - (void)dealloc {
     [_dataTableView release];
@@ -41,19 +42,9 @@
     HighScoreManager* manager = [HighScoreManager defaultManager];
     self.dataList = manager.highScoreDict;
     NSArray* array = [self.dataList allKeys];
-//    array = [array sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2){
-//        NSNumber* num1 = (NSNumber*)obj1;
-//        NSNumber* num2 = (NSNumber*)obj2;
-//        
-//        if (num1.intValue < num2.intValue) {
-//            return NSOrderedAscending;
-//        } else if (num1.intValue > num2.intValue) {
-//            return NSOrderedDescending;
-//        }
-//        return NSOrderedSame;
-//    }];
     array = [array sortedArrayUsingSelector:@selector(compare:)];
-    self.levelKeys = array;
+    self.shownLevels = array;
+    self.allLevels = array;
 
 }
 
@@ -93,7 +84,7 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HighScore"] autorelease];
         
     }
-    NSNumber* level = [self.levelKeys objectAtIndex:indexPath.section];
+    NSNumber* level = [self.shownLevels objectAtIndex:indexPath.section];
     NSArray* scoreArray = [[HighScoreManager defaultManager] highScoresForLevel:level.intValue];
     NSNumber* score = [scoreArray objectAtIndex:indexPath.row];
     [cell.textLabel setText:[NSString stringWithFormat:@"%d",[score intValue]]];
@@ -102,7 +93,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSNumber* levelIndex = [self.levelKeys objectAtIndex:section];
+    NSNumber* levelIndex = [self.shownLevels objectAtIndex:section];
     NSArray* scoreArray = [self.dataList objectForKey:levelIndex];
     int count = [scoreArray count];
     return count;
@@ -110,15 +101,25 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [[self.dataList allKeys] count];
+    return [self.shownLevels count];
 }
 
 - (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    NSNumber* level = [self.levelKeys objectAtIndex:section];
+    NSNumber* level = [self.shownLevels objectAtIndex:section];
     NSString* title = [NSString stringWithFormat:@"第%d关", [level intValue]];
     return title;
 }
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == actionSheet.cancelButtonIndex) {
+        return;
+    }
+    self.shownLevels = [self.allLevels subarrayWithRange:(NSRange){buttonIndex, 1}];
+    [self.dataTableView reloadData];
+}
+
 
 - (IBAction)clickBackButton:(id)sender
 {
@@ -127,7 +128,19 @@
 
 - (IBAction)clickFilterButton:(id)sender
 {
-    
+    UIActionSheet* sheet = [[UIActionSheet alloc] initWithTitle:@"选择关卡" 
+                                                       delegate:self 
+                                              cancelButtonTitle:nil 
+                                         destructiveButtonTitle:nil 
+                                              otherButtonTitles:nil];
+    for (NSNumber* level in self.allLevels) {
+        NSString* title = [NSString stringWithFormat:@"第%d关", level.intValue];
+        [sheet addButtonWithTitle:title];
+    }
+    [sheet addButtonWithTitle:@"返回"];
+    [sheet setCancelButtonIndex:[self.allLevels count]];
+    [sheet showInView:self.view];
+    [sheet release];
 }
 
 @end
