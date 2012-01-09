@@ -22,9 +22,30 @@ HighScoreManager* GlobalGetHighScoreManager()
 @implementation HighScoreManager
 @synthesize highScoreDict = _highScoreDict;
 
+- (void)loadHighScore
+{
+    NSUserDefaults* userDefault = [NSUserDefaults standardUserDefaults];
+    NSData* highScoreData = [userDefault objectForKey:HIGH_SCORE];
+    
+    if (highScoreData) {
+        NSMutableDictionary* dict = [NSKeyedUnarchiver unarchiveObjectWithData:highScoreData];
+        self.highScoreDict = dict;
+    }
+}
+
+
+- (void)saveHighScore
+{
+    NSUserDefaults* userDefault = [NSUserDefaults standardUserDefaults];
+    NSData* highScoreData = [NSKeyedArchiver archivedDataWithRootObject:self.highScoreDict];
+    [userDefault setObject:highScoreData forKey:HIGH_SCORE];
+    [self loadHighScore];
+}
+
 - (id)init
 {
     self = [super init];
+    [self loadHighScore];
     if (_highScoreDict == nil) {
         _highScoreDict = [[NSMutableDictionary alloc] init];
     }
@@ -37,25 +58,14 @@ HighScoreManager* GlobalGetHighScoreManager()
     [super dealloc];
 }
 
+
 + (HighScoreManager*)defaultManager
 {
     return GlobalGetHighScoreManager();
 }
 
-- (void)saveHighScore
-{
-    NSUserDefaults* userDefault = [NSUserDefaults standardUserDefaults];
-    [userDefault setObject:self.highScoreDict forKey:HIGH_SCORE];
-}
 
-- (void)loadHighScore
-{
-    NSUserDefaults* userDefault = [NSUserDefaults standardUserDefaults];
-    NSMutableDictionary* dict = [userDefault objectForKey:HIGH_SCORE];
-    if (dict) {
-        self.highScoreDict = dict;
-    }
-}
+
 
 - (void)addHighScore:(NSInteger)aHighScore forLevel:(NSInteger)aLevel
 {
@@ -67,7 +77,7 @@ HighScoreManager* GlobalGetHighScoreManager()
     }
     [scoreArray addObject:score];
     [scoreArray sortUsingSelector:@selector(compare:)];
-    [self.highScoreDict setObject:score forKey:level];
+    [self.highScoreDict setObject:scoreArray forKey:level];
     [self saveHighScore];
     [scoreArray release];
 }

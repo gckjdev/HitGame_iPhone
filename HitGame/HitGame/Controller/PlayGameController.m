@@ -472,7 +472,8 @@
     [alert show];
     [alert release];
     HighScoreManager* manager = [HighScoreManager defaultManager];
-    [manager addHighScore:_score forLevel:1];
+    [manager addHighScore:_score forLevel:self.gameLevel.levelIndex];
+    
 }
 
 - (void)quitGame:(BOOL)backToLevelPick

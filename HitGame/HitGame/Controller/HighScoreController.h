@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface HighScoreController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+{
+    NSDictionary* _dataList;
+    UITableView* _dataTableView;
+}
 @property (retain, nonatomic) IBOutlet UITableView *dataTableView;
+@property (retain, nonatomic) NSDictionary* dataList;
 
 @end

@@ -41,7 +41,7 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-- (void)createGameLevelWithFoddCount:(NSInteger)count
+- (void)createGameLevelWithFoddCount:(NSInteger)count levelIndex:(NSInteger)aLevelIndex
 {
     NSArray *foodArray = [TestCase createFoodList:5];
     NSMutableArray *tempArray = [[NSMutableArray alloc] init];
@@ -49,7 +49,7 @@
         Food *food = [foodArray objectAtIndex:(rand()%[foodArray count])];
         [tempArray addObject:food];
     } 
-    GameLevel *level = [[GameLevel alloc] initWithFoodList:tempArray passScore:30 highestScore:0 speed:3 status:0];
+    GameLevel *level = [[GameLevel alloc] initWithFoodList:tempArray passScore:30 highestScore:0 speed:3 status:0 levelIndex:aLevelIndex];
     [_levelArray addObject:level];
 }
 
@@ -59,16 +59,16 @@
     for (int i = 1; i <= 20; ++ i) {
         
         if (i <= 4) {
-            [self createGameLevelWithFoddCount:2];
+            [self createGameLevelWithFoddCount:2 levelIndex:i];
         }else if(i <= 10)
         {
-            [self createGameLevelWithFoddCount:3];
+            [self createGameLevelWithFoddCount:3 levelIndex:i];
         }else if(i <= 18)
         {
-            [self createGameLevelWithFoddCount:4];            
+            [self createGameLevelWithFoddCount:4 levelIndex:i];            
         }else
         {
-            [self createGameLevelWithFoddCount:5];
+            [self createGameLevelWithFoddCount:5 levelIndex:i];
         }
     }
     

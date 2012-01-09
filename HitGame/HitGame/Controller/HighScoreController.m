@@ -7,9 +7,16 @@
 //
 
 #import "HighScoreController.h"
+#import "HighScoreManager.h"
 
 @implementation HighScoreController
-@synthesize dataTableView;
+@synthesize dataTableView = _dataTableView;
+@synthesize dataList = _dataList;
+
+- (void)dealloc {
+    [_dataTableView release];
+    [super dealloc];
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,11 +35,24 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+- (void)updateHighScore
+{
+    HighScoreManager* manager = [HighScoreManager defaultManager];
+    self.dataList = manager.highScoreDict;
+}
+
 #pragma mark - View lifecycle
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    //[super viewDidAppear:animated];
+    [self updateHighScore];
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self updateHighScore];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -50,20 +70,46 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (void)dealloc {
-    [dataTableView release];
-    [super dealloc];
-}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell* cell = [[UITableViewCell alloc] init ];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HighScore"];
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HighScore"] autorelease];
+        
+    }
+    NSNumber* section = [NSNumber numberWithInt:indexPath.section+1];
+    NSArray* scoreArray = [self.dataList objectForKey:section];
+    NSNumber* score = [scoreArray objectAtIndex:indexPath.row];
+    [cell.textLabel setText:[NSString stringWithFormat:@"%d",[score intValue]]];
     return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 66;
+    NSNumber* index = [NSNumber numberWithInt:section+1];
+    NSArray* array = [self.dataList objectForKey:index];
+    int count = [array count];
+    return count;
 }
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return [[self.dataList allKeys] count];
+}
+
+- (IBAction)clickBackButton:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSNumber* level = [[self.dataList allKeys] objectAtIndex:section];
+    NSString* title = [NSString stringWithFormat:@"第%d关", [level intValue]];
+    return title;
+}
+
 
 @end
