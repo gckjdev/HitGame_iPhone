@@ -2,7 +2,7 @@
 //  HelpView.m
 //  HitGame
 //
-//  Created by Orange on 12-1-9.
+//  Created by Orange on 12-1-10.
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
 //
 
@@ -10,42 +10,22 @@
 
 @implementation HelpView
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithFrame:(CGRect)frame
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithFrame:frame];
     if (self) {
-        // Custom initialization
+        // Initialization code
     }
     return self;
 }
 
-- (void)didReceiveMemoryWarning
+/*
+// Only override drawRect: if you perform custom drawing.
+// An empty implementation adversely affects performance during animation.
+- (void)drawRect:(CGRect)rect
 {
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
+    // Drawing code
 }
-
-#pragma mark - View lifecycle
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
+*/
 
 @end
