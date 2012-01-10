@@ -14,11 +14,14 @@
 {
     Food *_food;
     FoodViewStatus _status;
+    NSInteger _foodViewScore;
 }
 
 
 @property(nonatomic, retain, setter = privateSetFood:)Food *food;
 @property(nonatomic, assign) FoodViewStatus status;
+@property(nonatomic, assign) NSInteger foodViewScore;
+@property(nonatomic, assign) CGPoint endPoint;
 - (void)setFood:(Food *)food;
 - (id)initWithFood:(Food *)food;
 - (id)initWithFood:(Food *)food frame:(CGRect)frame;

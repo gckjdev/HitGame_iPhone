@@ -32,13 +32,21 @@ LevelManager *levelManager;
 - (void)createGameLevelWithFoddCount:(NSInteger)count levelIndex:(NSInteger)aLevelIndex
 {
     NSArray *foodArray = [TestCase createFoodList:5];
-    NSMutableArray *tempArray = [[NSMutableArray alloc] init];
-    for (int j = 0; j < count; j ++) {
+
+    NSMutableArray *tempArray = [[[NSMutableArray alloc] init]autorelease];
+
+    if (count == [foodArray count]) {
+        [tempArray addObjectsFromArray:foodArray];
+    }
+    while ([tempArray count] < count) {
         Food *food = [foodArray objectAtIndex:(rand()%[foodArray count])];
-        [tempArray addObject:food];
-    } 
+        if (![tempArray containsObject:food]) {
+            [tempArray addObject:food];
+        }
+    }
     GameLevel *level = [[GameLevel alloc] initWithFoodList:tempArray passScore:30 highestScore:0 speed:3 status:0 levelIndex:aLevelIndex];
     [_levelArray addObject:level];
+    [level release];
 }
 
 - (void)createLevelConfigure
@@ -106,6 +114,28 @@ LevelManager *levelManager;
     return levelManager;
 }
 
+#define MAX_DURATION 3.5
+#define MIN_DURATION 0.8
+- (CFTimeInterval)calculateMaxDuration:(GameLevel *)level
+{
+    CFTimeInterval duration = 0;
+    if (level) {
+        duration = MAX_DURATION - (level.levelIndex - 1.0)/[_levelArray count];
+        duration = MAX(duration, MIN_DURATION * 2);
+        return duration;
+    }
+    return MAX_DURATION;
+}
+- (CFTimeInterval)calculateMinDuration:(GameLevel *)level
+{
+    CFTimeInterval duration = 0;
+    if (level) {
+        duration = MIN_DURATION + (([_levelArray count]) - level.levelIndex)/([_levelArray count] * 2.0);
+        duration = MIN(duration, MAX_DURATION / 2.0);
+        return duration;
+    }
+    return MAX_DURATION;
+}
 - (void)dealloc
 {
     [_levelArray release];

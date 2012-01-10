@@ -19,5 +19,6 @@
 + (LevelManager *)defaultManager;
 - (GameLevel *)gameLevelForLevelIndex:(NSInteger )index;
 - (GameLevel *)nextGameLevelWithCurrentLevel:(GameLevel *)currentLevel;
-
+- (CFTimeInterval)calculateMaxDuration:(GameLevel *)level;
+- (CFTimeInterval)calculateMinDuration:(GameLevel *)level;
 @end

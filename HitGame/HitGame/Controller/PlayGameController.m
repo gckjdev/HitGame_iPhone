@@ -36,10 +36,10 @@
 #define ANIMATION_TAG_FALL @"FallTag"
 #define ANIMATION_ID_FOODVIEW @"FoodView"
 
-
+#define POPUP_MESSAGE_DURATION 2
 
 #define ROUND_TIME [[[NSBundle mainBundle] objectForInfoDictionaryKey:\
-                @"CFRoundTime"] doubleValue] - 30
+                @"CFRoundTime"] doubleValue]
 #define ALLOW_MISS_COUNT [[[NSBundle mainBundle] objectForInfoDictionaryKey:\
                 @"CFAllowMissCount"] doubleValue]
 
@@ -49,6 +49,8 @@
 @synthesize scoreLabel = _scoreLabel;
 @synthesize gameLevel = _gameLevel;
 @synthesize levelLabel = _levelLabel;
+@synthesize popupScoreView = _popupScoreView;
+@synthesize popupMissView = _popupMissView;
 @synthesize missLabel = _missLabel;
 
 
@@ -76,6 +78,8 @@
     if (self) {
         _fallingFoodViewList = [[NSMutableSet alloc] init];
         _foodManager = [FoodManager defaultManager];
+        _levelManager = [LevelManager defaultManager];
+
         [self readConfig];
 
     }
@@ -89,6 +93,8 @@
     [_scoreLabel release];
     [_missLabel release];
     [_levelLabel release];
+    [_popupScoreView release];
+    [_popupMissView release];
     [super dealloc];
 }
 
@@ -107,6 +113,17 @@
     return _missCount >= _allowMissCount;
 }
 
+#define DECREASE_SCORE_WRONG_GESTURE 30
+- (void)dealWithWrongGesture
+{
+    for (FoodView *foodView in _fallingFoodViewList) {
+        if (foodView.foodViewScore > 0) {
+            foodView.foodViewScore -= DECREASE_SCORE_WRONG_GESTURE;
+            foodView.foodViewScore = MAX(0, foodView.foodViewScore);
+        }
+    }
+}
+
 - (void)increaseMissCount
 {
     [self.missLabel setText:[NSString stringWithFormat:@"失误: %d", ++ _missCount]];
@@ -117,6 +134,16 @@
     if (_gameLevel) {
         [_levelLabel setText:[NSString stringWithFormat:@"第%d关",_gameLevel.levelIndex]];
     }
+}
+
+- (CFTimeInterval)calculateFallDuration
+{
+    CFTimeInterval maxInterval = [_levelManager calculateMaxDuration:_gameLevel];
+    CFTimeInterval minInterval = [_levelManager calculateMinDuration:_gameLevel];
+    CFTimeInterval ret = minInterval + (maxInterval - minInterval) * _retainSeconds / _roundTime; 
+    NSLog(@"_retainSeconds: %f, duration: %f",_retainSeconds,ret);
+    
+    return ret;
 }
 
 #pragma mark - game gesture process
@@ -153,11 +180,7 @@
         FoodType foodType = [_foodManager foodTypeForGuesture:TapGameGesture];
         FoodView *foodView = [self getFoodViewWithFoodType:foodType];
         if (foodView == nil) {
-            [self increaseMissCount];
-            if ([self isMissCountEnough]) {
-                [self endGame:NO];
-            }
-
+            [self dealWithWrongGesture];
         }else{
             [self addDefaultMissingAnimationTofoodView:foodView];
         }
@@ -194,11 +217,7 @@
         foodType = [_foodManager foodTypeForGuesture:gameGestureType];
         FoodView *foodView = [self getFoodViewWithFoodType:foodType];
         if (foodView == nil) {
-            [self increaseMissCount];    
-            if ([self isMissCountEnough]) {
-                [self endGame:NO];
-            }
-            
+            [self dealWithWrongGesture];
         }else{
             [self addDefaultMissingAnimationTofoodView:foodView];
         }
@@ -294,7 +313,8 @@
     FoodView *image = [[[FoodView alloc] initWithFood:food] autorelease];
     image.frame = CGRectMake(-48, -48, 48, 48);
     [self.view insertSubview:image atIndex:0];
-    CAAnimation *translation = [AnimationManager translationAnimationFrom:CGPointMake(rand()%320, -24) to:CGPointMake(rand()%320, 400+24) duration:FALL_ANIMATION_DURATION delegate:self removeCompeleted:NO];
+    image.endPoint = CGPointMake(rand()%320, 400+24);
+    CAAnimation *translation = [AnimationManager translationAnimationFrom:CGPointMake(rand()%320, -24) to:image.endPoint duration:[self calculateFallDuration] delegate:self removeCompeleted:NO];
     
     [translation setValue:image forKey:ANIMATION_ID_FOODVIEW];
     [translation setValue:ANIMATION_TAG_FALL forKey:ANIMATION_TAG_FALL];
@@ -308,11 +328,29 @@
 
 
 
+- (void)popUpScore:(NSInteger)score
+{
+    if (score > 0) {
+        [_popupScoreView setHidden:NO];
+        [_popupScoreView setText:[NSString stringWithFormat:@"+%d",score]];     
+        CAAnimation *popUp = [AnimationManager 
+                              translationAnimationFrom:CGPointMake(160, 255) 
+                              to:CGPointMake(160, 120) 
+                              duration:POPUP_MESSAGE_DURATION];
+        CAAnimation *popOpacity = [AnimationManager missingAnimationWithDuration:2];
+        
+        [self.popupScoreView.layer addAnimation:popUp forKey:@"popUp"];
+        [_popupScoreView.layer addAnimation:popOpacity forKey:@"popOpacity"];
+    }
+
+}
+
 - (void)killFoodView:(FoodView *)foodView
 {
     if (foodView.status == Falling) {
-        _score ++;
-        [_scoreLabel setText:[NSString stringWithFormat:@"分数: %d",_score * 100]];
+        _score += foodView.foodViewScore;
+        [self popUpScore:foodView.foodViewScore];
+        [_scoreLabel setText:[NSString stringWithFormat:@"分数: %d",_score]];
         foodView.status = Killed;
     }
 }
@@ -321,6 +359,10 @@
 {
     if (foodView.status == Falling) {
         foodView.status = Dead;
+        _popupMissView.center = CGPointMake(foodView.endPoint.x, 380);
+        _popupMissView.hidden =NO;
+        CAAnimation *missOpacity = [AnimationManager missingAnimationWithDuration:POPUP_MESSAGE_DURATION];
+        [_popupMissView.layer addAnimation:missOpacity forKey:@"missOpacity"];
         [self increaseMissCount];
         if ([self isMissCountEnough]) {
             _gameStatus = Fail;
@@ -494,7 +536,7 @@
     if (!isSuccessful) {
         msg = [NSString stringWithFormat:@"对不起，您失误了三次，本轮游戏失败！"];
     }else{
-        msg = [NSString stringWithFormat:@"恭喜过关！您的分数是:%d!",_score * 100];
+        msg = [NSString stringWithFormat:@"恭喜过关！您的分数是:%d!",_score];
 
     }
     [self releaseAllFoodViews];
@@ -572,7 +614,7 @@ enum
     if (buttonIndex == REPLAY_GAME) {
         if (_gameStatus == Sucess) {
             //next level
-            self.gameLevel = [[LevelManager defaultManager]nextGameLevelWithCurrentLevel:_gameLevel];
+            self.gameLevel = [_levelManager nextGameLevelWithCurrentLevel:_gameLevel];
             [self reFreshLevelLabel];
         }           
         _gameStatus = Ready;
@@ -699,6 +741,7 @@ enum
         [self view:self.view addGestureRecognizer:type delegate:self];
     }
     [self addOptionButton];
+    
     [self reFreshLevelLabel];
     _gameStatus = Ready;
     [self processStateMachine];
@@ -710,6 +753,8 @@ enum
     [self setScoreLabel:nil];
     [self setMissLabel:nil];
     [self setLevelLabel:nil];
+    [self setPopupScoreView:nil];
+    [self setPopupMissView:nil];
     [super viewDidUnload];
 
 }

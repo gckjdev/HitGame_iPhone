@@ -17,7 +17,10 @@
 @class FoodView;
 @class FoodManager;
 @class GameLevel;
+@class LevelManager;
+
 @interface PlayGameController : UIViewController <UIGestureRecognizerDelegate, UIAlertViewDelegate, HGQuadCurveMenuDelegate, HelpViewDelegate>
+
 {
 
     NSMutableSet *_fallingFoodViewList;
@@ -35,6 +38,7 @@
 
     GameLevel *_gameLevel;
     GameStatus _gameStatus;
+    LevelManager *_levelManager;
 }
 
 @property (retain, nonatomic) IBOutlet UILabel *scoreLabel;
@@ -42,6 +46,9 @@
 @property (retain, nonatomic) GameLevel *gameLevel;
 @property (retain, nonatomic) IBOutlet UILabel *levelLabel;
 
+@property (retain, nonatomic) IBOutlet UILabel *popupScoreView;
+
+@property (retain, nonatomic) IBOutlet UILabel *popupMissView;
 
 - (id)initWithGameLevel:(GameLevel *)gameLevel;
 - (FoodView *)getFoodViewWithFoodType:(FoodType)foodType;
