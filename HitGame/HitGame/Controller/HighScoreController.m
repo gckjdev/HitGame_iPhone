@@ -87,7 +87,7 @@
     NSNumber* level = [self.shownLevels objectAtIndex:indexPath.section];
     NSArray* scoreArray = [[HighScoreManager defaultManager] highScoresForLevel:level.intValue];
     NSNumber* score = [scoreArray objectAtIndex:indexPath.row];
-    [cell.textLabel setText:[NSString stringWithFormat:@"%d",[score intValue]]];
+    [cell.textLabel setText:[NSString stringWithFormat:@"%d00",[score intValue]]];
     return cell;
 }
 

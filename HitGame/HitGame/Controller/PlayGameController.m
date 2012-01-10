@@ -18,6 +18,7 @@
 #import "GameLevel.h"
 #import "HighScoreManager.h"
 #import "LayerUtil.h"
+#import "HelpView.h"
 
 
 #define FALL_TIMER_DURATION 3
@@ -471,9 +472,11 @@
                                           otherButtonTitles:@"重试", nil];
     [alert show];
     [alert release];
-    HighScoreManager* manager = [HighScoreManager defaultManager];
-    [manager addHighScore:_score forLevel:self.gameLevel.levelIndex];
-    
+    if (isSuccessful) {
+        HighScoreManager* manager = [HighScoreManager defaultManager];
+        [manager addHighScore:_score forLevel:self.gameLevel.levelIndex];
+    }
+  
 }
 
 - (void)quitGame:(BOOL)backToLevelPick
@@ -529,6 +532,10 @@
     }
 }
 
+- (void)popHelpMessage
+{
+    HelpView* view = [[HelpView alloc] init];
+}
 
 #pragma mark - HGQuadCurveMenu
 
@@ -539,11 +546,16 @@
             _gameStatus = Resume;
             break;
         case REPLAY_GAME: {
+            _missCount = 0;
             _gameStatus = Ready;
             break;
         }
         case QUIT_GAME: {
             _gameStatus = BackToLevelPicker;
+            break;
+        }
+        case GAME_HELP: {
+            [self popHelpMessage];
             break;
         }
         default:
@@ -581,15 +593,21 @@
                                                                    contentImage:starImage 
                                                         highlightedContentImage:nil 
                                                                           title:@"重玩"];
+    HGQuadCurveMenuItem *gameHelp = [[HGQuadCurveMenuItem alloc] initWithImage:storyMenuItemImage 
+                                                                highlightedImage:storyMenuItemImagePressed 
+                                                                    contentImage:starImage 
+                                                         highlightedContentImage:nil 
+                                                                           title:@"帮助"];
     HGQuadCurveMenuItem *quitGame = [[HGQuadCurveMenuItem alloc] initWithImage:storyMenuItemImage 
                                                                    highlightedImage:storyMenuItemImagePressed 
                                                                        contentImage:starImage 
                                                             highlightedContentImage:nil 
                                                                               title:@"离开"];
     
-    NSArray *menus = [NSArray arrayWithObjects:continueGame, rePlayGame, quitGame, nil];
+    NSArray *menus = [NSArray arrayWithObjects:continueGame, rePlayGame, gameHelp, quitGame, nil];
     [continueGame release];
     [rePlayGame release];
+    [gameHelp release];
     [quitGame release];
     
     HGQuadCurveMenu *menu = [[HGQuadCurveMenu alloc] 
