@@ -78,6 +78,7 @@
 		CA6C742214AF068E00E15785 /* sushi.png in Resources */ = {isa = PBXBuildFile; fileRef = CA6C740614AF068E00E15785 /* sushi.png */; };
 		CA6C742314AF068E00E15785 /* tomato.png in Resources */ = {isa = PBXBuildFile; fileRef = CA6C740714AF068E00E15785 /* tomato.png */; };
 		CA6C742514AF06ED00E15785 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA6C742414AF06ED00E15785 /* QuartzCore.framework */; };
+		CAB84F2514BBE79A00DBD6A3 /* LevelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CAB84F2414BBE79A00DBD6A3 /* LevelManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -194,6 +195,8 @@
 		CA6C740714AF068E00E15785 /* tomato.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tomato.png; sourceTree = "<group>"; };
 		CA6C740814AF068E00E15785 /* TestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCase.h; sourceTree = "<group>"; };
 		CA6C742414AF06ED00E15785 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CAB84F2314BBE79A00DBD6A3 /* LevelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelManager.h; sourceTree = "<group>"; };
+		CAB84F2414BBE79A00DBD6A3 /* LevelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -395,6 +398,8 @@
 				CA6C73EC14AF068E00E15785 /* GameManager.m */,
 				C2FA3A8514B5734000F1465E /* HighScoreManager.h */,
 				C2FA3A8614B5734000F1465E /* HighScoreManager.m */,
+				CAB84F2314BBE79A00DBD6A3 /* LevelManager.h */,
+				CAB84F2414BBE79A00DBD6A3 /* LevelManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -629,6 +634,7 @@
 				C2E5E89614B83F0100852530 /* HighScoreController.m in Sources */,
 				C2D36A7514BAEFA600E2A96D /* Score.m in Sources */,
 				C2D36A7F14BAF23200E2A96D /* HelpView.m in Sources */,
+				CAB84F2514BBE79A00DBD6A3 /* LevelManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

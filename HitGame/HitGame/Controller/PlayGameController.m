@@ -19,9 +19,8 @@
 #import "HighScoreManager.h"
 #import "LayerUtil.h"
 #import "HelpView.h"
+#import "LevelManager.h"
 
-
-#define FALL_TIMER_DURATION 3
 #define FALL_ANIMATION_DURATION 3
 #define FALL_ROTATION_COUNT 4
 
@@ -41,7 +40,7 @@
 
 
 #define ROUND_TIME [[[NSBundle mainBundle] objectForInfoDictionaryKey:\
-                @"CFRoundTime"] doubleValue]
+                @"CFRoundTime"] doubleValue] - 30
 #define ALLOW_MISS_COUNT [[[NSBundle mainBundle] objectForInfoDictionaryKey:\
                 @"CFAllowMissCount"] doubleValue]
 
@@ -50,6 +49,7 @@
 @implementation PlayGameController
 @synthesize scoreLabel = _scoreLabel;
 @synthesize gameLevel = _gameLevel;
+@synthesize levelLabel = _levelLabel;
 @synthesize missLabel = _missLabel;
 
 
@@ -89,6 +89,7 @@
     [_fallingFoodViewList release];
     [_scoreLabel release];
     [_missLabel release];
+    [_levelLabel release];
     [super dealloc];
 }
 
@@ -100,6 +101,23 @@
     [super didReceiveMemoryWarning];
     
     // Release any cached data, images, etc that aren't in use.
+}
+
+- (BOOL)isMissCountEnough
+{
+    return _missCount >= _allowMissCount;
+}
+
+- (void)increaseMissCount
+{
+    [self.missLabel setText:[NSString stringWithFormat:@"失误: %d", ++ _missCount]];
+}
+
+- (void)reFreshLevelLabel
+{
+    if (_gameLevel) {
+        [_levelLabel setText:[NSString stringWithFormat:@"第%d关",_gameLevel.levelIndex]];
+    }
 }
 
 #pragma mark - game gesture process
@@ -135,7 +153,15 @@
     if(recognizer.state == UIGestureRecognizerStateEnded){
         FoodType foodType = [_foodManager foodTypeForGuesture:TapGameGesture];
         FoodView *foodView = [self getFoodViewWithFoodType:foodType];
-        [self addDefaultMissingAnimationTofoodView:foodView];
+        if (foodView == nil) {
+            [self increaseMissCount];
+            if ([self isMissCountEnough]) {
+                [self endGame:NO];
+            }
+
+        }else{
+            [self addDefaultMissingAnimationTofoodView:foodView];
+        }
     }
 }
 
@@ -168,7 +194,15 @@
         }
         foodType = [_foodManager foodTypeForGuesture:gameGestureType];
         FoodView *foodView = [self getFoodViewWithFoodType:foodType];
-        [self addDefaultMissingAnimationTofoodView:foodView];
+        if (foodView == nil) {
+            [self increaseMissCount];    
+            if ([self isMissCountEnough]) {
+                [self endGame:NO];
+            }
+            
+        }else{
+            [self addDefaultMissingAnimationTofoodView:foodView];
+        }
     }
 }
 
@@ -287,10 +321,9 @@
 - (void)normalEndFoodView:(FoodView *)foodView
 {
     if (foodView.status == Falling) {
-        _missCount ++;
         foodView.status = Dead;
-        [self.missLabel setText:[NSString stringWithFormat:@"失误: %d",_missCount]];
-        if (_missCount == _allowMissCount) {
+        [self increaseMissCount];
+        if ([self isMissCountEnough]) {
             _gameStatus = Fail;
             [self processStateMachine];
         }else {
@@ -466,11 +499,12 @@
 
     }
     [self releaseAllFoodViews];
+    NSString *buttonMsg = (isSuccessful) ? @"下一关" : @"重玩";
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"游戏结束" 
                                                     message:msg 
                                                    delegate:self 
-                                          cancelButtonTitle:@"确定" 
-                                          otherButtonTitles:@"重试", nil];
+                                          cancelButtonTitle:@"返回" 
+                                          otherButtonTitles:buttonMsg, nil];
     [alert show];
     [alert release];
     if (isSuccessful) {
@@ -525,11 +559,26 @@
 }
 
 #pragma mark - alertView delegate
+
+enum
+{
+  INDEX_BACK =0,
+  INDEX_REPLAY
+};
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == 1) {
+    if (buttonIndex == INDEX_BACK) {
+        [self quitGame:YES];
+    }
+    if (buttonIndex == REPLAY_GAME) {
+        if (_gameStatus == Sucess) {
+            //next level
+            self.gameLevel = [[LevelManager defaultManager]nextGameLevelWithCurrentLevel:_gameLevel];
+            [self reFreshLevelLabel];
+        }           
         _gameStatus = Ready;
         [self processStateMachine];
+        
     }
 }
 
@@ -641,6 +690,7 @@
         [self view:self.view addGestureRecognizer:type delegate:self];
     }
     [self addOptionButton];
+    [self reFreshLevelLabel];
     _gameStatus = Ready;
     [self processStateMachine];
 
@@ -650,6 +700,7 @@
 {
     [self setScoreLabel:nil];
     [self setMissLabel:nil];
+    [self setLevelLabel:nil];
     [super viewDidUnload];
 
 }

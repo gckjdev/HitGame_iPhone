@@ -12,5 +12,7 @@
 {
     NSMutableArray *_levelArray;
 }
+
+@property(nonatomic, retain)NSMutableArray *levelArray;
 - (IBAction)clickBackButton:(id)sender;
 @end

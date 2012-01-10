@@ -39,6 +39,7 @@
 @property (retain, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (retain, nonatomic) IBOutlet UILabel *missLabel;
 @property (retain, nonatomic) GameLevel *gameLevel;
+@property (retain, nonatomic) IBOutlet UILabel *levelLabel;
 
 
 - (id)initWithGameLevel:(GameLevel *)gameLevel;
