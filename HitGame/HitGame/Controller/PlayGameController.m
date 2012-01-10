@@ -414,6 +414,7 @@
 {
     _score = 0;
     _count = 0;
+    _missCount = 0;
     _retainSeconds = _roundTime;
     [self adjustClock];
     [self releaseAllFoodViews];
