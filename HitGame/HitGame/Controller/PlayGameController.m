@@ -18,7 +18,6 @@
 #import "GameLevel.h"
 #import "HighScoreManager.h"
 #import "LayerUtil.h"
-#import "HelpView.h"
 #import "LevelManager.h"
 
 #define FALL_ANIMATION_DURATION 3
@@ -584,7 +583,17 @@ enum
 
 - (void)popHelpMessage
 {
-    
+    HelpView* help = [[HelpView alloc] initWithFrame:CGRectMake(0, 0, 240, 160)];
+    [help setBackgroundColor:[UIColor grayColor]];
+    [help setCenter:CGPointMake(160, 240)];
+    [self.view addSubview:help];
+    [help release];
+}
+
+- (void)clickOkButton
+{
+    _gameStatus = Resume;
+    [self processStateMachine];
 }
 
 #pragma mark - HGQuadCurveMenu

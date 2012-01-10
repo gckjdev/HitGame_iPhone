@@ -10,13 +10,14 @@
 #import <QuartzCore/QuartzCore.h>
 #import "Enum.h"
 #import "HGQuadCurveMenu.h"
+#import "HelpView.h"
 
 
 @class Food;
 @class FoodView;
 @class FoodManager;
 @class GameLevel;
-@interface PlayGameController : UIViewController <UIGestureRecognizerDelegate, UIAlertViewDelegate, HGQuadCurveMenuDelegate>
+@interface PlayGameController : UIViewController <UIGestureRecognizerDelegate, UIAlertViewDelegate, HGQuadCurveMenuDelegate, HelpViewDelegate>
 {
 
     NSMutableSet *_fallingFoodViewList;

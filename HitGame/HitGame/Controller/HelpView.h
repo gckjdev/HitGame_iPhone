@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HelpView : UIView
+@protocol HelpViewDelegate <NSObject>
+ @optional
+- (void)clickOkButton;
+
+@end
+
+@interface HelpView : UIView {
+    UIButton* _okButton;    
+    id<HelpViewDelegate> _delegate;
+}
+@property (retain, nonatomic) UIButton* okButton;
+
 
 @end
