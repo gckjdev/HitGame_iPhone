@@ -584,7 +584,7 @@ enum
 
 - (void)popHelpMessage
 {
-    HelpView* view = [[HelpView alloc] init];
+    
 }
 
 #pragma mark - HGQuadCurveMenu
