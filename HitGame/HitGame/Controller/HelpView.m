@@ -43,6 +43,16 @@ const float buttonHeight = 20.0f;
     return self;
 }
 
+- (id)initWithFrame:(CGRect)frame withDelegate:(id<HelpViewDelegate>)aDelegate
+{
+    self = [self initWithFrame:frame];
+    if (self) {
+        _delegate = aDelegate;
+        // Initialization code
+    }
+    return self;
+}
+
 - (void)dealloc
 {
    // [_okButton release];
