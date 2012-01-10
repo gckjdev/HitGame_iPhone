@@ -22,9 +22,30 @@ HighScoreManager* GlobalGetHighScoreManager()
 @implementation HighScoreManager
 @synthesize highScoreDict = _highScoreDict;
 
+- (void)loadHighScore
+{
+    NSUserDefaults* userDefault = [NSUserDefaults standardUserDefaults];
+    NSData* highScoreData = [userDefault objectForKey:HIGH_SCORE];
+    
+    if (highScoreData) {
+        NSMutableDictionary* dict = [NSKeyedUnarchiver unarchiveObjectWithData:highScoreData];
+        self.highScoreDict = dict;
+    }
+}
+
+
+- (void)saveHighScore
+{
+    NSUserDefaults* userDefault = [NSUserDefaults standardUserDefaults];
+    NSData* highScoreData = [NSKeyedArchiver archivedDataWithRootObject:self.highScoreDict];
+    [userDefault setObject:highScoreData forKey:HIGH_SCORE];
+    [self loadHighScore];
+}
+
 - (id)init
 {
     self = [super init];
+    [self loadHighScore];
     if (_highScoreDict == nil) {
         _highScoreDict = [[NSMutableDictionary alloc] init];
     }
@@ -37,39 +58,33 @@ HighScoreManager* GlobalGetHighScoreManager()
     [super dealloc];
 }
 
+
 + (HighScoreManager*)defaultManager
 {
     return GlobalGetHighScoreManager();
-}
-
-- (void)saveHighScore
-{
-    NSUserDefaults* userDefault = [NSUserDefaults standardUserDefaults];
-    [userDefault setObject:self.highScoreDict forKey:HIGH_SCORE];
-}
-
-- (void)loadHighScore
-{
-    NSUserDefaults* userDefault = [NSUserDefaults standardUserDefaults];
-    NSMutableDictionary* dict = [userDefault objectForKey:HIGH_SCORE];
-    if (dict) {
-        self.highScoreDict = dict;
-    }
 }
 
 - (void)addHighScore:(NSInteger)aHighScore forLevel:(NSInteger)aLevel
 {
     NSNumber* level = [NSNumber numberWithInt:aLevel];
     NSNumber* score = [NSNumber numberWithInt:aHighScore];
-    NSMutableArray* scoreArray = [self.highScoreDict objectForKey:level];
-    if (scoreArray == nil) {
-        scoreArray = [[NSMutableArray alloc] init ];
-    }
+    NSMutableArray* scoreArray = [NSMutableArray arrayWithArray:[self.highScoreDict objectForKey:level]];
     [scoreArray addObject:score];
-    [scoreArray sortUsingSelector:@selector(compare:)];
-    [self.highScoreDict setObject:score forKey:level];
+    NSArray* array = [scoreArray sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2){
+        NSNumber* num1 = (NSNumber*)obj1;
+        NSNumber* num2 = (NSNumber*)obj2;
+        if (num1.intValue > num2.intValue) {
+            return NSOrderedAscending;
+        } else if (num1.intValue < num2.intValue){
+            return NSOrderedDescending;
+        }
+        return NSOrderedSame;
+    }];
+    if ([array count] > 10) {
+        array = [array subarrayWithRange:(NSRange){0,10}];
+    }
+    [self.highScoreDict setObject:array forKey:level];
     [self saveHighScore];
-    [scoreArray release];
 }
 
 - (NSArray*)highScoresForLevel:(NSInteger)aLevel

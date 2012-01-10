@@ -14,6 +14,7 @@
 @synthesize foodList = _foodList;
 @synthesize speed = _speed;
 @synthesize status = _status;
+@synthesize levelIndex = _levelIndex;
 
 
 - (id)initWithFoodList:(NSArray *)foodList 
@@ -29,6 +30,25 @@
         _highestScore = [NSNumber numberWithInt:highestScore];
         _speed = [NSNumber numberWithInt:speed];
         _status = [NSNumber numberWithInt:status];
+    }
+    return self;
+}
+
+- (id)initWithFoodList:(NSArray *)foodList 
+             passScore:(NSInteger)passScore 
+          highestScore:(NSInteger)highestScore 
+                 speed:(NSInteger)speed 
+                status:(NSInteger)status 
+            levelIndex:(NSInteger)aLevelIndex
+{
+    self = [super init];
+    if (self) {
+        self.foodList = foodList;
+        _passScore = [NSNumber numberWithInt:passScore];
+        _highestScore = [NSNumber numberWithInt:highestScore];
+        _speed = [NSNumber numberWithInt:speed];
+        _status = [NSNumber numberWithInt:status];
+        _levelIndex = aLevelIndex;
     }
     return self;
 }

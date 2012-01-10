@@ -19,11 +19,18 @@
 @property(nonatomic, retain)NSArray *foodList;
 @property(nonatomic, retain)NSNumber *speed;
 @property(nonatomic, retain)NSNumber *status;
+@property(nonatomic, assign)NSInteger levelIndex;
 
 - (id)initWithFoodList:(NSArray *)foodList 
              passScore:(NSInteger)passScore 
           highestScore:(NSInteger)highestScore 
                  speed:(NSInteger)speed 
                 status:(NSInteger)status;
+- (id)initWithFoodList:(NSArray *)foodList 
+             passScore:(NSInteger)passScore 
+          highestScore:(NSInteger)highestScore 
+                 speed:(NSInteger)speed 
+                status:(NSInteger)status 
+            levelIndex:(NSInteger)aLevelIndex;
 
 @end
