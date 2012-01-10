@@ -114,7 +114,7 @@ LevelManager *levelManager;
     return levelManager;
 }
 
-#define MAX_DURATION 4.5
+#define MAX_DURATION 3.0
 #define MIN_DURATION 1.0
 - (CFTimeInterval)calculateMaxDuration:(GameLevel *)level
 {
