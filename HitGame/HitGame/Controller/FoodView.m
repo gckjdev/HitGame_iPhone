@@ -8,11 +8,12 @@
 
 #import "FoodView.h"
 
-
+#define DEFAULT_SCORE 100
 @implementation FoodView
 @synthesize food = _food;
 @synthesize status = _status;
-
+@synthesize foodViewScore = _foodViewScore;
+@synthesize endPoint = _endPoint;
 - (id)initWithFood:(Food *)food
 {
     self = [super init];
@@ -20,6 +21,7 @@
         self.food = food;
         self.image = food.image;
         _status = Falling;
+        _foodViewScore = DEFAULT_SCORE;
     }
     return self;
 }
