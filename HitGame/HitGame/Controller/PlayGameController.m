@@ -141,7 +141,12 @@
 {
     CFTimeInterval maxInterval = [_levelManager calculateMaxDuration:_gameLevel];
     CFTimeInterval minInterval = [_levelManager calculateMinDuration:_gameLevel];
-    CFTimeInterval ret = minInterval + (maxInterval - minInterval) * _retainSeconds / _roundTime; 
+    
+    double b = (sqrt(pow(_roundTime * maxInterval + 1 -minInterval, 2) - 4 * (maxInterval - maxInterval * minInterval * _roundTime - minInterval)) - (_roundTime * maxInterval + 1 - minInterval)) / 2;
+    double a = (1 + b) / maxInterval;
+    CFTimeInterval ret = 0.5 / (_roundTime - _retainSeconds + a) + b;
+    
+//    CFTimeInterval ret = minInterval + (maxInterval - minInterval) * _retainSeconds / _roundTime; 
     NSLog(@"_retainSeconds: %f, duration: %f",_retainSeconds,ret);
     
     return ret;
