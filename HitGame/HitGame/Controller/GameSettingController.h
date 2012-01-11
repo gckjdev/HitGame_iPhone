@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface GameSettingController : UIViewController
+@property (retain, nonatomic) IBOutlet UISwitch *vibrationSwitcher;
 
 @end

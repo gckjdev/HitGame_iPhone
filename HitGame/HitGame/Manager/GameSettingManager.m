@@ -8,10 +8,14 @@
 
 #import "GameSettingManager.h"
 
+GameSettingManager* globalGameSettingManager;
+
 GameSettingManager* GlobalGetGameSettingManager()
 {
-    GameSettingManager* manager = [[GameSettingManager alloc ] init ];
-    return manager;
+    if (globalGameSettingManager == nil) {
+        globalGameSettingManager = [[GameSettingManager alloc ] init ];
+    } 
+    return globalGameSettingManager;
 }
 
 @implementation GameSettingManager
@@ -33,7 +37,7 @@ GameSettingManager* GlobalGetGameSettingManager()
 
 + (BOOL)isVibration
 {
-    return self.isVibration;
+    return [[GameSettingManager defaultManager] isVibration];
 }
 
 @end

@@ -8,6 +8,7 @@
 
 #import "PlayGameController.h"
 #import <QuartzCore/QuartzCore.h>
+#import <AudioToolbox/AudioToolbox.h>
 #import "AnimationManager.h"
 #import "FoodListView.h"
 #import "TestCase.h"
@@ -19,6 +20,7 @@
 #import "HighScoreManager.h"
 #import "LayerUtil.h"
 #import "LevelManager.h"
+#import "GameSettingManager.h"
 
 #define FALL_ANIMATION_DURATION 3
 #define FALL_ROTATION_COUNT 4
@@ -127,6 +129,13 @@
 - (void)increaseMissCount
 {
     [self.missLabel setText:[NSString stringWithFormat:@"失误: %d", ++ _missCount]];
+}
+
+- (void)vibrate
+{
+    if ([GameSettingManager isVibration]) {
+        AudioServicesPlaySystemSound (kSystemSoundID_Vibrate);
+    }
 }
 
 - (void)reFreshLevelLabel
@@ -364,6 +373,7 @@
         CAAnimation *missOpacity = [AnimationManager missingAnimationWithDuration:POPUP_MESSAGE_DURATION];
         [_popupMissView.layer addAnimation:missOpacity forKey:@"missOpacity"];
         [self increaseMissCount];
+        [self vibrate];
         if ([self isMissCountEnough]) {
             _gameStatus = Fail;
             [self processStateMachine];

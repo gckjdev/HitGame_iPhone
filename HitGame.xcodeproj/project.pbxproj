@@ -24,6 +24,7 @@
 		C28D37BD14B4581D0098033B /* GameSettingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C28D37BB14B4581D0098033B /* GameSettingController.xib */; };
 		C2C3815914BBF42E009B46EC /* HelpView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C3815814BBF42E009B46EC /* HelpView.m */; };
 		C2C6F0B214BD601A00AA0297 /* GameSettingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C6F0B114BD601A00AA0297 /* GameSettingManager.m */; };
+		C2C6F0B514BD678100AA0297 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C6F0B414BD678100AA0297 /* AudioToolbox.framework */; };
 		C2D36A7514BAEFA600E2A96D /* Score.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D36A7414BAEFA600E2A96D /* Score.m */; };
 		C2D8678414B42BA900EEF9DE /* HGQuadCurveMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D8678114B42BA900EEF9DE /* HGQuadCurveMenu.m */; };
 		C2D8678514B42BA900EEF9DE /* HGQuadCurveMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D8678314B42BA900EEF9DE /* HGQuadCurveMenuItem.m */; };
@@ -112,6 +113,7 @@
 		C2C3815814BBF42E009B46EC /* HelpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpView.m; sourceTree = "<group>"; };
 		C2C6F0B014BD601A00AA0297 /* GameSettingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSettingManager.h; sourceTree = "<group>"; };
 		C2C6F0B114BD601A00AA0297 /* GameSettingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSettingManager.m; sourceTree = "<group>"; };
+		C2C6F0B414BD678100AA0297 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		C2D36A7314BAEFA600E2A96D /* Score.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Score.h; sourceTree = "<group>"; };
 		C2D36A7414BAEFA600E2A96D /* Score.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Score.m; sourceTree = "<group>"; };
 		C2D8678014B42BA900EEF9DE /* HGQuadCurveMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGQuadCurveMenu.h; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2C6F0B514BD678100AA0297 /* AudioToolbox.framework in Frameworks */,
 				CA6C742514AF06ED00E15785 /* QuartzCore.framework in Frameworks */,
 				CA6C739C14AF064900E15785 /* UIKit.framework in Frameworks */,
 				CA6C739E14AF064900E15785 /* Foundation.framework in Frameworks */,
@@ -257,7 +260,6 @@
 		CA6C738C14AF064800E15785 = {
 			isa = PBXGroup;
 			children = (
-				CA6C742414AF06ED00E15785 /* QuartzCore.framework */,
 				CA6C73A114AF064900E15785 /* HitGame */,
 				CA6C73C114AF064900E15785 /* HitGameTests */,
 				CA6C739A14AF064900E15785 /* Frameworks */,
@@ -277,6 +279,8 @@
 		CA6C739A14AF064900E15785 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CA6C742414AF06ED00E15785 /* QuartzCore.framework */,
+				C2C6F0B414BD678100AA0297 /* AudioToolbox.framework */,
 				CA6C739B14AF064900E15785 /* UIKit.framework */,
 				CA6C739D14AF064900E15785 /* Foundation.framework */,
 				CA6C739F14AF064900E15785 /* CoreGraphics.framework */,
