@@ -13,6 +13,7 @@ const float buttonHeight = 20.0f;
 
 @implementation HelpView
 @synthesize okButton = _okButton;
+@synthesize contentView = _contentView;
 
 - (void)clickOk:(id)sender
 {
@@ -25,18 +26,31 @@ const float buttonHeight = 20.0f;
 - (void)buttonInit
 {
     _okButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [_okButton setFrame:CGRectMake(self.frame.size.width-buttonWidth, self.frame.size.height-buttonHeight, buttonWidth, buttonHeight)];
+    [_okButton setFrame:CGRectMake(self.contentView.frame.size.width-buttonWidth, self.contentView.frame.size.height-buttonHeight, buttonWidth, buttonHeight)];
     [_okButton setTitle:@"OK" forState:UIControlStateNormal];
     [_okButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [_okButton addTarget:self action:@selector(clickOk:) forControlEvents:UIControlEventTouchUpInside];
     //[_okButton setBackgroundColor:[UIColor redColor]];
-    [self addSubview:_okButton];
+    [self.contentView addSubview:_okButton];
+}
+
+- (void)contentInit:(CGRect)frame
+{
+    _contentView = [[UIView alloc] initWithFrame:frame];
+    [_contentView setBackgroundColor:[UIColor grayColor]];
+    [_contentView setCenter:CGPointMake(160, 240)];
+    [self addSubview:_contentView];
+    [_contentView release];
+    
 }
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
+        [self setFrame:CGRectMake(0, 0, 320, 480)];
+        [self setBackgroundColor:[UIColor clearColor]];
+        [self contentInit:frame];
         [self buttonInit];
         // Initialization code
     }

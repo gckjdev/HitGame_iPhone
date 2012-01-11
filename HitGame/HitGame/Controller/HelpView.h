@@ -19,6 +19,7 @@
     id<HelpViewDelegate> _delegate;
 }
 @property (retain, nonatomic) UIButton* okButton;
+@property (retain, nonatomic) UIView* contentView;
 - (id)initWithFrame:(CGRect)frame withDelegate:(id<HelpViewDelegate>)aDelegate;
 
 @end

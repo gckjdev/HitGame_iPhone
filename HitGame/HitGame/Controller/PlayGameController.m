@@ -625,9 +625,7 @@ enum
 
 - (void)popHelpMessage
 {
-    HelpView* help = [[HelpView alloc] initWithFrame:CGRectMake(0, 0, 240, 160)];
-    [help setBackgroundColor:[UIColor grayColor]];
-    [help setCenter:CGPointMake(160, 240)];
+    HelpView* help = [[HelpView alloc] initWithFrame:CGRectMake(0, 0, 240, 160) withDelegate:self];
     [self.view addSubview:help];
     [help release];
 }
