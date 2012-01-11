@@ -142,6 +142,7 @@
     CFTimeInterval minInterval = [_levelManager calculateMinDuration:_gameLevel];
 
     CFTimeInterval ret = (maxInterval - minInterval) / pow(_roundTime, 2) * pow(_retainSeconds, 2) +minInterval;
+    //CFTimeInterval ret = (minInterval - maxInterval) * sin(M_PI/(2*_roundTime)*(_roundTime-_retainSeconds))+maxInterval;//method 2,using sin func
     return ret;
 }
 
