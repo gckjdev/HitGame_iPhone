@@ -24,7 +24,10 @@
 + (CAAnimation *)missingAnimationWithDuration:(CFTimeInterval)duration;
 
 //scale
-+ (CAAnimation *)scaleAnimationWithScale:(CGFloat)scale  duration:(CFTimeInterval)duration;
++ (CAAnimation *)scaleAnimationWithScale:(CGFloat)scale  
+                                duration:(CFTimeInterval)duration 
+                                delegate:(id)delegate 
+                        removeCompeleted:(BOOL)removedOnCompletion;
 
 //translation
 + (CAAnimation *)translationAnimationFrom:(CGPoint) start

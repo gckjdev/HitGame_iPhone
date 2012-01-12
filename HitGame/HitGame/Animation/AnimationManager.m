@@ -75,12 +75,17 @@ AnimationManager *animatinManager;
     return animation;
 }
 
-+ (CAAnimation *)scaleAnimationWithScale:(CGFloat)scale  duration:(CFTimeInterval)duration
++ (CAAnimation *)scaleAnimationWithScale:(CGFloat)scale  
+                                duration:(CFTimeInterval)duration 
+                                delegate:(id)delegate 
+                        removeCompeleted:(BOOL)removedOnCompletion
 {
     
     CABasicAnimation * animation=[CABasicAnimation animationWithKeyPath:@"transform"]; 
     animation.toValue = [ NSValue valueWithCATransform3D: CATransform3DMakeScale(scale, scale, scale)];
     animation.duration = duration;
+    animation.fillMode = kCAFillModeForwards;
+    animation.removedOnCompletion = removedOnCompletion;
     return animation;
 }
 
