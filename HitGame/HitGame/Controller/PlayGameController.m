@@ -22,6 +22,7 @@
 #import "LevelManager.h"
 #import "GameSettingManager.h"
 #import "AudioManager.h"
+#import "GestureTraceView.h"
 
 #define FALL_ANIMATION_DURATION 3
 #define FALL_ROTATION_COUNT 4
@@ -783,6 +784,14 @@ enum
 
 
 
+- (void)addGestureTraceView
+{
+    GestureTraceView *gestureTrace = [[GestureTraceView alloc] initWithFrame:self.view.bounds];
+    gestureTrace.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:gestureTrace];
+    [gestureTrace release];
+}
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
@@ -796,6 +805,9 @@ enum
     [self reFreshLevelLabel];
     _gameStatus = Ready;
     [self processStateMachine];
+    
+    [self addGestureTraceView];
+
 
 }
 

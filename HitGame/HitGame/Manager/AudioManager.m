@@ -74,8 +74,8 @@ AudioManager* globalGetAudioManager()
 
 - (void)backgroundMusicStart
 {
-    [self setBackGroundMusicWithName:@"loveTrading.mp3"];
-    [self.backgroundMusicPlayer play];
+//    [self setBackGroundMusicWithName:@"loveTrading.mp3"];
+//    [self.backgroundMusicPlayer play];
     
 }
 
