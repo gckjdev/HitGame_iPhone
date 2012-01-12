@@ -9,6 +9,7 @@
 #import "HitGameAppDelegate.h"
 #import "GameListController.h"
 #import "EntryController.h"
+#import "AudioManager.h"
 @implementation HitGameAppDelegate
 
 
@@ -31,6 +32,7 @@
     [rootViewController release];
     [self.window makeKeyAndVisible];
     return YES;
+
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -51,6 +53,7 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
+    [AudioManager defaultManager];
     /*
      Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
      */

@@ -14,7 +14,11 @@
     AVAudioPlayer* _backgroundMusicPlayer;
     AVAudioPlayer* _soundPlayer;
 }
+@property (retain, nonatomic) AVAudioPlayer* backgroundMusicPlayer;
+@property (retain, nonatomic) AVAudioPlayer* soundPlayer;
 
++ (AudioManager*)defaultManager;
+- (void)setBackGroundMusicWithName:(NSString*)aMusicName;
 - (void)playSoundByName:(NSString*)aSoundName;
 - (void)backgroundMusicStart;
 - (void)backgroundMusicPause;

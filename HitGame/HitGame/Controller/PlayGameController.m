@@ -21,7 +21,7 @@
 #import "LayerUtil.h"
 #import "LevelManager.h"
 #import "GameSettingManager.h"
-#import <AVFoundation/AVFoundation.h>
+#import "AudioManager.h"
 
 #define FALL_ANIMATION_DURATION 3
 #define FALL_ROTATION_COUNT 4
@@ -82,12 +82,6 @@
         _fallingFoodViewList = [[NSMutableSet alloc] init];
         _foodManager = [FoodManager defaultManager];
         _levelManager = [LevelManager defaultManager];
-        NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"loveTrading" ofType:@"mp3"];
-        NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
-        AVAudioPlayer *player = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:nil];
-        player.numberOfLoops = -1; //infinite
-        
-        [player play];
 
         [self readConfig];
 
@@ -514,6 +508,44 @@
     [self.missLabel setText:@"失误: 0"];
 }
 
+- (void)startPlayMusic
+{
+    [[AudioManager defaultManager] backgroundMusicStart];
+}
+
+enum {
+    BGM_START = 0,
+    BGM_PAUSE,
+    BGM_CONTINUE,
+    BGM_STOP
+};
+
+- (void) playBackGroundMusic:(NSInteger)anAction
+{
+    AudioManager* manager = [AudioManager defaultManager];
+    switch (anAction) {
+        case BGM_START: {
+            [self performSelectorInBackground:@selector(startPlayMusic) withObject:nil];
+            break;
+        }
+        case BGM_PAUSE: {
+            [manager backgroundMusicPause];
+            break;
+        }
+        case BGM_CONTINUE: {
+            [manager backgroundMusicContinue];
+            break;
+        }
+        case BGM_STOP: {
+            [manager backgroundMusicStop];
+            break;
+        }
+        default:
+            break;
+    }
+    
+}
+
 #pragma mark - game process control
 
 - (void)pauseGame
@@ -524,15 +556,18 @@
     for (FoodView *foodView in _fallingFoodViewList) {
         [LayerUtil pauseLayer:foodView.layer];
     }
+    [self playBackGroundMusic:BGM_PAUSE];
 }
 
 - (void)resumeGame
 {
     _gameStatus = OnGoing;
+    
     [self startClockTimer];
     for (FoodView *foodView in _fallingFoodViewList) {
         [LayerUtil resumeLayer:foodView.layer];
     }
+    [self playBackGroundMusic:BGM_CONTINUE];
 }
 
 - (void)startGame
@@ -542,6 +577,7 @@
     [self startClockTimer];
     [self resetAttributes];
     [self fallRandFood];
+    [self playBackGroundMusic:BGM_START];
 
 }
 
@@ -569,12 +605,11 @@
         HighScoreManager* manager = [HighScoreManager defaultManager];
         [manager addHighScore:_score forLevel:self.gameLevel.levelIndex];
     }
-  
+    [self playBackGroundMusic:BGM_STOP];  
 }
 
 - (void)quitGame:(BOOL)backToLevelPick
 {
-    
     [self stopClockTimer];
     [self releaseAllFoodViews];
     [self resetAttributes];
@@ -583,6 +618,7 @@
     }else{
         //
     }
+    [self playBackGroundMusic:BGM_STOP];
 }
 
 - (void)processStateMachine
