@@ -89,6 +89,24 @@ AnimationManager *animatinManager;
     return animation;
 }
 
+
++ (CAAnimation *)scaleAnimationWithFromScale:(CGFloat)fromScale 
+                                     toScale:(CGFloat)toScale
+                                duration:(CFTimeInterval)duration 
+                                delegate:(id)delegate 
+                        removeCompeleted:(BOOL)removedOnCompletion
+{
+    
+    CABasicAnimation * animation=[CABasicAnimation animationWithKeyPath:@"transform"]; 
+    animation.fromValue = [ NSValue valueWithCATransform3D: CATransform3DMakeScale(fromScale, fromScale, fromScale)];
+
+    animation.toValue = [ NSValue valueWithCATransform3D: CATransform3DMakeScale(toScale, toScale, toScale)];
+    animation.duration = duration;
+    animation.fillMode = kCAFillModeForwards;
+    animation.removedOnCompletion = removedOnCompletion;
+    return animation;
+}
+
 + (CAAnimation *)translationAnimationFrom:(CGPoint) start
                                          to:(CGPoint)end
                                   duration:(CFTimeInterval)duration

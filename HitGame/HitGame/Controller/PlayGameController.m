@@ -21,6 +21,7 @@
 #import "LayerUtil.h"
 #import "LevelManager.h"
 #import "GameSettingManager.h"
+#import <AVFoundation/AVFoundation.h>
 
 #define FALL_ANIMATION_DURATION 3
 #define FALL_ROTATION_COUNT 4
@@ -81,6 +82,12 @@
         _fallingFoodViewList = [[NSMutableSet alloc] init];
         _foodManager = [FoodManager defaultManager];
         _levelManager = [LevelManager defaultManager];
+        NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"loveTrading" ofType:@"mp3"];
+        NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
+        AVAudioPlayer *player = [[AVAudioPlayer alloc] initWithContentsOfURL:soundFileURL error:nil];
+        player.numberOfLoops = -1; //infinite
+        
+        [player play];
 
         [self readConfig];
 

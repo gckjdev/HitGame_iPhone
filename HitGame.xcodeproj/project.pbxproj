@@ -28,6 +28,9 @@
 		C2D36A7514BAEFA600E2A96D /* Score.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D36A7414BAEFA600E2A96D /* Score.m */; };
 		C2D8678414B42BA900EEF9DE /* HGQuadCurveMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D8678114B42BA900EEF9DE /* HGQuadCurveMenu.m */; };
 		C2D8678514B42BA900EEF9DE /* HGQuadCurveMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D8678314B42BA900EEF9DE /* HGQuadCurveMenuItem.m */; };
+		C2DDBF5414BE9AB400CAD5E5 /* loveTrading.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C2DDBF5314BE9AB400CAD5E5 /* loveTrading.mp3 */; };
+		C2DDBF5714BEB1D800CAD5E5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2DDBF5614BEB1D800CAD5E5 /* AVFoundation.framework */; };
+		C2DDBF5D14BEB73600CAD5E5 /* AudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C2DDBF5C14BEB73600CAD5E5 /* AudioManager.m */; };
 		C2E5E89614B83F0100852530 /* HighScoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E5E89414B83F0100852530 /* HighScoreController.m */; };
 		C2E5E89714B83F0100852530 /* HighScoreController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2E5E89514B83F0100852530 /* HighScoreController.xib */; };
 		C2FA3A8714B5734000F1465E /* HighScoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C2FA3A8614B5734000F1465E /* HighScoreManager.m */; };
@@ -120,6 +123,10 @@
 		C2D8678114B42BA900EEF9DE /* HGQuadCurveMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGQuadCurveMenu.m; sourceTree = "<group>"; };
 		C2D8678214B42BA900EEF9DE /* HGQuadCurveMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGQuadCurveMenuItem.h; sourceTree = "<group>"; };
 		C2D8678314B42BA900EEF9DE /* HGQuadCurveMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGQuadCurveMenuItem.m; sourceTree = "<group>"; };
+		C2DDBF5314BE9AB400CAD5E5 /* loveTrading.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = loveTrading.mp3; path = ../../../../Users/orange/Downloads/loveTrading.mp3; sourceTree = "<group>"; };
+		C2DDBF5614BEB1D800CAD5E5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		C2DDBF5B14BEB73600CAD5E5 /* AudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioManager.h; sourceTree = "<group>"; };
+		C2DDBF5C14BEB73600CAD5E5 /* AudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioManager.m; sourceTree = "<group>"; };
 		C2E5E89314B83F0100852530 /* HighScoreController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoreController.h; sourceTree = "<group>"; };
 		C2E5E89414B83F0100852530 /* HighScoreController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoreController.m; sourceTree = "<group>"; };
 		C2E5E89514B83F0100852530 /* HighScoreController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HighScoreController.xib; sourceTree = "<group>"; };
@@ -207,6 +214,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2DDBF5714BEB1D800CAD5E5 /* AVFoundation.framework in Frameworks */,
 				C2C6F0B514BD678100AA0297 /* AudioToolbox.framework in Frameworks */,
 				CA6C742514AF06ED00E15785 /* QuartzCore.framework in Frameworks */,
 				CA6C739C14AF064900E15785 /* UIKit.framework in Frameworks */,
@@ -279,6 +287,7 @@
 		CA6C739A14AF064900E15785 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C2DDBF5614BEB1D800CAD5E5 /* AVFoundation.framework */,
 				CA6C742414AF06ED00E15785 /* QuartzCore.framework */,
 				C2C6F0B414BD678100AA0297 /* AudioToolbox.framework */,
 				CA6C739B14AF064900E15785 /* UIKit.framework */,
@@ -406,6 +415,8 @@
 				CAB84F2414BBE79A00DBD6A3 /* LevelManager.m */,
 				C2C6F0B014BD601A00AA0297 /* GameSettingManager.h */,
 				C2C6F0B114BD601A00AA0297 /* GameSettingManager.m */,
+				C2DDBF5B14BEB73600CAD5E5 /* AudioManager.h */,
+				C2DDBF5C14BEB73600CAD5E5 /* AudioManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -461,6 +472,7 @@
 		CA6C73FC14AF068E00E15785 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				C2DDBF5314BE9AB400CAD5E5 /* loveTrading.mp3 */,
 				C28D378914B438430098033B /* QuardCurveMenuImages */,
 				CA6C73FD14AF068E00E15785 /* egg.png */,
 				CA6C73FE14AF068E00E15785 /* hamburger.png */,
@@ -576,6 +588,7 @@
 				C28D37A314B438430098033B /* icon-star@2x.png in Resources */,
 				C28D37BD14B4581D0098033B /* GameSettingController.xib in Resources */,
 				C2E5E89714B83F0100852530 /* HighScoreController.xib in Resources */,
+				C2DDBF5414BE9AB400CAD5E5 /* loveTrading.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -641,6 +654,7 @@
 				CAB84F2514BBE79A00DBD6A3 /* LevelManager.m in Sources */,
 				C2C3815914BBF42E009B46EC /* HelpView.m in Sources */,
 				C2C6F0B214BD601A00AA0297 /* GameSettingManager.m in Sources */,
+				C2DDBF5D14BEB73600CAD5E5 /* AudioManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

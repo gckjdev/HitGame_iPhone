@@ -28,6 +28,11 @@
                                 duration:(CFTimeInterval)duration 
                                 delegate:(id)delegate 
                         removeCompeleted:(BOOL)removedOnCompletion;
++ (CAAnimation *)scaleAnimationWithFromScale:(CGFloat)fromScale 
+                                     toScale:(CGFloat)toScale
+                                    duration:(CFTimeInterval)duration 
+                                    delegate:(id)delegate 
+                            removeCompeleted:(BOOL)removedOnCompletion;
 
 //translation
 + (CAAnimation *)translationAnimationFrom:(CGPoint) start

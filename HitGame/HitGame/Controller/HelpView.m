@@ -9,6 +9,7 @@
 #import "HelpView.h"
 #import <QuartzCore/QuartzCore.h>
 #import "AnimationManager.h"
+
 const float buttonWidth = 40.0f;
 const float buttonHeight = 20.0f;
 
@@ -21,7 +22,12 @@ const float buttonHeight = 20.0f;
     if (_delegate && [_delegate respondsToSelector:@selector(clickOkButton)]) {
         [_delegate clickOkButton];
     }
-    [self setHidden:YES];
+    CAAnimation *scaleAnimation = [AnimationManager scaleAnimationWithFromScale:1 toScale:0.1 duration:0.5 delegate:self removeCompeleted:NO];
+    CAAnimation *rollAnimation = [AnimationManager rotationAnimationWithRoundCount:3 duration:0.5];
+    [scaleAnimation setValue:@"minify" forKey:@"AnimationKey"];
+    [scaleAnimation setDelegate:self];
+    [_contentView.layer addAnimation:scaleAnimation forKey:@"minify"];
+    [_contentView.layer addAnimation:rollAnimation forKey:@"rolling"];
 }
 
 - (void)buttonInit
@@ -31,7 +37,6 @@ const float buttonHeight = 20.0f;
     [_okButton setTitle:@"OK" forState:UIControlStateNormal];
     [_okButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [_okButton addTarget:self action:@selector(clickOk:) forControlEvents:UIControlEventTouchUpInside];
-    //[_okButton setBackgroundColor:[UIColor redColor]];
     [self.contentView addSubview:_okButton];
 }
 
@@ -40,26 +45,23 @@ const float buttonHeight = 20.0f;
     _contentView = [[UIView alloc] initWithFrame:frame];
     [_contentView setBackgroundColor:[UIColor grayColor]];
     [_contentView setCenter:CGPointMake(160, 240)];
-    //self.contentView.layer.transform = CATransform3DMakeTranslation(5, 5, 1);
-    //self.contentView.layer.duration = 1;
     [self addSubview:_contentView];
-//    CABasicAnimation *scaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform"];
-//    scaleAnimation.toValue = [NSValue valueWithCATransform3D:CATransform3DMakeScale(1.5, 1.5, 1)];
-//    scaleAnimation.duration = 1;
-//    scaleAnimation.fillMode = kCAFillModeForwards;
-//    scaleAnimation.removedOnCompletion = NO;
-    CAAnimation *scaleAnimation1 = [AnimationManager scaleAnimationWithScale:0.001 duration:0 delegate:self removeCompeleted:YES];
-    scaleAnimation1.beginTime = 0;
-    CAAnimation *scaleAnimation = [AnimationManager scaleAnimationWithScale:1 duration:1 delegate:self removeCompeleted:YES];
-    scaleAnimation.beginTime = 0;
-    [_contentView.layer addAnimation:scaleAnimation1 forKey:@"scale1"];
-    //[_contentView.layer addAnimation:scaleAnimation forKey:@"scale"];
-//    scaleAnimation.fillMode = kCAFillModeForwards;
-//    scaleAnimation.removedOnCompletion = NO;
-    //self.contentView.layer.duration = 1;
-     [_contentView release];
+    CAAnimation *scaleAnimation = [AnimationManager scaleAnimationWithFromScale:0.1 toScale:1 duration:0.5 delegate:self removeCompeleted:NO];
+    CAAnimation *rollAnimation = [AnimationManager rotationAnimationWithRoundCount:-3 duration:0.5];
+    [_contentView.layer addAnimation:scaleAnimation forKey:@"enlarge"];
+    [_contentView.layer addAnimation:rollAnimation forKey:@"rolling"];
+    [_contentView release];
     
 }
+
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
+{
+    NSString* value = [anim valueForKey:@"AnimationKey"];
+    if ([value isEqualToString:@"minify"]) {
+        [self setHidden:YES];
+    }
+}
+
 
 - (id)initWithFrame:(CGRect)frame
 {

@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/CAAnimation.h>
+
 
 @protocol HelpViewDelegate <NSObject>
  @optional
@@ -14,7 +16,7 @@
 
 @end
 
-@interface HelpView : UIView {
+@interface HelpView : UIView{
     UIButton* _okButton;    
     id<HelpViewDelegate> _delegate;
 }
