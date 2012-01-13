@@ -59,4 +59,6 @@
 buttonHighLightImage:(UIImage*)aButtonHighLightImage 
        contentImage:(UIImage*)aContentImage 
 contentHighLightImage:(UIImage*)aContentHighLightImage;
+- (void)expandItems;
+- (void)closeItems;
 @end

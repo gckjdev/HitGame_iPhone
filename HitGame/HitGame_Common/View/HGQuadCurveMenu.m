@@ -271,6 +271,22 @@ contentHighLightImage:(UIImage*)aContentHighLightImage
         _timer = [[NSTimer scheduledTimerWithTimeInterval:self.timeOffset target:self selector:selector userInfo:nil repeats:YES] retain];
     }
 }
+
+- (void)expandItems
+{
+    if (!_isExpanding) {
+        [self setIsExpanding:YES];
+    }
+    
+}
+
+- (void)closeItems
+{
+    if (_isExpanding) {
+        [self setIsExpanding:NO];
+    }
+}
+
 #pragma mark - private methods
 - (void)_expand
 {
