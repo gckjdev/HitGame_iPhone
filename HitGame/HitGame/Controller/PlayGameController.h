@@ -18,6 +18,7 @@
 @class FoodManager;
 @class GameLevel;
 @class LevelManager;
+@class GestureTraceView;
 
 @interface PlayGameController : UIViewController <UIGestureRecognizerDelegate, UIAlertViewDelegate, HGQuadCurveMenuDelegate, HelpViewDelegate>
 
@@ -39,6 +40,7 @@
     GameLevel *_gameLevel;
     GameStatus _gameStatus;
     LevelManager *_levelManager;
+    GestureTraceView *_gestureTrace;
 }
 
 @property (retain, nonatomic) IBOutlet UILabel *scoreLabel;

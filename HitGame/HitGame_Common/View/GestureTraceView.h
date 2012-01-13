@@ -7,17 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
+
 
 @interface GestureTraceView : UIView<UIGestureRecognizerDelegate>
 {
-    CGPoint startPoint;
-    NSMutableArray *pointList;
-    BOOL shouldClear;
-    BOOL needDrawRect;
+    NSMutableArray *_pointList;
+    BOOL _needDrawRect;
+    
 }
 
 
 @property(nonatomic, retain)UIColor *traceColor;
 @property(nonatomic, assign)CGFloat traceWidth;
 @property(nonatomic, assign)CFTimeInterval clearTraceDelay;
+
+- (void)didStartGestrue:(UIGestureRecognizer *)gesture;
+- (void)didEndedGestrue:(UIGestureRecognizer *)gesture;
+- (void)didGestrue:(UIGestureRecognizer *)gesture MovedAtPoint:(CGPoint)point;
 @end

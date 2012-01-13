@@ -201,7 +201,19 @@
 
 - (void)performPanGesture:(UIPanGestureRecognizer *)recognizer
 {
-    if(recognizer.state == UIGestureRecognizerStateEnded){
+    if (recognizer.state == UIGestureRecognizerStateBegan) {
+        
+        [_gestureTrace didStartGestrue:recognizer];
+        [_gestureTrace didGestrue:recognizer MovedAtPoint:
+         [recognizer locationInView:_gestureTrace]];
+        
+    }else if(recognizer.state == UIGestureRecognizerStateChanged)
+    {
+        [_gestureTrace didGestrue:recognizer MovedAtPoint:
+         [recognizer locationInView:_gestureTrace]];
+        
+    }else if(recognizer.state == UIGestureRecognizerStateEnded){
+        [_gestureTrace didEndedGestrue:recognizer];
         FoodType foodType = Illegal;
         CGPoint point = [recognizer translationInView:self.view];
         //左边
@@ -239,11 +251,25 @@
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
 {
-    if (touch.view == self.view) {
+    if (touch.view == self.view || touch.view == _gestureTrace) {
+        NSLog(@"<debug> shouldReceiveTouch YES");
         return YES;
     }
+    NSLog(@"<debug> shouldReceiveTouch NO");
     return NO;
 }
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+    return YES;
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    NSLog(@"<debug> shouldRecognizeSimultaneouslyWithGestureRecognizer YES");
+    return YES;
+}
+
 
 
 - (void)view:(UIView *)view addGestureRecognizer:(NSInteger)type 
@@ -323,7 +349,8 @@
     
     FoodView *image = [[[FoodView alloc] initWithFood:food] autorelease];
     image.frame = CGRectMake(-48, -48, 48, 48);
-    [self.view insertSubview:image atIndex:0];
+    //[self.view insertSubview:image atIndex:0];
+    [self.view addSubview:image];
     image.endPoint = CGPointMake(rand()%320, 400+24);
     CAAnimation *translation = [AnimationManager translationAnimationFrom:CGPointMake(rand()%320, -24) to:image.endPoint duration:[self calculateFallDuration] delegate:self removeCompeleted:NO];
     
@@ -786,17 +813,22 @@ enum
 
 - (void)addGestureTraceView
 {
-    GestureTraceView *gestureTrace = [[GestureTraceView alloc] initWithFrame:self.view.bounds];
-    gestureTrace.backgroundColor = [UIColor clearColor];
-    [self.view addSubview:gestureTrace];
-    [gestureTrace release];
+    CGRect rect = CGRectMake(0, 0, 320, 420);
+    _gestureTrace = [[GestureTraceView alloc] initWithFrame:rect];
+    _gestureTrace.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:_gestureTrace];
+    [_gestureTrace release];
 }
+
+
 
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    [self addGestureTraceView];
     for (int type = LongPressGestureRecognizer; type < GestureRecognizerTypeCount; ++ type) {
         [self view:self.view addGestureRecognizer:type delegate:self];
     }
@@ -806,7 +838,6 @@ enum
     _gameStatus = Ready;
     [self processStateMachine];
     
-    [self addGestureTraceView];
 
 
 }
