@@ -7,6 +7,7 @@
 //
 
 #import "LevelPickerController.h"
+#import "HitGameAppDelegate.h"
 #import "PlayGameController.h"
 #import "GameLevel.h"
 #import "LevelManager.h"
@@ -44,6 +45,10 @@
 }
 
 
+- (void)setCurrentPlayGameController:(PlayGameController *)pgController;
+{
+    [(HitGameAppDelegate *)[UIApplication sharedApplication].delegate setPlayGameController:pgController]; 
+}
 
 - (void)pickLevelButton:(id)sender
 {
@@ -52,6 +57,7 @@
     GameLevel *level = [_levelArray objectAtIndex:tag];
     PlayGameController *pgController = [[PlayGameController alloc] initWithGameLevel:level];
     [self.navigationController pushViewController:pgController animated:YES];
+    [self setCurrentPlayGameController:pgController];
     [pgController release];
     
 }
