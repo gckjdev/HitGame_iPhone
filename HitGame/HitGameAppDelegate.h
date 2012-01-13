@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-
+@class PlayGameController;
 @interface HitGameAppDelegate : NSObject <UIApplicationDelegate> {
-
+    PlayGameController *_playGameController;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
+@property (nonatomic, retain) PlayGameController *playGameController;
 
 
 @end

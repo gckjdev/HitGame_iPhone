@@ -10,8 +10,10 @@
 #import "GameListController.h"
 #import "EntryController.h"
 #import "AudioManager.h"
-@implementation HitGameAppDelegate
+#import "PlayGameController.h"
 
+@implementation HitGameAppDelegate
+@synthesize playGameController = _playGameController;
 
 @synthesize window=_window;
 
@@ -49,6 +51,9 @@
      Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
      If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
      */
+    if (_playGameController) {
+        [_playGameController pauseGame];
+    }
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -78,6 +83,7 @@
 - (void)dealloc
 {
     [_window release];
+    [_playGameController release];
     [super dealloc];
 }
 

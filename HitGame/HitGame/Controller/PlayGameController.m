@@ -349,8 +349,8 @@
     
     FoodView *image = [[[FoodView alloc] initWithFood:food] autorelease];
     image.frame = CGRectMake(-48, -48, 48, 48);
-    //[self.view insertSubview:image atIndex:0];
-    [self.view addSubview:image];
+    [self.view insertSubview:image atIndex:0];
+    //[self.view addSubview:image];
     image.endPoint = CGPointMake(rand()%320, 400+24);
     CAAnimation *translation = [AnimationManager translationAnimationFrom:CGPointMake(rand()%320, -24) to:image.endPoint duration:[self calculateFallDuration] delegate:self removeCompeleted:NO];
     
