@@ -11,7 +11,7 @@
 @implementation Score
 @synthesize name = _name;
 @synthesize date = _date;
-@synthesize score = _score;
+@synthesize scoreValue = _scoreValue;
 
 - (id)init
 {
@@ -28,7 +28,7 @@
     if (self) {
         self.name = aName;
         self.date = aDate;
-        self.score = aScore;
+        self.scoreValue = aScore;
     }
     return self;
 }
@@ -39,7 +39,7 @@
     if (self) {
         self.name = [aDecoder decodeObjectForKey:@"name"];
         self.date = [aDecoder decodeObjectForKey:@"date"];
-        self.score = [aDecoder decodeDoubleForKey:@"score"];
+        self.scoreValue = [aDecoder decodeDoubleForKey:@"scoreValue"];
     }
     return self;
 }
@@ -48,7 +48,7 @@
 {
     [aCoder encodeObject:self.name forKey:@"name"];
     [aCoder encodeObject:self.date forKey:@"date"];
-    [aCoder encodeDouble:self.score forKey:@"score"];
+    [aCoder encodeDouble:self.scoreValue forKey:@"scoreValue"];
 }
 
 @end

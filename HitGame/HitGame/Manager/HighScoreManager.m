@@ -9,6 +9,7 @@
 #define HIGH_SCORE @"highScore"
 
 #import "HighScoreManager.h"
+#import "Score.h"
 HighScoreManager *highScoreManager;
 
 HighScoreManager* GlobalGetHighScoreManager()
@@ -87,6 +88,30 @@ HighScoreManager* GlobalGetHighScoreManager()
     [self saveHighScore];
 }
 
+- (void)addHighScore:(NSInteger)aHighScore forLevel:(NSInteger)aLevel withName:(NSString*)aName date:(NSDate*)aDate
+{
+    NSNumber* level = [NSNumber numberWithInt:aLevel];
+    Score* score = [[Score alloc] initWithName:aName date:aDate Score:aHighScore];
+    NSMutableArray* scoreArray = [NSMutableArray arrayWithArray:[self.highScoreDict objectForKey:level]];
+    [scoreArray addObject:score];
+    [score release];
+    NSArray* array = [scoreArray sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2){
+        Score* score1 = (Score*)obj1;
+        Score* score2 = (Score*)obj2;
+        if (score1.scoreValue > score2.scoreValue) {
+            return NSOrderedAscending;
+        } else if (score1.scoreValue < score2.scoreValue){
+            return NSOrderedDescending;
+        }
+        return NSOrderedSame;
+    }];
+    if ([array count] > 10) {
+        array = [array subarrayWithRange:(NSRange){0,10}];
+    }
+    [self.highScoreDict setObject:array forKey:level];
+    [self saveHighScore];
+}
+
 - (NSArray*)highScoresForLevel:(NSInteger)aLevel
 {
     if (self.highScoreDict == nil || [self.highScoreDict count] == 0) {
@@ -96,10 +121,15 @@ HighScoreManager* GlobalGetHighScoreManager()
     return [self.highScoreDict objectForKey:level];
 }
 
-- (BOOL)shouldRankInLevel:(NSInteger)aLevel
+- (BOOL)shouldScore:(NSInteger)aScore RankInLevel:(NSInteger)aLevel
 {
-    
-    return YES;
+    NSNumber* level = [NSNumber numberWithInt:aLevel];
+    NSMutableArray* scoreArray = [NSMutableArray arrayWithArray:[self.highScoreDict objectForKey:level]];
+    Score* score = [scoreArray objectAtIndex:[scoreArray count]];
+    if (aScore > score.scoreValue) {
+        return YES;
+    }
+    return NO;
 }
 
 @end

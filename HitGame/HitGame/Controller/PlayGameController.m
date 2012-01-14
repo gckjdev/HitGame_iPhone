@@ -601,10 +601,8 @@ enum {
 
 }
 
-- (void)endGame:(BOOL)isSuccessful
+- (void)showResult:(BOOL)isSuccessful
 {
-    [self stopClockTimer];
-    [self adjustClock];
     NSString *msg = nil;
     NSString *title = nil;
     if (!isSuccessful) {
@@ -623,9 +621,16 @@ enum {
                                           otherButtonTitles:buttonMsg, nil];
     [alert show];
     [alert release];
+}
+
+- (void)endGame:(BOOL)isSuccessful
+{
+    [self stopClockTimer];
+    [self adjustClock];
+    [self showResult:isSuccessful];
     if (isSuccessful) {
         HighScoreManager* manager = [HighScoreManager defaultManager];
-        [manager addHighScore:_score forLevel:self.gameLevel.levelIndex];
+        [manager addHighScore:_score forLevel:self.gameLevel.levelIndex];  
         [_levelManager unLockGameLevelAtIndex:_gameLevel.levelIndex + 1];
         [_levelManager storeLevelConfigure];
     }

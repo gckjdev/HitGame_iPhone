@@ -11,10 +11,11 @@
 @interface Score : NSObject <NSCoding>{
     NSString* _name;
     NSDate* _date;
-    double _score;
+    double _scoreValue;
 }
 @property (retain, nonatomic) NSString* name;
 @property (retain, nonatomic) NSDate*   date;
-@property (assign, nonatomic) double score;
+@property (assign, nonatomic) double scoreValue;
+- (id)initWithName:(NSString*)aName date:(NSDate*)aDate Score:(double)aScore;
 
 @end

@@ -17,5 +17,6 @@
 + (HighScoreManager*)defaultManager;
 - (void)addHighScore:(NSInteger)aHighScore forLevel:(NSInteger)aLevel;
 - (NSArray*)highScoresForLevel:(NSInteger)aLevel;
-
+- (BOOL)shouldScore:(NSInteger)aScore RankInLevel:(NSInteger)aLevel;
+- (void)addHighScore:(NSInteger)aHighScore forLevel:(NSInteger)aLevel withName:(NSString*)aName date:(NSDate*)aDate;
 @end
