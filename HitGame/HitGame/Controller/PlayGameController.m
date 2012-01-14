@@ -651,8 +651,8 @@ enum {
     [self resetAttributes];
     if (backToLevelPick) {
         [self.navigationController popViewControllerAnimated:YES];
-    }else{
-        //
+    }else {
+        [self.navigationController popToRootViewControllerAnimated:YES];//
     }
     [self playBackGroundMusic:BGM_STOP];
 }
@@ -739,7 +739,10 @@ enum
             break;
         }
         case QUIT_GAME: {
-            _gameStatus = BackToLevelPicker;
+            _gameStatus = BackToMainMenu;
+            break;
+        }
+        case GAME_SETTING: {
             break;
         }
         case GAME_HELP: {
@@ -781,6 +784,11 @@ enum
                                                                    contentImage:starImage 
                                                         highlightedContentImage:nil 
                                                                           title:@"重玩"];
+    HGQuadCurveMenuItem *gameSetting = [[HGQuadCurveMenuItem alloc] initWithImage:storyMenuItemImage 
+                                                                highlightedImage:storyMenuItemImagePressed 
+                                                                    contentImage:starImage 
+                                                         highlightedContentImage:nil 
+                                                                           title:@"设置"];
     HGQuadCurveMenuItem *gameHelp = [[HGQuadCurveMenuItem alloc] initWithImage:storyMenuItemImage 
                                                                 highlightedImage:storyMenuItemImagePressed 
                                                                     contentImage:starImage 
@@ -792,9 +800,10 @@ enum
                                                             highlightedContentImage:nil 
                                                                               title:@"离开"];
     
-    NSArray *menus = [NSArray arrayWithObjects:continueGame, rePlayGame, gameHelp, quitGame, nil];
+    NSArray *menus = [NSArray arrayWithObjects:continueGame, rePlayGame, gameSetting, gameHelp, quitGame, nil];
     [continueGame release];
     [rePlayGame release];
+    [gameSetting release];
     [gameHelp release];
     [quitGame release];
     
@@ -807,7 +816,7 @@ enum
                              startPoint:CGPointMake(40, 430) 
                              timeOffset:0.036 
                              rotateAngle:0
-                             menuWholeAngle:(M_PI/1.7)
+                             menuWholeAngle:(M_PI/1.8)
                              buttonImage:[UIImage imageNamed:@"bg-addbutton.png"] 
                              buttonHighLightImage:[UIImage imageNamed:@"bg-addbutton-highlighted.png"] 
                              contentImage:[UIImage imageNamed:@"icon-plus.png"] 

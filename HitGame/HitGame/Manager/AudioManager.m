@@ -69,29 +69,43 @@ AudioManager* globalGetAudioManager()
 
 - (void)playSoundByName:(NSString*)aSoundName
 {
-    
+    NSString* name;
+    NSString* type;
+    NSString *soundFilePath;
+    NSArray* nameArray = [aSoundName componentsSeparatedByString:@"."];
+    if ([nameArray count] == 2) {
+        name = [nameArray objectAtIndex:0];
+        type = [nameArray objectAtIndex:1];
+        soundFilePath = [[NSBundle mainBundle] pathForResource:name ofType:type];
+    } else {
+        soundFilePath = [[NSBundle mainBundle] pathForResource:aSoundName ofType:@"mp3"];
+    }
+    NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
+    [self.soundPlayer initWithContentsOfURL:soundFileURL error:nil];
+    self.soundPlayer.numberOfLoops = -1; 
+    [self.soundPlayer play];
 }
 
 - (void)backgroundMusicStart
 {
-//    [self setBackGroundMusicWithName:@"loveTrading.mp3"];
-//      [self.backgroundMusicPlayer play];
+      //[self setBackGroundMusicWithName:@"sword.mp3"];
+    //[self.backgroundMusicPlayer play];
     
 }
 
 - (void)backgroundMusicPause
 {
-//    [self.backgroundMusicPlayer pause];
+    //[self.backgroundMusicPlayer pause];
 }
 
 - (void)backgroundMusicContinue
 {
-//    [self.backgroundMusicPlayer play];
+    //[self.backgroundMusicPlayer play];
 }
 
 - (void)backgroundMusicStop
 {
- //   [self.backgroundMusicPlayer stop];
+    //[self.backgroundMusicPlayer stop];
 }
 
 
