@@ -58,6 +58,7 @@ typedef enum{
 enum OPTION_MENU_INDEX {
     CONTINUE_GAME = 0,
     REPLAY_GAME,
+    GAME_SETTING,
     GAME_HELP,
     QUIT_GAME
 };
