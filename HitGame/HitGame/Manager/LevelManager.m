@@ -76,12 +76,6 @@ LevelManager *levelManager;
 {
     NSUserDefaults* userDefault = [NSUserDefaults standardUserDefaults];
     NSData* levelData = [userDefault objectForKey:LEVEL_ARRAY];
-
-   // NSMutableArray *defaultLevelArray = 
-    
-    
-//    NSUserDefaults *levelDefaults = [NSUserDefaults standardUserDefaults];
-//    NSArray *defaultLevelArray = [levelDefaults arrayForKey:LEVEL_ARRAY];
     
     if (levelData) {
         _levelArray = [NSKeyedUnarchiver unarchiveObjectWithData:levelData];

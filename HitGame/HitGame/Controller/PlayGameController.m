@@ -44,7 +44,7 @@
 #define POPUP_MESSAGE_DURATION 2
 
 #define ROUND_TIME [[[NSBundle mainBundle] objectForInfoDictionaryKey:\
-                @"CFRoundTime"] doubleValue] - 30
+                @"CFRoundTime"] doubleValue] - 60
 #define ALLOW_MISS_COUNT [[[NSBundle mainBundle] objectForInfoDictionaryKey:\
                 @"CFAllowMissCount"] doubleValue]
 
@@ -341,7 +341,6 @@
     FoodView *image = [[[FoodView alloc] initWithFood:food] autorelease];
     image.frame = CGRectMake(-48, -48, 48, 48);
     [self.view insertSubview:image atIndex:0];
-    //[self.view addSubview:image];
     image.endPoint = CGPointMake(rand()%320, 400+24);
     CAAnimation *translation = [AnimationManager translationAnimationFrom:CGPointMake(rand()%320, -24) to:image.endPoint duration:[self calculateFallDuration] delegate:self removeCompeleted:NO];
     
@@ -607,15 +606,17 @@ enum {
     [self stopClockTimer];
     [self adjustClock];
     NSString *msg = nil;
+    NSString *title = nil;
     if (!isSuccessful) {
-        msg = [NSString stringWithFormat:@"对不起，您失误了三次，本轮游戏失败！"];
+        title = @"亲，你懂的!";
+        msg = @"失败是成功他妈，要越挫越勇哦。";
     }else{
-        msg = [NSString stringWithFormat:@"恭喜过关！您的分数是:%d!",_score];
-
+        title = @"亲，坚持了一分钟哦！";
+        msg = [NSString stringWithFormat:@"您的分数是:%d! 再闯一关？",_score];
     }
     [self releaseAllFoodViews];
     NSString *buttonMsg = (isSuccessful) ? @"下一关" : @"重玩";
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"游戏结束" 
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title 
                                                     message:msg 
                                                    delegate:self 
                                           cancelButtonTitle:@"返回" 
@@ -639,7 +640,7 @@ enum {
     if (backToLevelPick) {
         [self.navigationController popViewControllerAnimated:YES];
     }else {
-        [self.navigationController popToRootViewControllerAnimated:YES];//
+        [self.navigationController popToRootViewControllerAnimated:YES];
     }
     [self playBackGroundMusic:BGM_STOP];
 }
@@ -691,7 +692,12 @@ enum
         if (_gameStatus == Sucess) {
             //next level
             self.gameLevel = [_levelManager nextGameLevelWithCurrentLevel:_gameLevel];
-            [self reFreshLevelLabel];
+            if (self.gameLevel) {
+                [self reFreshLevelLabel];
+            }else
+            {
+                [self quitGame:YES];
+            }
         }           
         _gameStatus = Ready;
         [self processStateMachine];
