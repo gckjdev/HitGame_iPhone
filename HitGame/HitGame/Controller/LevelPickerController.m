@@ -80,6 +80,7 @@
         [button addTarget:self action:@selector(pickLevelButton:) forControlEvents:UIControlEventTouchUpInside];
         [button setTitle:[NSString stringWithFormat:@"%d",i+1] 
                 forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor purpleColor] forState:UIControlStateNormal];
         [self.view addSubview:button];
         [_buttonArray addObject:button];
     }
@@ -89,6 +90,9 @@
 
 - (void)updateButtons
 {
+    if ([_buttonArray count] == 0) {
+        return;
+    }
     int i =0;
     for (UIButton *button in _buttonArray) {
         GameLevel *level = [_levelArray objectAtIndex:i];
