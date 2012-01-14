@@ -23,7 +23,7 @@
 #import "AudioManager.h"
 #import "GestureTraceView.h"
 #import "Style.h"
-
+#import "TKProgressBarView.h"
 
 #define FALL_ANIMATION_DURATION 3
 #define FALL_ROTATION_COUNT 4
@@ -84,7 +84,8 @@
         _fallingFoodViewList = [[NSMutableSet alloc] init];
         _foodManager = [FoodManager defaultManager];
         _levelManager = [LevelManager defaultManager];
-
+        _progress = [[TKProgressBarView alloc] initWithStyle:TKProgressBarViewStyleLong];
+        _progress.center = CGPointMake(164, 18);        
         [self readConfig];
 
     }
@@ -100,6 +101,7 @@
     [_levelLabel release];
     [_popupScoreView release];
     [_popupMissView release];
+    [_progress release];
     [super dealloc];
 }
 
@@ -473,9 +475,9 @@
 #pragma mark - game attributes setting
 - (void)adjustClock
 {
-    UIProgressView *progress = (UIProgressView *)[self.view viewWithTag:61];
+    //UIProgressView *progress = (UIProgressView *)[self.view viewWithTag:61];
     UILabel *timeLabel = (UILabel *)[self.view viewWithTag:60];
-    [progress setProgress:_retainSeconds / _roundTime];
+    [_progress setProgress:_retainSeconds / _roundTime];
     [timeLabel setText:[NSString stringWithFormat:@"%.0f",ABS(_retainSeconds)]];
 }
 
@@ -857,9 +859,7 @@ enum
     [self reFreshLevelLabel];
     _gameStatus = Ready;
     [self processStateMachine];
-    
-
-
+    [self.view addSubview:_progress];
 }
 
 - (void)viewDidUnload

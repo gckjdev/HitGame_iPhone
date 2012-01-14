@@ -78,7 +78,7 @@ LevelManager *levelManager;
     NSData* levelData = [userDefault objectForKey:LEVEL_ARRAY];
     
     if (levelData) {
-        _levelArray = [NSKeyedUnarchiver unarchiveObjectWithData:levelData];
+        self.levelArray = [NSMutableArray arrayWithArray:[NSKeyedUnarchiver unarchiveObjectWithData:levelData]];
     }else{
         [self createLevelConfigure];
         [self storeLevelConfigure];
