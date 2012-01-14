@@ -8,29 +8,28 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GameLevel : NSObject
+@interface GameLevel : NSObject<NSCoding>
 {
-    
+    NSInteger _highestScore;
+    NSArray *_foodList;
+    NSInteger _levelIndex;
+    BOOL _locked;
+    NSInteger _status; //unuse
 }
 
 
-@property(nonatomic, retain)NSNumber *highestScore;
-@property(nonatomic, retain)NSNumber *passScore;
+@property(nonatomic, assign)NSInteger highestScore;
 @property(nonatomic, retain)NSArray *foodList;
-@property(nonatomic, retain)NSNumber *speed;
-@property(nonatomic, retain)NSNumber *status;
-@property(nonatomic, assign)NSInteger levelIndex;
+@property(nonatomic, readonly)NSInteger levelIndex;
+@property(nonatomic, assign, getter = isLocked)BOOL locked;
+
+@property(nonatomic, assign)NSInteger status; //unuse
+
 
 - (id)initWithFoodList:(NSArray *)foodList 
-             passScore:(NSInteger)passScore 
           highestScore:(NSInteger)highestScore 
-                 speed:(NSInteger)speed 
-                status:(NSInteger)status;
-- (id)initWithFoodList:(NSArray *)foodList 
-             passScore:(NSInteger)passScore 
-          highestScore:(NSInteger)highestScore 
-                 speed:(NSInteger)speed 
-                status:(NSInteger)status 
-            levelIndex:(NSInteger)aLevelIndex;
+            levelIndex:(NSInteger)aLevelIndex 
+                locked:(BOOL)locked
+                status:(NSInteger)status; 
 
 @end

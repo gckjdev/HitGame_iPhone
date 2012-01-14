@@ -12,3 +12,8 @@
 #define SUSHI_IMAGE [UIImage imageNamed:@"sushi.png"]
 #define TOMATO_IMAGE [UIImage imageNamed:@"tomato.png"]
 
+#define LOCKED_IMAGE [UIImage imageNamed:@"locked.png"]
+#define UNLOCKED_IMAGE [UIImage imageNamed:@"unlocked.png"]
+
+
+

@@ -44,9 +44,11 @@ LevelManager *levelManager;
             [tempArray addObject:food];
         }
     }
-    GameLevel *level = [[GameLevel alloc] initWithFoodList:tempArray passScore:30 highestScore:0 speed:3 status:0 levelIndex:aLevelIndex];
-    [_levelArray addObject:level];
-    [level release];
+    GameLevel *gameLevel = [[GameLevel alloc]initWithFoodList:tempArray highestScore:0 levelIndex:aLevelIndex locked:YES status:0];
+    
+    [_levelArray addObject:gameLevel];
+    
+    [gameLevel release];
 }
 
 - (void)createLevelConfigure
@@ -66,25 +68,36 @@ LevelManager *levelManager;
             [self createGameLevelWithFoddCount:5 levelIndex:i];
         }
     }
-    
+    GameLevel *firstLevel = [_levelArray objectAtIndex:0];
+    [firstLevel setLocked:NO];    
 }
 
 - (void)readLevelConfigure
 {
-    NSUserDefaults *levelDefaults = [NSUserDefaults standardUserDefaults];
-    NSArray *defaultLevelArray = [levelDefaults arrayForKey:LEVEL_ARRAY];
-    if (defaultLevelArray) {
-        _levelArray = [[NSMutableArray alloc] initWithArray:defaultLevelArray];
+    NSUserDefaults* userDefault = [NSUserDefaults standardUserDefaults];
+    NSData* levelData = [userDefault objectForKey:LEVEL_ARRAY];
+
+   // NSMutableArray *defaultLevelArray = 
+    
+    
+//    NSUserDefaults *levelDefaults = [NSUserDefaults standardUserDefaults];
+//    NSArray *defaultLevelArray = [levelDefaults arrayForKey:LEVEL_ARRAY];
+    
+    if (levelData) {
+        _levelArray = [NSKeyedUnarchiver unarchiveObjectWithData:levelData];
     }else{
         [self createLevelConfigure];
+        [self storeLevelConfigure];
     }
 }
 
 - (void)storeLevelConfigure
 {
-    NSUserDefaults *levelDefaults = [NSUserDefaults standardUserDefaults];
-    [levelDefaults setValue:_levelArray forKey:LEVEL_ARRAY];
-    [levelDefaults synchronize];
+
+    NSUserDefaults* userDefault = [NSUserDefaults standardUserDefaults];
+    NSData *levelData = [NSKeyedArchiver archivedDataWithRootObject:_levelArray];
+    [userDefault setObject:levelData forKey:LEVEL_ARRAY];
+    [userDefault synchronize];
 }
 
 - (GameLevel *)gameLevelForLevelIndex:(NSInteger )index
@@ -112,6 +125,16 @@ LevelManager *levelManager;
         [levelManager readLevelConfigure];
     }
     return levelManager;
+}
+
+
+
+- (void)unLockGameLevelAtIndex:(NSInteger) index
+{
+    GameLevel *gameLevel = [self gameLevelForLevelIndex:index];
+    if (gameLevel) {
+        gameLevel.locked = NO;
+    }
 }
 
 #define MAX_DURATION 3.0

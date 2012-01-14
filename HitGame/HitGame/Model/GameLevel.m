@@ -10,56 +10,57 @@
 
 @implementation GameLevel
 @synthesize highestScore = _highestScore;
-@synthesize passScore = _passScore;
 @synthesize foodList = _foodList;
-@synthesize speed = _speed;
 @synthesize status = _status;
 @synthesize levelIndex = _levelIndex;
+@synthesize locked = _locked;
+
+
 
 
 - (id)initWithFoodList:(NSArray *)foodList 
-             passScore:(NSInteger)passScore 
           highestScore:(NSInteger)highestScore 
-                 speed:(NSInteger)speed 
+            levelIndex:(NSInteger)aLevelIndex 
+                locked:(BOOL)locked
                 status:(NSInteger)status
 {
     self = [super init];
     if (self) {
         self.foodList = foodList;
-        _passScore = [NSNumber numberWithInt:passScore];
-        _highestScore = [NSNumber numberWithInt:highestScore];
-        _speed = [NSNumber numberWithInt:speed];
-        _status = [NSNumber numberWithInt:status];
+        _highestScore = highestScore;
+        _status = status;
+        _levelIndex = aLevelIndex;
+        _locked = locked;
     }
     return self;
 }
 
-- (id)initWithFoodList:(NSArray *)foodList 
-             passScore:(NSInteger)passScore 
-          highestScore:(NSInteger)highestScore 
-                 speed:(NSInteger)speed 
-                status:(NSInteger)status 
-            levelIndex:(NSInteger)aLevelIndex
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:_foodList forKey:@"foodList"];
+    [aCoder encodeInteger:_highestScore forKey:@"highestScore"];
+    [aCoder encodeInteger:_status forKey:@"status"];
+    [aCoder encodeInteger:_levelIndex forKey:@"levelIndex"];  
+    [aCoder encodeBool:_locked forKey:@"locked"];
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super init];
     if (self) {
-        self.foodList = foodList;
-        _passScore = [NSNumber numberWithInt:passScore];
-        _highestScore = [NSNumber numberWithInt:highestScore];
-        _speed = [NSNumber numberWithInt:speed];
-        _status = [NSNumber numberWithInt:status];
-        _levelIndex = aLevelIndex;
+        self.foodList = [aDecoder decodeObjectForKey:@"foodList"];
+        _highestScore = [aDecoder decodeIntegerForKey:@"highestScore"];
+        _levelIndex = [aDecoder decodeIntegerForKey:@"levelIndex"];
+        _status = [aDecoder decodeIntegerForKey:@"status"];
+        _locked = [aDecoder decodeBoolForKey:@"locked"];        
     }
     return self;
 }
 
 - (void)dealloc
 {
-    [_highestScore release];
-    [_passScore release];
     [_foodList release];
-    [_status release];
-    [_speed release];
     [super dealloc];
 }
 @end

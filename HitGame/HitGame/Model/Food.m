@@ -30,6 +30,23 @@
 
 }
 
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeInteger:_type forKey:@"foodType"];
+    [aCoder encodeInteger:_retainCount forKey:@"retainCount"];
+    [aCoder encodeObject:_image forKey:@"foodImage"];
+}
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super init];
+    if (self) {
+        self.type = [aDecoder decodeIntegerForKey:@"foodType"];
+        self.image = [aDecoder decodeObjectForKey:@"foodImage"];
+        self.retainCount = [aDecoder decodeIntegerForKey:@"retainCount"];
+    }
+    return self;
+}
+
 - (void)dealloc
 {
     [_image release];

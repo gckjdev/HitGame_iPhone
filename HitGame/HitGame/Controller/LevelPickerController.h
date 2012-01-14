@@ -11,6 +11,7 @@
 @interface LevelPickerController : UIViewController
 {
     NSMutableArray *_levelArray;
+    NSMutableArray *_buttonArray;
 }
 
 @property(nonatomic, retain)NSMutableArray *levelArray;

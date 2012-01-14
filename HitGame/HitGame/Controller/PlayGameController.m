@@ -12,7 +12,6 @@
 #import "AnimationManager.h"
 #import "FoodListView.h"
 #import "TestCase.h"
-#import "PlayerListView.h"
 #import "Food.h"
 #import "FoodView.h"
 #import "FoodManager.h"
@@ -24,6 +23,7 @@
 #import "AudioManager.h"
 #import "GestureTraceView.h"
 #import "Style.h"
+
 
 #define FALL_ANIMATION_DURATION 3
 #define FALL_ROTATION_COUNT 4
@@ -44,7 +44,7 @@
 #define POPUP_MESSAGE_DURATION 2
 
 #define ROUND_TIME [[[NSBundle mainBundle] objectForInfoDictionaryKey:\
-                @"CFRoundTime"] doubleValue]
+                @"CFRoundTime"] doubleValue] - 30
 #define ALLOW_MISS_COUNT [[[NSBundle mainBundle] objectForInfoDictionaryKey:\
                 @"CFAllowMissCount"] doubleValue]
 
@@ -257,26 +257,11 @@
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
 {
-    if (touch.view == self.view || touch.view == _gestureTrace) {
-        NSLog(@"<debug> shouldReceiveTouch YES");
+    if (touch.view == _gestureTrace) {
         return YES;
     }
-    NSLog(@"<debug> shouldReceiveTouch NO");
     return NO;
 }
-
-- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
-{
-    return YES;
-}
-
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
-{
-    NSLog(@"<debug> shouldRecognizeSimultaneouslyWithGestureRecognizer YES");
-    return YES;
-}
-
-
 
 - (void)view:(UIView *)view addGestureRecognizer:(NSInteger)type 
     delegate:(id<UIGestureRecognizerDelegate>)delegate
@@ -640,6 +625,8 @@ enum {
     if (isSuccessful) {
         HighScoreManager* manager = [HighScoreManager defaultManager];
         [manager addHighScore:_score forLevel:self.gameLevel.levelIndex];
+        [_levelManager unLockGameLevelAtIndex:_gameLevel.levelIndex + 1];
+        [_levelManager storeLevelConfigure];
     }
     [self playBackGroundMusic:BGM_STOP];  
 }

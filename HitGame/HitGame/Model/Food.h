@@ -13,7 +13,7 @@
 //Eggs (click), tomatoes (double), ice cream (sweep), sushi (zoom), potatoes
 
 
-@interface Food : NSObject {
+@interface Food : NSObject<NSCoding> {
     FoodType _type;
     UIImage *_image;
     NSInteger _retainCount;

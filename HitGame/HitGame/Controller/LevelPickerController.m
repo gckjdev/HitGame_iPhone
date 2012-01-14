@@ -11,7 +11,7 @@
 #import "PlayGameController.h"
 #import "GameLevel.h"
 #import "LevelManager.h"
-
+#import "HGResource.h"
 #import "TestCase.h"
 #import "Food.h"
 
@@ -27,6 +27,7 @@
     if (self) {
         // Custom initialization
         self.levelArray = [[LevelManager defaultManager] levelArray];
+        _buttonArray  = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -34,6 +35,7 @@
 - (void)dealloc
 {
     [_levelArray release];
+    [_buttonArray release];
     [super dealloc];
 }
 - (void)didReceiveMemoryWarning
@@ -69,19 +71,43 @@
 
     CGFloat x = 0, y = 0;
     for (int i = 0; i < [_levelArray count]; ++ i) {
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         x = xSpace + (xSpace + BUTTON_LENGTH) * (i % COUNT_PER_ROW);
         y = ySpace + (ySpace + BUTTON_LENGTH) * (i / COUNT_PER_ROW);
         button.frame = CGRectMake(x, y, BUTTON_LENGTH, BUTTON_LENGTH);
-        [button setTitle:[NSString stringWithFormat:@"%d",i+1] 
-                forState:UIControlStateNormal];
+
         button.tag = i + BUTTON_TAG_BASE;
         [button addTarget:self action:@selector(pickLevelButton:) forControlEvents:UIControlEventTouchUpInside];
+        [button setTitle:[NSString stringWithFormat:@"%d",i+1] 
+                forState:UIControlStateNormal];
         [self.view addSubview:button];
+        [_buttonArray addObject:button];
     }
 }
 
 #pragma mark - View lifecycle
+
+- (void)updateButtons
+{
+    int i =0;
+    for (UIButton *button in _buttonArray) {
+        GameLevel *level = [_levelArray objectAtIndex:i];
+        if (level && ![level isLocked]) {
+            [button setBackgroundImage:UNLOCKED_IMAGE forState:UIControlStateNormal];
+            [button setUserInteractionEnabled:YES];
+        }else
+        {
+            [button setBackgroundImage:LOCKED_IMAGE forState:UIControlStateNormal];
+            [button setUserInteractionEnabled:NO];
+        }
+        ++ i;
+    }
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self updateButtons];
+}
 
 - (void)viewDidLoad
 {

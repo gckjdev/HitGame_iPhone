@@ -21,4 +21,9 @@
 - (GameLevel *)nextGameLevelWithCurrentLevel:(GameLevel *)currentLevel;
 - (CFTimeInterval)calculateMaxDuration:(GameLevel *)level;
 - (CFTimeInterval)calculateMinDuration:(GameLevel *)level;
+
+- (void)unLockGameLevelAtIndex:(NSInteger) index;
+- (void)readLevelConfigure;
+- (void)storeLevelConfigure;
+
 @end
