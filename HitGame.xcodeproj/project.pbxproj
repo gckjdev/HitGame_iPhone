@@ -212,6 +212,7 @@
 		CA93140414BEDDCF00EB49AE /* GestureTraceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureTraceView.m; sourceTree = "<group>"; };
 		CAB84F2314BBE79A00DBD6A3 /* LevelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelManager.h; sourceTree = "<group>"; };
 		CAB84F2414BBE79A00DBD6A3 /* LevelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelManager.m; sourceTree = "<group>"; };
+		CAE98BFC14C12612007F986E /* Style.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Style.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -472,6 +473,7 @@
 				CA9313F614BEDDA700EB49AE /* View */,
 				CA01828D14B599F3002056D2 /* Util */,
 				CA6C73F714AF068E00E15785 /* Enum.h */,
+				CAE98BFC14C12612007F986E /* Style.h */,
 			);
 			path = HitGame_Common;
 			sourceTree = "<group>";

@@ -23,6 +23,7 @@
 #import "GameSettingManager.h"
 #import "AudioManager.h"
 #import "GestureTraceView.h"
+#import "Style.h"
 
 #define FALL_ANIMATION_DURATION 3
 #define FALL_ROTATION_COUNT 4
@@ -120,11 +121,16 @@
 #define DECREASE_SCORE_WRONG_GESTURE 30
 - (void)dealWithWrongGesture
 {
+    BOOL hasFood = NO;
     for (FoodView *foodView in _fallingFoodViewList) {
+        hasFood = YES;
         if (foodView.foodViewScore > 0) {
             foodView.foodViewScore -= DECREASE_SCORE_WRONG_GESTURE;
             foodView.foodViewScore = MAX(0, foodView.foodViewScore);
         }
+    }
+    if (hasFood) {
+        [self popUpMsg:@"手势不对哦" textColor:COLOR_POPUP_WRONG_GESTURE];
     }
 }
 
@@ -365,22 +371,24 @@
 }
 
 
+- (void)popUpMsg:(NSString *)msg textColor:(UIColor *)color
+{
+    [_popupScoreView setHidden:NO];
+    [_popupScoreView setTextColor:color];
+    [_popupScoreView setText:msg];     
+    CAAnimation *popUp = [AnimationManager 
+                          translationAnimationFrom:CGPointMake(160, 255) 
+                          to:CGPointMake(160, 120) 
+                          duration:POPUP_MESSAGE_DURATION];
+    CAAnimation *popOpacity = [AnimationManager missingAnimationWithDuration:2];
+    
+    [self.popupScoreView.layer addAnimation:popUp forKey:@"popUp"];
+    [_popupScoreView.layer addAnimation:popOpacity forKey:@"popOpacity"];
+}
 
 - (void)popUpScore:(NSInteger)score
 {
-    if (score > 0) {
-        [_popupScoreView setHidden:NO];
-        [_popupScoreView setText:[NSString stringWithFormat:@"+%d",score]];     
-        CAAnimation *popUp = [AnimationManager 
-                              translationAnimationFrom:CGPointMake(160, 255) 
-                              to:CGPointMake(160, 120) 
-                              duration:POPUP_MESSAGE_DURATION];
-        CAAnimation *popOpacity = [AnimationManager missingAnimationWithDuration:2];
-        
-        [self.popupScoreView.layer addAnimation:popUp forKey:@"popUp"];
-        [_popupScoreView.layer addAnimation:popOpacity forKey:@"popOpacity"];
-    }
-
+    [self popUpMsg:[NSString stringWithFormat:@"+%d",score] textColor:COLOR_POPUP_SCORE];
 }
 
 - (void)killFoodView:(FoodView *)foodView

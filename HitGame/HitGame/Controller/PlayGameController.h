@@ -62,7 +62,7 @@
 - (void)endGame:(BOOL)isSuccessful;
 - (void)quitGame:(BOOL)backToLevelPick;
 - (void)processStateMachine;
-
+- (void)popUpMsg:(NSString *)msg textColor:(UIColor *)color;
 - (void)addDefaultMissingAnimationTofoodView:(FoodView *)foodView;
 
 @end
