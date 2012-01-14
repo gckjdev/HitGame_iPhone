@@ -96,4 +96,10 @@ HighScoreManager* GlobalGetHighScoreManager()
     return [self.highScoreDict objectForKey:level];
 }
 
+- (BOOL)shouldRankInLevel:(NSInteger)aLevel
+{
+    
+    return YES;
+}
+
 @end

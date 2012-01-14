@@ -8,6 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Score : NSObject
+@interface Score : NSObject <NSCoding>{
+    NSString* _name;
+    NSDate* _date;
+    double _score;
+}
+@property (retain, nonatomic) NSString* name;
+@property (retain, nonatomic) NSDate*   date;
+@property (assign, nonatomic) double score;
 
 @end
