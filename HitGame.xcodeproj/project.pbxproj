@@ -56,11 +56,6 @@
 		CA6C740914AF068E00E15785 /* AnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6C73D714AF068E00E15785 /* AnimationManager.m */; };
 		CA6C740A14AF068E00E15785 /* FoodListView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6C73DA14AF068E00E15785 /* FoodListView.m */; };
 		CA6C740B14AF068E00E15785 /* FoodView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6C73DC14AF068E00E15785 /* FoodView.m */; };
-		CA6C740C14AF068E00E15785 /* GameListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6C73DE14AF068E00E15785 /* GameListCell.m */; };
-		CA6C740D14AF068E00E15785 /* GameListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA6C73DF14AF068E00E15785 /* GameListCell.xib */; };
-		CA6C740E14AF068E00E15785 /* GameListController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6C73E114AF068E00E15785 /* GameListController.m */; };
-		CA6C740F14AF068E00E15785 /* GameListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA6C73E214AF068E00E15785 /* GameListController.xib */; };
-		CA6C741014AF068E00E15785 /* PlayerListView.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6C73E414AF068E00E15785 /* PlayerListView.m */; };
 		CA6C741114AF068E00E15785 /* PlayGameController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6C73E614AF068E00E15785 /* PlayGameController.m */; };
 		CA6C741214AF068E00E15785 /* PlayGameController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA6C73E714AF068E00E15785 /* PlayGameController.xib */; };
 		CA6C741314AF068E00E15785 /* FoodManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6C73EA14AF068E00E15785 /* FoodManager.m */; };
@@ -71,11 +66,6 @@
 		CA6C741A14AF068E00E15785 /* egg.png in Resources */ = {isa = PBXBuildFile; fileRef = CA6C73FD14AF068E00E15785 /* egg.png */; };
 		CA6C741B14AF068E00E15785 /* hamburger.png in Resources */ = {isa = PBXBuildFile; fileRef = CA6C73FE14AF068E00E15785 /* hamburger.png */; };
 		CA6C741C14AF068E00E15785 /* icecream.png in Resources */ = {isa = PBXBuildFile; fileRef = CA6C740014AF068E00E15785 /* icecream.png */; };
-		CA6C741D14AF068E00E15785 /* player1.png in Resources */ = {isa = PBXBuildFile; fileRef = CA6C740114AF068E00E15785 /* player1.png */; };
-		CA6C741E14AF068E00E15785 /* player2.png in Resources */ = {isa = PBXBuildFile; fileRef = CA6C740214AF068E00E15785 /* player2.png */; };
-		CA6C741F14AF068E00E15785 /* player3.png in Resources */ = {isa = PBXBuildFile; fileRef = CA6C740314AF068E00E15785 /* player3.png */; };
-		CA6C742014AF068E00E15785 /* player4.png in Resources */ = {isa = PBXBuildFile; fileRef = CA6C740414AF068E00E15785 /* player4.png */; };
-		CA6C742114AF068E00E15785 /* player5.png in Resources */ = {isa = PBXBuildFile; fileRef = CA6C740514AF068E00E15785 /* player5.png */; };
 		CA6C742214AF068E00E15785 /* sushi.png in Resources */ = {isa = PBXBuildFile; fileRef = CA6C740614AF068E00E15785 /* sushi.png */; };
 		CA6C742314AF068E00E15785 /* tomato.png in Resources */ = {isa = PBXBuildFile; fileRef = CA6C740714AF068E00E15785 /* tomato.png */; };
 		CA6C742514AF06ED00E15785 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA6C742414AF06ED00E15785 /* QuartzCore.framework */; };
@@ -165,14 +155,6 @@
 		CA6C73DA14AF068E00E15785 /* FoodListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodListView.m; sourceTree = "<group>"; };
 		CA6C73DB14AF068E00E15785 /* FoodView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodView.h; sourceTree = "<group>"; };
 		CA6C73DC14AF068E00E15785 /* FoodView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodView.m; sourceTree = "<group>"; };
-		CA6C73DD14AF068E00E15785 /* GameListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameListCell.h; sourceTree = "<group>"; };
-		CA6C73DE14AF068E00E15785 /* GameListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameListCell.m; sourceTree = "<group>"; };
-		CA6C73DF14AF068E00E15785 /* GameListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameListCell.xib; sourceTree = "<group>"; };
-		CA6C73E014AF068E00E15785 /* GameListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameListController.h; sourceTree = "<group>"; };
-		CA6C73E114AF068E00E15785 /* GameListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameListController.m; sourceTree = "<group>"; };
-		CA6C73E214AF068E00E15785 /* GameListController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameListController.xib; sourceTree = "<group>"; };
-		CA6C73E314AF068E00E15785 /* PlayerListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerListView.h; sourceTree = "<group>"; };
-		CA6C73E414AF068E00E15785 /* PlayerListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerListView.m; sourceTree = "<group>"; };
 		CA6C73E514AF068E00E15785 /* PlayGameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayGameController.h; sourceTree = "<group>"; };
 		CA6C73E614AF068E00E15785 /* PlayGameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayGameController.m; sourceTree = "<group>"; };
 		CA6C73E714AF068E00E15785 /* PlayGameController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayGameController.xib; sourceTree = "<group>"; };
@@ -191,11 +173,6 @@
 		CA6C73FE14AF068E00E15785 /* hamburger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hamburger.png; sourceTree = "<group>"; };
 		CA6C73FF14AF068E00E15785 /* HGResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGResource.h; sourceTree = "<group>"; };
 		CA6C740014AF068E00E15785 /* icecream.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icecream.png; sourceTree = "<group>"; };
-		CA6C740114AF068E00E15785 /* player1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player1.png; sourceTree = "<group>"; };
-		CA6C740214AF068E00E15785 /* player2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player2.png; sourceTree = "<group>"; };
-		CA6C740314AF068E00E15785 /* player3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player3.png; sourceTree = "<group>"; };
-		CA6C740414AF068E00E15785 /* player4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player4.png; sourceTree = "<group>"; };
-		CA6C740514AF068E00E15785 /* player5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player5.png; sourceTree = "<group>"; };
 		CA6C740614AF068E00E15785 /* sushi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sushi.png; sourceTree = "<group>"; };
 		CA6C740714AF068E00E15785 /* tomato.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tomato.png; sourceTree = "<group>"; };
 		CA6C740814AF068E00E15785 /* TestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCase.h; sourceTree = "<group>"; };
@@ -388,14 +365,6 @@
 				CA6C73DA14AF068E00E15785 /* FoodListView.m */,
 				CA6C73DB14AF068E00E15785 /* FoodView.h */,
 				CA6C73DC14AF068E00E15785 /* FoodView.m */,
-				CA6C73DD14AF068E00E15785 /* GameListCell.h */,
-				CA6C73DE14AF068E00E15785 /* GameListCell.m */,
-				CA6C73DF14AF068E00E15785 /* GameListCell.xib */,
-				CA6C73E014AF068E00E15785 /* GameListController.h */,
-				CA6C73E114AF068E00E15785 /* GameListController.m */,
-				CA6C73E214AF068E00E15785 /* GameListController.xib */,
-				CA6C73E314AF068E00E15785 /* PlayerListView.h */,
-				CA6C73E414AF068E00E15785 /* PlayerListView.m */,
 				CA6C73E514AF068E00E15785 /* PlayGameController.h */,
 				CA6C73E614AF068E00E15785 /* PlayGameController.m */,
 				CA6C73E714AF068E00E15785 /* PlayGameController.xib */,
@@ -487,11 +456,6 @@
 				CA6C73FE14AF068E00E15785 /* hamburger.png */,
 				CA6C73FF14AF068E00E15785 /* HGResource.h */,
 				CA6C740014AF068E00E15785 /* icecream.png */,
-				CA6C740114AF068E00E15785 /* player1.png */,
-				CA6C740214AF068E00E15785 /* player2.png */,
-				CA6C740314AF068E00E15785 /* player3.png */,
-				CA6C740414AF068E00E15785 /* player4.png */,
-				CA6C740514AF068E00E15785 /* player5.png */,
 				CA6C740614AF068E00E15785 /* sushi.png */,
 				CA6C740714AF068E00E15785 /* tomato.png */,
 			);
@@ -584,17 +548,10 @@
 			files = (
 				CA6C73A614AF064900E15785 /* InfoPlist.strings in Resources */,
 				CA6C73AF14AF064900E15785 /* MainWindow.xib in Resources */,
-				CA6C740D14AF068E00E15785 /* GameListCell.xib in Resources */,
-				CA6C740F14AF068E00E15785 /* GameListController.xib in Resources */,
 				CA6C741214AF068E00E15785 /* PlayGameController.xib in Resources */,
 				CA6C741A14AF068E00E15785 /* egg.png in Resources */,
 				CA6C741B14AF068E00E15785 /* hamburger.png in Resources */,
 				CA6C741C14AF068E00E15785 /* icecream.png in Resources */,
-				CA6C741D14AF068E00E15785 /* player1.png in Resources */,
-				CA6C741E14AF068E00E15785 /* player2.png in Resources */,
-				CA6C741F14AF068E00E15785 /* player3.png in Resources */,
-				CA6C742014AF068E00E15785 /* player4.png in Resources */,
-				CA6C742114AF068E00E15785 /* player5.png in Resources */,
 				CA6C742214AF068E00E15785 /* sushi.png in Resources */,
 				CA6C742314AF068E00E15785 /* tomato.png in Resources */,
 				CA3F2C4914B2A1260090A758 /* EntryController.xib in Resources */,
@@ -656,9 +613,6 @@
 				CA6C740914AF068E00E15785 /* AnimationManager.m in Sources */,
 				CA6C740A14AF068E00E15785 /* FoodListView.m in Sources */,
 				CA6C740B14AF068E00E15785 /* FoodView.m in Sources */,
-				CA6C740C14AF068E00E15785 /* GameListCell.m in Sources */,
-				CA6C740E14AF068E00E15785 /* GameListController.m in Sources */,
-				CA6C741014AF068E00E15785 /* PlayerListView.m in Sources */,
 				CA6C741114AF068E00E15785 /* PlayGameController.m in Sources */,
 				CA6C741314AF068E00E15785 /* FoodManager.m in Sources */,
 				CA6C741414AF068E00E15785 /* GameManager.m in Sources */,

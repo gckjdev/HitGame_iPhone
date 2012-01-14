@@ -41,6 +41,7 @@
     GameStatus _gameStatus;
     LevelManager *_levelManager;
     GestureTraceView *_gestureTrace;
+    HGQuadCurveMenu *_menu;
 }
 
 @property (retain, nonatomic) IBOutlet UILabel *scoreLabel;
@@ -64,5 +65,5 @@
 - (void)processStateMachine;
 - (void)popUpMsg:(NSString *)msg textColor:(UIColor *)color;
 - (void)addDefaultMissingAnimationTofoodView:(FoodView *)foodView;
-
+- (void)enterBackground;
 @end

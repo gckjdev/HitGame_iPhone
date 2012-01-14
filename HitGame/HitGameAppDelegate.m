@@ -7,7 +7,6 @@
 //
 
 #import "HitGameAppDelegate.h"
-#import "GameListController.h"
 #import "EntryController.h"
 #import "AudioManager.h"
 #import "PlayGameController.h"
@@ -20,10 +19,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-     
-//    GameListController* gameController = [[GameListController alloc] init];
-//    UINavigationController *rootViewController = [[UINavigationController alloc] initWithRootViewController:gameController];
+
 
     EntryController* entryController = [[EntryController alloc] init];
     UINavigationController *rootViewController = [[UINavigationController alloc] initWithRootViewController:entryController];
@@ -52,7 +48,7 @@
      If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
      */
     if (_playGameController) {
-        [_playGameController pauseGame];
+        [_playGameController enterBackground];
     }
 }
 

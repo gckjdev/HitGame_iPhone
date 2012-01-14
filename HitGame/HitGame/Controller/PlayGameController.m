@@ -807,7 +807,7 @@ enum
     [gameHelp release];
     [quitGame release];
     
-    HGQuadCurveMenu *menu = [[HGQuadCurveMenu alloc] 
+    _menu = [[HGQuadCurveMenu alloc] 
                              initWithFrame:self.view.bounds
                              menus:menus 
                              nearRadius:210 
@@ -821,9 +821,9 @@ enum
                              buttonHighLightImage:[UIImage imageNamed:@"bg-addbutton-highlighted.png"] 
                              contentImage:[UIImage imageNamed:@"icon-plus.png"] 
                              contentHighLightImage:[UIImage imageNamed:@"icon-plus-highlight.png"]];
-    menu.delegate = self;
-    [self.view addSubview:menu];
-    [menu release];
+    _menu.delegate = self;
+    [self.view addSubview:_menu];
+    [_menu release];
 }
 
 
@@ -837,7 +837,12 @@ enum
     [_gestureTrace release];
 }
 
-
+- (void)enterBackground
+{
+    if (_menu) {
+        [_menu expandItems];
+    }
+}
 
 #pragma mark - View lifecycle
 
