@@ -136,7 +136,7 @@ const int HELP_IMAGE_OFFSET = 20120116;
     [_contentView setBackgroundColor:[UIColor colorWithRed:(0x35)/255.0 
                                                      green:(0x42)/255.0 
                                                       blue:(0x53)/255.0 
-                                                     alpha:0.2]];
+                                                     alpha:0.33]];
     [_contentView setCenter:CGPointMake(160, 240)];
     [self addSubview:_contentView];
     CAAnimation *scaleAnimation = [AnimationManager scaleAnimationWithFromScale:0.1 toScale:1 duration:0.5 delegate:self removeCompeleted:NO];

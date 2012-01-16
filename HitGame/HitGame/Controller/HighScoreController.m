@@ -8,6 +8,8 @@
 
 #import "HighScoreController.h"
 #import "HighScoreManager.h"
+#import "Score.h"
+#import "TimeUtils.h"
 
 @implementation HighScoreController
 @synthesize dataTableView = _dataTableView;
@@ -86,8 +88,8 @@
     }
     NSNumber* level = [self.shownLevels objectAtIndex:indexPath.section];
     NSArray* scoreArray = [[HighScoreManager defaultManager] highScoresForLevel:level.intValue];
-    NSNumber* score = [scoreArray objectAtIndex:indexPath.row];
-    [cell.textLabel setText:[NSString stringWithFormat:@"%d",[score intValue]]];
+    Score* score = [scoreArray objectAtIndex:indexPath.row];
+    [cell.textLabel setText:[NSString stringWithFormat:@"%d------%@刷新于%@",score.scoreValue, score.name, dateToString(score.date)]];
     return cell;
 }
 

@@ -25,6 +25,7 @@
 		C2C3815914BBF42E009B46EC /* HelpView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C3815814BBF42E009B46EC /* HelpView.m */; };
 		C2C4292F14C3C20C00950747 /* helpImg1.png in Resources */ = {isa = PBXBuildFile; fileRef = C2C4292D14C3C20C00950747 /* helpImg1.png */; };
 		C2C4293014C3C20C00950747 /* helpImg2.png in Resources */ = {isa = PBXBuildFile; fileRef = C2C4292E14C3C20C00950747 /* helpImg2.png */; };
+		C2C4293814C40CA100950747 /* TimeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C4293714C40CA100950747 /* TimeUtils.m */; };
 		C2C6F0B214BD601A00AA0297 /* GameSettingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C6F0B114BD601A00AA0297 /* GameSettingManager.m */; };
 		C2C6F0B514BD678100AA0297 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C6F0B414BD678100AA0297 /* AudioToolbox.framework */; };
 		C2D36A7514BAEFA600E2A96D /* Score.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D36A7414BAEFA600E2A96D /* Score.m */; };
@@ -113,6 +114,8 @@
 		C2C3815814BBF42E009B46EC /* HelpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpView.m; sourceTree = "<group>"; };
 		C2C4292D14C3C20C00950747 /* helpImg1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = helpImg1.png; sourceTree = "<group>"; };
 		C2C4292E14C3C20C00950747 /* helpImg2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = helpImg2.png; sourceTree = "<group>"; };
+		C2C4293614C40CA100950747 /* TimeUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeUtils.h; sourceTree = "<group>"; };
+		C2C4293714C40CA100950747 /* TimeUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeUtils.m; sourceTree = "<group>"; };
 		C2C6F0B014BD601A00AA0297 /* GameSettingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSettingManager.h; sourceTree = "<group>"; };
 		C2C6F0B114BD601A00AA0297 /* GameSettingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSettingManager.m; sourceTree = "<group>"; };
 		C2C6F0B414BD678100AA0297 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -262,6 +265,8 @@
 		CA01828D14B599F3002056D2 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				C2C4293614C40CA100950747 /* TimeUtils.h */,
+				C2C4293714C40CA100950747 /* TimeUtils.m */,
 				CA01828E14B599F3002056D2 /* LayerUtil.h */,
 				CA01828F14B599F3002056D2 /* LayerUtil.m */,
 			);
@@ -659,6 +664,7 @@
 				CA93140214BEDDA700EB49AE /* HGTableViewController.m in Sources */,
 				CA93140514BEDDCF00EB49AE /* GestureTraceView.m in Sources */,
 				CAE98E9014C174B3007F986E /* TKProgressBarView.m in Sources */,
+				C2C4293814C40CA100950747 /* TimeUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

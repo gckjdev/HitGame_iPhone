@@ -10,6 +10,8 @@
 
 #import "HighScoreManager.h"
 #import "Score.h"
+
+const int MAX_HIGH_SCORE_COUNT = 10;
 HighScoreManager *highScoreManager;
 
 HighScoreManager* GlobalGetHighScoreManager()
@@ -81,8 +83,8 @@ HighScoreManager* GlobalGetHighScoreManager()
         }
         return NSOrderedSame;
     }];
-    if ([array count] > 10) {
-        array = [array subarrayWithRange:(NSRange){0,10}];
+    if ([array count] > MAX_HIGH_SCORE_COUNT) {
+        array = [array subarrayWithRange:(NSRange){0,MAX_HIGH_SCORE_COUNT}];
     }
     [self.highScoreDict setObject:array forKey:level];
     [self saveHighScore];
@@ -105,8 +107,8 @@ HighScoreManager* GlobalGetHighScoreManager()
         }
         return NSOrderedSame;
     }];
-    if ([array count] > 10) {
-        array = [array subarrayWithRange:(NSRange){0,10}];
+    if ([array count] > MAX_HIGH_SCORE_COUNT) {
+        array = [array subarrayWithRange:(NSRange){0,MAX_HIGH_SCORE_COUNT}];
     }
     [self.highScoreDict setObject:array forKey:level];
     [self saveHighScore];
@@ -125,7 +127,10 @@ HighScoreManager* GlobalGetHighScoreManager()
 {
     NSNumber* level = [NSNumber numberWithInt:aLevel];
     NSMutableArray* scoreArray = [NSMutableArray arrayWithArray:[self.highScoreDict objectForKey:level]];
-    Score* score = [scoreArray objectAtIndex:[scoreArray count]];
+    if ([scoreArray count] < MAX_HIGH_SCORE_COUNT) {
+        return YES;
+    }
+    Score* score = [scoreArray objectAtIndex:[scoreArray count]-1];
     if (aScore > score.scoreValue) {
         return YES;
     }

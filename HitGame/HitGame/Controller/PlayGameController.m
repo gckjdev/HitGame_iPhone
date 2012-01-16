@@ -48,6 +48,8 @@
 #define ALLOW_MISS_COUNT [[[NSBundle mainBundle] objectForInfoDictionaryKey:\
                 @"CFAllowMissCount"] doubleValue]
 
+#define NAME_TEXT_VIEW_TAG 120120112
+
 
 
 @implementation PlayGameController
@@ -607,10 +609,11 @@ enum {
 {
     NSString *msg = nil;
     NSString *title = nil;
+    HighScoreManager* manager = [HighScoreManager defaultManager];
     if (!isSuccessful) {
         title = @"亲，你懂的!";
-        msg = @"失败是成功他妈，要越挫越勇哦。";
-    }else{
+        msg = @"一回生，两回熟，下次就过了";
+    }else {
         title = @"亲，坚持了一分钟哦！";
         msg = [NSString stringWithFormat:@"您的分数是:%d! 再闯一关？",_score];
     }
@@ -621,9 +624,19 @@ enum {
                                                    delegate:self 
                                           cancelButtonTitle:@"返回" 
                                           otherButtonTitles:buttonMsg, nil];
+    if ([manager shouldScore:_score RankInLevel:_gameLevel.levelIndex]) {
+        [alert setTitle:@"恭喜进入高分榜"];
+        [alert setMessage:@"请输入你的大名:\n\n"];
+        UITextView* txtView = [[UITextView alloc] initWithFrame:CGRectMake(90, 70, 100, 30)];
+        txtView.tag = NAME_TEXT_VIEW_TAG;
+        //[alert addButtonWithTitle:@"确定"];
+        [alert addSubview:txtView];
+        [txtView release];
+    }
     [alert show];
     [alert release];
 }
+
 
 - (void)endGame:(BOOL)isSuccessful
 {
@@ -631,8 +644,6 @@ enum {
     [self adjustClock];
     [self showResult:isSuccessful];
     if (isSuccessful) {
-        HighScoreManager* manager = [HighScoreManager defaultManager];
-        [manager addHighScore:_score forLevel:self.gameLevel.levelIndex];  
         [_levelManager unLockGameLevelAtIndex:_gameLevel.levelIndex + 1];
         [_levelManager storeLevelConfigure];
     }
@@ -688,7 +699,8 @@ enum {
 enum
 {
   INDEX_BACK =0,
-  INDEX_REPLAY
+  INDEX_REPLAY,
+  INDEX_INPUT_NAME
 };
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
@@ -696,6 +708,7 @@ enum
         [self quitGame:YES];
     }
     if (buttonIndex == REPLAY_GAME) {
+        
         if (_gameStatus == Sucess) {
             //next level
             self.gameLevel = [_levelManager nextGameLevelWithCurrentLevel:_gameLevel];
@@ -705,12 +718,29 @@ enum
             {
                 [self quitGame:YES];
             }
-        }           
+        } 
+        UITextView* txtView = (UITextView*)[alertView viewWithTag:NAME_TEXT_VIEW_TAG];
+        if (txtView) {
+            HighScoreManager* manager = [HighScoreManager defaultManager];
+            NSString* name = [txtView text];
+            NSDate* today = [NSDate dateWithTimeIntervalSinceNow:0];
+            [manager addHighScore:_score forLevel:_gameLevel.levelIndex withName:name date:today];
+        }
         _gameStatus = Ready;
         [self processStateMachine];
         
     }
+    if (buttonIndex == INDEX_INPUT_NAME) {
+        UITextView* txtView = (UITextView*)[alertView viewWithTag:NAME_TEXT_VIEW_TAG];
+        if (txtView) {
+            HighScoreManager* manager = [HighScoreManager defaultManager];
+            NSString* name = [txtView text];
+            NSDate* today = [NSDate dateWithTimeIntervalSinceNow:0];
+            [manager addHighScore:_score forLevel:_gameLevel.levelIndex withName:name date:today];
+        }
+    }
 }
+
 
 - (void)popHelpMessage
 {
