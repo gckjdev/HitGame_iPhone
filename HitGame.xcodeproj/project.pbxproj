@@ -28,11 +28,12 @@
 		C2C4293814C40CA100950747 /* TimeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C4293714C40CA100950747 /* TimeUtils.m */; };
 		C2C6F0B214BD601A00AA0297 /* GameSettingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C6F0B114BD601A00AA0297 /* GameSettingManager.m */; };
 		C2C6F0B514BD678100AA0297 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C6F0B414BD678100AA0297 /* AudioToolbox.framework */; };
+		C2CC0DA914C511FD00C6D095 /* beaten.wav in Resources */ = {isa = PBXBuildFile; fileRef = C2CC0DA714C511FD00C6D095 /* beaten.wav */; };
+		C2CC0DAA14C511FD00C6D095 /* sword.wav in Resources */ = {isa = PBXBuildFile; fileRef = C2CC0DA814C511FD00C6D095 /* sword.wav */; };
+		C2CC0DC014C5782E00C6D095 /* GameSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CC0DBF14C5782E00C6D095 /* GameSettingView.m */; };
 		C2D36A7514BAEFA600E2A96D /* Score.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D36A7414BAEFA600E2A96D /* Score.m */; };
 		C2DDBF5714BEB1D800CAD5E5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2DDBF5614BEB1D800CAD5E5 /* AVFoundation.framework */; };
 		C2DDBF5D14BEB73600CAD5E5 /* AudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C2DDBF5C14BEB73600CAD5E5 /* AudioManager.m */; };
-		C2DDBF7814BEE2CC00CAD5E5 /* beaten.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C2DDBF7414BEE2CC00CAD5E5 /* beaten.mp3 */; };
-		C2DDBF7B14BEE2CC00CAD5E5 /* sword.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C2DDBF7714BEE2CC00CAD5E5 /* sword.mp3 */; };
 		C2E5E89614B83F0100852530 /* HighScoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E5E89414B83F0100852530 /* HighScoreController.m */; };
 		C2E5E89714B83F0100852530 /* HighScoreController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2E5E89514B83F0100852530 /* HighScoreController.xib */; };
 		C2FA3A8714B5734000F1465E /* HighScoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C2FA3A8614B5734000F1465E /* HighScoreManager.m */; };
@@ -119,13 +120,15 @@
 		C2C6F0B014BD601A00AA0297 /* GameSettingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSettingManager.h; sourceTree = "<group>"; };
 		C2C6F0B114BD601A00AA0297 /* GameSettingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSettingManager.m; sourceTree = "<group>"; };
 		C2C6F0B414BD678100AA0297 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		C2CC0DA714C511FD00C6D095 /* beaten.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = beaten.wav; sourceTree = "<group>"; };
+		C2CC0DA814C511FD00C6D095 /* sword.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sword.wav; sourceTree = "<group>"; };
+		C2CC0DBE14C5782E00C6D095 /* GameSettingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSettingView.h; sourceTree = "<group>"; };
+		C2CC0DBF14C5782E00C6D095 /* GameSettingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSettingView.m; sourceTree = "<group>"; };
 		C2D36A7314BAEFA600E2A96D /* Score.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Score.h; sourceTree = "<group>"; };
 		C2D36A7414BAEFA600E2A96D /* Score.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Score.m; sourceTree = "<group>"; };
 		C2DDBF5614BEB1D800CAD5E5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C2DDBF5B14BEB73600CAD5E5 /* AudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioManager.h; sourceTree = "<group>"; };
 		C2DDBF5C14BEB73600CAD5E5 /* AudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioManager.m; sourceTree = "<group>"; };
-		C2DDBF7414BEE2CC00CAD5E5 /* beaten.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beaten.mp3; sourceTree = "<group>"; };
-		C2DDBF7714BEE2CC00CAD5E5 /* sword.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sword.mp3; sourceTree = "<group>"; };
 		C2E5E89314B83F0100852530 /* HighScoreController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoreController.h; sourceTree = "<group>"; };
 		C2E5E89414B83F0100852530 /* HighScoreController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoreController.m; sourceTree = "<group>"; };
 		C2E5E89514B83F0100852530 /* HighScoreController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HighScoreController.xib; sourceTree = "<group>"; };
@@ -256,8 +259,8 @@
 		C2DDBF6A14BEE10800CAD5E5 /* sounds */ = {
 			isa = PBXGroup;
 			children = (
-				C2DDBF7414BEE2CC00CAD5E5 /* beaten.mp3 */,
-				C2DDBF7714BEE2CC00CAD5E5 /* sword.mp3 */,
+				C2CC0DA714C511FD00C6D095 /* beaten.wav */,
+				C2CC0DA814C511FD00C6D095 /* sword.wav */,
 			);
 			name = sounds;
 			sourceTree = "<group>";
@@ -398,6 +401,8 @@
 				C2E5E89514B83F0100852530 /* HighScoreController.xib */,
 				C2C3815714BBF42E009B46EC /* HelpView.h */,
 				C2C3815814BBF42E009B46EC /* HelpView.m */,
+				C2CC0DBE14C5782E00C6D095 /* GameSettingView.h */,
+				C2CC0DBF14C5782E00C6D095 /* GameSettingView.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -593,12 +598,12 @@
 				C28D37A314B438430098033B /* icon-star@2x.png in Resources */,
 				C28D37BD14B4581D0098033B /* GameSettingController.xib in Resources */,
 				C2E5E89714B83F0100852530 /* HighScoreController.xib in Resources */,
-				C2DDBF7814BEE2CC00CAD5E5 /* beaten.mp3 in Resources */,
-				C2DDBF7B14BEE2CC00CAD5E5 /* sword.mp3 in Resources */,
 				CAE98BFE14C13125007F986E /* unlocked.png in Resources */,
 				CAE98C0014C13131007F986E /* locked.png in Resources */,
 				C2C4292F14C3C20C00950747 /* helpImg1.png in Resources */,
 				C2C4293014C3C20C00950747 /* helpImg2.png in Resources */,
+				C2CC0DA914C511FD00C6D095 /* beaten.wav in Resources */,
+				C2CC0DAA14C511FD00C6D095 /* sword.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -665,6 +670,7 @@
 				CA93140514BEDDCF00EB49AE /* GestureTraceView.m in Sources */,
 				CAE98E9014C174B3007F986E /* TKProgressBarView.m in Sources */,
 				C2C4293814C40CA100950747 /* TimeUtils.m in Sources */,
+				C2CC0DC014C5782E00C6D095 /* GameSettingView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

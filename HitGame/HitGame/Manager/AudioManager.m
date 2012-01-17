@@ -8,6 +8,7 @@
 
 #import "AudioManager.h"
 #import <AVFoundation/AVFoundation.h>
+#import <AudioToolbox/AudioToolbox.h>
 
 AudioManager* backgroundMusicManager;
 AudioManager* soundManager;
@@ -23,7 +24,7 @@ AudioManager* globalGetAudioManager()
 
 @implementation AudioManager
 @synthesize backgroundMusicPlayer = _backgroundMusicPlayer;
-@synthesize soundPlayer = _soundPlayer;
+@synthesize sounds = _sounds;
 
 - (void)setBackGroundMusicWithName:(NSString*)aMusicName
 {
@@ -38,9 +39,40 @@ AudioManager* globalGetAudioManager()
     } else {
         soundFilePath = [[NSBundle mainBundle] pathForResource:aMusicName ofType:@"mp3"];
     }
-    NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
-    [self.backgroundMusicPlayer initWithContentsOfURL:soundFileURL error:nil];
-    self.backgroundMusicPlayer.numberOfLoops = -1; //infinite
+    if (soundFilePath) {
+        NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
+        [self.backgroundMusicPlayer initWithContentsOfURL:soundFileURL error:nil];
+        self.backgroundMusicPlayer.numberOfLoops = -1; //infinite
+    }
+ 
+}
+
+- (void)initSounds:(NSArray*)soundNames
+{
+    SystemSoundID soundId;
+    for (NSString* soundName in soundNames) {
+        NSString* name;
+        NSString* type;
+        NSString *soundFilePath;
+        NSArray* nameArray = [soundName componentsSeparatedByString:@"."];
+        if ([nameArray count] == 2) {
+            name = [nameArray objectAtIndex:0];
+            type = [nameArray objectAtIndex:1];
+            soundFilePath = [[NSBundle mainBundle] pathForResource:name ofType:type];
+        } else {
+            soundFilePath = [[NSBundle mainBundle] pathForResource:soundName ofType:@"WAV"];
+        }
+        if (soundFilePath) {
+            NSURL* soundURL = [NSURL fileURLWithPath:soundFilePath];
+            
+            //Register sound file located at that URL as a system sound
+            OSStatus err = AudioServicesCreateSystemSoundID((CFURLRef)soundURL, &soundId);
+            [self.sounds addObject:[NSNumber numberWithInt:soundId]];
+            if (err != kAudioServicesNoError) {
+                NSLog(@"Could not load %@, error code: %ld", soundURL, err);
+            }
+        }
+    }
 }
 
 - (id)init
@@ -48,7 +80,9 @@ AudioManager* globalGetAudioManager()
     self = [super init];
     if (self) {
         _backgroundMusicPlayer = [[AVAudioPlayer alloc] init];
-        _soundPlayer = [[AVAudioPlayer alloc] init];
+        _sounds = [[NSMutableArray alloc] init];
+        [self initSounds:[NSArray arrayWithObjects:@"sword.wav", nil]];
+        
     }
     return self;
 }
@@ -56,7 +90,7 @@ AudioManager* globalGetAudioManager()
 - (void)dealloc
 {
     [_backgroundMusicPlayer release];
-    [_soundPlayer release];
+    [_sounds release];
     [super dealloc];
 }
 
@@ -65,25 +99,11 @@ AudioManager* globalGetAudioManager()
     return globalGetAudioManager();
 }
 
-
-
-- (void)playSoundByName:(NSString*)aSoundName
+- (void)playSoundById:(NSInteger)aSoundIndex
 {
-    NSString* name;
-    NSString* type;
-    NSString *soundFilePath;
-    NSArray* nameArray = [aSoundName componentsSeparatedByString:@"."];
-    if ([nameArray count] == 2) {
-        name = [nameArray objectAtIndex:0];
-        type = [nameArray objectAtIndex:1];
-        soundFilePath = [[NSBundle mainBundle] pathForResource:name ofType:type];
-    } else {
-        soundFilePath = [[NSBundle mainBundle] pathForResource:aSoundName ofType:@"mp3"];
-    }
-    NSURL *soundFileURL = [NSURL fileURLWithPath:soundFilePath];
-    [self.soundPlayer initWithContentsOfURL:soundFileURL error:nil];
-    self.soundPlayer.numberOfLoops = -1; 
-    [self.soundPlayer play];
+    NSNumber* num = [self.sounds objectAtIndex:aSoundIndex];
+    SystemSoundID soundId = num.intValue;
+    AudioServicesPlaySystemSound(soundId);
 }
 
 - (void)backgroundMusicStart
@@ -106,6 +126,11 @@ AudioManager* globalGetAudioManager()
 - (void)backgroundMusicStop
 {
     //[self.backgroundMusicPlayer stop];
+}
+
+- (void)setBackGroundMusicVolumn:(CGFloat)aVolumn
+{
+    self.backgroundMusicPlayer.volume = aVolumn;
 }
 
 

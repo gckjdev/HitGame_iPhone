@@ -10,8 +10,11 @@
 
 @interface GameSettingManager : NSObject {
     BOOL _isVibration;
+    BOOL _isSoundOn;
 }
 @property (assign, nonatomic) BOOL isVibration;
+@property (assign, nonatomic) BOOL isSoundOn;
 + (GameSettingManager*)defaultManager;
 + (BOOL)isVibration;
++ (BOOL)isSoundOn;
 @end

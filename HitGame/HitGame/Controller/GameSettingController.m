@@ -8,9 +8,14 @@
 
 #import "GameSettingController.h"
 #import "GameSettingManager.h"
+#import "AudioManager.h"
 
 @implementation GameSettingController
 @synthesize vibrationSwitcher;
+@synthesize soundSwitcher;
+@synthesize clickDoneButton;
+@synthesize contentView;
+@synthesize BGMSwitcher;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -21,10 +26,10 @@
     return self;
 }
 
-- (void)vibrationSwitcherInit
+- (void)initSetting
 {
-    
     [self.vibrationSwitcher setOn:[GameSettingManager isVibration]];
+    [self.soundSwitcher setOn:[GameSettingManager isSoundOn]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,13 +45,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self vibrationSwitcherInit];
+    [self initSetting];
     // Do any additional setup after loading the view from its nib.
 }
 
 - (void)viewDidUnload
 {
     [self setVibrationSwitcher:nil];
+    [self setBGMSwitcher:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -60,7 +66,7 @@
 
 - (IBAction)clickBackButton:(id)sender
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    //[self.view setHidden:YES];
 }
 
 - (IBAction)switchIsVibration:(id)sender
@@ -70,9 +76,23 @@
     [manager setIsVibration:[sw isOn]];
 }
 
+- (IBAction)switchIsSoundOn:(id)sender
+{
+    UISwitch* sw = (UISwitch*)sender;
+    GameSettingManager* manager = [GameSettingManager defaultManager];
+    [manager setIsSoundOn:[sw isOn]];
+}
+
+- (IBAction)switchIsBGMOn:(id)sender
+{
+    UISwitch* sw = (UISwitch*)sender;
+    GameSettingManager* manager = [GameSettingManager defaultManager];
+    [manager setIsSoundOn:[sw isOn]];
+}
 
 - (void)dealloc {
     [vibrationSwitcher release];
+    [BGMSwitcher release];
     [super dealloc];
 }
 @end

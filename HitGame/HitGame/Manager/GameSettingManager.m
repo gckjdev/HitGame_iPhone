@@ -20,12 +20,14 @@ GameSettingManager* GlobalGetGameSettingManager()
 
 @implementation GameSettingManager
 @synthesize isVibration = _isVibration;
+@synthesize isSoundOn = _isSoundOn;
 
 - (id)init
 {
     self = [super init];
     if (self) {
         _isVibration = YES;//
+        _isSoundOn = YES;
     }
     return self;
 }
@@ -38,6 +40,11 @@ GameSettingManager* GlobalGetGameSettingManager()
 + (BOOL)isVibration
 {
     return [[GameSettingManager defaultManager] isVibration];
+}
+
++ (BOOL)isSoundOn
+{
+    return [[GameSettingManager defaultManager] isSoundOn];
 }
 
 @end

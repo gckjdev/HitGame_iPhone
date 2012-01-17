@@ -11,7 +11,7 @@
 #import "PlayGameController.h"
 #import "LevelPickerController.h"
 #import "HighScoreController.h"
-#import "GameSettingController.h"
+#import "GameSettingView.h"
 
 @implementation EntryController
 @synthesize startGame;
@@ -78,9 +78,9 @@
 }
 
 - (IBAction)enterGameSetting:(id)sender {
-    GameSettingController *gsController = [[GameSettingController alloc] init];
-    [self.navigationController pushViewController:gsController animated:YES];
-    [gsController release];
+    GameSettingView* view = [[GameSettingView alloc] initWithFrame:CGRectMake(0, 0, 240, 160)];
+    [self.view addSubview:view];
+    [view release];
 }
 
 - (IBAction)enterHighScore:(id)sender {

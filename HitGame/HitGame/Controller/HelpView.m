@@ -30,6 +30,7 @@ const int HELP_IMAGE_OFFSET = 20120116;
     [scaleAnimation setDelegate:self];
     [_contentView.layer addAnimation:scaleAnimation forKey:@"minify"];
     [_contentView.layer addAnimation:rollAnimation forKey:@"rolling"];
+    [self removeFromSuperview];
 }
 
 - (void)nextImage

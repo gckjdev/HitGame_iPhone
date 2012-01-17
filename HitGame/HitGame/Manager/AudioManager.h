@@ -10,19 +10,17 @@
 @class AVAudioPlayer;
 
 @interface AudioManager : NSObject {
- @protected
     AVAudioPlayer* _backgroundMusicPlayer;
-    AVAudioPlayer* _soundPlayer;
+    NSMutableArray* _sounds;
 }
 @property (retain, nonatomic) AVAudioPlayer* backgroundMusicPlayer;
-@property (retain, nonatomic) AVAudioPlayer* soundPlayer;
-
+@property (retain, nonatomic) NSMutableArray* sounds;
 + (AudioManager*)defaultManager;
 - (void)setBackGroundMusicWithName:(NSString*)aMusicName;
-- (void)playSoundByName:(NSString*)aSoundName;
+- (void)playSoundById:(NSInteger)aSoundIndex;
 - (void)backgroundMusicStart;
 - (void)backgroundMusicPause;
 - (void)backgroundMusicContinue;
 - (void)backgroundMusicStop;
-
+- (void)setBackGroundMusicVolumn:(CGFloat)aVolumn;
 @end
