@@ -9,12 +9,23 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/CAAnimation.h>
 
-@interface GameSettingView : UIView
+@protocol GameSettingDelegate <NSObject>
+@optional
+- (void)settingFinish;
 
-@property (retain, nonatomic) UISwitch *vibrationSwitcher;
-@property (retain, nonatomic) UISwitch *soundSwitcher;
+@end
+
+@interface GameSettingView : UIView {
+    id<GameSettingDelegate> _delegate;
+}
+
+@property (retain, nonatomic) UIButton *vibrationSwitcher;
+@property (retain, nonatomic) UIButton *soundSwitcher;
 @property (retain, nonatomic) UIButton *clickDoneButton;
 @property (retain, nonatomic) UIView *contentView;
-@property (retain, nonatomic) UISwitch *bgmSwitcher;
+@property (retain, nonatomic) UIButton *bgmSwitcher;
+@property (assign, nonatomic) id<GameSettingDelegate> delegate;
+
+- (id)initWithFrame:(CGRect)frame withDelegate:(id<GameSettingDelegate>)aDelegate;
 
 @end

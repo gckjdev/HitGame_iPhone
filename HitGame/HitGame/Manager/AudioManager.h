@@ -22,5 +22,4 @@
 - (void)backgroundMusicPause;
 - (void)backgroundMusicContinue;
 - (void)backgroundMusicStop;
-- (void)setBackGroundMusicVolumn:(CGFloat)aVolumn;
 @end

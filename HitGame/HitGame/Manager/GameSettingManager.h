@@ -14,7 +14,9 @@
 }
 @property (assign, nonatomic) BOOL isVibration;
 @property (assign, nonatomic) BOOL isSoundOn;
+@property (assign, nonatomic) BOOL isBGMOn;
 + (GameSettingManager*)defaultManager;
 + (BOOL)isVibration;
 + (BOOL)isSoundOn;
++ (BOOL)isBGMOn;
 @end

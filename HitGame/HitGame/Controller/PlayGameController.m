@@ -212,7 +212,7 @@
 - (void)performPanGesture:(UIPanGestureRecognizer *)recognizer
 {
     if (recognizer.state == UIGestureRecognizerStateBegan) {
-        
+        [[AudioManager defaultManager] playSoundById:0];
         [_gestureTrace didStartGestrue:recognizer];
         [_gestureTrace didGestrue:recognizer MovedAtPoint:
          [recognizer locationInView:_gestureTrace]];
@@ -749,7 +749,20 @@ enum
     [help release];
 }
 
+- (void)popSettingView
+{
+    GameSettingView* view = [[GameSettingView alloc] initWithFrame:CGRectMake(0, 0, 240, 160) withDelegate:self];
+    [self.view addSubview:view];
+    [view release];
+}
+
 - (void)clickOkButton
+{
+    _gameStatus = Resume;
+    [self processStateMachine];
+}
+
+- (void)settingFinish
 {
     _gameStatus = Resume;
     [self processStateMachine];
@@ -773,6 +786,7 @@ enum
             break;
         }
         case GAME_SETTING: {
+            [self popSettingView];
             break;
         }
         case GAME_HELP: {

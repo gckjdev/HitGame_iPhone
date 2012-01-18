@@ -9,6 +9,7 @@
 #import "AudioManager.h"
 #import <AVFoundation/AVFoundation.h>
 #import <AudioToolbox/AudioToolbox.h>
+#import "GameSettingManager.h"
 
 AudioManager* backgroundMusicManager;
 AudioManager* soundManager;
@@ -101,9 +102,11 @@ AudioManager* globalGetAudioManager()
 
 - (void)playSoundById:(NSInteger)aSoundIndex
 {
-    NSNumber* num = [self.sounds objectAtIndex:aSoundIndex];
-    SystemSoundID soundId = num.intValue;
-    AudioServicesPlaySystemSound(soundId);
+    if ([GameSettingManager isSoundOn]) {
+        NSNumber* num = [self.sounds objectAtIndex:aSoundIndex];
+        SystemSoundID soundId = num.intValue;
+        AudioServicesPlaySystemSound(soundId);
+    }
 }
 
 - (void)backgroundMusicStart
@@ -127,12 +130,5 @@ AudioManager* globalGetAudioManager()
 {
     //[self.backgroundMusicPlayer stop];
 }
-
-- (void)setBackGroundMusicVolumn:(CGFloat)aVolumn
-{
-    self.backgroundMusicPlayer.volume = aVolumn;
-}
-
-
 
 @end

@@ -11,6 +11,7 @@
 #import "Enum.h"
 #import "HGQuadCurveMenu.h"
 #import "HelpView.h"
+#import "GameSettingView.h"
 
 
 @class Food;
@@ -21,7 +22,7 @@
 @class GestureTraceView;
 @class TKProgressBarView;
 
-@interface PlayGameController : UIViewController <UIGestureRecognizerDelegate, UIAlertViewDelegate, HGQuadCurveMenuDelegate, HelpViewDelegate>
+@interface PlayGameController : UIViewController <UIGestureRecognizerDelegate, UIAlertViewDelegate, HGQuadCurveMenuDelegate, HelpViewDelegate, GameSettingDelegate>
 
 {
 
