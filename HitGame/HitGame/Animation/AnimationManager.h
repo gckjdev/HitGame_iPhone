@@ -19,6 +19,9 @@
 //rotation
 + (CAAnimation *)rotationAnimationWithRoundCount:(CGFloat) count 
                                         duration:(CFTimeInterval)duration;
++ (CAAnimation *)rotationAnimationFrom:(float)startValue 
+                                    to:(float)endValue 
+                              duration:(float)duration;
 
 //opacity
 + (CAAnimation *)missingAnimationWithDuration:(CFTimeInterval)duration;

@@ -12,6 +12,7 @@
 #import "HGQuadCurveMenu.h"
 #import "HelpView.h"
 #import "GameSettingView.h"
+#import "GameFinishView.h"
 
 
 @class Food;
@@ -22,7 +23,7 @@
 @class GestureTraceView;
 @class TKProgressBarView;
 
-@interface PlayGameController : UIViewController <UIGestureRecognizerDelegate, UIAlertViewDelegate, HGQuadCurveMenuDelegate, HelpViewDelegate, GameSettingDelegate>
+@interface PlayGameController : UIViewController <UIGestureRecognizerDelegate, UIAlertViewDelegate, HGQuadCurveMenuDelegate, HelpViewDelegate, GameSettingDelegate, GameFinishViewDelegate>
 
 {
 
@@ -45,6 +46,9 @@
     GestureTraceView *_gestureTrace;
     HGQuadCurveMenu *_menu;
     TKProgressBarView *_progress;
+    FoodView* _currentFood;
+    CGPoint _currentLocation;
+    float _currentRoation;
 }
 
 @property (retain, nonatomic) IBOutlet UILabel *scoreLabel;
@@ -69,4 +73,5 @@
 - (void)popUpMsg:(NSString *)msg textColor:(UIColor *)color;
 - (void)addDefaultMissingAnimationTofoodView:(FoodView *)foodView;
 - (void)enterBackground;
+- (void)enterForeground;
 @end

@@ -26,6 +26,8 @@
 		C2C4292F14C3C20C00950747 /* helpImg1.png in Resources */ = {isa = PBXBuildFile; fileRef = C2C4292D14C3C20C00950747 /* helpImg1.png */; };
 		C2C4293014C3C20C00950747 /* helpImg2.png in Resources */ = {isa = PBXBuildFile; fileRef = C2C4292E14C3C20C00950747 /* helpImg2.png */; };
 		C2C4293814C40CA100950747 /* TimeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C4293714C40CA100950747 /* TimeUtils.m */; };
+		C2C6404414C805E000D86D12 /* GameFinishView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C6404314C805E000D86D12 /* GameFinishView.m */; };
+		C2C6404714C805F800D86D12 /* GameFinishView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2C6404614C805F800D86D12 /* GameFinishView.xib */; };
 		C2C6F0B214BD601A00AA0297 /* GameSettingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C6F0B114BD601A00AA0297 /* GameSettingManager.m */; };
 		C2C6F0B514BD678100AA0297 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C6F0B414BD678100AA0297 /* AudioToolbox.framework */; };
 		C2CC0DA914C511FD00C6D095 /* beaten.wav in Resources */ = {isa = PBXBuildFile; fileRef = C2CC0DA714C511FD00C6D095 /* beaten.wav */; };
@@ -117,6 +119,9 @@
 		C2C4292E14C3C20C00950747 /* helpImg2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = helpImg2.png; sourceTree = "<group>"; };
 		C2C4293614C40CA100950747 /* TimeUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeUtils.h; sourceTree = "<group>"; };
 		C2C4293714C40CA100950747 /* TimeUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeUtils.m; sourceTree = "<group>"; };
+		C2C6404214C805E000D86D12 /* GameFinishView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameFinishView.h; sourceTree = "<group>"; };
+		C2C6404314C805E000D86D12 /* GameFinishView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameFinishView.m; sourceTree = "<group>"; };
+		C2C6404614C805F800D86D12 /* GameFinishView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameFinishView.xib; sourceTree = "<group>"; };
 		C2C6F0B014BD601A00AA0297 /* GameSettingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSettingManager.h; sourceTree = "<group>"; };
 		C2C6F0B114BD601A00AA0297 /* GameSettingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSettingManager.m; sourceTree = "<group>"; };
 		C2C6F0B414BD678100AA0297 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -403,6 +408,9 @@
 				C2C3815814BBF42E009B46EC /* HelpView.m */,
 				C2CC0DBE14C5782E00C6D095 /* GameSettingView.h */,
 				C2CC0DBF14C5782E00C6D095 /* GameSettingView.m */,
+				C2C6404214C805E000D86D12 /* GameFinishView.h */,
+				C2C6404314C805E000D86D12 /* GameFinishView.m */,
+				C2C6404614C805F800D86D12 /* GameFinishView.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -604,6 +612,7 @@
 				C2C4293014C3C20C00950747 /* helpImg2.png in Resources */,
 				C2CC0DA914C511FD00C6D095 /* beaten.wav in Resources */,
 				C2CC0DAA14C511FD00C6D095 /* sword.wav in Resources */,
+				C2C6404714C805F800D86D12 /* GameFinishView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -671,6 +680,7 @@
 				CAE98E9014C174B3007F986E /* TKProgressBarView.m in Sources */,
 				C2C4293814C40CA100950747 /* TimeUtils.m in Sources */,
 				C2CC0DC014C5782E00C6D095 /* GameSettingView.m in Sources */,
+				C2C6404414C805E000D86D12 /* GameFinishView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

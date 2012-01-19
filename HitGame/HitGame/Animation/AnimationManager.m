@@ -63,6 +63,19 @@ AnimationManager *animatinManager;
     return animation;
 }
 
++ (CAAnimation *)rotationAnimationFrom:(float)startValue 
+                                    to:(float)endValue 
+                              duration:(float)duration
+{
+    CABasicAnimation * animation = [CABasicAnimation 
+                                    animationWithKeyPath:@"transform.rotation.z"]; 
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+    animation.fromValue = [NSNumber numberWithFloat:startValue];
+    animation.toValue = [NSNumber numberWithFloat:startValue];
+    animation.duration = duration ;
+    return animation;
+}
+
 + (CAAnimation *)missingAnimationWithDuration:(CFTimeInterval)duration
 {
     CABasicAnimation * animation = [CABasicAnimation 

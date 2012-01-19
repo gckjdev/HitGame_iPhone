@@ -48,7 +48,6 @@
 #define ALLOW_MISS_COUNT [[[NSBundle mainBundle] objectForInfoDictionaryKey:\
                 @"CFAllowMissCount"] doubleValue]
 
-#define NAME_TEXT_VIEW_TAG 120120112
 
 
 
@@ -464,8 +463,9 @@
 {
     if ([_fallingFoodViewList count] < 1 && _gameStatus == OnGoing){
         Food *food = [self randFood];
-        FoodView *foodView = [self fallFood:food];
-        [_fallingFoodViewList addObject:foodView];
+        _currentFood = [self fallFood:food];
+        
+        [_fallingFoodViewList addObject:_currentFood];
         _count ++;
     }
 }
@@ -607,34 +607,39 @@ enum {
 
 - (void)showResult:(BOOL)isSuccessful
 {
-    NSString *msg = nil;
-    NSString *title = nil;
+//    NSString *msg = nil;
+//    NSString *title = nil;
     HighScoreManager* manager = [HighScoreManager defaultManager];
-    if (!isSuccessful) {
-        title = @"亲，你懂的!";
-        msg = @"一回生，两回熟，下次就过了";
-    }else {
-        title = @"亲，坚持了一分钟哦！";
-        msg = [NSString stringWithFormat:@"您的分数是:%d! 再闯一关？",_score];
-    }
+//    if (!isSuccessful) {
+//        title = @"亲，你懂的!";
+//        msg = @"一回生，两回熟，下次就过了";
+        GameFinishView* view = [GameFinishView creatGameFinishViewWithDelegate:self 
+                                                                    shouldRank:[manager shouldScore:_score RankInLevel:_gameLevel.levelIndex] 
+                                                                  isSuccessful:isSuccessful 
+                                                                         score:_score];
+        [self.view addSubview:view];
+//    }else {
+//        title = @"亲，坚持了一分钟哦！";
+//        msg = [NSString stringWithFormat:@"您的分数是:%d! 再闯一关？",_score];
+//    }
     [self releaseAllFoodViews];
-    NSString *buttonMsg = (isSuccessful) ? @"下一关" : @"重玩";
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title 
-                                                    message:msg 
-                                                   delegate:self 
-                                          cancelButtonTitle:@"返回" 
-                                          otherButtonTitles:buttonMsg, nil];
-    if ([manager shouldScore:_score RankInLevel:_gameLevel.levelIndex]) {
-        [alert setTitle:@"恭喜进入高分榜"];
-        [alert setMessage:@"请输入你的大名:\n\n"];
-        UITextView* txtView = [[UITextView alloc] initWithFrame:CGRectMake(90, 70, 100, 30)];
-        txtView.tag = NAME_TEXT_VIEW_TAG;
-        //[alert addButtonWithTitle:@"确定"];
-        [alert addSubview:txtView];
-        [txtView release];
-    }
-    [alert show];
-    [alert release];
+//    NSString *buttonMsg = (isSuccessful) ? @"下一关" : @"重玩";
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title 
+//                                                    message:msg 
+//                                                   delegate:self 
+//                                          cancelButtonTitle:@"返回" 
+//                                          otherButtonTitles:buttonMsg, nil];
+//    if ([manager shouldScore:_score RankInLevel:_gameLevel.levelIndex]) {
+//        [alert setTitle:@"恭喜进入高分榜"];
+//        [alert setMessage:@"请输入你的大名:\n\n"];
+//        UITextView* txtView = [[UITextView alloc] initWithFrame:CGRectMake(90, 70, 100, 30)];
+//        txtView.tag = NAME_TEXT_VIEW_TAG;
+//        //[alert addButtonWithTitle:@"确定"];
+//        [alert addSubview:txtView];
+//        [txtView release];
+//    }
+//    //[alert show];
+//    [alert release];
 }
 
 
@@ -696,49 +701,72 @@ enum {
 
 #pragma mark - alertView delegate
 
-enum
+//enum
+//{
+//  INDEX_BACK =0,
+//  INDEX_REPLAY,
+//  INDEX_INPUT_NAME
+//};
+//- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+//{
+//    if (buttonIndex == INDEX_BACK) {
+//        [self quitGame:YES];
+//    }
+//    if (buttonIndex == REPLAY_GAME) {
+//        
+//        if (_gameStatus == Sucess) {
+//            //next level
+//            self.gameLevel = [_levelManager nextGameLevelWithCurrentLevel:_gameLevel];
+//            if (self.gameLevel) {
+//                [self reFreshLevelLabel];
+//            }else
+//            {
+//                [self quitGame:YES];
+//            }
+//        } 
+//        UITextView* txtView = (UITextView*)[alertView viewWithTag:NAME_TEXT_VIEW_TAG];
+//        if (txtView) {
+//            HighScoreManager* manager = [HighScoreManager defaultManager];
+//            NSString* name = [txtView text];
+//            NSDate* today = [NSDate dateWithTimeIntervalSinceNow:0];
+//            [manager addHighScore:_score forLevel:_gameLevel.levelIndex withName:name date:today];
+//        }
+//        _gameStatus = Ready;
+//        [self processStateMachine];
+//        
+//    }
+//    if (buttonIndex == INDEX_INPUT_NAME) {
+//        UITextView* txtView = (UITextView*)[alertView viewWithTag:NAME_TEXT_VIEW_TAG];
+//        if (txtView) {
+//            HighScoreManager* manager = [HighScoreManager defaultManager];
+//            NSString* name = [txtView text];
+//            NSDate* today = [NSDate dateWithTimeIntervalSinceNow:0];
+//            [manager addHighScore:_score forLevel:_gameLevel.levelIndex withName:name date:today];
+//        }
+//    }
+//}
+
+- (void)restartLevel
 {
-  INDEX_BACK =0,
-  INDEX_REPLAY,
-  INDEX_INPUT_NAME
-};
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+    _gameStatus = Ready;
+    [self processStateMachine];
+}
+
+- (void)nextLevel
 {
-    if (buttonIndex == INDEX_BACK) {
+    self.gameLevel = [_levelManager nextGameLevelWithCurrentLevel:_gameLevel];
+    if (self.gameLevel) {
+        [self reFreshLevelLabel];
+    } else {
         [self quitGame:YES];
     }
-    if (buttonIndex == REPLAY_GAME) {
-        
-        if (_gameStatus == Sucess) {
-            //next level
-            self.gameLevel = [_levelManager nextGameLevelWithCurrentLevel:_gameLevel];
-            if (self.gameLevel) {
-                [self reFreshLevelLabel];
-            }else
-            {
-                [self quitGame:YES];
-            }
-        } 
-        UITextView* txtView = (UITextView*)[alertView viewWithTag:NAME_TEXT_VIEW_TAG];
-        if (txtView) {
-            HighScoreManager* manager = [HighScoreManager defaultManager];
-            NSString* name = [txtView text];
-            NSDate* today = [NSDate dateWithTimeIntervalSinceNow:0];
-            [manager addHighScore:_score forLevel:_gameLevel.levelIndex withName:name date:today];
-        }
-        _gameStatus = Ready;
-        [self processStateMachine];
-        
-    }
-    if (buttonIndex == INDEX_INPUT_NAME) {
-        UITextView* txtView = (UITextView*)[alertView viewWithTag:NAME_TEXT_VIEW_TAG];
-        if (txtView) {
-            HighScoreManager* manager = [HighScoreManager defaultManager];
-            NSString* name = [txtView text];
-            NSDate* today = [NSDate dateWithTimeIntervalSinceNow:0];
-            [manager addHighScore:_score forLevel:_gameLevel.levelIndex withName:name date:today];
-        }
-    }
+}
+
+- (void)sumitHighScore:(NSString*)name
+{
+    HighScoreManager* manager = [HighScoreManager defaultManager];
+    NSDate* today = [NSDate dateWithTimeIntervalSinceNow:0];
+    [manager addHighScore:_score forLevel:_gameLevel.levelIndex withName:name date:today];
 }
 
 
@@ -885,7 +913,25 @@ enum
 {
     if (_menu) {
         [_menu expandItems];
+        CALayer* layer = (CALayer*)_currentFood.layer.presentationLayer;
+        _currentLocation = layer.position;
     }
+}
+
+- (void)enterForeground
+{
+    //_currentFood.frame = CGRectMake(-48, -48, 48, 48);
+    //[self.view insertSubview:_currentFood atIndex:0];
+    _currentFood.endPoint = CGPointMake(rand()%320, 400+24);
+    CAAnimation *translation = [AnimationManager translationAnimationFrom:_currentLocation to:_currentFood.endPoint duration:[self calculateFallDuration] delegate:self removeCompeleted:NO];
+    
+    [translation setValue:_currentFood forKey:ANIMATION_ID_FOODVIEW];
+    [translation setValue:ANIMATION_TAG_FALL forKey:ANIMATION_TAG_FALL];
+    
+    [_currentFood.layer addAnimation:translation forKey:ANIMATION_KEY_TRANSLATION];
+    CAAnimation *rotation = [AnimationManager rotationAnimationWithRoundCount:FALL_ROTATION_COUNT duration:FALL_ANIMATION_DURATION];
+    
+    [_currentFood.layer addAnimation:rotation forKey:ANIMATION_KEY_ROTATION];
 }
 
 #pragma mark - View lifecycle
