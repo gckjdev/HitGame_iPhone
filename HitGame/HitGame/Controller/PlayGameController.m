@@ -760,6 +760,8 @@ enum {
     } else {
         [self quitGame:YES];
     }
+    _gameStatus = Ready;
+    [self processStateMachine];
 }
 
 - (void)sumitHighScore:(NSString*)name

@@ -45,6 +45,7 @@
     
     if (isSuccessful) {
         if (shouldRank) {
+            [view.middleButton addTarget:view action:@selector(sumit:) forControlEvents:UIControlEventTouchUpInside];
             //
         } else {
             [view.titleLabel setText:@"恭喜过关"];
@@ -56,7 +57,7 @@
         }
         //
     } else {
-        [view.titleLabel setText:@"HO~NO~"];
+        [view.titleLabel setText:@"HO~NO~囧rz"];
         [view.messageLabel setText:@"一回生，两回熟，下次就过了"];
         [view.middleButton setTitle:@"重玩" forState:UIControlStateNormal];
         [view.nameField setHidden:YES];
@@ -82,12 +83,14 @@
     [self removeFromSuperview];
 }
 
-- (void)sumitHighScore
+- (void)sumit:(id)sender
 {
     NSString* name = _nameField.text;
     if (_delegate && [_delegate respondsToSelector:@selector(sumitHighScore:)]) {
         [_delegate sumitHighScore:name];
     }
+    UIButton* btn = (UIButton*)sender;
+    [btn setHidden:YES];
     
 }
 
