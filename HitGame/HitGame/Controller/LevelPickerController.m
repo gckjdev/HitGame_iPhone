@@ -14,6 +14,7 @@
 #import "HGResource.h"
 #import "TestCase.h"
 #import "Food.h"
+#import "ExtraGameController.h"
 
 #define COUNT_PER_ROW 5
 #define BUTTON_LENGTH 40.0
@@ -134,5 +135,12 @@
 
 - (IBAction)clickBackButton:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)extraLevel:(id)sender
+{
+    ExtraGameController *pgController = [[ExtraGameController alloc] init];
+    [self.navigationController pushViewController:pgController animated:YES];
+    [pgController release];
 }
 @end

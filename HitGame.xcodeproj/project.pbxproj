@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C255F00214D51A7E001247C3 /* HitGameEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = C255F00114D51A7E001247C3 /* HitGameEngine.m */; };
+		C255F00714D51BC5001247C3 /* ExtraGameController.m in Sources */ = {isa = PBXBuildFile; fileRef = C255F00514D51BC4001247C3 /* ExtraGameController.m */; };
+		C255F00814D51BC5001247C3 /* ExtraGameController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C255F00614D51BC4001247C3 /* ExtraGameController.xib */; };
 		C28D379714B438430098033B /* bg-addbutton-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = C28D378A14B438430098033B /* bg-addbutton-highlighted.png */; };
 		C28D379814B438430098033B /* bg-addbutton-highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C28D378B14B438430098033B /* bg-addbutton-highlighted@2x.png */; };
 		C28D379914B438430098033B /* bg-addbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = C28D378C14B438430098033B /* bg-addbutton.png */; };
@@ -97,6 +100,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C255F00014D51A7E001247C3 /* HitGameEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HitGameEngine.h; sourceTree = "<group>"; };
+		C255F00114D51A7E001247C3 /* HitGameEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HitGameEngine.m; sourceTree = "<group>"; };
+		C255F00414D51BC4001247C3 /* ExtraGameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtraGameController.h; sourceTree = "<group>"; };
+		C255F00514D51BC4001247C3 /* ExtraGameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtraGameController.m; sourceTree = "<group>"; };
+		C255F00614D51BC4001247C3 /* ExtraGameController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExtraGameController.xib; sourceTree = "<group>"; };
 		C28D378A14B438430098033B /* bg-addbutton-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-addbutton-highlighted.png"; sourceTree = "<group>"; };
 		C28D378B14B438430098033B /* bg-addbutton-highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-addbutton-highlighted@2x.png"; sourceTree = "<group>"; };
 		C28D378C14B438430098033B /* bg-addbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-addbutton.png"; sourceTree = "<group>"; };
@@ -392,8 +400,8 @@
 				CA6C73E514AF068E00E15785 /* PlayGameController.h */,
 				CA6C73E614AF068E00E15785 /* PlayGameController.m */,
 				CA6C73E714AF068E00E15785 /* PlayGameController.xib */,
-				CA3F2C4514B2A1260090A758 /* EntryController.h */,
 				CA3F2C4614B2A1260090A758 /* EntryController.m */,
+				CA3F2C4514B2A1260090A758 /* EntryController.h */,
 				CA3F2C4714B2A1260090A758 /* EntryController.xib */,
 				CA3F2C4E14B2EB540090A758 /* LevelPickerController.h */,
 				CA3F2C4F14B2EB550090A758 /* LevelPickerController.m */,
@@ -411,6 +419,11 @@
 				C2C6404214C805E000D86D12 /* GameFinishView.h */,
 				C2C6404314C805E000D86D12 /* GameFinishView.m */,
 				C2C6404614C805F800D86D12 /* GameFinishView.xib */,
+				C255F00014D51A7E001247C3 /* HitGameEngine.h */,
+				C255F00114D51A7E001247C3 /* HitGameEngine.m */,
+				C255F00414D51BC4001247C3 /* ExtraGameController.h */,
+				C255F00514D51BC4001247C3 /* ExtraGameController.m */,
+				C255F00614D51BC4001247C3 /* ExtraGameController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -613,6 +626,7 @@
 				C2CC0DA914C511FD00C6D095 /* beaten.wav in Resources */,
 				C2CC0DAA14C511FD00C6D095 /* sword.wav in Resources */,
 				C2C6404714C805F800D86D12 /* GameFinishView.xib in Resources */,
+				C255F00814D51BC5001247C3 /* ExtraGameController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -681,6 +695,8 @@
 				C2C4293814C40CA100950747 /* TimeUtils.m in Sources */,
 				C2CC0DC014C5782E00C6D095 /* GameSettingView.m in Sources */,
 				C2C6404414C805E000D86D12 /* GameFinishView.m in Sources */,
+				C255F00214D51A7E001247C3 /* HitGameEngine.m in Sources */,
+				C255F00714D51BC5001247C3 /* ExtraGameController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
