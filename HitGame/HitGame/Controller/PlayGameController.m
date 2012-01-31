@@ -133,13 +133,14 @@
         }
     }
     if (hasFood) {
-        [self popUpMsg:@"手势不对哦" textColor:COLOR_POPUP_WRONG_GESTURE];
+        [self popUpMsg:NSLocalizedString(@"手势不对哦", @"错误手势提示") textColor:COLOR_POPUP_WRONG_GESTURE];
     }
 }
 
 - (void)increaseMissCount
 {
-    [self.missLabel setText:[NSString stringWithFormat:@"失误: %d", ++ _missCount]];
+    NSString* missCounter = NSLocalizedString(@"失误", @"失误计数");
+    [self.missLabel setText:[NSString stringWithFormat:@"%@: %d", missCounter, ++ _missCount]];
 }
 
 - (void)vibrate
@@ -151,8 +152,9 @@
 
 - (void)reFreshLevelLabel
 {
+    NSString* levelString = NSLocalizedString(@"关卡", @"");
     if (_gameLevel) {
-        [_levelLabel setText:[NSString stringWithFormat:@"第%d关",_gameLevel.levelIndex]];
+        [_levelLabel setText:[NSString stringWithFormat:@"%@:", levelString, _gameLevel.levelIndex]];
     }
 }
 
@@ -528,8 +530,8 @@
     _retainSeconds = _roundTime;
     [self adjustClock];
     [self releaseAllFoodViews];
-    [self.scoreLabel setText:@"得分: 0"];
-    [self.missLabel setText:@"失误: 0"];
+    [self.scoreLabel setText:NSLocalizedString(@"得分: 0", @"")];
+    [self.missLabel setText:NSLocalizedString(@"失误: 0", @"")];
 }
 
 - (void)startPlayMusic
@@ -852,27 +854,27 @@ enum {
                                                                highlightedImage:storyMenuItemImagePressed 
                                                                    contentImage:starImage 
                                                         highlightedContentImage:nil 
-                                                                          title:@"继续"];
+                                                                          title:NSLocalizedString(@"继续", @"弹出圆菜单提示")];
     HGQuadCurveMenuItem *rePlayGame = [[HGQuadCurveMenuItem alloc] initWithImage:storyMenuItemImage 
                                                                highlightedImage:storyMenuItemImagePressed 
                                                                    contentImage:starImage 
                                                         highlightedContentImage:nil 
-                                                                          title:@"重玩"];
+                                                                          title:NSLocalizedString(@"重玩", @"")];
     HGQuadCurveMenuItem *gameSetting = [[HGQuadCurveMenuItem alloc] initWithImage:storyMenuItemImage 
                                                                 highlightedImage:storyMenuItemImagePressed 
                                                                     contentImage:starImage 
                                                          highlightedContentImage:nil 
-                                                                           title:@"设置"];
+                                                                           title:NSLocalizedString(@"设置", @"")];
     HGQuadCurveMenuItem *gameHelp = [[HGQuadCurveMenuItem alloc] initWithImage:storyMenuItemImage 
                                                                 highlightedImage:storyMenuItemImagePressed 
                                                                     contentImage:starImage 
                                                          highlightedContentImage:nil 
-                                                                           title:@"帮助"];
+                                                                           title:NSLocalizedString(@"帮助", @"弹出圆菜单提示")];
     HGQuadCurveMenuItem *quitGame = [[HGQuadCurveMenuItem alloc] initWithImage:storyMenuItemImage 
                                                                    highlightedImage:storyMenuItemImagePressed 
                                                                        contentImage:starImage 
                                                             highlightedContentImage:nil 
-                                                                              title:@"离开"];
+                                                                              title:NSLocalizedString(@"离开", @"弹出圆菜单提示")];
     
     NSArray *menus = [NSArray arrayWithObjects:continueGame, rePlayGame, gameSetting, gameHelp, quitGame, nil];
     [continueGame release];

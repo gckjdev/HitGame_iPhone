@@ -25,6 +25,7 @@
 		C28D37A314B438430098033B /* icon-star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C28D379614B438430098033B /* icon-star@2x.png */; };
 		C28D37BC14B4581D0098033B /* GameSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = C28D37BA14B4581D0098033B /* GameSettingController.m */; };
 		C28D37BD14B4581D0098033B /* GameSettingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C28D37BB14B4581D0098033B /* GameSettingController.xib */; };
+		C2C1DA1A14D7E7D90050D4EC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C2C1DA1C14D7E7D90050D4EC /* Localizable.strings */; };
 		C2C3815914BBF42E009B46EC /* HelpView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C3815814BBF42E009B46EC /* HelpView.m */; };
 		C2C4292F14C3C20C00950747 /* helpImg1.png in Resources */ = {isa = PBXBuildFile; fileRef = C2C4292D14C3C20C00950747 /* helpImg1.png */; };
 		C2C4293014C3C20C00950747 /* helpImg2.png in Resources */ = {isa = PBXBuildFile; fileRef = C2C4292E14C3C20C00950747 /* helpImg2.png */; };
@@ -121,6 +122,8 @@
 		C28D37B914B4581D0098033B /* GameSettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSettingController.h; sourceTree = "<group>"; };
 		C28D37BA14B4581D0098033B /* GameSettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSettingController.m; sourceTree = "<group>"; };
 		C28D37BB14B4581D0098033B /* GameSettingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameSettingController.xib; sourceTree = "<group>"; };
+		C2C1DA1B14D7E7D90050D4EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C2C1DA1D14D7E7E60050D4EC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		C2C3815714BBF42E009B46EC /* HelpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpView.h; sourceTree = "<group>"; };
 		C2C3815814BBF42E009B46EC /* HelpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpView.m; sourceTree = "<group>"; };
 		C2C4292D14C3C20C00950747 /* helpImg1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = helpImg1.png; sourceTree = "<group>"; };
@@ -341,6 +344,7 @@
 			isa = PBXGroup;
 			children = (
 				CA6C73A314AF064900E15785 /* HitGame-Info.plist */,
+				C2C1DA1C14D7E7D90050D4EC /* Localizable.strings */,
 				CA6C73A414AF064900E15785 /* InfoPlist.strings */,
 				CA6C73A714AF064900E15785 /* HitGame-Prefix.pch */,
 				CA6C73A814AF064900E15785 /* main.m */,
@@ -400,8 +404,8 @@
 				CA6C73E514AF068E00E15785 /* PlayGameController.h */,
 				CA6C73E614AF068E00E15785 /* PlayGameController.m */,
 				CA6C73E714AF068E00E15785 /* PlayGameController.xib */,
-				CA3F2C4614B2A1260090A758 /* EntryController.m */,
 				CA3F2C4514B2A1260090A758 /* EntryController.h */,
+				CA3F2C4614B2A1260090A758 /* EntryController.m */,
 				CA3F2C4714B2A1260090A758 /* EntryController.xib */,
 				CA3F2C4E14B2EB540090A758 /* LevelPickerController.h */,
 				CA3F2C4F14B2EB550090A758 /* LevelPickerController.m */,
@@ -577,6 +581,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				"zh-Hans",
 			);
 			mainGroup = CA6C738C14AF064800E15785;
 			productRefGroup = CA6C739814AF064800E15785 /* Products */;
@@ -627,6 +632,7 @@
 				C2CC0DAA14C511FD00C6D095 /* sword.wav in Resources */,
 				C2C6404714C805F800D86D12 /* GameFinishView.xib in Resources */,
 				C255F00814D51BC5001247C3 /* ExtraGameController.xib in Resources */,
+				C2C1DA1A14D7E7D90050D4EC /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -719,6 +725,16 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		C2C1DA1C14D7E7D90050D4EC /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C2C1DA1B14D7E7D90050D4EC /* en */,
+				C2C1DA1D14D7E7E60050D4EC /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			path = HitGame/Controller;
+			sourceTree = "<group>";
+		};
 		CA6C73A414AF064900E15785 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

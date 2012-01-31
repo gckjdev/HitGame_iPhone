@@ -10,6 +10,7 @@
 #import "AnimationManager.h"
 #import "GameSettingManager.h"
 
+
 @implementation GameSettingView
 @synthesize vibrationSwitcher= _vibrationSwitcher;
 @synthesize soundSwitcher = _soundSwitcher;
@@ -53,8 +54,8 @@
 - (void)initASwitcher:(UIButton*)aButton
 {
     [self.contentView addSubview:aButton];
-    [aButton setTitle:@"打开" forState:UIControlStateSelected];
-    [aButton setTitle:@"关闭" forState:UIControlStateNormal];
+    [aButton setTitle:NSLocalizedString(@"打开", @"开关") forState:UIControlStateSelected];
+    [aButton setTitle:NSLocalizedString(@"关闭", @"开关") forState:UIControlStateNormal];
 }
 
 - (void)initSwitcher
@@ -88,9 +89,9 @@
     UILabel* vibrationLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 80, 20)];
     UILabel* soundSwitcherLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 30, 80, 20)];
     UILabel* bgmSwitcherLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 60, 80, 20)];
-    [vibrationLabel setText:@"振动开关"];
-    [soundSwitcherLabel setText:@"音效"];
-    [bgmSwitcherLabel setText:@"背景音乐"];
+    [vibrationLabel setText:NSLocalizedString(@"振动开关", @"设置界面")];
+    [soundSwitcherLabel setText:NSLocalizedString(@"音效", @"设置界面")];
+    [bgmSwitcherLabel setText:NSLocalizedString(@"背景音乐", @"设置界面")];
     [self addLabelToContentView:vibrationLabel];
     [self addLabelToContentView:soundSwitcherLabel];
     [self addLabelToContentView:bgmSwitcherLabel];

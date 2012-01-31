@@ -98,11 +98,15 @@
     [self addAnimationToButton:highScore];
 
 }
-
+               
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self showMenu];
+    [self.startGame setTitle:NSLocalizedString(@"开始游戏", @"游戏开始界面") forState:UIControlStateNormal];
+    [self.resumeGame setTitle:NSLocalizedString(@"继续游戏", @"游戏开始界面") forState:UIControlStateNormal];
+    [self.gameSetting setTitle:NSLocalizedString(@"设置", @"") forState:UIControlStateNormal];
+    [self.highScore setTitle:NSLocalizedString(@"高分榜", @"游戏开始界面") forState:UIControlStateNormal];
     
 }
 

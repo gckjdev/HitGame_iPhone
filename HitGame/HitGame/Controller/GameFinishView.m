@@ -46,20 +46,22 @@
     if (isSuccessful) {
         if (shouldRank) {
             [view.middleButton addTarget:view action:@selector(sumit:) forControlEvents:UIControlEventTouchUpInside];
+            [view.messageLabel setText:NSLocalizedString(@"请输入你的大名", @"高分榜名字")];
+            [view.titleLabel setText:NSLocalizedString(@"恭喜刷新纪录", @"刷新高分榜")];
             //
         } else {
-            [view.titleLabel setText:@"恭喜过关"];
-            [view.messageLabel setText:@"很遗憾没能刷新纪录"];
-            [view.middleButton setTitle:@"重玩" forState:UIControlStateNormal];
+            [view.titleLabel setText:NSLocalizedString(@"恭喜过关", @"过关提示")];
+            [view.messageLabel setText:NSLocalizedString(@"很遗憾未能刷新纪录", @"过关提示")];
+            [view.middleButton setTitle:NSLocalizedString(@"重玩", @"重玩") forState:UIControlStateNormal];
             [view.nameField setHidden:YES];
             [view.middleButton addTarget:view action:@selector(restart) forControlEvents:UIControlEventTouchUpInside];
             //
         }
         //
     } else {
-        [view.titleLabel setText:@"HO~NO~囧rz"];
-        [view.messageLabel setText:@"一回生，两回熟，下次就过了"];
-        [view.middleButton setTitle:@"重玩" forState:UIControlStateNormal];
+        [view.titleLabel setText:NSLocalizedString(@"OH~NO~囧rz", @"过关失败标题")];
+        [view.messageLabel setText:NSLocalizedString(@"一回生，两回熟，下次一定能过", @"过关失败")];
+        [view.middleButton setTitle:NSLocalizedString(@"重玩", @"") forState:UIControlStateNormal];
         [view.nameField setHidden:YES];
         [view.middleButton addTarget:view action:@selector(restart) forControlEvents:UIControlEventTouchUpInside];
         [view.middleButton setFrame:view.rightButton.frame];

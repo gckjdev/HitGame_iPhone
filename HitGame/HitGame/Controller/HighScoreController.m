@@ -109,7 +109,8 @@
 - (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     NSNumber* level = [self.shownLevels objectAtIndex:section];
-    NSString* title = [NSString stringWithFormat:@"第%d关", [level intValue]];
+    NSString* levelTitle = NSLocalizedString(@"关卡", @"高分榜关卡标题");
+    NSString* title = [NSString stringWithFormat:@"%@:%d", levelTitle, [level intValue]];
     return title;
 }
 
@@ -130,16 +131,17 @@
 
 - (IBAction)clickFilterButton:(id)sender
 {
-    UIActionSheet* sheet = [[UIActionSheet alloc] initWithTitle:@"选择关卡" 
+    UIActionSheet* sheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"关卡选择", @"高分榜关卡选择") 
                                                        delegate:self 
                                               cancelButtonTitle:nil 
                                          destructiveButtonTitle:nil 
                                               otherButtonTitles:nil];
     for (NSNumber* level in self.allLevels) {
-        NSString* title = [NSString stringWithFormat:@"第%d关", level.intValue];
+        NSString* levelTitle = NSLocalizedString(@"关卡", @"高分榜关卡标题");
+        NSString* title = [NSString stringWithFormat:@"%@:%d", levelTitle, [level intValue]];
         [sheet addButtonWithTitle:title];
     }
-    [sheet addButtonWithTitle:@"返回"];
+    [sheet addButtonWithTitle:NSLocalizedString(@"返回", @"高分榜返回")];
     [sheet setCancelButtonIndex:[self.allLevels count]];
     [sheet showInView:self.view];
     [sheet release];
