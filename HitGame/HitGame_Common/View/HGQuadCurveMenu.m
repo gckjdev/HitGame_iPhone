@@ -258,11 +258,11 @@ contentHighLightImage:(UIImage*)aContentHighLightImage
     }
 
     // rotate add button
-    float angle = self.isExpanding ? -M_PI_4 : 0.0f;
-    [UIView animateWithDuration:0.2f animations:^{
-        _addButton.transform = CGAffineTransformMakeRotation(angle);
-    }];
-    
+//    float angle = self.isExpanding ? -M_PI_4 : 0.0f;
+//    [UIView animateWithDuration:0.2f animations:^{
+//        _addButton.transform = CGAffineTransformMakeRotation(angle);
+//    }];
+//    
     // expand or close animation
     if (!_timer) 
     {

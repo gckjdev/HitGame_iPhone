@@ -846,33 +846,30 @@ enum {
 
 - (void)addOptionButton
 {
-    UIImage *storyMenuItemImage = [UIImage imageNamed:@"bg-menuitem.png"];
-    UIImage *storyMenuItemImagePressed = [UIImage imageNamed:@"bg-menuitem-highlighted.png"];  
-    UIImage *starImage = [UIImage imageNamed:@"icon-star.png"];
     
-    HGQuadCurveMenuItem *continueGame = [[HGQuadCurveMenuItem alloc] initWithImage:storyMenuItemImage 
-                                                               highlightedImage:storyMenuItemImagePressed 
-                                                                   contentImage:starImage 
+    HGQuadCurveMenuItem *continueGame = [[HGQuadCurveMenuItem alloc] initWithImage:[UIImage imageNamed:@"continue.png"] 
+                                                               highlightedImage:[UIImage imageNamed:@"continue_press.png"]
+                                                                   contentImage:nil 
                                                         highlightedContentImage:nil 
                                                                           title:NSLocalizedString(@"继续", @"弹出圆菜单提示")];
-    HGQuadCurveMenuItem *rePlayGame = [[HGQuadCurveMenuItem alloc] initWithImage:storyMenuItemImage 
-                                                               highlightedImage:storyMenuItemImagePressed 
-                                                                   contentImage:starImage 
+    HGQuadCurveMenuItem *rePlayGame = [[HGQuadCurveMenuItem alloc] initWithImage:[UIImage imageNamed:@"replay.png"]  
+                                                               highlightedImage:[UIImage imageNamed:@"replay_pressed.png"]  
+                                                                   contentImage:nil 
                                                         highlightedContentImage:nil 
                                                                           title:NSLocalizedString(@"重玩", @"")];
-    HGQuadCurveMenuItem *gameSetting = [[HGQuadCurveMenuItem alloc] initWithImage:storyMenuItemImage 
-                                                                highlightedImage:storyMenuItemImagePressed 
-                                                                    contentImage:starImage 
+    HGQuadCurveMenuItem *gameSetting = [[HGQuadCurveMenuItem alloc] initWithImage:[UIImage imageNamed:@"setting2.png"]  
+                                                                highlightedImage:[UIImage imageNamed:@"setting2_pressed.png"]  
+                                                                    contentImage:nil 
                                                          highlightedContentImage:nil 
                                                                            title:NSLocalizedString(@"设置", @"")];
-    HGQuadCurveMenuItem *gameHelp = [[HGQuadCurveMenuItem alloc] initWithImage:storyMenuItemImage 
-                                                                highlightedImage:storyMenuItemImagePressed 
-                                                                    contentImage:starImage 
+    HGQuadCurveMenuItem *gameHelp = [[HGQuadCurveMenuItem alloc] initWithImage:[UIImage imageNamed:@"help.png"]  
+                                                                highlightedImage:[UIImage imageNamed:@"help_pressed.png"]  
+                                                                    contentImage:nil 
                                                          highlightedContentImage:nil 
                                                                            title:NSLocalizedString(@"帮助", @"弹出圆菜单提示")];
-    HGQuadCurveMenuItem *quitGame = [[HGQuadCurveMenuItem alloc] initWithImage:storyMenuItemImage 
-                                                                   highlightedImage:storyMenuItemImagePressed 
-                                                                       contentImage:starImage 
+    HGQuadCurveMenuItem *quitGame = [[HGQuadCurveMenuItem alloc] initWithImage:[UIImage imageNamed:@"back.png"]  
+                                                                   highlightedImage:[UIImage imageNamed:@"back_pressed.png"]  
+                                                                       contentImage:nil 
                                                             highlightedContentImage:nil 
                                                                               title:NSLocalizedString(@"离开", @"弹出圆菜单提示")];
     
@@ -892,11 +889,11 @@ enum {
                              startPoint:CGPointMake(40, 430) 
                              timeOffset:0.036 
                              rotateAngle:0
-                             menuWholeAngle:(M_PI/1.8)
-                             buttonImage:[UIImage imageNamed:@"bg-addbutton.png"] 
-                             buttonHighLightImage:[UIImage imageNamed:@"bg-addbutton-highlighted.png"] 
-                             contentImage:[UIImage imageNamed:@"icon-plus.png"] 
-                             contentHighLightImage:[UIImage imageNamed:@"icon-plus-highlight.png"]];
+                             menuWholeAngle:(M_PI/2)
+                             buttonImage:[UIImage imageNamed:@"menu.png"] 
+                             buttonHighLightImage:[UIImage imageNamed:@"menu_pressed.png"] 
+                             contentImage:nil
+                             contentHighLightImage:nil];
     _menu.delegate = self;
     [self.view addSubview:_menu];
     [_menu release];
