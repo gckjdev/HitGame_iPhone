@@ -163,8 +163,10 @@ const int HELP_IMAGE_OFFSET = 20120116;
 {
     self = [super initWithFrame:frame];
     if (self) {
+        UIImageView* backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background1.png"]];
         [self setFrame:CGRectMake(0, 0, 320, 480)];
         [self setBackgroundColor:[UIColor clearColor]];
+        [self addSubview:backgroundImage];
         [self contentInit:frame];
         [self ImageInit];
         [self buttonInit];
