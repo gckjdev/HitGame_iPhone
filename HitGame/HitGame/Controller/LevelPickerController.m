@@ -17,11 +17,13 @@
 #import "ExtraGameController.h"
 
 #define COUNT_PER_ROW 5
-#define BUTTON_LENGTH 40.0
+#define BUTTON_LENGTH 53.0
+#define BUTTON_HEIGHT 55.0
 #define BUTTON_TAG_BASE 100
 
 @implementation LevelPickerController
 @synthesize levelArray = _levelArray;
+@synthesize pickLevelTitle = _pickLevelTitle;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -37,6 +39,7 @@
 {
     [_levelArray release];
     [_buttonArray release];
+    [_pickLevelTitle release];
     [super dealloc];
 }
 - (void)didReceiveMemoryWarning
@@ -74,14 +77,11 @@
     for (int i = 0; i < [_levelArray count]; ++ i) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         x = xSpace + (xSpace + BUTTON_LENGTH) * (i % COUNT_PER_ROW);
-        y = ySpace + (ySpace + BUTTON_LENGTH) * (i / COUNT_PER_ROW);
-        button.frame = CGRectMake(x, y, BUTTON_LENGTH, BUTTON_LENGTH);
+        y = ySpace + (ySpace + BUTTON_HEIGHT) * (i / COUNT_PER_ROW) + 80 ;
+        button.frame = CGRectMake(x, y, BUTTON_LENGTH, BUTTON_HEIGHT);
 
         button.tag = i + BUTTON_TAG_BASE;
         [button addTarget:self action:@selector(pickLevelButton:) forControlEvents:UIControlEventTouchUpInside];
-        [button setTitle:[NSString stringWithFormat:@"%d",i+1] 
-                forState:UIControlStateNormal];
-        [button setTitleColor:[UIColor purpleColor] forState:UIControlStateNormal];
         [self.view addSubview:button];
         [_buttonArray addObject:button];
     }
@@ -99,10 +99,18 @@
         GameLevel *level = [_levelArray objectAtIndex:i];
         if (level && ![level isLocked]) {
             [button setBackgroundImage:UNLOCKED_IMAGE forState:UIControlStateNormal];
+            [button setBackgroundImage:PRESSED_UNLOCKED_IMAGE forState:UIControlStateHighlighted];
+            [button setTitle:[NSString stringWithFormat:@"%d",i+1] 
+                    forState:UIControlStateNormal];
+            [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            
             [button setUserInteractionEnabled:YES];
         }else
         {
+            [button setTitle:nil forState:UIControlStateNormal];
+            [button setTitle:nil forState:UIControlStateHighlighted];
             [button setBackgroundImage:LOCKED_IMAGE forState:UIControlStateNormal];
+            [button setBackgroundImage:PRESSED_LOCKED_IMAGE forState:UIControlStateHighlighted];
             [button setUserInteractionEnabled:NO];
         }
         ++ i;
@@ -117,11 +125,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.pickLevelTitle setText:NSLocalizedString(@"关卡选择", @"")];
     [self createLevelPickerButton];
 }
 
 - (void)viewDidUnload
 {
+    [self setPickLevelTitle:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
