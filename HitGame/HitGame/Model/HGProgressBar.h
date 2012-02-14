@@ -11,6 +11,8 @@
 @interface HGProgressBar : UIView
 {
     float _progress;
+    UIImageView *_backgroundView, *_frontgroundView;
+    
     
 }
 @property (assign,nonatomic) float progress; // a value between 0.0 and 1.0

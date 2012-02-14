@@ -20,10 +20,24 @@
     return self;
 }
 
+
+
 - (id)initWithProgress:(CGFloat)progress
 {
-    
+    self = [super initWithFrame:CGRectMake(0, 0, 0, 0)];
+    if (self) {
+        
+    }
+    return self;
 }
+
+
+- (void)setProgress:(float)progress
+{
+    _progress = progress;
+//    _frontgroundView center = CGPointMake(_frontgroundView.x, <#CGFloat y#>)
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
