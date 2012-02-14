@@ -19,6 +19,23 @@ const int HELP_IMAGE_OFFSET = 20120116;
 @synthesize contentView = _contentView;
 @synthesize helpImages = _helpImages;
 
++ (HelpView *)showHelpView
+{
+    NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"HelpView" owner:self options:nil];
+    // Grab a pointer to the first object (presumably the custom cell, as that's all the XIB should contain).  
+    if (topLevelObjects == nil || [topLevelObjects count] <= 0){
+        NSLog(@"create <HelpView> but cannot find cell object from Nib");
+        return nil;
+    }
+    HelpView* view =  (HelpView*)[topLevelObjects objectAtIndex:0];
+//    CAAnimation *scaleAnimation = [AnimationManager scaleAnimationWithFromScale:0.1 toScale:1 duration:0.5 delegate:view removeCompeleted:NO];
+//    CAAnimation *rollAnimation = [AnimationManager rotationAnimationWithRoundCount:-3 duration:0.5];
+//    [view.contentView.layer addAnimation:scaleAnimation forKey:@"enlarge"];
+//    [view.contentView.layer addAnimation:rollAnimation forKey:@"rolling"];
+    return view;
+    
+}
+
 - (void)clickOk:(id)sender
 {
     if (_delegate && [_delegate respondsToSelector:@selector(clickOkButton)]) {

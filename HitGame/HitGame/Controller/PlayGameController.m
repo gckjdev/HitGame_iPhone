@@ -776,7 +776,7 @@ enum {
 
 - (void)popHelpMessage
 {
-    HelpView* help = [[HelpView alloc] initWithFrame:CGRectMake(0, 0, 240, 160) withDelegate:self];
+    HelpView* help = [HelpView showHelpView];
     [self.view addSubview:help];
     [help release];
 }

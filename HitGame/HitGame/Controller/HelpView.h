@@ -17,15 +17,16 @@
 @end
 
 @interface HelpView : UIView{
-    UIButton* _okButton;    
+    UIButton* _okButton; 
+    UIImageView* _contentView;
     id<HelpViewDelegate> _delegate;
     NSArray*    _helpImages;
     int _imageTag;
 }
-@property (retain, nonatomic) UIButton* okButton;
-@property (retain, nonatomic) UIView* contentView;
+@property (retain, nonatomic) IBOutlet UIButton* okButton;
+@property (retain, nonatomic) IBOutlet UIImageView* contentView;
 @property (retain, nonatomic) NSArray* helpImages;
 
 - (id)initWithFrame:(CGRect)frame withDelegate:(id<HelpViewDelegate>)aDelegate;
-
++ (HelpView *)showHelpView;
 @end
