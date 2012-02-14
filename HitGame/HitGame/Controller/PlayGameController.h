@@ -22,7 +22,7 @@
 @class LevelManager;
 @class GestureTraceView;
 @class TKProgressBarView;
-
+@class HGProgressBar;
 @interface PlayGameController : UIViewController <UIGestureRecognizerDelegate, UIAlertViewDelegate, HGQuadCurveMenuDelegate, HelpViewDelegate, GameSettingDelegate, GameFinishViewDelegate>
 
 {
@@ -45,10 +45,11 @@
     LevelManager *_levelManager;
     GestureTraceView *_gestureTrace;
     HGQuadCurveMenu *_menu;
-    TKProgressBarView *_progress;
+    HGProgressBar *_progress;
     FoodView* _currentFood;
     CGPoint _currentLocation;
     float _currentRoation;
+//    HGProgressBar *pb;
 }
 
 @property (retain, nonatomic) IBOutlet UILabel *scoreLabel;

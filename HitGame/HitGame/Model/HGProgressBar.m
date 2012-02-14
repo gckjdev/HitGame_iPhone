@@ -16,11 +16,14 @@
 - (void)defaultSetting
 {
     _backgroundView = [[UIImageView alloc] initWithImage:PROGRESS_IMAGE];
-    _frontgroundView = [[UIImageView alloc] initWithImage:PROGRESS_BAR_IMAGE];
+    
+    UIImage *s = [[UIImage imageNamed:@"progress_bar.png"] stretchableImageWithLeftCapWidth:0 topCapHeight:11];
+    _frontgroundView = [[UIImageView alloc] initWithImage:s];
     [self addSubview:_backgroundView];
+    [self addSubview:_frontgroundView];
+    [_frontgroundView setFrame:CGRectMake(2, 1, _progress * 216, 11)];
     [_backgroundView setFrame:CGRectMake(0, 0, 220, 15)];
-//    [_backgroundView setCenter:CGPointMake(170, 40)];
-//    [_frontgroundView addSubview:_frontgroundView];
+    [self setClipsToBounds:YES];
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -43,7 +46,8 @@
 {
     self = [super initWithFrame:CGRectMake(0, 0, 220, 15)];
     if (self) {
-        [self setCenter:CGPointMake(170, 40)];
+        [self setCenter:CGPointMake(170, 20)];
+        self.progress = progress;
         [self defaultSetting];
     }
     return self;
@@ -53,7 +57,7 @@
 - (void)setProgress:(float)progress
 {
     _progress = progress;
-//    _frontgroundView center = CGPointMake(_frontgroundView.x, <#CGFloat y#>)
+    [_frontgroundView setFrame:CGRectMake(1, 1, _progress * 218, 11)];
 }
 
 /*

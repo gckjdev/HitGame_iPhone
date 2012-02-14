@@ -18,5 +18,4 @@
 #define PRESSED_UNLOCKED_IMAGE [UIImage imageNamed:@"level_pressed.png"]
 
 #define PROGRESS_IMAGE [UIImage imageNamed:@"progress.png"]
-#define PROGRESS_BAR_IMAGE [UIImage imageNamed:@"progress_bar.png"]
-
+#define PROGRESS_BAR_IMAGE [UIImage imageNamed:@"timebar.png"]
