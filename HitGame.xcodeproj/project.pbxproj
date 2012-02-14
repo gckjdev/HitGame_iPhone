@@ -94,6 +94,7 @@
 		C2FA3A8714B5734000F1465E /* HighScoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C2FA3A8614B5734000F1465E /* HighScoreManager.m */; };
 		CA01829014B599F3002056D2 /* LayerUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = CA01828F14B599F3002056D2 /* LayerUtil.m */; };
 		CA26A10C14B0894100AA761A /* TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = CA26A10B14B0894100AA761A /* TestCase.m */; };
+		CA39270414EA127600B89A12 /* HGProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = CA39270314EA127600B89A12 /* HGProgressBar.m */; };
 		CA3F2C4814B2A1260090A758 /* EntryController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3F2C4614B2A1260090A758 /* EntryController.m */; };
 		CA3F2C4914B2A1260090A758 /* EntryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA3F2C4714B2A1260090A758 /* EntryController.xib */; };
 		CA3F2C5114B2EB550090A758 /* LevelPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3F2C4F14B2EB550090A758 /* LevelPickerController.m */; };
@@ -251,6 +252,8 @@
 		CA01828E14B599F3002056D2 /* LayerUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayerUtil.h; sourceTree = "<group>"; };
 		CA01828F14B599F3002056D2 /* LayerUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayerUtil.m; sourceTree = "<group>"; };
 		CA26A10B14B0894100AA761A /* TestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCase.m; sourceTree = "<group>"; };
+		CA39270214EA127600B89A12 /* HGProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGProgressBar.h; sourceTree = "<group>"; };
+		CA39270314EA127600B89A12 /* HGProgressBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGProgressBar.m; sourceTree = "<group>"; };
 		CA3F2C4514B2A1260090A758 /* EntryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryController.h; sourceTree = "<group>"; };
 		CA3F2C4614B2A1260090A758 /* EntryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryController.m; sourceTree = "<group>"; };
 		CA3F2C4714B2A1260090A758 /* EntryController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EntryController.xib; sourceTree = "<group>"; };
@@ -564,6 +567,8 @@
 				CA3F2C5414B2F0810090A758 /* GameLevel.m */,
 				C2D36A7314BAEFA600E2A96D /* Score.h */,
 				C2D36A7414BAEFA600E2A96D /* Score.m */,
+				CA39270214EA127600B89A12 /* HGProgressBar.h */,
+				CA39270314EA127600B89A12 /* HGProgressBar.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -899,6 +904,7 @@
 				C2C6404414C805E000D86D12 /* GameFinishView.m in Sources */,
 				C255F00214D51A7E001247C3 /* HitGameEngine.m in Sources */,
 				C255F00714D51BC5001247C3 /* ExtraGameController.m in Sources */,
+				CA39270414EA127600B89A12 /* HGProgressBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

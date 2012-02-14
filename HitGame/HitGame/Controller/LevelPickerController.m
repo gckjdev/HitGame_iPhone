@@ -81,7 +81,6 @@
         button.frame = CGRectMake(x, y, BUTTON_LENGTH, BUTTON_HEIGHT);
 
         button.tag = i + BUTTON_TAG_BASE;
-        [button addTarget:self action:@selector(pickLevelButton:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:button];
         [_buttonArray addObject:button];
     }
@@ -103,15 +102,13 @@
             [button setTitle:[NSString stringWithFormat:@"%d",i+1] 
                     forState:UIControlStateNormal];
             [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-            
-            [button setUserInteractionEnabled:YES];
+            [button addTarget:self action:@selector(pickLevelButton:) forControlEvents:UIControlEventTouchUpInside];
         }else
         {
             [button setTitle:nil forState:UIControlStateNormal];
             [button setTitle:nil forState:UIControlStateHighlighted];
             [button setBackgroundImage:LOCKED_IMAGE forState:UIControlStateNormal];
             [button setBackgroundImage:PRESSED_LOCKED_IMAGE forState:UIControlStateHighlighted];
-            [button setUserInteractionEnabled:NO];
         }
         ++ i;
     }
