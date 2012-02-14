@@ -776,9 +776,8 @@ enum {
 
 - (void)popHelpMessage
 {
-    HelpView* help = [HelpView showHelpView];
+    HelpView* help = [HelpView createHelpViewWithDelegate:self];
     [self.view addSubview:help];
-    [help release];
 }
 
 - (void)popSettingView
