@@ -19,11 +19,11 @@
     id<GameSettingDelegate> _delegate;
 }
 
-@property (retain, nonatomic) UIButton *vibrationSwitcher;
-@property (retain, nonatomic) UIButton *soundSwitcher;
-@property (retain, nonatomic) UIButton *clickDoneButton;
-@property (retain, nonatomic) UIView *contentView;
-@property (retain, nonatomic) UIButton *bgmSwitcher;
+@property (retain, nonatomic) IBOutlet UIButton *vibrationSwitcher;
+@property (retain, nonatomic) IBOutlet UIButton *soundSwitcher;
+@property (retain, nonatomic) IBOutlet UIButton *clickDoneButton;
+@property (retain, nonatomic) IBOutlet UIView *contentView;
+@property (retain, nonatomic) IBOutlet UIButton *bgmSwitcher;
 @property (assign, nonatomic) id<GameSettingDelegate> delegate;
 
 - (id)initWithFrame:(CGRect)frame withDelegate:(id<GameSettingDelegate>)aDelegate;
