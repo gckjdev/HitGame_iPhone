@@ -34,6 +34,8 @@
 		C2C6404714C805F800D86D12 /* GameFinishView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2C6404614C805F800D86D12 /* GameFinishView.xib */; };
 		C2C6F0B214BD601A00AA0297 /* GameSettingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C6F0B114BD601A00AA0297 /* GameSettingManager.m */; };
 		C2C6F0B514BD678100AA0297 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C6F0B414BD678100AA0297 /* AudioToolbox.framework */; };
+		C2C73A4014EA152E00763311 /* progress_bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2C73A3E14EA152E00763311 /* progress_bar@2x.png */; };
+		C2C73A4114EA152E00763311 /* progress@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2C73A3F14EA152E00763311 /* progress@2x.png */; };
 		C2CC0DA914C511FD00C6D095 /* beaten.wav in Resources */ = {isa = PBXBuildFile; fileRef = C2CC0DA714C511FD00C6D095 /* beaten.wav */; };
 		C2CC0DAA14C511FD00C6D095 /* sword.wav in Resources */ = {isa = PBXBuildFile; fileRef = C2CC0DA814C511FD00C6D095 /* sword.wav */; };
 		C2CC0DC014C5782E00C6D095 /* GameSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CC0DBF14C5782E00C6D095 /* GameSettingView.m */; };
@@ -186,6 +188,8 @@
 		C2C6F0B014BD601A00AA0297 /* GameSettingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSettingManager.h; sourceTree = "<group>"; };
 		C2C6F0B114BD601A00AA0297 /* GameSettingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSettingManager.m; sourceTree = "<group>"; };
 		C2C6F0B414BD678100AA0297 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		C2C73A3E14EA152E00763311 /* progress_bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "progress_bar@2x.png"; sourceTree = "<group>"; };
+		C2C73A3F14EA152E00763311 /* progress@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "progress@2x.png"; sourceTree = "<group>"; };
 		C2CC0DA714C511FD00C6D095 /* beaten.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = beaten.wav; sourceTree = "<group>"; };
 		C2CC0DA814C511FD00C6D095 /* sword.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sword.wav; sourceTree = "<group>"; };
 		C2CC0DBE14C5782E00C6D095 /* GameSettingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSettingView.h; sourceTree = "<group>"; };
@@ -601,6 +605,8 @@
 		CA6C73FC14AF068E00E15785 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				C2C73A3E14EA152E00763311 /* progress_bar@2x.png */,
+				C2C73A3F14EA152E00763311 /* progress@2x.png */,
 				C2ED8E2A14E8F81900123947 /* back_pressed@2x.png */,
 				C2ED8E2B14E8F81900123947 /* back@2x.png */,
 				C2ED8E2C14E8F81900123947 /* background1@2x.png */,
@@ -834,6 +840,8 @@
 				C2ED8E8714E8F81900123947 /* volume@2x.png in Resources */,
 				C2ED8E8A14E912A500123947 /* HelpView.xib in Resources */,
 				C2ED8E8C14E912C200123947 /* GameSettingView.xib in Resources */,
+				C2C73A4014EA152E00763311 /* progress_bar@2x.png in Resources */,
+				C2C73A4114EA152E00763311 /* progress@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
