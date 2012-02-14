@@ -15,5 +15,6 @@
 }
 
 @property(nonatomic, retain)NSMutableArray *levelArray;
+@property (retain, nonatomic) IBOutlet UILabel *pickLevelTitle;
 - (IBAction)clickBackButton:(id)sender;
 @end
