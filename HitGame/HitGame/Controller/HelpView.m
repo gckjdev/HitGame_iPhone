@@ -18,8 +18,9 @@ const int HELP_IMAGE_OFFSET = 20120116;
 @synthesize okButton = _okButton;
 @synthesize contentView = _contentView;
 @synthesize helpImages = _helpImages;
+@synthesize delegate = _delegate;
 
-+ (HelpView *)showHelpView
++ (HelpView *)createHelpViewWithDelegate:(id<HelpViewDelegate>)aDelegate
 {
     NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"HelpView" owner:self options:nil];
     // Grab a pointer to the first object (presumably the custom cell, as that's all the XIB should contain).  
@@ -28,15 +29,16 @@ const int HELP_IMAGE_OFFSET = 20120116;
         return nil;
     }
     HelpView* view =  (HelpView*)[topLevelObjects objectAtIndex:0];
-//    CAAnimation *scaleAnimation = [AnimationManager scaleAnimationWithFromScale:0.1 toScale:1 duration:0.5 delegate:view removeCompeleted:NO];
-//    CAAnimation *rollAnimation = [AnimationManager rotationAnimationWithRoundCount:-3 duration:0.5];
-//    [view.contentView.layer addAnimation:scaleAnimation forKey:@"enlarge"];
-//    [view.contentView.layer addAnimation:rollAnimation forKey:@"rolling"];
+    view.delegate = aDelegate;
+    CAAnimation *scaleAnimation = [AnimationManager scaleAnimationWithFromScale:0.1 toScale:1 duration:0.5 delegate:view removeCompeleted:NO];
+    CAAnimation *rollAnimation = [AnimationManager rotationAnimationWithRoundCount:-3 duration:0.5];
+    [view.contentView.layer addAnimation:scaleAnimation forKey:@"enlarge"];
+    [view.contentView.layer addAnimation:rollAnimation forKey:@"rolling"];
     return view;
     
 }
 
-- (void)clickOk:(id)sender
+- (IBAction)clickOk:(id)sender
 {
     if (_delegate && [_delegate respondsToSelector:@selector(clickOkButton)]) {
         [_delegate clickOkButton];
@@ -207,6 +209,7 @@ const int HELP_IMAGE_OFFSET = 20120116;
    // [_okButton release];
     [super dealloc];
 }
+
 
 /*
 // Only override drawRect: if you perform custom drawing.

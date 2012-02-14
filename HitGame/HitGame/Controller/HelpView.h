@@ -26,7 +26,8 @@
 @property (retain, nonatomic) IBOutlet UIButton* okButton;
 @property (retain, nonatomic) IBOutlet UIImageView* contentView;
 @property (retain, nonatomic) NSArray* helpImages;
+@property (assign, nonatomic) id<HelpViewDelegate> delegate;
 
 - (id)initWithFrame:(CGRect)frame withDelegate:(id<HelpViewDelegate>)aDelegate;
-+ (HelpView *)showHelpView;
++ (HelpView *)createHelpViewWithDelegate:(id<HelpViewDelegate>)aDelegate;
 @end
