@@ -24,6 +24,7 @@
 #import "GestureTraceView.h"
 #import "Style.h"
 #import "TKProgressBarView.h"
+#import "HGProgressBar.h"
 
 #define FALL_ANIMATION_DURATION 3
 #define FALL_ROTATION_COUNT 4
@@ -86,7 +87,9 @@
         _foodManager = [FoodManager defaultManager];
         _levelManager = [LevelManager defaultManager];
         _progress = [[TKProgressBarView alloc] initWithStyle:TKProgressBarViewStyleLong];
-        _progress.center = CGPointMake(164, 18);        
+        _progress.center = CGPointMake(164, 18);       
+
+        
         [self readConfig];
 
     }
@@ -950,6 +953,10 @@ enum {
     _gameStatus = Ready;
     [self processStateMachine];
     [self.view addSubview:_progress];
+    
+    HGProgressBar *pb = [[HGProgressBar alloc] initWithProgress:1];
+    [self.view addSubview:pb];
+    [pb release];
 }
 
 - (void)viewDidUnload

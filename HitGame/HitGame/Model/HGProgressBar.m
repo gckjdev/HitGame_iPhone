@@ -7,9 +7,21 @@
 //
 
 #import "HGProgressBar.h"
+#import "HGResource.h"
 
 @implementation HGProgressBar
 @synthesize progress = _progress;
+
+
+- (void)defaultSetting
+{
+    _backgroundView = [[UIImageView alloc] initWithImage:PROGRESS_IMAGE];
+    _frontgroundView = [[UIImageView alloc] initWithImage:PROGRESS_BAR_IMAGE];
+    [self addSubview:_backgroundView];
+    [_backgroundView setFrame:CGRectMake(0, 0, 220, 15)];
+//    [_backgroundView setCenter:CGPointMake(170, 40)];
+//    [_frontgroundView addSubview:_frontgroundView];
+}
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -21,12 +33,18 @@
 }
 
 
-
+- (void)dealloc
+{
+    [_backgroundView release];
+    [_frontgroundView release];
+    [super dealloc];
+}
 - (id)initWithProgress:(CGFloat)progress
 {
-    self = [super initWithFrame:CGRectMake(0, 0, 0, 0)];
+    self = [super initWithFrame:CGRectMake(0, 0, 220, 15)];
     if (self) {
-        
+        [self setCenter:CGPointMake(170, 40)];
+        [self defaultSetting];
     }
     return self;
 }
