@@ -61,6 +61,7 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
+						<string key="IBUITitleShadowOffset">{0, -2}</string>
 						<string key="IBUINormalTitle">开始游戏</string>
 						<object class="NSColor" key="IBUIHighlightedTitleColor" id="173091284">
 							<int key="NSColorSpace">3</int>
@@ -70,9 +71,9 @@
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MSAxIDEAA</bytes>
 						</object>
-						<object class="NSColor" key="IBUINormalTitleShadowColor" id="567511018">
-							<int key="NSColorSpace">3</int>
-							<bytes key="NSWhite">MC41AA</bytes>
+						<object class="NSColor" key="IBUINormalTitleShadowColor">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MC44MzkyMTU2ODYzIDAuNTAxOTYwNzg0MyAwLjA3MDU4ODIzNTI5AA</bytes>
 						</object>
 						<object class="NSCustomResource" key="IBUIHighlightedBackgroundImage">
 							<string key="NSClassName">NSImage</string>
@@ -82,15 +83,13 @@
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">start.png</string>
 						</object>
-						<object class="IBUIFontDescription" key="IBUIFontDescription" id="437438334">
-							<string key="name">STHeitiSC-Medium</string>
-							<string key="family">Heiti SC</string>
-							<int key="traits">2</int>
-							<double key="pointSize">23</double>
+						<object class="IBUIFontDescription" key="IBUIFontDescription" id="1035920754">
+							<int key="type">2</int>
+							<double key="pointSize">21</double>
 						</object>
-						<object class="NSFont" key="IBUIFont" id="437092392">
-							<string key="NSName">STHeitiSC-Medium</string>
-							<double key="NSSize">23</double>
+						<object class="NSFont" key="IBUIFont" id="787197677">
+							<string key="NSName">Helvetica-Bold</string>
+							<double key="NSSize">21</double>
 							<int key="NSfFlags">16</int>
 						</object>
 					</object>
@@ -105,10 +104,14 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
+						<string key="IBUITitleShadowOffset">{0, -2}</string>
 						<string key="IBUINormalTitle">继续游戏</string>
 						<reference key="IBUIHighlightedTitleColor" ref="173091284"/>
 						<reference key="IBUINormalTitleColor" ref="797972706"/>
-						<reference key="IBUINormalTitleShadowColor" ref="567511018"/>
+						<object class="NSColor" key="IBUINormalTitleShadowColor">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MC4zMDE5NjA3ODQzIDAuNjA3ODQzMTM3MyAwLjE2ODYyNzQ1MQA</bytes>
+						</object>
 						<object class="NSCustomResource" key="IBUIHighlightedBackgroundImage">
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">continue_selection_pressed.png</string>
@@ -117,8 +120,8 @@
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">continue_selection.png</string>
 						</object>
-						<reference key="IBUIFontDescription" ref="437438334"/>
-						<reference key="IBUIFont" ref="437092392"/>
+						<reference key="IBUIFontDescription" ref="1035920754"/>
+						<reference key="IBUIFont" ref="787197677"/>
 					</object>
 					<object class="IBUIButton" id="84631614">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -131,11 +134,18 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
+						<string key="IBUITitleShadowOffset">{0, -2}</string>
 						<string key="IBUINormalTitle">高分榜</string>
 						<reference key="IBUIHighlightedTitleColor" ref="797972706"/>
 						<reference key="IBUINormalTitleColor" ref="797972706"/>
-						<reference key="IBUIHighlightedTitleShadowColor" ref="567511018"/>
-						<reference key="IBUINormalTitleShadowColor" ref="567511018"/>
+						<object class="NSColor" key="IBUIHighlightedTitleShadowColor">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MC43NDkwMTk2MDc4IDAuMzI1NDkwMTk2MSAwLjQxOTYwNzg0MzEAA</bytes>
+						</object>
+						<object class="NSColor" key="IBUINormalTitleShadowColor">
+							<int key="NSColorSpace">3</int>
+							<bytes key="NSWhite">MC41AA</bytes>
+						</object>
 						<object class="NSCustomResource" key="IBUIHighlightedBackgroundImage">
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">highscore_pressed.png</string>
@@ -144,8 +154,8 @@
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">highscore.png</string>
 						</object>
-						<reference key="IBUIFontDescription" ref="437438334"/>
-						<reference key="IBUIFont" ref="437092392"/>
+						<reference key="IBUIFontDescription" ref="1035920754"/>
+						<reference key="IBUIFont" ref="787197677"/>
 					</object>
 					<object class="IBUIButton" id="622036876">
 						<reference key="NSNextResponder" ref="191373211"/>
@@ -158,10 +168,14 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
+						<string key="IBUITitleShadowOffset">{0, -2}</string>
 						<string key="IBUINormalTitle">设置</string>
 						<reference key="IBUIHighlightedTitleColor" ref="173091284"/>
 						<reference key="IBUINormalTitleColor" ref="797972706"/>
-						<reference key="IBUINormalTitleShadowColor" ref="567511018"/>
+						<object class="NSColor" key="IBUINormalTitleShadowColor">
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MC4yNDcwNTg4MjM1IDAuNDA3ODQzMTM3MyAwLjcwOTgwMzkyMTYAA</bytes>
+						</object>
 						<object class="NSCustomResource" key="IBUIHighlightedBackgroundImage">
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">setting_pressed.png</string>
@@ -170,8 +184,8 @@
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">setting.png</string>
 						</object>
-						<reference key="IBUIFontDescription" ref="437438334"/>
-						<reference key="IBUIFont" ref="437092392"/>
+						<reference key="IBUIFontDescription" ref="1035920754"/>
+						<reference key="IBUIFont" ref="787197677"/>
 					</object>
 				</array>
 				<string key="NSFrame">{{0, 20}, {320, 460}}</string>
