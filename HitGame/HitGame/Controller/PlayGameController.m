@@ -782,7 +782,7 @@ enum {
 
 - (void)popSettingView
 {
-    GameSettingView* view = [[GameSettingView alloc] initWithFrame:CGRectMake(0, 0, 240, 160) withDelegate:self];
+    GameSettingView* view = [GameSettingView ];
     [self.view addSubview:view];
     [view release];
 }
