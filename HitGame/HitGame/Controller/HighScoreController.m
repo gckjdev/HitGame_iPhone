@@ -89,8 +89,18 @@
     NSNumber* level = [self.shownLevels objectAtIndex:indexPath.section];
     NSArray* scoreArray = [[HighScoreManager defaultManager] highScoresForLevel:level.intValue];
     Score* score = [scoreArray objectAtIndex:indexPath.row];
-    [cell.textLabel setText:[NSString stringWithFormat:@"%d------%@刷新于%@",score.scoreValue, score.name, dateToString(score.date)]];
+    [cell.textLabel setText:[NSString stringWithFormat:@"%@    ----------    %d", score.name, score.scoreValue]];
     return cell;
+}
+
+- (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
+    NSNumber* level = [self.shownLevels objectAtIndex:section];
+    [label setBackgroundColor:[UIColor clearColor]];
+    NSString* title = [NSString stringWithFormat:@"第%d关", [level intValue]];
+    [label setText:NSLocalizedString(title, @"")]; 
+    return label;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -113,6 +123,8 @@
     NSString* title = [NSString stringWithFormat:@"%@:%d", levelTitle, [level intValue]];
     return title;
 }
+
+
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {

@@ -28,4 +28,5 @@
 @property (assign, nonatomic) id<GameSettingDelegate> delegate;
 - (id)initWithFrame:(CGRect)frame withDelegate:(id<GameSettingDelegate>)aDelegate;
 + (GameSettingView *)createSettingViewWithDelegate:(id<GameSettingDelegate>)aDelegate;
++ (GameSettingView *)createSettingView;
 @end

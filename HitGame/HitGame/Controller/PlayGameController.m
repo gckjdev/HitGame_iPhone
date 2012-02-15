@@ -798,7 +798,6 @@ enum {
 {
     GameSettingView* view = [GameSettingView createSettingViewWithDelegate:self];
     [self.view addSubview:view];
-    [view release];
 }
 
 - (void)clickOkButton
