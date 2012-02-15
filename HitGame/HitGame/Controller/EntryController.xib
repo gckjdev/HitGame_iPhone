@@ -47,7 +47,7 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">background1@2x.png</string>
+							<string key="NSResourceName">background1.png</string>
 						</object>
 					</object>
 					<object class="IBUIButton" id="650358284">
@@ -76,11 +76,11 @@
 						</object>
 						<object class="NSCustomResource" key="IBUIHighlightedBackgroundImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">start_pressed@2x.png</string>
+							<string key="NSResourceName">start_pressed.png</string>
 						</object>
 						<object class="NSCustomResource" key="IBUINormalBackgroundImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">start@2x.png</string>
+							<string key="NSResourceName">start.png</string>
 						</object>
 						<object class="IBUIFontDescription" key="IBUIFontDescription" id="437438334">
 							<string key="name">STHeitiSC-Medium</string>
@@ -111,11 +111,11 @@
 						<reference key="IBUINormalTitleShadowColor" ref="567511018"/>
 						<object class="NSCustomResource" key="IBUIHighlightedBackgroundImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">continue_selection_pressed@2x.png</string>
+							<string key="NSResourceName">continue_selection_pressed.png</string>
 						</object>
 						<object class="NSCustomResource" key="IBUINormalBackgroundImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">continue_selection@2x.png</string>
+							<string key="NSResourceName">continue_selection.png</string>
 						</object>
 						<reference key="IBUIFontDescription" ref="437438334"/>
 						<reference key="IBUIFont" ref="437092392"/>
@@ -138,11 +138,11 @@
 						<reference key="IBUINormalTitleShadowColor" ref="567511018"/>
 						<object class="NSCustomResource" key="IBUIHighlightedBackgroundImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">highscore_pressed@2x.png</string>
+							<string key="NSResourceName">highscore_pressed.png</string>
 						</object>
 						<object class="NSCustomResource" key="IBUINormalBackgroundImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">highscore@2x.png</string>
+							<string key="NSResourceName">highscore.png</string>
 						</object>
 						<reference key="IBUIFontDescription" ref="437438334"/>
 						<reference key="IBUIFont" ref="437092392"/>
@@ -164,11 +164,11 @@
 						<reference key="IBUINormalTitleShadowColor" ref="567511018"/>
 						<object class="NSCustomResource" key="IBUIHighlightedBackgroundImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">setting_pressed@2x.png</string>
+							<string key="NSResourceName">setting_pressed.png</string>
 						</object>
 						<object class="NSCustomResource" key="IBUINormalBackgroundImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">setting@2x.png</string>
+							<string key="NSResourceName">setting.png</string>
 						</object>
 						<reference key="IBUIFontDescription" ref="437438334"/>
 						<reference key="IBUIFont" ref="437092392"/>
@@ -318,14 +318,14 @@
 				<string key="-2.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="1.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="14.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<real value="0.0" key="14.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
+				<real value="1" key="14.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="18.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="5.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<real value="1" key="5.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
+				<real value="0.0" key="5.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="8.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<real value="1" key="8.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
+				<real value="0.0" key="8.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 				<string key="9.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<real value="1" key="9.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
+				<real value="0.0" key="9.IBUIButtonInspectorSelectedStateConfigurationMetadataKey"/>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
@@ -385,15 +385,15 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="background1@2x.png">{640, 960}</string>
-			<string key="continue_selection@2x.png">{309, 104}</string>
-			<string key="continue_selection_pressed@2x.png">{309, 104}</string>
-			<string key="highscore@2x.png">{313, 102}</string>
-			<string key="highscore_pressed@2x.png">{313, 102}</string>
-			<string key="setting@2x.png">{313, 102}</string>
-			<string key="setting_pressed@2x.png">{313, 102}</string>
-			<string key="start@2x.png">{306, 108}</string>
-			<string key="start_pressed@2x.png">{306, 108}</string>
+			<string key="background1.png">{16, 16}</string>
+			<string key="continue_selection.png">{16, 16}</string>
+			<string key="continue_selection_pressed.png">{16, 16}</string>
+			<string key="highscore.png">{16, 16}</string>
+			<string key="highscore_pressed.png">{16, 16}</string>
+			<string key="setting.png">{16, 16}</string>
+			<string key="setting_pressed.png">{16, 16}</string>
+			<string key="start.png">{16, 16}</string>
+			<string key="start_pressed.png">{16, 16}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">933</string>
 	</data>

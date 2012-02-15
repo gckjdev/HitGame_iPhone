@@ -19,3 +19,6 @@
 
 #define PROGRESS_IMAGE [UIImage imageNamed:@"progress.png"]
 #define PROGRESS_BAR_IMAGE [UIImage imageNamed:@"timebar.png"]
+
+#define BACK_IMAGE [UIImage imageNamed:@"back.png"]
+#define BACK_IMAGE_PRESSED [UIImage imageNamed:@"back_pressed.png"]
