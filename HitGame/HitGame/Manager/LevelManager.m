@@ -20,6 +20,43 @@ LevelManager *levelManager;
 @implementation LevelManager
 @synthesize levelArray = _levelArray;
 
+
+- (NSInteger)numberWithCount:(NSInteger)count
+{
+    switch (count) {
+        case 2:
+            return 4;
+        case 3:
+            return 6;
+        case 4:
+            return 6;
+        case 5:
+            return 4;
+        default:
+            return 0;
+    }
+}
+- (NSInteger)startIndexWithCount:(NSInteger)count
+{
+    if (count == 2) {
+        return 0;
+    }else if(count <= 5){
+        return [self startIndexWithCount:count - 1] + [self numberWithCount:count - 1];
+    }
+    
+    return -1;
+}
+
+- (NSInteger)countForIndex:(NSInteger)index
+{
+    for (int i = 2; i <= 5; ++ i) {
+        if ( index < [self startIndexWithCount:i] + [self numberWithCount:i]) {
+            return i;
+        }
+    }
+    return 0;
+}
+
 - (id)init
 {
     self = [super init];
@@ -29,22 +66,42 @@ LevelManager *levelManager;
     return self;
 }
 
-- (void)createGameLevelWithFoddCount:(NSInteger)count levelIndex:(NSInteger)aLevelIndex
+//- (void)createGameLevelWithFoddCount:(NSInteger)count levelIndex:(NSInteger)aLevelIndex
+//{
+//    NSArray *foodArray = [TestCase createFoodList:5];
+//
+//    NSMutableArray *tempArray = [[[NSMutableArray alloc] init]autorelease];
+//
+//    if (count == [foodArray count]) {
+//        [tempArray addObjectsFromArray:foodArray];
+//    }
+//    while ([tempArray count] < count) {
+//        Food *food = [foodArray objectAtIndex:(rand()%[foodArray count])];
+//        if (![tempArray containsObject:food]) {
+//            [tempArray addObject:food];
+//        }
+//    }
+//    GameLevel *gameLevel = [[GameLevel alloc]initWithFoodList:tempArray highestScore:0 levelIndex:aLevelIndex locked:YES status:0];
+//    
+//    [_levelArray addObject:gameLevel];
+//    
+//    [gameLevel release];
+//}
+
+
+
+- (void)createGameLevelForIndex:(NSInteger)index
 {
+    NSInteger count = [self countForIndex:index];
+    NSInteger offset = index - [self startIndexWithCount:count];
+    
     NSArray *foodArray = [TestCase createFoodList:5];
-
     NSMutableArray *tempArray = [[[NSMutableArray alloc] init]autorelease];
-
-    if (count == [foodArray count]) {
-        [tempArray addObjectsFromArray:foodArray];
+    for (int i = 0; i < count; ++ i) {
+        Food *food = [foodArray objectAtIndex:((offset + i)%[foodArray count])];
+        [tempArray addObject:food];
     }
-    while ([tempArray count] < count) {
-        Food *food = [foodArray objectAtIndex:(rand()%[foodArray count])];
-        if (![tempArray containsObject:food]) {
-            [tempArray addObject:food];
-        }
-    }
-    GameLevel *gameLevel = [[GameLevel alloc]initWithFoodList:tempArray highestScore:0 levelIndex:aLevelIndex locked:YES status:0];
+    GameLevel *gameLevel = [[GameLevel alloc]initWithFoodList:tempArray highestScore:0 levelIndex:index + 1 locked:YES status:0];
     
     [_levelArray addObject:gameLevel];
     
@@ -53,20 +110,20 @@ LevelManager *levelManager;
 
 - (void)createLevelConfigure
 {
-    for (int i = 1; i <= 20; ++ i) {
-        
-        if (i <= 4) {
-            [self createGameLevelWithFoddCount:2 levelIndex:i];
-        }else if(i <= 10)
-        {
-            [self createGameLevelWithFoddCount:3 levelIndex:i];
-        }else if(i <= 18)
-        {
-            [self createGameLevelWithFoddCount:4 levelIndex:i];            
-        }else
-        {
-            [self createGameLevelWithFoddCount:5 levelIndex:i];
-        }
+    for (int i = 0; i < 20; ++ i) {
+        [self createGameLevelForIndex:i];
+//        if (i <= 4) {
+//            [self createGameLevelWithFoddCount:2 levelIndex:i];
+//        }else if(i <= 10)
+//        {
+//            [self createGameLevelWithFoddCount:3 levelIndex:i];
+//        }else if(i <= 15)
+//        {
+//            [self createGameLevelWithFoddCount:4 levelIndex:i];            
+//        }else
+//        {
+//            [self createGameLevelWithFoddCount:5 levelIndex:i];
+//        }
     }
     GameLevel *firstLevel = [_levelArray objectAtIndex:0];
     [firstLevel setLocked:NO];    
