@@ -388,7 +388,7 @@
     if (foodView.status == Falling) {
         _score += foodView.foodViewScore;
         [self popUpScore:foodView.foodViewScore];
-        [_scoreLabel setText:[NSString stringWithFormat:@"分数: %d",_score]];
+        [_scoreLabel setText:[NSString stringWithFormat:NSLocalizedString(@"得分: %d", @""),_score]];
         foodView.status = Killed;
     }
 }
