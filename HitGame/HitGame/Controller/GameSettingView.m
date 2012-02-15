@@ -15,9 +15,35 @@
 @synthesize vibrationSwitcher= _vibrationSwitcher;
 @synthesize soundSwitcher = _soundSwitcher;
 @synthesize clickDoneButton = _clickDoneButton;
+@synthesize clickBackButton = _clickBackButton;
+@synthesize clickDefaultButton = _clickDefaultButton;
 @synthesize contentView = _contentView;
 @synthesize bgmSwitcher = _bgmSwitcher;
 @synthesize delegate = _delegate;
+
+- (void)settingInit
+{
+    
+}
+
++ (GameSettingView *)createSettingViewWithDelegate:(id<GameSettingDelegate>)aDelegate
+{
+    NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"GameSettingView" owner:self options:nil];
+    // Grab a pointer to the first object (presumably the custom cell, as that's all the XIB should contain).  
+    if (topLevelObjects == nil || [topLevelObjects count] <= 0){
+        NSLog(@"create <GameSettingView> but cannot find cell object from Nib");
+        return nil;
+    }
+    GameSettingView* view =  (GameSettingView*)[topLevelObjects objectAtIndex:0];
+    view.delegate = aDelegate;
+    [view settingInit];
+    CAAnimation *scaleAnimation = [AnimationManager scaleAnimationWithFromScale:0.1 toScale:1 duration:0.5 delegate:view removeCompeleted:NO];
+    CAAnimation *rollAnimation = [AnimationManager rotationAnimationWithRoundCount:-3 duration:0.5];
+    [view.contentView.layer addAnimation:scaleAnimation forKey:@"enlarge"];
+    [view.contentView.layer addAnimation:rollAnimation forKey:@"rolling"];
+    return view;
+    
+}
 
 - (void)updateSwitch:(id)sender forState:(BOOL)state
 {
