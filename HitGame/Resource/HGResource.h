@@ -15,7 +15,7 @@
 #define LOCKED_IMAGE [UIImage imageNamed:@"locked_level.png"]
 #define PRESSED_LOCKED_IMAGE [UIImage imageNamed:@"locked_level_pressed.png"]
 #define UNLOCKED_IMAGE [UIImage imageNamed:@"level.png"]
-#define PRESSED_UNLOCKED_IMAGE [UIImage imageNamed:@"level_pressed"]
+#define PRESSED_UNLOCKED_IMAGE [UIImage imageNamed:@"level_pressed.png"]
 
-
-
+#define PROGRESS_IMAGE [UIImage imageNamed:@"progress.png"]
+#define PROGRESS_BAR_IMAGE [UIImage imageNamed:@"timebar.png"]

@@ -97,6 +97,12 @@
 		CA01829014B599F3002056D2 /* LayerUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = CA01828F14B599F3002056D2 /* LayerUtil.m */; };
 		CA26A10C14B0894100AA761A /* TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = CA26A10B14B0894100AA761A /* TestCase.m */; };
 		CA39270414EA127600B89A12 /* HGProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = CA39270314EA127600B89A12 /* HGProgressBar.m */; };
+		CA39271114EA560E00B89A12 /* levelicon1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CA39270B14EA560C00B89A12 /* levelicon1@2x.png */; };
+		CA39271214EA560E00B89A12 /* levelicon2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CA39270C14EA560D00B89A12 /* levelicon2@2x.png */; };
+		CA39271314EA560E00B89A12 /* levelicon3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CA39270D14EA560D00B89A12 /* levelicon3@2x.png */; };
+		CA39271414EA560E00B89A12 /* timebar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CA39270E14EA560D00B89A12 /* timebar@2x.png */; };
+		CA39271514EA560E00B89A12 /* top_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CA39270F14EA560D00B89A12 /* top_bg@2x.png */; };
+		CA39271614EA560E00B89A12 /* wood_block@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CA39271014EA560D00B89A12 /* wood_block@2x.png */; };
 		CA3F2C4814B2A1260090A758 /* EntryController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3F2C4614B2A1260090A758 /* EntryController.m */; };
 		CA3F2C4914B2A1260090A758 /* EntryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA3F2C4714B2A1260090A758 /* EntryController.xib */; };
 		CA3F2C5114B2EB550090A758 /* LevelPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA3F2C4F14B2EB550090A758 /* LevelPickerController.m */; };
@@ -258,6 +264,12 @@
 		CA26A10B14B0894100AA761A /* TestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCase.m; sourceTree = "<group>"; };
 		CA39270214EA127600B89A12 /* HGProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGProgressBar.h; sourceTree = "<group>"; };
 		CA39270314EA127600B89A12 /* HGProgressBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGProgressBar.m; sourceTree = "<group>"; };
+		CA39270B14EA560C00B89A12 /* levelicon1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "levelicon1@2x.png"; sourceTree = "<group>"; };
+		CA39270C14EA560D00B89A12 /* levelicon2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "levelicon2@2x.png"; sourceTree = "<group>"; };
+		CA39270D14EA560D00B89A12 /* levelicon3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "levelicon3@2x.png"; sourceTree = "<group>"; };
+		CA39270E14EA560D00B89A12 /* timebar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timebar@2x.png"; sourceTree = "<group>"; };
+		CA39270F14EA560D00B89A12 /* top_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top_bg@2x.png"; sourceTree = "<group>"; };
+		CA39271014EA560D00B89A12 /* wood_block@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wood_block@2x.png"; sourceTree = "<group>"; };
 		CA3F2C4514B2A1260090A758 /* EntryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryController.h; sourceTree = "<group>"; };
 		CA3F2C4614B2A1260090A758 /* EntryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryController.m; sourceTree = "<group>"; };
 		CA3F2C4714B2A1260090A758 /* EntryController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EntryController.xib; sourceTree = "<group>"; };
@@ -605,6 +617,12 @@
 		CA6C73FC14AF068E00E15785 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				CA39270B14EA560C00B89A12 /* levelicon1@2x.png */,
+				CA39270C14EA560D00B89A12 /* levelicon2@2x.png */,
+				CA39270D14EA560D00B89A12 /* levelicon3@2x.png */,
+				CA39270E14EA560D00B89A12 /* timebar@2x.png */,
+				CA39270F14EA560D00B89A12 /* top_bg@2x.png */,
+				CA39271014EA560D00B89A12 /* wood_block@2x.png */,
 				C2C73A3E14EA152E00763311 /* progress_bar@2x.png */,
 				C2C73A3F14EA152E00763311 /* progress@2x.png */,
 				C2ED8E2A14E8F81900123947 /* back_pressed@2x.png */,
@@ -660,12 +678,12 @@
 				C28D378914B438430098033B /* QuardCurveMenuImages */,
 				CA6C73FD14AF068E00E15785 /* egg.png */,
 				CA6C73FE14AF068E00E15785 /* hamburger.png */,
-				CA6C73FF14AF068E00E15785 /* HGResource.h */,
 				CA6C740014AF068E00E15785 /* icecream.png */,
 				CA6C740614AF068E00E15785 /* sushi.png */,
 				CA6C740714AF068E00E15785 /* tomato.png */,
 				CAE98BFD14C13124007F986E /* unlocked.png */,
 				CAE98BFF14C13131007F986E /* locked.png */,
+				CA6C73FF14AF068E00E15785 /* HGResource.h */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -842,6 +860,12 @@
 				C2ED8E8C14E912C200123947 /* GameSettingView.xib in Resources */,
 				C2C73A4014EA152E00763311 /* progress_bar@2x.png in Resources */,
 				C2C73A4114EA152E00763311 /* progress@2x.png in Resources */,
+				CA39271114EA560E00B89A12 /* levelicon1@2x.png in Resources */,
+				CA39271214EA560E00B89A12 /* levelicon2@2x.png in Resources */,
+				CA39271314EA560E00B89A12 /* levelicon3@2x.png in Resources */,
+				CA39271414EA560E00B89A12 /* timebar@2x.png in Resources */,
+				CA39271514EA560E00B89A12 /* top_bg@2x.png in Resources */,
+				CA39271614EA560E00B89A12 /* wood_block@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

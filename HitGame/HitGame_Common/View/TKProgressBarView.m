@@ -37,16 +37,16 @@
 
 - (id) initWithStyle:(TKProgressBarViewStyle)s{
 	
-	CGRect r = s==TKProgressBarViewStyleLong ? CGRectMake(0, 0, 210, 20) : CGRectMake(0, 0, 180, 42);
+	CGRect r = s==TKProgressBarViewStyleLong ? CGRectMake(0, 0, 220, 15) : CGRectMake(0, 0, 180, 42);
 	
 	if(![super initWithFrame:r]) return nil;
 	
 	style = s;	
 	progress = 0;
 	self.backgroundColor = [UIColor clearColor];
-	edgeColor = [UIColor grayColor].CGColor;
-    progressColor = [UIColor blueColor].CGColor;
-    blankColor = [UIColor whiteColor].CGColor;
+	self.edgeColor = [UIColor colorWithRed:0xab/255.0 green:0xee/255.0 blue:0xf5/255.0 alpha:1];
+    self.progressColor = [UIColor colorWithRed:0xfc/255.0 green:0xca/255.0 blue:0x6b/255.0 alpha:1];
+    self.blankColor = [UIColor colorWithRed:0xa3/255.0 green:0xb8/255.0 blue:0xd7/255.0 alpha:1];
 	return self;
 }
 
@@ -64,19 +64,33 @@
 -(void) setEdgeColor:(UIColor *)color
 {
     if (color) {
+        if (color.CGColor != edgeColor) {
+            CGColorRelease(edgeColor);
+        }
         edgeColor = color.CGColor;
+        CGColorRetain(edgeColor);
     }
 }
 -(void) setProgressColor:(UIColor *)color
 {
     if (color) {
+        if (color.CGColor != progressColor) {
+            CGColorRelease(progressColor);
+        }
         progressColor = color.CGColor;
+        CGColorRetain(progressColor);
+
     }
 }
 -(void) setBlankColor:(UIColor *)color
 {
     if (color) {
+        if (color.CGColor != blankColor) {
+            CGColorRelease(blankColor);
+        }
         blankColor = color.CGColor;
+        CGColorRetain(blankColor);
+
     }
 }
 
@@ -122,7 +136,7 @@
 - (void) drawRect:(CGRect)rect {
 
 	if(style == TKProgressBarViewStyleLong) 
-		[self drawRect:rect borderRadius:8. borderWidth:2. barRadius:5. barInset:3];
+		[self drawRect:rect borderRadius:5. borderWidth:2. barRadius:2. barInset:3];
 	else
 		[self drawRect:rect borderRadius:17. borderWidth:4. barRadius:11. barInset:6.];
 	
