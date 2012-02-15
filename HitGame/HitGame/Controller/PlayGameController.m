@@ -863,27 +863,27 @@ enum {
                                                                highlightedImage:[UIImage imageNamed:@"continue_press.png"]
                                                                    contentImage:nil 
                                                         highlightedContentImage:nil 
-                                                                          title:NSLocalizedString(@"继续", @"弹出圆菜单提示")];
+                                                                          title:nil];
     HGQuadCurveMenuItem *rePlayGame = [[HGQuadCurveMenuItem alloc] initWithImage:[UIImage imageNamed:@"replay.png"]  
                                                                highlightedImage:[UIImage imageNamed:@"replay_pressed.png"]  
                                                                    contentImage:nil 
                                                         highlightedContentImage:nil 
-                                                                          title:NSLocalizedString(@"重玩", @"")];
+                                                                          title:nil];
     HGQuadCurveMenuItem *gameSetting = [[HGQuadCurveMenuItem alloc] initWithImage:[UIImage imageNamed:@"setting2.png"]  
                                                                 highlightedImage:[UIImage imageNamed:@"setting2_pressed.png"]  
                                                                     contentImage:nil 
                                                          highlightedContentImage:nil 
-                                                                           title:NSLocalizedString(@"设置", @"")];
+                                                                           title:nil];
     HGQuadCurveMenuItem *gameHelp = [[HGQuadCurveMenuItem alloc] initWithImage:[UIImage imageNamed:@"help.png"]  
                                                                 highlightedImage:[UIImage imageNamed:@"help_pressed.png"]  
                                                                     contentImage:nil 
                                                          highlightedContentImage:nil 
-                                                                           title:NSLocalizedString(@"帮助", @"弹出圆菜单提示")];
+                                                                           title:nil];
     HGQuadCurveMenuItem *quitGame = [[HGQuadCurveMenuItem alloc] initWithImage:[UIImage imageNamed:@"back.png"]  
                                                                    highlightedImage:[UIImage imageNamed:@"back_pressed.png"]  
                                                                        contentImage:nil 
                                                             highlightedContentImage:nil 
-                                                                              title:NSLocalizedString(@"离开", @"弹出圆菜单提示")];
+                                                                              title:nil];
     
     NSArray *menus = [NSArray arrayWithObjects:continueGame, rePlayGame, gameSetting, gameHelp, quitGame, nil];
     [continueGame release];
@@ -895,9 +895,9 @@ enum {
     _menu = [[HGQuadCurveMenu alloc] 
                              initWithFrame:self.view.bounds
                              menus:menus 
-                             nearRadius:210 
-                             endRadius:220 
-                             farRadius:230 
+                             nearRadius:210 - 30 
+                             endRadius:220 - 30
+                             farRadius:230 - 30
                              startPoint:CGPointMake(40, 430) 
                              timeOffset:0.036 
                              rotateAngle:0
