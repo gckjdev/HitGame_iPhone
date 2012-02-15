@@ -140,10 +140,19 @@
     }
 }
 
+- (void)setGameScore:(NSInteger)score missCount:(NSInteger)missCount
+{
+    NSString *format = NSLocalizedString(@"得分: %d 失误: %d", nil);
+    NSString *str = [NSString stringWithFormat:format,score,missCount];
+    [self.scoreLabel setText:str];
+}
+
+
 - (void)increaseMissCount
 {
-    NSString* missCounter = NSLocalizedString(@"失误", @"失误计数");
-    [self.missLabel setText:[NSString stringWithFormat:@"%@: %d", missCounter, ++ _missCount]];
+//    NSString* missCounter = NSLocalizedString(@"失误", @"失误计数");
+//    [self.missLabel setText:[NSString stringWithFormat:@"%@: %d", missCounter, ++ _missCount]];
+    [self setGameScore:_score missCount:++_missCount];
 }
 
 - (void)vibrate
@@ -388,7 +397,8 @@
     if (foodView.status == Falling) {
         _score += foodView.foodViewScore;
         [self popUpScore:foodView.foodViewScore];
-        [_scoreLabel setText:[NSString stringWithFormat:NSLocalizedString(@"得分: %d", @""),_score]];
+//        [_scoreLabel setText:[NSString stringWithFormat:NSLocalizedString(@"得分: %d", @""),_score]];
+        [self setGameScore:_score missCount:_missCount];
         foodView.status = Killed;
     }
 }
@@ -533,8 +543,9 @@
     _retainSeconds = _roundTime;
     [self adjustClock];
     [self releaseAllFoodViews];
-    [self.scoreLabel setText:NSLocalizedString(@"得分: 0", @"")];
-    [self.missLabel setText:NSLocalizedString(@"失误: 0", @"")];
+    [self setGameScore:_score missCount:_missCount];
+//    [self.scoreLabel setText:NSLocalizedString(@"得分: 0", @"")];
+//    [self.missLabel setText:NSLocalizedString(@"失误: 0", @"")];
 }
 
 - (void)startPlayMusic
