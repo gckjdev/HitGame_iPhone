@@ -41,6 +41,10 @@
 + (CAAnimation *)translationAnimationFrom:(CGPoint) start
                                        to:(CGPoint)end
                                  duration:(CFTimeInterval)duration;
++ (CAAnimation *)translationAnimationFrom:(CGPoint) start
+                                       to:(CGPoint)end
+                                 duration:(CFTimeInterval)duration 
+                         removeCompeleted:(BOOL)removedOnCompletion;
 + (CAAnimation *)translationAnimationTo:(CGPoint)end
                                duration:(CFTimeInterval)duration;
 + (CAAnimation *)translationAnimationFrom:(CGPoint) start

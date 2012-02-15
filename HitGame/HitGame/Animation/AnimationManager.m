@@ -131,6 +131,22 @@ AnimationManager *animatinManager;
     animation.duration = duration;
     return animation;
 }
+
++ (CAAnimation *)translationAnimationFrom:(CGPoint) start
+                                       to:(CGPoint)end
+                                 duration:(CFTimeInterval)duration 
+                         removeCompeleted:(BOOL)removedOnCompletion
+{
+    
+    CABasicAnimation * animation=[CABasicAnimation animationWithKeyPath:@"position"]; 
+    animation.fromValue = [NSValue valueWithCGPoint:start];
+    animation.toValue = [NSValue valueWithCGPoint:end];
+    animation.duration = duration;
+    animation.removedOnCompletion = removedOnCompletion;
+    return animation;
+}
+
+
 + (CAAnimation *)translationAnimationTo:(CGPoint)end
                                  duration:(CFTimeInterval)duration
 {
