@@ -15,6 +15,7 @@
 #import "TestCase.h"
 #import "Food.h"
 #import "ExtraGameController.h"
+#import "UIButtonExt.h"
 
 #define COUNT_PER_ROW 5
 #define BUTTON_LENGTH 53.0
@@ -23,6 +24,7 @@
 
 @implementation LevelPickerController
 @synthesize levelArray = _levelArray;
+@synthesize backButton = _backButton;
 @synthesize pickLevelTitle = _pickLevelTitle;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,6 +42,7 @@
     [_levelArray release];
     [_buttonArray release];
     [_pickLevelTitle release];
+    [_backButton release];
     [super dealloc];
 }
 - (void)didReceiveMemoryWarning
@@ -124,11 +127,17 @@
     [super viewDidLoad];
     [self.pickLevelTitle setText:NSLocalizedString(@"关卡选择", @"")];
     [self createLevelPickerButton];
+    [self.backButton setImage:BACK_IMAGE forState:UIControlStateNormal];
+    [self.backButton setImage:BACK_IMAGE_PRESSED forState:UIControlStateHighlighted];
+    [self.backButton setTitle:NSLocalizedString(@"返回", @"返回") forState:UIControlStateNormal];
+    [self.backButton setTitle:NSLocalizedString(@"返回", @"返回") forState:UIControlStateHighlighted];
+    [self.backButton centerImageAndTitle:2];
 }
 
 - (void)viewDidUnload
 {
     [self setPickLevelTitle:nil];
+    [self setBackButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
