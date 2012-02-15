@@ -78,9 +78,8 @@
 }
 
 - (IBAction)enterGameSetting:(id)sender {
-    GameSettingView* view = [[GameSettingView alloc] initWithFrame:CGRectMake(0, 0, 240, 160)];
+    GameSettingView* view = [GameSettingView createSettingView];
     [self.view addSubview:view];
-    [view release];
 }
 
 - (IBAction)enterHighScore:(id)sender {

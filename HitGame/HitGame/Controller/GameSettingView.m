@@ -23,10 +23,15 @@
 
 - (void)settingInit
 {
+    GameSettingManager* manager = [GameSettingManager defaultManager];
+    [self.vibrationSwitcher setSelected:manager.isVibration];
+    [self.soundSwitcher setSelected:manager.isSoundOn];
+    [self.bgmSwitcher setSelected:manager.isBGMOn];
+    
     
 }
 
-+ (GameSettingView *)createSettingViewWithDelegate:(id<GameSettingDelegate>)aDelegate
++ (GameSettingView *)createSettingView
 {
     NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"GameSettingView" owner:self options:nil];
     // Grab a pointer to the first object (presumably the custom cell, as that's all the XIB should contain).  
@@ -35,12 +40,19 @@
         return nil;
     }
     GameSettingView* view =  (GameSettingView*)[topLevelObjects objectAtIndex:0];
-    view.delegate = aDelegate;
     [view settingInit];
     CAAnimation *scaleAnimation = [AnimationManager scaleAnimationWithFromScale:0.1 toScale:1 duration:0.5 delegate:view removeCompeleted:NO];
     CAAnimation *rollAnimation = [AnimationManager rotationAnimationWithRoundCount:-3 duration:0.5];
     [view.contentView.layer addAnimation:scaleAnimation forKey:@"enlarge"];
     [view.contentView.layer addAnimation:rollAnimation forKey:@"rolling"];
+    return view;
+    
+}
+
++ (GameSettingView *)createSettingViewWithDelegate:(id<GameSettingDelegate>)aDelegate
+{
+    GameSettingView* view = [GameSettingView createSettingView];
+    view.delegate = aDelegate;
     return view;
     
 }
@@ -55,7 +67,7 @@
     }
 }
 
-- (void)switchSoundOn:(id)sender
+- (IBAction)switchSoundOn:(id)sender
 {
     GameSettingManager* manager = [GameSettingManager defaultManager];
     manager.isSoundOn = !manager.isSoundOn;
@@ -63,18 +75,51 @@
     
 }
 
-- (void)switchVibration:(id)sender
+- (IBAction)switchVibration:(id)sender
 {
     GameSettingManager* manager = [GameSettingManager defaultManager];
     manager.isVibration = !manager.isVibration;
     [self updateSwitch:sender forState:manager.isVibration];
 }
 
-- (void)switchBGM:(id)sender
+- (IBAction)switchBGM:(id)sender
 {
     GameSettingManager* manager = [GameSettingManager defaultManager];
     manager.isBGMOn = !manager.isBGMOn;
     [self updateSwitch:sender forState:manager.isBGMOn];
+}
+
+- (IBAction)clickBack:(id)sender
+{
+    if (_delegate && [_delegate respondsToSelector:@selector(settingFinish)]) {
+        [_delegate settingFinish];
+    }
+    CAAnimation *scaleAnimation = [AnimationManager scaleAnimationWithFromScale:1 toScale:0.1 duration:0.5 delegate:self removeCompeleted:NO];
+    CAAnimation *rollAnimation = [AnimationManager rotationAnimationWithRoundCount:3 duration:0.5];
+    [scaleAnimation setValue:@"minify" forKey:@"AnimationKey"];
+    [scaleAnimation setDelegate:self];
+    [_contentView.layer addAnimation:scaleAnimation forKey:@"minify"];
+    [_contentView.layer addAnimation:rollAnimation forKey:@"rolling"];
+    [self removeFromSuperview];
+}
+
+- (IBAction)setDefault:(id)sender
+{
+    
+}
+
+- (IBAction)setDone:(id)sender
+{
+    if (_delegate && [_delegate respondsToSelector:@selector(settingFinish)]) {
+        [_delegate settingFinish];
+    }
+    CAAnimation *scaleAnimation = [AnimationManager scaleAnimationWithFromScale:1 toScale:0.1 duration:0.5 delegate:self removeCompeleted:NO];
+    CAAnimation *rollAnimation = [AnimationManager rotationAnimationWithRoundCount:3 duration:0.5];
+    [scaleAnimation setValue:@"minify" forKey:@"AnimationKey"];
+    [scaleAnimation setDelegate:self];
+    [_contentView.layer addAnimation:scaleAnimation forKey:@"minify"];
+    [_contentView.layer addAnimation:rollAnimation forKey:@"rolling"];
+    [self removeFromSuperview];
 }
 
 - (void)initASwitcher:(UIButton*)aButton
@@ -180,20 +225,6 @@
         // Initialization code
     }
     return self;
-}
-
-- (void)clickOkButton:(id)sender
-{
-    if (_delegate && [_delegate respondsToSelector:@selector(settingFinish)]) {
-        [_delegate settingFinish];
-    }
-    CAAnimation *scaleAnimation = [AnimationManager scaleAnimationWithFromScale:1 toScale:0.1 duration:0.5 delegate:self removeCompeleted:NO];
-    CAAnimation *rollAnimation = [AnimationManager rotationAnimationWithRoundCount:3 duration:0.5];
-    [scaleAnimation setValue:@"minify" forKey:@"AnimationKey"];
-    [scaleAnimation setDelegate:self];
-    [_contentView.layer addAnimation:scaleAnimation forKey:@"minify"];
-    [_contentView.layer addAnimation:rollAnimation forKey:@"rolling"];
-    [self removeFromSuperview];
 }
 
 

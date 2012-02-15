@@ -785,9 +785,8 @@ enum {
 
 - (void)popSettingView
 {
-    GameSettingView* view = [GameSettingView ];
+    GameSettingView* view = [GameSettingView createSettingViewWithDelegate:self];
     [self.view addSubview:view];
-    [view release];
 }
 
 - (void)clickOkButton
