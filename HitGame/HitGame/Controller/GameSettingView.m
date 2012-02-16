@@ -9,9 +9,14 @@
 #import "GameSettingView.h"
 #import "AnimationManager.h"
 #import "GameSettingManager.h"
+#define LOC(x) NSLocalizedString(x, @"设置界面")
 
 
 @implementation GameSettingView
+@synthesize settingTitle = _settingTitle;
+@synthesize vibrationText = _vibrationText;
+@synthesize soundText = _soundText;
+@synthesize bgmText = _bgmText;
 @synthesize vibrationSwitcher= _vibrationSwitcher;
 @synthesize soundSwitcher = _soundSwitcher;
 @synthesize clickDoneButton = _clickDoneButton;
@@ -31,6 +36,14 @@
     
 }
 
+- (void)labelInit
+{
+    [_settingTitle setText:LOC(@"设置")];
+    [_vibrationText setText:LOC(@"振动开关")];
+    [_soundText setText:LOC(@"音效")];
+    [_bgmText setText:LOC(@"背景音乐")];
+}
+
 + (GameSettingView *)createSettingView
 {
     NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"GameSettingView" owner:self options:nil];
@@ -41,6 +54,7 @@
     }
     GameSettingView* view =  (GameSettingView*)[topLevelObjects objectAtIndex:0];
     [view settingInit];
+    [view labelInit];
     CAAnimation *scaleAnimation = [AnimationManager scaleAnimationWithFromScale:0.1 toScale:1 duration:0.5 delegate:view removeCompeleted:NO];
     CAAnimation *rollAnimation = [AnimationManager rotationAnimationWithRoundCount:-2 duration:0.5];
     [view.layer addAnimation:scaleAnimation forKey:@"enlarge"];
@@ -167,9 +181,6 @@
 //    UILabel* vibrationLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 80, 20)];
 //    UILabel* soundSwitcherLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 30, 80, 20)];
 //    UILabel* bgmSwitcherLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 60, 80, 20)];
-//    [vibrationLabel setText:NSLocalizedString(@"振动开关", @"设置界面")];
-//    [soundSwitcherLabel setText:NSLocalizedString(@"音效", @"设置界面")];
-//    [bgmSwitcherLabel setText:NSLocalizedString(@"背景音乐", @"设置界面")];
 //    [self addLabelToContentView:vibrationLabel];
 //    [self addLabelToContentView:soundSwitcherLabel];
 //    [self addLabelToContentView:bgmSwitcherLabel];

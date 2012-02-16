@@ -10,12 +10,14 @@
 #import "HighScoreManager.h"
 #import "Score.h"
 #import "TimeUtils.h"
+#define LOC(x) NSLocalizedString(x, @"")
 
 @implementation HighScoreController
 @synthesize dataTableView = _dataTableView;
 @synthesize dataList = _dataList;
 @synthesize shownLevels = _shownLevels;
 @synthesize allLevels = _allLevels;
+@synthesize highScoreTitle = _highScoreTitle;
 
 - (void)dealloc {
     [_dataTableView release];
@@ -61,6 +63,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.highScoreTitle setText:LOC(@"高分榜")];
     [self updateHighScore];
     // Do any additional setup after loading the view from its nib.
 }
@@ -99,7 +102,7 @@
     NSNumber* level = [self.shownLevels objectAtIndex:section];
     [label setBackgroundColor:[UIColor clearColor]];
     NSString* title = [NSString stringWithFormat:@"第%d关", [level intValue]];
-    [label setText:NSLocalizedString(title, @"")]; 
+    [label setText:LOC(title)]; 
     return label;
 }
 

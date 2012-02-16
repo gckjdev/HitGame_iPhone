@@ -19,6 +19,10 @@
     id<GameSettingDelegate> _delegate;
 }
 @property (retain, nonatomic) IBOutlet UIView *contentView;
+@property (retain, nonatomic) IBOutlet UILabel *settingTitle;
+@property (retain, nonatomic) IBOutlet UILabel *vibrationText;
+@property (retain, nonatomic) IBOutlet UILabel *soundText;
+@property (retain, nonatomic) IBOutlet UILabel *bgmText;
 @property (retain, nonatomic) IBOutlet UIButton *vibrationSwitcher;
 @property (retain, nonatomic) IBOutlet UIButton *soundSwitcher;
 @property (retain, nonatomic) IBOutlet UIButton *bgmSwitcher;

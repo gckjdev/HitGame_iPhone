@@ -15,6 +15,7 @@
     NSArray* _shownLevels;
 }
 @property (retain, nonatomic) IBOutlet UITableView *dataTableView;
+@property (retain, nonatomic) IBOutlet UILabel* highScoreTitle;
 @property (retain, nonatomic) NSDictionary* dataList;
 @property (copy, nonatomic) NSArray* shownLevels;
 @property (copy, nonatomic) NSArray* allLevels;

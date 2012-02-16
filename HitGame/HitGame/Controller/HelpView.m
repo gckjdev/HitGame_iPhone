@@ -9,6 +9,7 @@
 #import "HelpView.h"
 #import <QuartzCore/QuartzCore.h>
 #import "AnimationManager.h"
+#define LOC(x) NSLocalizedString(x, @"")
 
 const float buttonWidth = 40.0f;
 const float buttonHeight = 20.0f;
@@ -20,7 +21,7 @@ const int HELP_IMAGE_OFFSET = 20120116;
 @synthesize delegate = _delegate;
 @synthesize helpTitle = _helpTitle;
 
-+ (HelpView *)createHelpViewWithDelegate:(id<HelpViewDelegate>)aDelegate
++ (HelpView *)createHelpView
 {
     NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"HelpView" owner:self options:nil];
     // Grab a pointer to the first object (presumably the custom cell, as that's all the XIB should contain).  
@@ -29,12 +30,19 @@ const int HELP_IMAGE_OFFSET = 20120116;
         return nil;
     }
     HelpView* view =  (HelpView*)[topLevelObjects objectAtIndex:0];
-    view.delegate = aDelegate;
-    CAAnimation *runIn = [AnimationManager scaleAnimationWithFromScale:0.01 toScale:1 duration:0.5 delegate:self removeCompeleted:NO];
-    CAAnimation *rollAnimation = [AnimationManager rotationAnimationWithRoundCount:-3 duration:0.5];
+    CAAnimation *runIn = [AnimationManager scaleAnimationWithFromScale:0.01 toScale:1 duration:0.3 delegate:self removeCompeleted:NO];
+    //CAAnimation *rollAnimation = [AnimationManager rotationAnimationWithRoundCount:-3 duration:0.5];
     [view.layer addAnimation:runIn forKey:@"runIn"];
-    [view.helpTitle setText:NSLocalizedString(@"帮助", @"")];
-    [view.contentView.layer addAnimation:rollAnimation forKey:@"rolling"];
+    [view.helpTitle setText:LOC(@"帮助")];
+    //[view.contentView.layer addAnimation:rollAnimation forKey:@"rolling"];
+    return view;
+    
+}
+
++ (HelpView *)createHelpViewWithDelegate:(id<HelpViewDelegate>)aDelegate
+{
+    HelpView* view = [HelpView createHelpView];
+    view.delegate = aDelegate;
     return view;
     
 }
@@ -44,7 +52,7 @@ const int HELP_IMAGE_OFFSET = 20120116;
     if (_delegate && [_delegate respondsToSelector:@selector(clickOkButton)]) {
         [_delegate clickOkButton];
     }
-    CAAnimation *runOut = [AnimationManager scaleAnimationWithFromScale:1 toScale:0.01 duration:0.5 delegate:self removeCompeleted:NO];
+    CAAnimation *runOut = [AnimationManager scaleAnimationWithFromScale:1 toScale:0.01 duration:0.3 delegate:self removeCompeleted:NO];
    // CAAnimation *rollAnimation = [AnimationManager rotationAnimationWithRoundCount:3 duration:0.5];
     [runOut setValue:@"runOut" forKey:@"AnimationKey"];
     [runOut setDelegate:self];
