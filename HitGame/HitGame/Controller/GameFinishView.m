@@ -54,7 +54,7 @@
             [view.inputNameMessage setText:LOC(@"请输入你的大名")];
             [view.inputNameTitle setText:LOC(@"恭喜刷新纪录")];
             [view.titleLabel setText:LOC(@"恭喜过关")];
-            [view.messageLabel setText:nil];
+            [view.messageLabel setText:LOC(@"恭喜进入名人堂")];
             //
         } else {
             [view.inputNameView setHidden:YES];
