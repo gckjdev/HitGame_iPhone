@@ -31,7 +31,7 @@
 	<key>CFAllowMissCount</key>
 	<integer>3</integer>
 	<key>CFRoundTime</key>
-	<integer>60</integer>
+	<integer>30</integer>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

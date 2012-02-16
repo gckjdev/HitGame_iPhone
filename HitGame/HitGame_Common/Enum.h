@@ -8,11 +8,11 @@
 
 typedef enum{
     Illegal = -1,
-    Egg = 0,
-    Tomato,
-    Icecream,
-    Sushi,
-    Potato
+    Tap = 0,
+    Left,
+    Right,
+    Up,
+    Down
 }FoodType;
 
 

@@ -42,16 +42,16 @@ FoodManager *foodManager = nil;
 + (UIImage *)imageForType:(FoodType)type
 {
     switch (type) {
-        case Egg:
-            return EGG_IMAGE;
-        case Tomato:
-            return TOMATO_IMAGE;
-        case Icecream:
-            return ICECREAM_IMAGE;
-        case Potato:
-            return HAMBURGER_IMAGE;
-        case Sushi:
-            return SUSHI_IMAGE;
+        case Tap:
+            return DURIAN_IMAGE;
+        case Left:
+            return GRAPES_IMAGE;
+        case Right:
+            return CHERRY_IMAGE;
+        case Down:
+            return KIWI_IMGE;
+        case Up:
+            return PEACH_IMAGE;
         default:
             return nil;
     }
@@ -103,11 +103,11 @@ FoodManager *foodManager = nil;
 
 - (void)bindDefaultGuestureAndFood
 {
-    [self bindGuesture:TapGameGesture WithFoodType:Egg];
-    [self bindGuesture:LeftPanGameGesture WithFoodType:Tomato];
-    [self bindGuesture:RightPanGameGesture WithFoodType:Icecream];
-    [self bindGuesture:UpPanGameGesture WithFoodType:Sushi];
-    [self bindGuesture:DownPanGameGesture WithFoodType:Potato];
+    [self bindGuesture:TapGameGesture WithFoodType:Tap];
+    [self bindGuesture:LeftPanGameGesture WithFoodType:Left];
+    [self bindGuesture:RightPanGameGesture WithFoodType:Right];
+    [self bindGuesture:UpPanGameGesture WithFoodType:Up];
+    [self bindGuesture:DownPanGameGesture WithFoodType:Down];
 }
 
 - (FoodType)foodTypeForGuesture:(GameGestureType)grType

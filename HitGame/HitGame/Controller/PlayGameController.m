@@ -164,9 +164,11 @@
 
 - (void)reFreshLevelLabel
 {
-    NSString* levelString = NSLocalizedString(@"关卡", @"");
+    
+
     if (_gameLevel) {
-        [_levelLabel setText:[NSString stringWithFormat:@"%@:", levelString, _gameLevel.levelIndex]];
+        NSString* levelString = [NSString stringWithFormat: NSLocalizedString(@"关卡 %d",nil),_gameLevel.levelIndex];
+        [_levelLabel setText:levelString];//[NSString stringWithFormat:@"%d:", levelString, _gameLevel.levelIndex]];
     }
 }
 
@@ -357,7 +359,8 @@
     
     FoodView *image = [[[FoodView alloc] initWithFood:food] autorelease];
     image.frame = CGRectMake(-48, -48, 48, 48);
-    [self.view insertSubview:image atIndex:1];
+    [self.view insertSubview:image atIndex:2];
+    //[self.view addSubview:image];
     image.endPoint = CGPointMake(rand()%320, 400+24);
     CAAnimation *translation = [AnimationManager translationAnimationFrom:CGPointMake(rand()%320, -24) to:image.endPoint duration:[self calculateFallDuration] delegate:self removeCompeleted:NO];
     
