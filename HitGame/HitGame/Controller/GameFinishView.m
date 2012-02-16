@@ -92,6 +92,9 @@
 - (IBAction)clickBack:(id)sender
 {
     [self removeFromSuperview];
+    if (_delegate && [_delegate respondsToSelector:@selector(backToLevelSelection)]) {
+        [_delegate backToLevelSelection];
+    }
 }
 
 - (IBAction)nextLevel:(id)sender

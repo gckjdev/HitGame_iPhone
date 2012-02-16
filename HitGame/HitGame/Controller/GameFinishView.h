@@ -12,7 +12,7 @@
  @optional
 - (void)nextLevel;
 - (void)restartLevel;
-- (void)back;
+- (void)backToLevelSelection;
 - (void)sumitHighScore:(NSString*)name;
 
 @end

@@ -10,6 +10,7 @@
 #import "HighScoreManager.h"
 #import "Score.h"
 #import "TimeUtils.h"
+#import "HighScoreCell.h"
 #define LOC(x) NSLocalizedString(x, @"")
 
 @implementation HighScoreController
@@ -84,15 +85,15 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HighScore"];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HighScore"] autorelease];
-        
-    }
     NSNumber* level = [self.shownLevels objectAtIndex:indexPath.section];
     NSArray* scoreArray = [[HighScoreManager defaultManager] highScoresForLevel:level.intValue];
     Score* score = [scoreArray objectAtIndex:indexPath.row];
-    [cell.textLabel setText:[NSString stringWithFormat:@"%@    ----------    %d", score.name, score.scoreValue]];
+    HighScoreCell *cell = [tableView dequeueReusableCellWithIdentifier:[HighScoreCell getCellIdentifier]];
+    if (cell == nil) {
+        cell = [HighScoreCell createHighScoreCellByName:score.name score:score.scoreValue];
+        
+    }
+    
     return cell;
 }
 
@@ -122,7 +123,7 @@
 - (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     NSNumber* level = [self.shownLevels objectAtIndex:section];
-    NSString* levelTitle = NSLocalizedString(@"关卡", @"高分榜关卡标题");
+    NSString* levelTitle = LOC(@"关卡");
     NSString* title = [NSString stringWithFormat:@"%@:%d", levelTitle, [level intValue]];
     return title;
 }
@@ -146,17 +147,17 @@
 
 - (IBAction)clickFilterButton:(id)sender
 {
-    UIActionSheet* sheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"关卡选择", @"高分榜关卡选择") 
+    UIActionSheet* sheet = [[UIActionSheet alloc] initWithTitle:LOC(@"关卡选择") 
                                                        delegate:self 
                                               cancelButtonTitle:nil 
                                          destructiveButtonTitle:nil 
                                               otherButtonTitles:nil];
     for (NSNumber* level in self.allLevels) {
-        NSString* levelTitle = NSLocalizedString(@"关卡", @"高分榜关卡标题");
+        NSString* levelTitle = LOC(@"关卡");
         NSString* title = [NSString stringWithFormat:@"%@:%d", levelTitle, [level intValue]];
         [sheet addButtonWithTitle:title];
     }
-    [sheet addButtonWithTitle:NSLocalizedString(@"返回", @"高分榜返回")];
+    [sheet addButtonWithTitle:LOC(@"返回")];
     [sheet setCancelButtonIndex:[self.allLevels count]];
     [sheet showInView:self.view];
     [sheet release];

@@ -762,6 +762,11 @@ enum {
 //    }
 //}
 
+- (void)backToLevelSelection
+{
+    [self quitGame:YES];
+}
+
 - (void)restartLevel
 {
     _gameStatus = Ready;
