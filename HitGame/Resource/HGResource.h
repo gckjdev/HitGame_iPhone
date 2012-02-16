@@ -8,11 +8,11 @@
 
 
 //Item define
-#define EGG_IMAGE [UIImage imageNamed:@"egg.png"]
-#define HAMBURGER_IMAGE [UIImage imageNamed:@"hamburger.png"]
-#define ICECREAM_IMAGE [UIImage imageNamed:@"icecream.png"]
-#define SUSHI_IMAGE [UIImage imageNamed:@"sushi.png"]
-#define TOMATO_IMAGE [UIImage imageNamed:@"tomato.png"]
+//#define EGG_IMAGE [UIImage imageNamed:@"egg.png"]
+//#define HAMBURGER_IMAGE [UIImage imageNamed:@"hamburger.png"]
+//#define ICECREAM_IMAGE [UIImage imageNamed:@"icecream.png"]
+//#define SUSHI_IMAGE [UIImage imageNamed:@"sushi.png"]
+//#define TOMATO_IMAGE [UIImage imageNamed:@"tomato.png"]
 
 //fruit item
 #define KIWI_IMGE [UIImage imageNamed:@"d_kiwi.png"]
