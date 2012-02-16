@@ -8,7 +8,7 @@
 
 
 
-@interface EntryController : UIViewController
+@interface EntryController : UIViewController 
 @property (retain, nonatomic) IBOutlet UIButton *startGame;
 @property (retain, nonatomic) IBOutlet UIButton *resumeGame;
 @property (retain, nonatomic) IBOutlet UIButton *gameSetting;

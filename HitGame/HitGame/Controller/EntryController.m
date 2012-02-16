@@ -12,6 +12,8 @@
 #import "LevelPickerController.h"
 #import "HighScoreController.h"
 #import "GameSettingView.h"
+#import "HelpView.h"
+#define LOC(x) NSLocalizedString(x, @"")
 
 @implementation EntryController
 @synthesize startGame;
@@ -89,6 +91,11 @@
     
 }
 
+- (IBAction)showHelp:(id)sender {
+    HelpView* view = [HelpView createHelpView];
+    [self.view addSubview:view];
+}
+
 - (void)showMenu
 {
     [self addAnimationToButton:startGame];
@@ -102,10 +109,10 @@
 {
     [super viewDidLoad];
     [self showMenu];
-    [self.startGame setTitle:NSLocalizedString(@"开始游戏", @"游戏开始界面") forState:UIControlStateNormal];
-    [self.resumeGame setTitle:NSLocalizedString(@"继续游戏", @"游戏开始界面") forState:UIControlStateNormal];
-    [self.gameSetting setTitle:NSLocalizedString(@"设置", @"") forState:UIControlStateNormal];
-    [self.highScore setTitle:NSLocalizedString(@"高分榜", @"游戏开始界面") forState:UIControlStateNormal];
+    [self.startGame setTitle:LOC(@"开始游戏") forState:UIControlStateNormal];
+    [self.resumeGame setTitle:LOC(@"帮助") forState:UIControlStateNormal];
+    [self.gameSetting setTitle:LOC(@"设置") forState:UIControlStateNormal];
+    [self.highScore setTitle:LOC(@"高分榜") forState:UIControlStateNormal];
     
 }
 

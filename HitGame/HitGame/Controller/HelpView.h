@@ -27,5 +27,6 @@
 @property (retain, nonatomic) IBOutlet UILabel* helpTitle;
 @property (assign, nonatomic) id<HelpViewDelegate> delegate;
 
++ (HelpView *)createHelpView;
 + (HelpView *)createHelpViewWithDelegate:(id<HelpViewDelegate>)aDelegate;
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "GameFinishView.h"
-
+#define LOC(x) NSLocalizedString(x, @"")
 @implementation GameFinishView
 @synthesize contentView;
 @synthesize titleLabel;
@@ -51,13 +51,15 @@
             [view.inputNameView setHidden:NO];
             [view.inputNameView setCenter:view.contentView.center];
             //[view.middleButton addTarget:view action:@selector(sumit:) forControlEvents:UIControlEventTouchUpInside];
-            [view.inputNameMessage setText:NSLocalizedString(@"请输入你的大名", @"高分榜名字")];
-            [view.inputNameTitle setText:NSLocalizedString(@"恭喜刷新纪录", @"刷新高分榜")];
+            [view.inputNameMessage setText:LOC(@"请输入你的大名")];
+            [view.inputNameTitle setText:LOC(@"恭喜刷新纪录")];
+            [view.titleLabel setText:LOC(@"恭喜过关")];
+            [view.messageLabel setText:nil];
             //
         } else {
             [view.inputNameView setHidden:YES];
-            [view.titleLabel setText:NSLocalizedString(@"恭喜过关", @"过关提示")];
-            [view.messageLabel setText:NSLocalizedString(@"很遗憾未能刷新纪录", @"过关提示")];
+            [view.titleLabel setText:LOC(@"恭喜过关")];
+            [view.messageLabel setText:LOC(@"很遗憾未能刷新纪录")];
             //[view.middleButton setTitle:NSLocalizedString(@"重玩", @"重玩") forState:UIControlStateNormal];
             [view.nameField setHidden:YES];
             //[view.middleButton addTarget:view action:@selector(restart) forControlEvents:UIControlEventTouchUpInside];
@@ -66,8 +68,8 @@
         //
     } else {
         [view.inputNameView setHidden:YES];
-        [view.titleLabel setText:NSLocalizedString(@"OH~NO~囧rz", @"过关失败标题")];
-        [view.messageLabel setText:NSLocalizedString(@"一回生，两回熟，下次一定能过", @"过关失败")];
+        [view.titleLabel setText:LOC(@"OH~NO~囧rz")];
+        [view.messageLabel setText:LOC(@"一回生，两回熟，下次一定能过")];
         //[view.middleButton setTitle:NSLocalizedString(@"重玩", @"") forState:UIControlStateNormal];
         [view.nameField setHidden:YES];
         //[view.middleButton addTarget:view action:@selector(restart) forControlEvents:UIControlEventTouchUpInside];
@@ -105,8 +107,8 @@
     NSString* name = _nameField.text;
     if (_delegate && [_delegate respondsToSelector:@selector(sumitHighScore:)]) {
         [_delegate sumitHighScore:name];
-        UIAlertView* view = [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"提交成功", @"") message:nil delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"OK", nil] autorelease];
-        [view show];
+//        UIAlertView* view = [[[UIAlertView alloc] initWithTitle:LOC(@"提交成功", @"") message:nil delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"OK", nil] autorelease];
+//        [view show];
     }
     [self.inputNameView setHidden:YES];
     

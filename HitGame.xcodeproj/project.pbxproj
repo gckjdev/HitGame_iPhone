@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C2298F1B14ECE49D00D5518D /* HighScoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2298F1A14ECE49D00D5518D /* HighScoreCell.m */; };
+		C2298F1E14ECE4B400D5518D /* HighScoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2298F1D14ECE4B400D5518D /* HighScoreCell.xib */; };
 		C255F00214D51A7E001247C3 /* HitGameEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = C255F00114D51A7E001247C3 /* HitGameEngine.m */; };
 		C255F00714D51BC5001247C3 /* ExtraGameController.m in Sources */ = {isa = PBXBuildFile; fileRef = C255F00514D51BC4001247C3 /* ExtraGameController.m */; };
 		C255F00814D51BC5001247C3 /* ExtraGameController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C255F00614D51BC4001247C3 /* ExtraGameController.xib */; };
@@ -167,6 +169,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C2298F1914ECE49D00D5518D /* HighScoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoreCell.h; sourceTree = "<group>"; };
+		C2298F1A14ECE49D00D5518D /* HighScoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoreCell.m; sourceTree = "<group>"; };
+		C2298F1D14ECE4B400D5518D /* HighScoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HighScoreCell.xib; sourceTree = "<group>"; };
 		C255F00014D51A7E001247C3 /* HitGameEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HitGameEngine.h; sourceTree = "<group>"; };
 		C255F00114D51A7E001247C3 /* HitGameEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HitGameEngine.m; sourceTree = "<group>"; };
 		C255F00414D51BC4001247C3 /* ExtraGameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtraGameController.h; sourceTree = "<group>"; };
@@ -594,6 +599,9 @@
 				C255F00414D51BC4001247C3 /* ExtraGameController.h */,
 				C255F00514D51BC4001247C3 /* ExtraGameController.m */,
 				C255F00614D51BC4001247C3 /* ExtraGameController.xib */,
+				C2298F1914ECE49D00D5518D /* HighScoreCell.h */,
+				C2298F1A14ECE49D00D5518D /* HighScoreCell.m */,
+				C2298F1D14ECE4B400D5518D /* HighScoreCell.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -923,6 +931,7 @@
 				CA37F70D14ECE34900867820 /* m_durian@2x.png in Resources */,
 				CA37F70E14ECE34900867820 /* r_cherry@2x.png in Resources */,
 				CA37F70F14ECE34900867820 /* u_peach@2x.png in Resources */,
+				C2298F1E14ECE4B400D5518D /* HighScoreCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -995,6 +1004,7 @@
 				C255F00714D51BC5001247C3 /* ExtraGameController.m in Sources */,
 				CA39270414EA127600B89A12 /* HGProgressBar.m in Sources */,
 				CA0ED3FC14EB59FA000F6A54 /* UIButtonExt.m in Sources */,
+				C2298F1B14ECE49D00D5518D /* HighScoreCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
