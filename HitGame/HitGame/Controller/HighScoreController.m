@@ -102,8 +102,11 @@
     UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
     NSNumber* level = [self.shownLevels objectAtIndex:section];
     [label setBackgroundColor:[UIColor clearColor]];
-    NSString* title = [NSString stringWithFormat:@"第%d关", [level intValue]];
-    [label setText:LOC(title)]; 
+    NSString* title = [NSString stringWithFormat:LOC(@"第%d关"), [level intValue]];
+    [label setText:title]; 
+    [label setFont:[UIFont boldSystemFontOfSize:16]];
+    [label setTextColor:[UIColor colorWithRed:0xff/255.0 green:0xe0/255.0 blue:0x9d/255.0 alpha:1.0]];
+    [label setShadowColor:[UIColor colorWithRed:0x81/255.0 green:0x58/255.0 blue:0x30/255.0 alpha:1.0]];
     return label;
 }
 
