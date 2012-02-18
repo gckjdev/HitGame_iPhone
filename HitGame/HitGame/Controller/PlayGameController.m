@@ -213,6 +213,7 @@
 - (void)performTapGesture:(UITapGestureRecognizer *)recognizer
 {
     if(recognizer.state == UIGestureRecognizerStateEnded){
+        [[AudioManager defaultManager] playSoundById:0];
         FoodType foodType = [_foodManager foodTypeForGuesture:TapGameGesture];
         FoodView *foodView = [self getFoodViewWithFoodType:foodType];
         if (foodView == nil) {
