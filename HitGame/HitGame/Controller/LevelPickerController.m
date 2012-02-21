@@ -14,7 +14,6 @@
 #import "HGResource.h"
 #import "TestCase.h"
 #import "Food.h"
-#import "ExtraGameController.h"
 #import "UIButtonExt.h"
 
 #define COUNT_PER_ROW 5
@@ -125,12 +124,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.pickLevelTitle setText:NSLocalizedString(@"关卡选择", @"")];
+    [self.pickLevelTitle setText:NSLocalizedString(@"Level Selection", @"")];
     [self createLevelPickerButton];
     [self.backButton setImage:BACK_IMAGE forState:UIControlStateNormal];
     [self.backButton setImage:BACK_IMAGE_PRESSED forState:UIControlStateHighlighted];
-    [self.backButton setTitle:NSLocalizedString(@"返回", @"返回") forState:UIControlStateNormal];
-    [self.backButton setTitle:NSLocalizedString(@"返回", @"返回") forState:UIControlStateHighlighted];
+    [self.backButton setTitle:NSLocalizedString(@"back", @"返回") forState:UIControlStateNormal];
+    [self.backButton setTitle:NSLocalizedString(@"back", @"返回") forState:UIControlStateHighlighted];
     [self.backButton centerImageAndTitle:2];
 }
 
@@ -153,10 +152,4 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (IBAction)extraLevel:(id)sender
-{
-    ExtraGameController *pgController = [[ExtraGameController alloc] init];
-    [self.navigationController pushViewController:pgController animated:YES];
-    [pgController release];
-}
 @end

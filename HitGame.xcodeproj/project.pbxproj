@@ -9,9 +9,6 @@
 /* Begin PBXBuildFile section */
 		C2298F1B14ECE49D00D5518D /* HighScoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2298F1A14ECE49D00D5518D /* HighScoreCell.m */; };
 		C2298F1E14ECE4B400D5518D /* HighScoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2298F1D14ECE4B400D5518D /* HighScoreCell.xib */; };
-		C255F00214D51A7E001247C3 /* HitGameEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = C255F00114D51A7E001247C3 /* HitGameEngine.m */; };
-		C255F00714D51BC5001247C3 /* ExtraGameController.m in Sources */ = {isa = PBXBuildFile; fileRef = C255F00514D51BC4001247C3 /* ExtraGameController.m */; };
-		C255F00814D51BC5001247C3 /* ExtraGameController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C255F00614D51BC4001247C3 /* ExtraGameController.xib */; };
 		C28D379714B438430098033B /* bg-addbutton-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = C28D378A14B438430098033B /* bg-addbutton-highlighted.png */; };
 		C28D379814B438430098033B /* bg-addbutton-highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C28D378B14B438430098033B /* bg-addbutton-highlighted@2x.png */; };
 		C28D379914B438430098033B /* bg-addbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = C28D378C14B438430098033B /* bg-addbutton.png */; };
@@ -27,7 +24,6 @@
 		C28D37A314B438430098033B /* icon-star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C28D379614B438430098033B /* icon-star@2x.png */; };
 		C28D37BC14B4581D0098033B /* GameSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = C28D37BA14B4581D0098033B /* GameSettingController.m */; };
 		C28D37BD14B4581D0098033B /* GameSettingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C28D37BB14B4581D0098033B /* GameSettingController.xib */; };
-		C2C1DA1A14D7E7D90050D4EC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C2C1DA1C14D7E7D90050D4EC /* Localizable.strings */; };
 		C2C3815914BBF42E009B46EC /* HelpView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C3815814BBF42E009B46EC /* HelpView.m */; };
 		C2C4292F14C3C20C00950747 /* helpImg1.png in Resources */ = {isa = PBXBuildFile; fileRef = C2C4292D14C3C20C00950747 /* helpImg1.png */; };
 		C2C4293014C3C20C00950747 /* helpImg2.png in Resources */ = {isa = PBXBuildFile; fileRef = C2C4292E14C3C20C00950747 /* helpImg2.png */; };
@@ -49,6 +45,7 @@
 		C2E254B014F3395C00123346 /* default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2E254AF14F3395C00123346 /* default@2x.png */; };
 		C2E254B714F33D9100123346 /* icon2.png in Resources */ = {isa = PBXBuildFile; fileRef = C2E254B514F33D9100123346 /* icon2.png */; };
 		C2E254B814F33D9100123346 /* icon2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2E254B614F33D9100123346 /* icon2@2x.png */; };
+		C2E254C014F38BDF00123346 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C2E254C214F38BDF00123346 /* Localizable.strings */; };
 		C2E5E89614B83F0100852530 /* HighScoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E5E89414B83F0100852530 /* HighScoreController.m */; };
 		C2E5E89714B83F0100852530 /* HighScoreController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2E5E89514B83F0100852530 /* HighScoreController.xib */; };
 		C2ED8E5914E8F81900123947 /* back_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C2ED8E2A14E8F81900123947 /* back_pressed@2x.png */; };
@@ -170,11 +167,6 @@
 		C2298F1914ECE49D00D5518D /* HighScoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoreCell.h; sourceTree = "<group>"; };
 		C2298F1A14ECE49D00D5518D /* HighScoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoreCell.m; sourceTree = "<group>"; };
 		C2298F1D14ECE4B400D5518D /* HighScoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HighScoreCell.xib; sourceTree = "<group>"; };
-		C255F00014D51A7E001247C3 /* HitGameEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HitGameEngine.h; sourceTree = "<group>"; };
-		C255F00114D51A7E001247C3 /* HitGameEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HitGameEngine.m; sourceTree = "<group>"; };
-		C255F00414D51BC4001247C3 /* ExtraGameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtraGameController.h; sourceTree = "<group>"; };
-		C255F00514D51BC4001247C3 /* ExtraGameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtraGameController.m; sourceTree = "<group>"; };
-		C255F00614D51BC4001247C3 /* ExtraGameController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExtraGameController.xib; sourceTree = "<group>"; };
 		C28D378A14B438430098033B /* bg-addbutton-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-addbutton-highlighted.png"; sourceTree = "<group>"; };
 		C28D378B14B438430098033B /* bg-addbutton-highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-addbutton-highlighted@2x.png"; sourceTree = "<group>"; };
 		C28D378C14B438430098033B /* bg-addbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-addbutton.png"; sourceTree = "<group>"; };
@@ -191,8 +183,6 @@
 		C28D37B914B4581D0098033B /* GameSettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSettingController.h; sourceTree = "<group>"; };
 		C28D37BA14B4581D0098033B /* GameSettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSettingController.m; sourceTree = "<group>"; };
 		C28D37BB14B4581D0098033B /* GameSettingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameSettingController.xib; sourceTree = "<group>"; };
-		C2C1DA1B14D7E7D90050D4EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		C2C1DA1D14D7E7E60050D4EC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		C2C3815714BBF42E009B46EC /* HelpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpView.h; sourceTree = "<group>"; };
 		C2C3815814BBF42E009B46EC /* HelpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpView.m; sourceTree = "<group>"; };
 		C2C4292D14C3C20C00950747 /* helpImg1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = helpImg1.png; sourceTree = "<group>"; };
@@ -221,6 +211,8 @@
 		C2E254AF14F3395C00123346 /* default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default@2x.png"; sourceTree = "<group>"; };
 		C2E254B514F33D9100123346 /* icon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon2.png; sourceTree = "<group>"; };
 		C2E254B614F33D9100123346 /* icon2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon2@2x.png"; sourceTree = "<group>"; };
+		C2E254C114F38BDF00123346 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C2E254C414F38C1C00123346 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		C2E5E89314B83F0100852530 /* HighScoreController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoreController.h; sourceTree = "<group>"; };
 		C2E5E89414B83F0100852530 /* HighScoreController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoreController.m; sourceTree = "<group>"; };
 		C2E5E89514B83F0100852530 /* HighScoreController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HighScoreController.xib; sourceTree = "<group>"; };
@@ -508,8 +500,8 @@
 		CA6C73A214AF064900E15785 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C2E254C214F38BDF00123346 /* Localizable.strings */,
 				CA6C73A314AF064900E15785 /* HitGame-Info.plist */,
-				C2C1DA1C14D7E7D90050D4EC /* Localizable.strings */,
 				CA6C73A414AF064900E15785 /* InfoPlist.strings */,
 				CA6C73A714AF064900E15785 /* HitGame-Prefix.pch */,
 				CA6C73A814AF064900E15785 /* main.m */,
@@ -590,11 +582,6 @@
 				C2C6404214C805E000D86D12 /* GameFinishView.h */,
 				C2C6404314C805E000D86D12 /* GameFinishView.m */,
 				C2C6404614C805F800D86D12 /* GameFinishView.xib */,
-				C255F00014D51A7E001247C3 /* HitGameEngine.h */,
-				C255F00114D51A7E001247C3 /* HitGameEngine.m */,
-				C255F00414D51BC4001247C3 /* ExtraGameController.h */,
-				C255F00514D51BC4001247C3 /* ExtraGameController.m */,
-				C255F00614D51BC4001247C3 /* ExtraGameController.xib */,
 				C2298F1914ECE49D00D5518D /* HighScoreCell.h */,
 				C2298F1A14ECE49D00D5518D /* HighScoreCell.m */,
 				C2298F1D14ECE4B400D5518D /* HighScoreCell.xib */,
@@ -852,8 +839,6 @@
 				C2CC0DA914C511FD00C6D095 /* beaten.wav in Resources */,
 				C2CC0DAA14C511FD00C6D095 /* sword.wav in Resources */,
 				C2C6404714C805F800D86D12 /* GameFinishView.xib in Resources */,
-				C255F00814D51BC5001247C3 /* ExtraGameController.xib in Resources */,
-				C2C1DA1A14D7E7D90050D4EC /* Localizable.strings in Resources */,
 				C2ED8E5914E8F81900123947 /* back_pressed@2x.png in Resources */,
 				C2ED8E5A14E8F81900123947 /* back@2x.png in Resources */,
 				C2ED8E5B14E8F81900123947 /* background1@2x.png in Resources */,
@@ -924,6 +909,7 @@
 				C2E254B014F3395C00123346 /* default@2x.png in Resources */,
 				C2E254B714F33D9100123346 /* icon2.png in Resources */,
 				C2E254B814F33D9100123346 /* icon2@2x.png in Resources */,
+				C2E254C014F38BDF00123346 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -992,8 +978,6 @@
 				C2C4293814C40CA100950747 /* TimeUtils.m in Sources */,
 				C2CC0DC014C5782E00C6D095 /* GameSettingView.m in Sources */,
 				C2C6404414C805E000D86D12 /* GameFinishView.m in Sources */,
-				C255F00214D51A7E001247C3 /* HitGameEngine.m in Sources */,
-				C255F00714D51BC5001247C3 /* ExtraGameController.m in Sources */,
 				CA39270414EA127600B89A12 /* HGProgressBar.m in Sources */,
 				CA0ED3FC14EB59FA000F6A54 /* UIButtonExt.m in Sources */,
 				C2298F1B14ECE49D00D5518D /* HighScoreCell.m in Sources */,
@@ -1019,14 +1003,13 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		C2C1DA1C14D7E7D90050D4EC /* Localizable.strings */ = {
+		C2E254C214F38BDF00123346 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				C2C1DA1B14D7E7D90050D4EC /* en */,
-				C2C1DA1D14D7E7E60050D4EC /* zh-Hans */,
+				C2E254C114F38BDF00123346 /* en */,
+				C2E254C414F38C1C00123346 /* zh-Hans */,
 			);
 			name = Localizable.strings;
-			path = HitGame/Controller;
 			sourceTree = "<group>";
 		};
 		CA6C73A414AF064900E15785 /* InfoPlist.strings */ = {
@@ -1068,7 +1051,7 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1082,7 +1065,7 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 			};

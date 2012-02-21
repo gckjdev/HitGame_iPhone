@@ -13,7 +13,6 @@
 #import "HighScoreController.h"
 #import "GameSettingView.h"
 #import "HelpView.h"
-#define LOC(x) NSLocalizedString(x, @"")
 
 @implementation EntryController
 @synthesize startGame;
@@ -109,10 +108,10 @@
 {
     [super viewDidLoad];
     [self showMenu];
-    [self.startGame setTitle:LOC(@"开始游戏") forState:UIControlStateNormal];
-    [self.resumeGame setTitle:LOC(@"帮助") forState:UIControlStateNormal];
-    [self.gameSetting setTitle:LOC(@"设置") forState:UIControlStateNormal];
-    [self.highScore setTitle:LOC(@"高分榜") forState:UIControlStateNormal];
+    [self.startGame setTitle:NSLocalizedString(@"Start", @"开始游戏") forState:UIControlStateNormal];
+    [self.resumeGame setTitle:NSLocalizedString(@"Help", @"帮助") forState:UIControlStateNormal];
+    [self.gameSetting setTitle:NSLocalizedString(@"Settings", @"设置") forState:UIControlStateNormal];
+    [self.highScore setTitle:NSLocalizedString(@"Highscores", "高分榜") forState:UIControlStateNormal];
     
 }
 

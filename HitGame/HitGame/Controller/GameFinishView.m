@@ -7,7 +7,6 @@
 //
 
 #import "GameFinishView.h"
-#define LOC(x) NSLocalizedString(x, @"")
 @implementation GameFinishView
 @synthesize contentView;
 @synthesize titleLabel;
@@ -51,15 +50,15 @@
             [view.inputNameView setHidden:NO];
             [view.inputNameView setCenter:view.contentView.center];
             //[view.middleButton addTarget:view action:@selector(sumit:) forControlEvents:UIControlEventTouchUpInside];
-            [view.inputNameMessage setText:LOC(@"请输入你的大名")];
-            [view.inputNameTitle setText:LOC(@"恭喜刷新纪录")];
-            [view.titleLabel setText:LOC(@"恭喜过关")];
-            [view.messageLabel setText:LOC(@"恭喜进入名人堂")];
+            [view.inputNameMessage setText:NSLocalizedString(@"Please input your name", @"请输入你的大名")];
+            [view.inputNameTitle setText:NSLocalizedString(@"You won a rank in highscore!", @"恭喜刷新纪录")];
+            [view.titleLabel setText:NSLocalizedString(@"Congratulations!", @"恭喜过关")];
+            [view.messageLabel setText:NSLocalizedString(@"Welcome to hall of fame", @"恭喜进入名人堂")];
             //
         } else {
             [view.inputNameView setHidden:YES];
-            [view.titleLabel setText:LOC(@"恭喜过关")];
-            [view.messageLabel setText:LOC(@"很遗憾未能刷新纪录")];
+            [view.titleLabel setText:NSLocalizedString(@"Congratulations!", @"恭喜过关")];
+            [view.messageLabel setText:NSLocalizedString(@"Level Passed", @"很遗憾未能刷新纪录")];
             //[view.middleButton setTitle:NSLocalizedString(@"重玩", @"重玩") forState:UIControlStateNormal];
             [view.nameField setHidden:YES];
             //[view.middleButton addTarget:view action:@selector(restart) forControlEvents:UIControlEventTouchUpInside];
@@ -68,8 +67,8 @@
         //
     } else {
         [view.inputNameView setHidden:YES];
-        [view.titleLabel setText:LOC(@"OH~NO~囧rz")];
-        [view.messageLabel setText:LOC(@"一回生，两回熟，下次一定能过")];
+        [view.titleLabel setText:NSLocalizedString(@"OH~NO~囧rz", @"OH~NO~囧rz")];
+        [view.messageLabel setText:NSLocalizedString(@"Just try again!", @"一回生，两回熟，下次一定能过")];
         //[view.middleButton setTitle:NSLocalizedString(@"重玩", @"") forState:UIControlStateNormal];
         [view.nameField setHidden:YES];
         //[view.middleButton addTarget:view action:@selector(restart) forControlEvents:UIControlEventTouchUpInside];
