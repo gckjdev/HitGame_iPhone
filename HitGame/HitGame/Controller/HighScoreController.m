@@ -21,6 +21,10 @@
 
 - (void)dealloc {
     [_dataTableView release];
+    [_dataList release];
+    [_shownLevels release];
+    [_allLevels release];
+    [_highScoreTitle release];
     [super dealloc];
 }
 
@@ -46,9 +50,9 @@
     HighScoreManager* manager = [HighScoreManager defaultManager];
     self.dataList = manager.highScoreDict;
     NSArray* array = [self.dataList allKeys];
-    array = [array sortedArrayUsingSelector:@selector(compare:)];
-    self.shownLevels = array;
-    self.allLevels = array;
+    NSArray* sortArray = [array sortedArrayUsingSelector:@selector(compare:)];
+    self.shownLevels = sortArray;
+    self.allLevels = sortArray;
 
 }
 
@@ -136,7 +140,7 @@
     if (buttonIndex == actionSheet.cancelButtonIndex) {
         return;
     }
-    self.shownLevels = [self.allLevels subarrayWithRange:(NSRange){buttonIndex, 1}];
+    self.shownLevels = [self.allLevels subarrayWithRange:NSMakeRange(buttonIndex, 1)];
     [self.dataTableView reloadData];
 }
 

@@ -838,7 +838,7 @@ enum {
                              nearRadius:210 - 30 
                              endRadius:220 - 30
                              farRadius:230 - 30
-                             startPoint:CGPointMake(40, 430) 
+                             startPoint:CGPointMake(40, 450) 
                              timeOffset:0.036 
                              rotateAngle:0
                              menuWholeAngle:(M_PI/2)
