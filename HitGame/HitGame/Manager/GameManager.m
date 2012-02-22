@@ -8,6 +8,8 @@
 
 #import "GameManager.h"
 #import "Game.h"
+#define ALLOW_MISS_COUNT [[[NSBundle mainBundle] objectForInfoDictionaryKey:\
+@"CFAllowMissCount"] doubleValue]
 
 GameManager *gameManager;
 

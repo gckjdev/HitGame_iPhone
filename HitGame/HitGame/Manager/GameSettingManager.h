@@ -11,6 +11,7 @@
 @interface GameSettingManager : NSObject {
     BOOL _isVibration;
     BOOL _isSoundOn;
+    BOOL _isBGMOn;
 }
 @property (assign, nonatomic) BOOL isVibration;
 @property (assign, nonatomic) BOOL isSoundOn;
@@ -19,4 +20,14 @@
 + (BOOL)isVibration;
 + (BOOL)isSoundOn;
 + (BOOL)isBGMOn;
++ (void)saveIsSoundOn:(BOOL)isSoundOn;
++ (void)saveIsVibration:(BOOL)isVibration;
++ (void)saveIsMusicOn:(BOOL)isMusicOn;
++ (BOOL)getIsSoundOn;
++ (BOOL)getIsVibration;
++ (BOOL)getIsMisicOn;
+
+- (void)loadSettings;
+- (void)saveSettings;
+
 @end

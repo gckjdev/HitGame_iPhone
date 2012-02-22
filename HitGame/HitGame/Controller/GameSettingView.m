@@ -25,14 +25,20 @@
 @synthesize bgmSwitcher = _bgmSwitcher;
 @synthesize delegate = _delegate;
 
-- (void)settingInit
+- (void)refleshSwitchs
 {
     GameSettingManager* manager = [GameSettingManager defaultManager];
     [self.vibrationSwitcher setSelected:manager.isVibration];
     [self.soundSwitcher setSelected:manager.isSoundOn];
     [self.bgmSwitcher setSelected:manager.isBGMOn];
-    
-    
+}
+
+- (void)settingInit
+{
+    GameSettingManager* manager = [GameSettingManager defaultManager];
+    [manager loadSettings];
+    [self refleshSwitchs];
+  
 }
 
 - (void)labelInit
@@ -121,7 +127,7 @@
     manager.isBGMOn = YES;
     manager.isSoundOn = YES;
     manager.isVibration = YES;
-    [self settingInit];
+    [self refleshSwitchs];
 }
 
 - (IBAction)setDone:(id)sender
@@ -129,6 +135,7 @@
     if (_delegate && [_delegate respondsToSelector:@selector(settingFinish)]) {
         [_delegate settingFinish];
     }
+    [[GameSettingManager defaultManager] saveSettings];
     CAAnimation *scaleAnimation = [AnimationManager scaleAnimationWithFromScale:1 toScale:0.1 duration:0.5 delegate:self removeCompeleted:NO];
     CAAnimation *rollAnimation = [AnimationManager rotationAnimationWithRoundCount:2 duration:0.5];
     [scaleAnimation setValue:@"minify" forKey:@"AnimationKey"];
