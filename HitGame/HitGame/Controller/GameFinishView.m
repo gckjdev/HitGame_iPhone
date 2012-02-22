@@ -50,7 +50,8 @@
             [view.inputNameView setHidden:NO];
             [view.inputNameView setCenter:view.contentView.center];
             //[view.middleButton addTarget:view action:@selector(sumit:) forControlEvents:UIControlEventTouchUpInside];
-            [view.inputNameMessage setText:NSLocalizedString(@"Please input your name", @"请输入你的大名")];
+ //           [view.inputNameMessage setText:NSLocalizedString(@"Please input your name", @"请输入你的大名")];
+            [view.nameField setPlaceholder:NSLocalizedString(@"Please input your name", @"请输入你的大名")];
             [view.inputNameTitle setText:NSLocalizedString(@"You won a rank in highscore!", @"恭喜刷新纪录")];
             [view.titleLabel setText:NSLocalizedString(@"Congratulations!", @"恭喜过关")];
             [view.messageLabel setText:NSLocalizedString(@"Welcome to hall of fame", @"恭喜进入名人堂")];
@@ -122,6 +123,12 @@
     
 }
 
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

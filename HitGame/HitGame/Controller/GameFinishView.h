@@ -17,7 +17,7 @@
 
 @end
 
-@interface GameFinishView : UIView <UIAlertViewDelegate>{
+@interface GameFinishView : UIView <UIAlertViewDelegate,UITextFieldDelegate>{
 
 }
 @property (retain, nonatomic) IBOutlet UIView* contentView;

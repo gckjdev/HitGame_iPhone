@@ -103,6 +103,7 @@
             [button setBackgroundImage:PRESSED_UNLOCKED_IMAGE forState:UIControlStateHighlighted];
             [button setTitle:[NSString stringWithFormat:@"%d",i+1] 
                     forState:UIControlStateNormal];
+            [button.titleLabel setFont:[UIFont boldSystemFontOfSize:26]];
             [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             [button addTarget:self action:@selector(pickLevelButton:) forControlEvents:UIControlEventTouchUpInside];
         }else
