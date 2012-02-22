@@ -22,8 +22,6 @@
 		C28D37A114B438430098033B /* icon-plus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C28D379414B438430098033B /* icon-plus@2x.png */; };
 		C28D37A214B438430098033B /* icon-star.png in Resources */ = {isa = PBXBuildFile; fileRef = C28D379514B438430098033B /* icon-star.png */; };
 		C28D37A314B438430098033B /* icon-star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C28D379614B438430098033B /* icon-star@2x.png */; };
-		C28D37BC14B4581D0098033B /* GameSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = C28D37BA14B4581D0098033B /* GameSettingController.m */; };
-		C28D37BD14B4581D0098033B /* GameSettingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C28D37BB14B4581D0098033B /* GameSettingController.xib */; };
 		C2C3815914BBF42E009B46EC /* HelpView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C3815814BBF42E009B46EC /* HelpView.m */; };
 		C2C4292F14C3C20C00950747 /* helpImg1.png in Resources */ = {isa = PBXBuildFile; fileRef = C2C4292D14C3C20C00950747 /* helpImg1.png */; };
 		C2C4293014C3C20C00950747 /* helpImg2.png in Resources */ = {isa = PBXBuildFile; fileRef = C2C4292E14C3C20C00950747 /* helpImg2.png */; };
@@ -180,9 +178,6 @@
 		C28D379414B438430098033B /* icon-plus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-plus@2x.png"; sourceTree = "<group>"; };
 		C28D379514B438430098033B /* icon-star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-star.png"; sourceTree = "<group>"; };
 		C28D379614B438430098033B /* icon-star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-star@2x.png"; sourceTree = "<group>"; };
-		C28D37B914B4581D0098033B /* GameSettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSettingController.h; sourceTree = "<group>"; };
-		C28D37BA14B4581D0098033B /* GameSettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameSettingController.m; sourceTree = "<group>"; };
-		C28D37BB14B4581D0098033B /* GameSettingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameSettingController.xib; sourceTree = "<group>"; };
 		C2C3815714BBF42E009B46EC /* HelpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpView.h; sourceTree = "<group>"; };
 		C2C3815814BBF42E009B46EC /* HelpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpView.m; sourceTree = "<group>"; };
 		C2C4292D14C3C20C00950747 /* helpImg1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = helpImg1.png; sourceTree = "<group>"; };
@@ -567,9 +562,6 @@
 				CA3F2C4E14B2EB540090A758 /* LevelPickerController.h */,
 				CA3F2C4F14B2EB550090A758 /* LevelPickerController.m */,
 				CA3F2C5014B2EB550090A758 /* LevelPickerController.xib */,
-				C28D37B914B4581D0098033B /* GameSettingController.h */,
-				C28D37BA14B4581D0098033B /* GameSettingController.m */,
-				C28D37BB14B4581D0098033B /* GameSettingController.xib */,
 				C2E5E89314B83F0100852530 /* HighScoreController.h */,
 				C2E5E89414B83F0100852530 /* HighScoreController.m */,
 				C2E5E89514B83F0100852530 /* HighScoreController.xib */,
@@ -832,7 +824,6 @@
 				C28D37A114B438430098033B /* icon-plus@2x.png in Resources */,
 				C28D37A214B438430098033B /* icon-star.png in Resources */,
 				C28D37A314B438430098033B /* icon-star@2x.png in Resources */,
-				C28D37BD14B4581D0098033B /* GameSettingController.xib in Resources */,
 				C2E5E89714B83F0100852530 /* HighScoreController.xib in Resources */,
 				C2C4292F14C3C20C00950747 /* helpImg1.png in Resources */,
 				C2C4293014C3C20C00950747 /* helpImg2.png in Resources */,
@@ -960,7 +951,6 @@
 				CA3F2C4814B2A1260090A758 /* EntryController.m in Sources */,
 				CA3F2C5114B2EB550090A758 /* LevelPickerController.m in Sources */,
 				CA3F2C5514B2F0810090A758 /* GameLevel.m in Sources */,
-				C28D37BC14B4581D0098033B /* GameSettingController.m in Sources */,
 				C2FA3A8714B5734000F1465E /* HighScoreManager.m in Sources */,
 				CA01829014B599F3002056D2 /* LayerUtil.m in Sources */,
 				C2E5E89614B83F0100852530 /* HighScoreController.m in Sources */,
@@ -1079,7 +1069,9 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HitGame/HitGame-Prefix.pch";
+				GCC_VERSION = "";
 				INFOPLIST_FILE = "HitGame/HitGame-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../tapkulibrary/src/build/Debug-iphonesimulator\"",
@@ -1096,7 +1088,9 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HitGame/HitGame-Prefix.pch";
+				GCC_VERSION = "";
 				INFOPLIST_FILE = "HitGame/HitGame-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../tapkulibrary/src/build/Debug-iphonesimulator\"",
