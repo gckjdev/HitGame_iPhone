@@ -128,10 +128,13 @@
 
 - (IBAction)noSumit:(id)sender
 {
+    [self removeFromSuperview];
     if (_delegate && [_delegate respondsToSelector:@selector(sumitHighScore:)]) {
         [_delegate sumitHighScore:nil];
     }
-    [self.inputNameView setHidden:YES];
+    if (_delegate && [_delegate respondsToSelector:@selector(backToLevelSelection)]) {
+        [_delegate backToLevelSelection];
+    }
     
 }
 
