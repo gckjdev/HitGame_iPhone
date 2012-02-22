@@ -9,11 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface HighScoreManager : NSObject {
- @private
     NSMutableDictionary *_highScoreDict;
 }
 @property (nonatomic, retain) NSMutableDictionary *highScoreDict;
-
+@property (nonatomic, retain) NSString* defaultName;
 + (HighScoreManager*)defaultManager;
 - (void)addHighScore:(NSInteger)aHighScore forLevel:(NSInteger)aLevel;
 - (NSArray*)highScoresForLevel:(NSInteger)aLevel;

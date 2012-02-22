@@ -7,6 +7,7 @@
 //
 
 #import "GameFinishView.h"
+#import "HighScoreManager.h"
 @implementation GameFinishView
 @synthesize contentView;
 @synthesize titleLabel;
@@ -51,7 +52,12 @@
             [view.inputNameView setCenter:view.contentView.center];
             //[view.middleButton addTarget:view action:@selector(sumit:) forControlEvents:UIControlEventTouchUpInside];
  //           [view.inputNameMessage setText:NSLocalizedString(@"Please input your name", @"请输入你的大名")];
-            [view.nameField setPlaceholder:NSLocalizedString(@"Please input your name", @"请输入你的大名")];
+            NSString* name = [HighScoreManager defaultManager].defaultName;
+            if (name) {
+                [view.nameField setPlaceholder:name];
+            } else {
+                [view.nameField setPlaceholder:NSLocalizedString(@"Please input your name", @"请输入你的大名")];
+            }
             [view.inputNameTitle setText:NSLocalizedString(@"You won a rank in highscore!", @"恭喜刷新纪录")];
             [view.titleLabel setText:NSLocalizedString(@"Congratulations!", @"恭喜过关")];
             [view.messageLabel setText:NSLocalizedString(@"Welcome to hall of fame", @"恭喜进入名人堂")];
@@ -108,6 +114,9 @@
 - (IBAction)sumit:(id)sender
 {
     NSString* name = _nameField.text;
+    if (!name || [name length]<1) {
+        name = [HighScoreManager defaultManager].defaultName;
+    }
     if (_delegate && [_delegate respondsToSelector:@selector(sumitHighScore:)]) {
         [_delegate sumitHighScore:name];
 //        UIAlertView* view = [[[UIAlertView alloc] initWithTitle:LOC(@"提交成功", @"") message:nil delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"OK", nil] autorelease];
@@ -119,6 +128,9 @@
 
 - (IBAction)noSumit:(id)sender
 {
+    if (_delegate && [_delegate respondsToSelector:@selector(sumitHighScore:)]) {
+        [_delegate sumitHighScore:nil];
+    }
     [self.inputNameView setHidden:YES];
     
 }

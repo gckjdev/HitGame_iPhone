@@ -17,6 +17,7 @@ GameSettingManager* GlobalGetGameSettingManager()
 {
     if (globalGameSettingManager == nil) {
         globalGameSettingManager = [[GameSettingManager alloc ] init ];
+        [globalGameSettingManager loadSettings];
     } 
     return globalGameSettingManager;
 }

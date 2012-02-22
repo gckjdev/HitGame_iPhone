@@ -11,6 +11,7 @@
 #import "HighScoreManager.h"
 #import "Score.h"
 
+
 const int MAX_HIGH_SCORE_COUNT = 10;
 HighScoreManager *highScoreManager;
 
@@ -24,6 +25,7 @@ HighScoreManager* GlobalGetHighScoreManager()
 
 @implementation HighScoreManager
 @synthesize highScoreDict = _highScoreDict;
+@synthesize defaultName = _defaultName;
 
 - (void)loadHighScore
 {
@@ -58,6 +60,7 @@ HighScoreManager* GlobalGetHighScoreManager()
 - (void)dealloc
 {
     [_highScoreDict release];
+    [_defaultName release];
     [super dealloc];
 }
 
@@ -92,8 +95,15 @@ HighScoreManager* GlobalGetHighScoreManager()
 
 - (void)addHighScore:(NSInteger)aHighScore forLevel:(NSInteger)aLevel withName:(NSString*)aName date:(NSDate*)aDate
 {
+    NSString* playerName;
+    if (aName) {
+        self.defaultName = aName;
+        playerName = aName;
+    } else {
+        playerName = NSLocalizedString(@"anonymous", @"匿名");
+    }
     NSNumber* level = [NSNumber numberWithInt:aLevel];
-    Score* score = [[Score alloc] initWithName:aName date:aDate Score:aHighScore];
+    Score* score = [[Score alloc] initWithName:playerName date:aDate Score:aHighScore];
     NSMutableArray* scoreArray = [NSMutableArray arrayWithArray:[self.highScoreDict objectForKey:level]];
     [scoreArray addObject:score];
     [score release];
