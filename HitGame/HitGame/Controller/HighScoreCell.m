@@ -34,10 +34,10 @@
     return @"HighScoreCell";
 }
 
-//+ (CGFloat)getCellHeight
-//{
-//    return 47;
-//}
++ (CGFloat)getCellHeight
+{
+    return 44;
+}
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

@@ -42,7 +42,7 @@ HighScoreManager* GlobalGetHighScoreManager()
     NSUserDefaults* userDefault = [NSUserDefaults standardUserDefaults];
     NSData* highScoreData = [NSKeyedArchiver archivedDataWithRootObject:self.highScoreDict];
     [userDefault setObject:highScoreData forKey:HIGH_SCORE];
-    [self loadHighScore];
+    //[self loadHighScore];
 }
 
 - (id)init

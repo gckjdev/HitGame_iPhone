@@ -117,7 +117,11 @@
 
 - (IBAction)setDefault:(id)sender
 {
-    
+    GameSettingManager* manager = [GameSettingManager defaultManager];
+    manager.isBGMOn = YES;
+    manager.isSoundOn = YES;
+    manager.isVibration = YES;
+    [self settingInit];
 }
 
 - (IBAction)setDone:(id)sender
