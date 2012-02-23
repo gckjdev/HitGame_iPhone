@@ -45,7 +45,7 @@
 #define POPUP_MESSAGE_DURATION 2
 
 #define ROUND_TIME [[[NSBundle mainBundle] objectForInfoDictionaryKey:\
-                @"CFRoundTime"] doubleValue] -20
+                @"CFRoundTime"] doubleValue]
 #define ALLOW_MISS_COUNT [[[NSBundle mainBundle] objectForInfoDictionaryKey:\
                 @"CFAllowMissCount"] doubleValue]
 
