@@ -45,7 +45,7 @@
 #define POPUP_MESSAGE_DURATION 2
 
 #define ROUND_TIME [[[NSBundle mainBundle] objectForInfoDictionaryKey:\
-                @"CFRoundTime"] doubleValue]
+                @"CFRoundTime"] doubleValue] -20
 #define ALLOW_MISS_COUNT [[[NSBundle mainBundle] objectForInfoDictionaryKey:\
                 @"CFAllowMissCount"] doubleValue]
 
@@ -925,6 +925,15 @@ enum {
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (BOOL)isOngoing
+{
+    if (_gameStatus == OnGoing || _gameStatus == Pause) {
+        return YES;
+    } else {
+        return NO;
+    }
 }
 
 @end

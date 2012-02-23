@@ -109,6 +109,7 @@ GameSettingManager* GlobalGetGameSettingManager()
     [GameSettingManager saveIsSoundOn:self.isSoundOn];
     [GameSettingManager saveIsMusicOn:self.isBGMOn];
     [GameSettingManager saveIsVibration:self.isVibration];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 @end

@@ -52,7 +52,7 @@
             [view.inputNameView setCenter:view.contentView.center];
             //[view.middleButton addTarget:view action:@selector(sumit:) forControlEvents:UIControlEventTouchUpInside];
  //           [view.inputNameMessage setText:NSLocalizedString(@"Please input your name", @"请输入你的大名")];
-            NSString* name = [HighScoreManager defaultManager].defaultName;
+            NSString* name = [[HighScoreManager defaultManager] loadDefaultName];
             if (name) {
                 [view.nameField setPlaceholder:name];
             } else {
@@ -97,10 +97,10 @@
 
 - (IBAction)clickBack:(id)sender
 {
-    [self removeFromSuperview];
     if (_delegate && [_delegate respondsToSelector:@selector(backToLevelSelection)]) {
         [_delegate backToLevelSelection];
     }
+    [self removeFromSuperview];
 }
 
 - (IBAction)nextLevel:(id)sender
@@ -115,10 +115,10 @@
 {
     NSString* name = _nameField.text;
     if (!name || [name length]<1) {
-        name = [HighScoreManager defaultManager].defaultName;
+        name = [[HighScoreManager defaultManager] loadDefaultName];
     }
-    if (_delegate && [_delegate respondsToSelector:@selector(sumitHighScore:)]) {
-        [_delegate sumitHighScore:name];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(sumitHighScore:)]) {
+        [self.delegate sumitHighScore:name];
 //        UIAlertView* view = [[[UIAlertView alloc] initWithTitle:LOC(@"提交成功", @"") message:nil delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"OK", nil] autorelease];
 //        [view show];
     }
@@ -128,13 +128,13 @@
 
 - (IBAction)noSumit:(id)sender
 {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(sumitHighScore:)]) {
+        [self.delegate sumitHighScore:nil];
+    }
+    if (self.delegate && [self.delegate respondsToSelector:@selector(backToLevelSelection)]) {
+        [self.delegate backToLevelSelection];
+    }
     [self removeFromSuperview];
-    if (_delegate && [_delegate respondsToSelector:@selector(sumitHighScore:)]) {
-        [_delegate sumitHighScore:nil];
-    }
-    if (_delegate && [_delegate respondsToSelector:@selector(backToLevelSelection)]) {
-        [_delegate backToLevelSelection];
-    }
     
 }
 

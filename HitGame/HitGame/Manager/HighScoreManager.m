@@ -7,6 +7,7 @@
 //
 
 #define HIGH_SCORE @"highScore"
+#define DEFAULT_NAME @"defaultName"
 
 #import "HighScoreManager.h"
 #import "Score.h"
@@ -27,6 +28,19 @@ HighScoreManager* GlobalGetHighScoreManager()
 @synthesize highScoreDict = _highScoreDict;
 @synthesize defaultName = _defaultName;
 
+- (void)saveDefaultName:(NSString *)aName
+{
+    NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:aName forKey:DEFAULT_NAME];
+    [userDefaults synchronize];
+}
+
+- (NSString*)loadDefaultName
+{
+    NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];
+    return (NSString*)[userDefaults objectForKey:DEFAULT_NAME];
+}
+
 - (void)loadHighScore
 {
     NSUserDefaults* userDefault = [NSUserDefaults standardUserDefaults];
@@ -44,6 +58,7 @@ HighScoreManager* GlobalGetHighScoreManager()
     NSUserDefaults* userDefault = [NSUserDefaults standardUserDefaults];
     NSData* highScoreData = [NSKeyedArchiver archivedDataWithRootObject:self.highScoreDict];
     [userDefault setObject:highScoreData forKey:HIGH_SCORE];
+    [userDefault synchronize];
     //[self loadHighScore];
 }
 
@@ -97,7 +112,7 @@ HighScoreManager* GlobalGetHighScoreManager()
 {
     NSString* playerName;
     if (aName) {
-        self.defaultName = aName;
+        [self saveDefaultName:aName];
         playerName = aName;
     } else {
         playerName = NSLocalizedString(@"anonymous", @"匿名");
@@ -146,5 +161,7 @@ HighScoreManager* GlobalGetHighScoreManager()
     }
     return NO;
 }
+
+
 
 @end

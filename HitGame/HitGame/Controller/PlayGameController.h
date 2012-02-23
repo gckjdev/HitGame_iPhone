@@ -75,4 +75,5 @@
 - (void)addDefaultMissingAnimationTofoodView:(FoodView *)foodView;
 - (void)enterBackground;
 - (void)enterForeground;
+- (BOOL)isOngoing;
 @end
