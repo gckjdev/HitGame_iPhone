@@ -45,11 +45,11 @@
     }
     GameFinishView* view =  (GameFinishView*)[topLevelObjects objectAtIndex:0];
     view.delegate = aDelegate;  
-    
     if (isSuccessful) {
         if (shouldRank) {
             [view.inputNameView setHidden:NO];
             [view.inputNameView setCenter:view.contentView.center];
+            [view.nameField becomeFirstResponder];
             //[view.middleButton addTarget:view action:@selector(sumit:) forControlEvents:UIControlEventTouchUpInside];
  //           [view.inputNameMessage setText:NSLocalizedString(@"Please input your name", @"请输入你的大名")];
             NSString* name = [[HighScoreManager defaultManager] loadDefaultName];
