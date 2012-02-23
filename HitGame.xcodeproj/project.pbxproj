@@ -290,7 +290,8 @@
 		CA3F2C5014B2EB550090A758 /* LevelPickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LevelPickerController.xib; sourceTree = "<group>"; };
 		CA3F2C5314B2F0810090A758 /* GameLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLevel.h; sourceTree = "<group>"; };
 		CA3F2C5414B2F0810090A758 /* GameLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLevel.m; sourceTree = "<group>"; };
-		CA6C739714AF064800E15785 /* HitGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HitGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA49071D14F61DEC00228C37 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		CA6C739714AF064800E15785 /* CrazyFinger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrazyFinger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA6C739B14AF064900E15785 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CA6C739D14AF064900E15785 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CA6C739F14AF064900E15785 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -456,7 +457,7 @@
 		CA6C739814AF064800E15785 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CA6C739714AF064800E15785 /* HitGame.app */,
+				CA6C739714AF064800E15785 /* CrazyFinger.app */,
 				CA6C73BB14AF064900E15785 /* HitGameTests.octest */,
 			);
 			name = Products;
@@ -755,7 +756,7 @@
 			);
 			name = HitGame;
 			productName = HitGame;
-			productReference = CA6C739714AF064800E15785 /* HitGame.app */;
+			productReference = CA6C739714AF064800E15785 /* CrazyFinger.app */;
 			productType = "com.apple.product-type.application";
 		};
 		CA6C73BA14AF064900E15785 /* HitGameTests */ = {
@@ -1006,6 +1007,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				CA6C73A514AF064900E15785 /* en */,
+				CA49071D14F61DEC00228C37 /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1050,13 +1052,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Lingzhe Peng";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Lingzhe Peng";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "0800EA77-3040-4706-A496-EC0131B765C6";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0800EA77-3040-4706-A496-EC0131B765C6";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
@@ -1076,7 +1081,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../tapkulibrary/src/build/Debug-iphonesimulator\"",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = CrazyFinger;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1095,7 +1100,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../tapkulibrary/src/build/Debug-iphonesimulator\"",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = CrazyFinger;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};

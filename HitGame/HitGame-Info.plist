@@ -16,7 +16,7 @@
 		<string>icon2@2x.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
-	<string>com.gancheng.hitgame</string>
+	<string>com.orange.hitgame</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -38,6 +38,8 @@
 	<key>CFRoundTime</key>
 	<integer>30</integer>
 	<key>UIStatusBarHidden</key>
+	<true/>
+	<key>UIPrerenderedIcon</key>
 	<true/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
