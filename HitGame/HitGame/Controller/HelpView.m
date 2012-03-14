@@ -16,9 +16,19 @@ const int HELP_IMAGE_OFFSET = 20120116;
 
 @implementation HelpView
 @synthesize okButton = _okButton;
-@synthesize contentView = _contentView;
 @synthesize delegate = _delegate;
 @synthesize helpTitle = _helpTitle;
+@synthesize friuteHelp = _friuteHelp;
+@synthesize animalHelp = _animalHelp;
+@synthesize foodHelp = _foodHelp;
+@synthesize helpPageControl = _helpPageControl;
+@synthesize contentScrollView = _contentScrollView;
+
+
+- (void)dealloc {
+    [_helpPageControl release];
+    [super dealloc];
+}
 
 + (HelpView *)createHelpView
 {
@@ -34,6 +44,9 @@ const int HELP_IMAGE_OFFSET = 20120116;
     [view.layer addAnimation:runIn forKey:@"runIn"];
     [view.helpTitle setText:NSLocalizedString(@"Help", @"帮助")];
     //[view.contentView.layer addAnimation:rollAnimation forKey:@"rolling"];
+    [view.contentScrollView setContentSize:CGSizeMake(840, 314)];
+    [view.contentScrollView setShowsHorizontalScrollIndicator:YES];
+    
     return view;
     
 }
@@ -80,4 +93,9 @@ const int HELP_IMAGE_OFFSET = 20120116;
 }
 */
 
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [self.helpPageControl setCurrentPage:scrollView.contentOffset.x/280];
+}
 @end
