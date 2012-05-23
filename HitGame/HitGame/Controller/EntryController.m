@@ -13,12 +13,14 @@
 #import "HighScoreController.h"
 #import "GameSettingView.h"
 #import "HelpView.h"
+#import "GADBannerView.h"
 
 @implementation EntryController
 @synthesize startGame;
 @synthesize resumeGame;
 @synthesize gameSetting;
 @synthesize highScore;
+@synthesize bannerView = _bannerView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,6 +40,42 @@
 }
 
 #pragma mark - View lifecycle
+
+#define PUBLISHER_ID @"a14fbb6292926f8"
+#pragma mark - View lifecycle
+
+- (GADBannerView*)allocAdMobView:(UIViewController*)superViewController
+{
+    // Create a view of the standard size at the bottom of the screen.
+    GADBannerView* view = [[[GADBannerView alloc]
+                            initWithFrame:CGRectMake(0.0,
+                                                     self.view.frame.size.height-GAD_SIZE_320x50.height,
+                                                     GAD_SIZE_320x50.width,
+                                                     GAD_SIZE_320x50.height)] autorelease];
+    
+    // Specify the ad's "unit identifier." This is your AdMob Publisher ID.
+    view.adUnitID = PUBLISHER_ID;
+    
+    // Let the runtime know which UIViewController to restore after taking
+    // the user wherever the ad goes and add it to the view hierarchy.
+    view.rootViewController = superViewController;
+    [superViewController.view addSubview:view];
+    [superViewController.view bringSubviewToFront:view];
+    // Initiate a generic request to load it with an ad.
+    [view loadRequest:[GADRequest request]];   
+    
+    return view;
+}
+
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    if (self.bannerView == nil){
+        self.bannerView = [self allocAdMobView:self];  
+    }
+    
+    [super viewDidAppear:animated];
+}
 
 - (void)addAnimationToButton:(UIButton *)button
 {
@@ -121,6 +159,7 @@
     [self setResumeGame:nil];
     [self setGameSetting:nil];
     [self setHighScore:nil];
+    [self setBannerView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -137,6 +176,7 @@
     [resumeGame release];
     [gameSetting release];
     [highScore release];
+    [_bannerView release];
     [super dealloc];
 }
 @end
